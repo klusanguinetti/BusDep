@@ -3,8 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90 - Prototipo", "90 - Prototipo", "{608A4B2C-E04F-43B4-8FFD-6F9032BB6DEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Prototipo.Web", "BusDep.Prototipo.Web\BusDep.Prototipo.Web.csproj", "{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA} = {608A4B2C-E04F-43B4-8FFD-6F9032BB6DEB}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,10 @@
+body {
+    background: url(../img/default.jpg);
+    background-size: cover;
+}
+
+.loginrow {
+    margin-bottom: 10px ;
+    margin-top: 10px;
+
+}
