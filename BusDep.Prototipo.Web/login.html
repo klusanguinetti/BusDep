@@ -1,120 +1,94 @@
 ﻿<!doctype html>
 <!--[if lt IE 8]><html class="no-js lt-ie8"> <![endif]-->
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <title>Login and Register | Dynamic frontend</title>
-        <!-- Mobile specific metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
-        <!-- Force IE9 to render in normal mode -->
-        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
-        <meta name="author" content="" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="application-name" content="" />
-        <!-- Import google fonts - Heading first/ text second -->
-        <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
-        <!-- Css files -->
-        <!-- Icons -->
-        <link href="Content/icons.css" rel="stylesheet" />
-        <!-- Bootstrap stylesheets (included template modifications) -->
-        <link href="Content/bootstrap.css" rel="stylesheet" />
-        <!-- Main stylesheets (template main css file) -->
-        <link href="Content/main.css" rel="stylesheet" />
-        <!-- Plugins stylesheets (all plugin custom css) -->
-        <link href="Content/plugins.css" rel="stylesheet" />
-        <!-- Custom stylesheets ( Put your own changes here ) 
-        <link href="Content/custom.css" rel="stylesheet" />-->
-        <!-- Fav and touch icons -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
-        <link rel="icon" href="img/ico/favicon.ico" type="image/png">
-        <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
-        <meta name="msapplication-TileColor" content="#3399cc"/>
-        <!-- Javascripts -->
-        <!-- Load pace first -->
-        <script src="Scripts/plugins/core/pace/pace.min.js"></script>
-        <!-- Important javascript libs(put in all pages) -->
-        <script src="Scripts/Core/jquery-2.1.1.min.js"></script>
-        <script src="Scripts/Core/jquery-ui-1.10.4.min.js"></script>
-       
-        <!--[if lt IE 9]>
-      <script type="text/javascript" src="Scripts/Core/excanvas.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Búsqueda Deportiva</title>
+    <!-- Mobile specific metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
+    <!-- Force IE9 to render in normal mode -->
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="application-name" content="" />
+    <!-- Icons -->
+    <link href="Content/icons.css" rel="stylesheet" />
+    <!-- Bootstrap stylesheets (included template modifications) -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <!-- Main stylesheets (template main css file) -->
+    <link href="Content/main.css" rel="stylesheet" />
+    <!-- Plugins stylesheets (all plugin custom css) -->
+    <!--<link href="Content/plugins.css" rel="stylesheet" />-->
+    <!-- Custom stylesheets ( Put your own changes here )
+    <link href="Content/custom.css" rel="stylesheet"/>-->
+    <link href="Content/default.css" rel="stylesheet" />
+    <!-- Fav and touch icons -->
+    <link rel="icon" href="img/icon.ico" type="image/png">
+    <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
+    <meta name="msapplication-TileColor" content="#3399cc" />
+    <!-- Javascripts -->
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="Scripts/excanvas.js"></script>
       <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script type="text/javascript" src="Scripts/Core/respond.min.js"></script>
+      <script type="text/javascript" src="Scripts/respond.min.js"></script>
     <![endif]-->
-        <!-- Bootstrap plugins -->
-        <script src="Scripts/Core/bootstrap.js"></script>
-        <!-- Core plugins ( not remove ) -->
-        <script src="Scripts/Core/modernizr.custom.js"></script>
-        <!-- Remove click delay in touch -->
-        <script src="Scripts/plugins/core/fastclick/fastclick.js"></script>
-        <!-- Css browser selector -->
-        <script src="Scripts/plugins/core/browser-selector/css_browser_selector.js"></script>
-        <!-- Class condition helper -->
-        <script src="Scripts/Core/classie.js"></script>
-        <!-- Other plugins ( load only nessesary plugins for every page) -->
-        <script src="Scripts/main.js"></script>
-        <!--<script src="Scripts/pages/blank.js"></script>-->
-    </head>
-    <body>
-        <!--[if lt IE 9]>
+    <!-- Bootstrap plugins -->
+    <script src="Scripts/bootstrap.js"></script>
+    <!-- Core plugins ( not remove ) -->
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <!-- Class condition helper -->
+    <script src="Scripts/classie.js"></script>
+    <!-- Other plugins ( load only nessesary plugins for every page) -->
+    <script src="Scripts/page/default.js"></script>
+    <!--<script src="Scripts/pages/blank.js"></script>-->
+</head>
+<body>
+    <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <div id="header" class="header-fixed">
-            <!-- #header -->
-            <div class="container">
-                <a href="#" class="responsive-menu-toggle">
-                    <i class="fa fa-reorder"></i>
-                    <span class="sr-only">Open Menu</span>
-                </a>
-                <a href="index.html" class="logo">
-                    <img src="img/sitelogo.png" alt="Dynamic Frontend logo">
-                </a>
-            </div>
-            <!-- / .container -->
+    <header>
+        <!-- #header -->
+        <div class="container">
+            <a href="#" class="responsive-menu-toggle">
+                <i class="fa fa-reorder"></i>
+                <span class="sr-only">Open Menu</span>
+            </a>
+            <a class="logo">
+                <img src="img/Logo250.png" alt="Búsqueda Deportiva">
+            </a>
         </div>
-        <!-- / #header -->
-        <div id="content">
-            <!-- #content -->
-            <!-- SECTION START TOPBAR -->
-            <section id="topbar">
-                <div class="container">
-                    <div class="row">
-                        <!-- .row start -->
-                        <div class="col-md-6">
-                            <!-- col-md-6 start here -->
-                            <h1>Login y Registro</h1>
-                        </div>
-                        <!-- col-md-6 end here -->
-                    </div>
-                    <!-- / .row -->
-                </div>
-            </section>
-            <!-- SECTION END -->
-            <!-- SECTION START LOGIN -->
-            <section class="white-bg login-background">
-                <div class="container">
-                    <!-- .container -->
-                    <div class="row">
-                        <!-- .row start -->
-                        <div class="col-md-6">
-                            <!-- col-md-6 start here -->
+        <!-- / .container -->
+    </header>
+    <!-- / #header -->
+    <div class="container-fluid body-content">
+        <div class="row loginrow">
+            <div class="col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-8">
+                <div class="tabs mb20 col-lg-12 col-md-12 col-sm-12">
+                    <ul id="myTab8" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home8" data-toggle="tab">
+                                <i class="glyphicon glyphicon-user"></i>Login
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#profile8" data-toggle="tab"><i class="glyphicon glyphicon-map-marker"></i>Registrarse</a>
+                        </li>
+                    </ul>
+                    <!-- col-lg-4 end here -->
+                    <div id="myTabContent8" class="tabs altajugado tab-content col-lg-10 col-md-10 col-sm-10">
+                        <div class="tab-pane fade active in" id="home8">
+                            <!--<div class="row">-->
                             <div class="login-panel panel panel-default plain">
                                 <!-- Start .panel -->
                                 <div class="panel-body">
-                                    <div class="heading mt30 mb30">
-                                        <h3>Login</h3>
-                                    </div>
                                     <form class="form-horizontal mt0" action="profile.html" id="login-form" role="form">
                                         <div class="form-group">
                                             <div class="col-lg-12">
                                                 <div class="input-group input-icon">
                                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                                    <input type="text" name="email" id="email" class="form-control" value="Ingresa tu mail..." placeholder="Usuario">
+                                                    <input type="text" name="email" id="email" class="form-control" value="" placeholder="Ingresa Usuario">
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +98,7 @@
                                                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                                     <input type="password" name="password" id="password" class="form-control" value="somepass" placeholder="Contraseña">
                                                 </div>
-                                                <span class="help-block text-right"><a href="#">¿Olvidaste tu contraseña?</a></span> 
+                                                <span class="help-block text-right"><a href="#">¿Olvidaste tu contraseña?</a></span>
                                             </div>
                                         </div>
                                         <div class="form-group mb0">
@@ -144,22 +118,16 @@
                                         <hr>
                                     </div>
                                     <div class="social-buttons text-center mt5 mb5">
-                                        <a href="#" class="btn btn-primary btn-alt mr10">Entrar con <i class="fa fa-facebook s20 ml5 mr0"></i></a> 
-                                        <a href="#" class="btn btn-primary btn-alt ml10">Entrar con <i class="fa fa-linkedin s20 ml5 mr0"></i></a> 
+                                        <a href="#" class="btn btn-primary btn-alt mr10">Entrar con <i class="fa fa-facebook s20 ml5 mr0"></i></a>
+                                        <a href="#" class="btn btn-primary btn-alt ml10">Entrar con <i class="fa fa-google s20 ml5 mr0"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End .panel -->
+                            <!--</div>-->
                         </div>
-                        <!-- col-md-6 end here -->
-                        <div class="col-md-6">
-                            <!-- col-md-6 start here -->
-                            <div class="register-panel panel panel-default plain">
-                                <!-- Start .panel -->
+                        <div class="tab-pane fade" id="profile8">
+                            <div class="row">
                                 <div class="panel-body">
-                                    <div class="heading mt30 mb30">
-                                        <h3>Registro</h3>
-                                    </div>
                                     <form class="form-horizontal mt0" action="#" id="register-form" role="form">
                                         <div class="form-group">
                                             <div class="col-lg-12">
@@ -201,38 +169,33 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- End .panel -->
                         </div>
-                        <!-- col-md-6 end here -->
                     </div>
-                    <!-- / .row -->
-                </div>
-                <!-- / .container -->
-            </section>
-            <!-- SECTION END -->
-        </div>
-        <!-- / #content -->
-        <div id="overlay" class="overlay"></div>
-        <div id="footer">
-            <!-- #footer -->
-            <div class="container">
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    <p class="pull-left">
-                        Copyrights © 2017 <a href="#" class="strong" target="_blank">SuggeElson</a>. Todos los derechos reservados.
-                    </p>
-                    <p class="pull-right">
-                        <a href="#" class="mr5">Terminos de uso</a>
-                        |
-                        <a href="#" class="ml5 mr25">Política de privacidad</a>
-                    </p>
                 </div>
             </div>
+
         </div>
-        <!-- / #footer -->
-        <!-- Back to top -->
-        <div id="back-to-top"><a href="#">Back to Top</a>
+        <!-- .container -->
+
+    </div>
+    <!-- / #content -->
+
+
+    <footer>
+        <div class="row footer-copyright">
+            <div class="col-sm-12 col-md-5 col-lg-5 ml10">
+                <p class="pull-left">
+                    Copyrights © 2017 <a href="#" class="strong" target="_blank">BusDep</a>. Todos los derechos reservados.
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-5">
+                <p class="pull-right">
+                    <a href="#" class="mr5">Terminos de uso</a>
+                    |
+                    <a href="#" class="ml5 mr25">Política de privacidad</a>
+                </p>
+            </div>
         </div>
-       
+    </footer>
+</body>
 </html>

@@ -1,0 +1,112 @@
+﻿
+<div ng-controller="loginController as vm" class="container-fluid body-content">
+    <div class="row loginrow">
+        <div class="col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-8">
+            <div class="tabs mb20 col-lg-12 col-md-12 col-sm-12">
+                <ul id="myTab8" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home8" data-toggle="tab">
+                            <i class="glyphicon glyphicon-user"></i>Login
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#profile8" data-toggle="tab"><i class="glyphicon glyphicon-map-marker"></i>Registrarse</a>
+                    </li>
+                </ul>
+                <div id="myTabContent8" class="tabs altajugado tab-content col-lg-10 col-md-10 col-sm-10">
+                    <div class="tab-pane fade active in" id="home8">
+                        <div class="login-panel panel panel-default plain">
+                            <div class="panel-body">
+                                <p class="subtitle-errorlogin" ng-bind="vm.message"></p>
+                                <form ng-submit="vm.submitLogin()">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="input-group input-icon">
+                                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                                <input type="text" ng-model="vm.Usuario" ng-disabled="vm.isLoading" class="form-control" value="" placeholder="Ingresa Usuario">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="input-group input-icon">
+                                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                                <input type="password" ng-model="vm.Password" ng-disabled="vm.isLoading" class="form-control" value="somepass" placeholder="Contraseña">
+                                            </div>
+                                            <span class="help-block text-right"><a href="#">¿Olvidaste tu contraseña?</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb0">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                                            <div class="checkbox-custom">
+                                                <input type="checkbox" name="remember" id="remember" value="option" ng-model="vm.Remember">
+                                                <label for="remember">Recordarme</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 mb25">
+                                            <button class="btn btn-default pull-right" type="submit">Login</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="login-seperator">
+                                    <strong>o</strong>
+                                    <hr>
+                                </div>
+                                <div class="social-buttons text-center mt5 mb5">
+                                    <a href="#" class="btn btn-primary btn-alt mr10">Entrar con <i class="fa fa-facebook s20 ml5 mr0"></i></a>
+                                    <a href="#" class="btn btn-primary btn-alt ml10">Entrar con <i class="fa fa-google s20 ml5 mr0"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--</div>-->
+                    </div>
+                    <div class="tab-pane fade" id="profile8">
+                        <div class="row">
+                            <div class="panel-body">
+                                <form class="form-horizontal mt0" action="#" id="register-form" role="form">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="input-group input-icon">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="input-group input-icon">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="input-group input-icon">
+                                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                                <input type="text" name="email" id="email" class="form-control" placeholder="Email ...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="input-group input-icon">
+                                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                                <input type="password" name="password" id="password" class="form-control" placeholder="Ingresá una contrasaeña...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb0">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-default" type="submit">Registrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

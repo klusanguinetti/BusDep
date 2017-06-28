@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90 - Prototipo", "90 - Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Prototipo.Web", "BusDep.Prototipo.Web\BusDep.Prototipo.Web.csproj", "{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Web", "03 - Web", "{794859D3-F3D3-489A-A0C1-CF2E34640CAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Web", "BusDep.Web\BusDep.Web.csproj", "{8075050A-42D7-4A9E-A662-1A4BED7967DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA} = {608A4B2C-E04F-43B4-8FFD-6F9032BB6DEB}
+		{8075050A-42D7-4A9E-A662-1A4BED7967DC} = {794859D3-F3D3-489A-A0C1-CF2E34640CAB}
 	EndGlobalSection
 EndGlobal

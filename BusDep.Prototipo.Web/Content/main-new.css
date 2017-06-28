@@ -1,0 +1,149 @@
+/*body {
+    background-size: cover;
+   background-image: url(../img/cancha.jpg) no-repeat center center fixed!important;
+}*/
+body {
+    background: url(../img/cancha.jpg);
+    background-size: cover;
+}
+
+/*.histprof {
+    background: url(../img/cancha-1.jpg);
+    background-size: cover;
+    
+}
+
+.infoprof {
+    background: url(../img/red.jpg);
+    background-size: cover;
+}*/
+
+.tarjeta {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+    .tarjeta .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 7px;
+    }
+
+    .tarjeta .form-group {
+        border-bottom: 1px solid #e3e3e3;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-bottom: 0;
+    }
+
+.tab-content {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.tabs {
+    margin-top: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+    .tabs .altajugado {
+        background: url(../img/tab-altajugador-1.jpg);
+        background-size: cover;
+        margin-top: 0px;
+    }
+
+.rownew {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+    .rownew label {
+        font-weight: normal;
+    }
+
+span {
+    font-weight: normal !important;
+}
+
+.form-tabs {
+    /* border-bottom: 1px solid #e3e3e3; */
+    padding-bottom: 2px;
+    padding-top: 2px;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 0;
+}
+
+    .form-tabs .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 7px;
+        font-weight: normal;
+    }
+
+    .form-tabs .row {
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+
+    .form-tabs h4 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+.social {
+    float: left;
+    width: 100%;
+}
+/* -----------------------------------------
+   pitch-position
+----------------------------------------- */
+
+.pitch-position {
+    width: 98% !important;
+    height: 98% !important;
+}
+
+    .pitch-position .cancha {
+        width: 135px !important;
+        height: 180px !important;
+        background-size: contain !important;
+        background-image: url(../img/pitch_bw.png) !important;
+    }
+
+    .pitch-position .position-marker {
+        background: #fff !important;
+        border-radius: 100%;
+        background-clip: padding-box;
+        width: 20px !important;
+        height: 20px !important;
+        position: absolute;
+    }
+
+        .pitch-position .position-marker.delateroderecho {
+            top: 10%;
+            left: 75%;
+            position: relative;
+        }
+
+ /*.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }*/
+/*.page-content {
+   background-size: contain!important;
+   background-image: url(../img/cancha.jpg)!important;
+}*/
+
