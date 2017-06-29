@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+		<class name="BusDep.Entity.TipoEvento, BusDep.Entity" table="TipoEvento" lazy="false"> 
+			<id name="Id" column="TipoEventoId" type="System.Int64" unsaved-value="0" >
+				<generator class="native" />
+			</id>
+			<property name="Descripcion" column="Descripcion" type="System.String" length="400" />
+		</class>
+	</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->

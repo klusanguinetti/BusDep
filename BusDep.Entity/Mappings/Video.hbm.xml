@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+		<class name="BusDep.Entity.Video, BusDep.Entity" table="Video" lazy="false"> 
+			<id name="Id" column="VideoId" type="System.Int64"  >
+				<generator class="assigned" />
+			</id>
+			<property name="Descripcion" column="Descripcion" type="System.String" length="4000" />
+			<many-to-one name="TipoVideo" column="TipoVideoId" cascade="none" class="BusDep.Entity.TipoVideo, BusDep.Entity" />
+			<many-to-one name="Usuario" column="UsuarioId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
+		</class>
+	</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->

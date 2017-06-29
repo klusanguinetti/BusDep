@@ -1,17 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90 - Prototipo", "90 - Prototipo", "{608A4B2C-E04F-43B4-8FFD-6F9032BB6DEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Prototipo.Web", "BusDep.Prototipo.Web\BusDep.Prototipo.Web.csproj", "{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Web", "03 - Web", "{794859D3-F3D3-489A-A0C1-CF2E34640CAB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Web", "05 - Web", "{794859D3-F3D3-489A-A0C1-CF2E34640CAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Web", "BusDep.Web\BusDep.Web.csproj", "{8075050A-42D7-4A9E-A662-1A4BED7967DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Entity", "01 - Entity", "{048D04DA-9812-4FE8-B681-F86B4607B2F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - DA", "02 - DA", "{9608AACB-3C09-47E5-AAF7-96A7BC57DD18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.DataAccess", "BusDep.DataAccess\BusDep.DataAccess.csproj", "{5BA7968D-C1BB-480E-9DBD-D625B8A7C8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Entity", "BusDep.Entity\BusDep.Entity.csproj", "{08443261-9031-4F38-8492-CB151303B280}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 - Testing", "99 - Testing", "{8534DF72-F2E2-4E57-9C1E-D13C76D98594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Testing", "BusDep.Testing\BusDep.Testing.csproj", "{21C02293-5E5A-4BB7-8918-54AA39F341D3}"
+EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -25,6 +40,18 @@ Global
 		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8075050A-42D7-4A9E-A662-1A4BED7967DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA7968D-C1BB-480E-9DBD-D625B8A7C8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA7968D-C1BB-480E-9DBD-D625B8A7C8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA7968D-C1BB-480E-9DBD-D625B8A7C8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA7968D-C1BB-480E-9DBD-D625B8A7C8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08443261-9031-4F38-8492-CB151303B280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08443261-9031-4F38-8492-CB151303B280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08443261-9031-4F38-8492-CB151303B280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08443261-9031-4F38-8492-CB151303B280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C02293-5E5A-4BB7-8918-54AA39F341D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C02293-5E5A-4BB7-8918-54AA39F341D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C02293-5E5A-4BB7-8918-54AA39F341D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C02293-5E5A-4BB7-8918-54AA39F341D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +59,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA} = {608A4B2C-E04F-43B4-8FFD-6F9032BB6DEB}
 		{8075050A-42D7-4A9E-A662-1A4BED7967DC} = {794859D3-F3D3-489A-A0C1-CF2E34640CAB}
+		{5BA7968D-C1BB-480E-9DBD-D625B8A7C8A8} = {9608AACB-3C09-47E5-AAF7-96A7BC57DD18}
+		{08443261-9031-4F38-8492-CB151303B280} = {048D04DA-9812-4FE8-B681-F86B4607B2F1}
+		{21C02293-5E5A-4BB7-8918-54AA39F341D3} = {8534DF72-F2E2-4E57-9C1E-D13C76D98594}
 	EndGlobalSection
 EndGlobal

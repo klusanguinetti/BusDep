@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+		<class name="BusDep.Entity.Deporte, BusDep.Entity" table="Deporte" lazy="false"> 
+			<id name="Id" column="DeporteId" type="System.Int64" unsaved-value="0" >
+				<generator class="identity" />
+			</id>
+			<property name="Descripcion" column="Descripcion" type="System.String" length="200" />
+			<property name="Tipo" column="Tipo" type="System.String" length="200" />
+      <bag name="Puestos" table="Puesto" cascade="all" inverse="true">
+        <key column="DeporteId" />
+        <one-to-many class="BusDep.Entity.Puesto, BusDep.Entity" />
+      </bag>
+      <bag name="Criterios" table="Criterio" cascade="all" inverse="true">
+        <key column="DeporteId" />
+        <one-to-many class="BusDep.Entity.Criterio, BusDep.Entity" />
+      </bag>
+		</class>
+	</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->
