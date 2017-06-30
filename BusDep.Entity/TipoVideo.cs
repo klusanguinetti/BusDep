@@ -1,12 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
 namespace BusDep.Entity 
-{
-    using System;
-	public class TipoVideo
+{ 
+	public partial class TipoVideo 
 	{
 		#region Atributos
-		public long Id{ get; set; }
-		
+		public long Id { get; set; }
 		public String Descripcion { get; set; }
- 		#endregion 
+		#endregion 
 	}
 }

@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90 - Prototipo", "90 - Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Prototipo.Web", "BusDep.Prototipo.Web\BusDep.Prototipo.Web.csproj", "{9BEB9E58-D7BB-406C-8AAD-BEF65A8F7FEA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Web", "05 - Web", "{794859D3-F3D3-489A-A0C1-CF2E34640CAB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - Web", "06 - Web", "{794859D3-F3D3-489A-A0C1-CF2E34640CAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Web", "BusDep.Web\BusDep.Web.csproj", "{8075050A-42D7-4A9E-A662-1A4BED7967DC}"
 EndProject
@@ -23,10 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 - Testing", "99 - Testin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Testing", "BusDep.Testing\BusDep.Testing.csproj", "{21C02293-5E5A-4BB7-8918-54AA39F341D3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Business", "03 - Business", "{81EB8AD6-BAE0-48A0-8E27-1E084078575D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Service", "05 - Service", "{60F9668C-D247-4CB0-BE2A-4EF2F82EC68A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - View", "04 - View", "{1505B296-68E5-4304-9501-EAA684BA0008}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
