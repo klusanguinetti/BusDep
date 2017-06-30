@@ -6,22 +6,14 @@ using System.Web.Mvc;
 
 namespace BusDep.Web.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
 
+        // GET: Account
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Container()
-        {
-            return View();
-        }
-
-        public ActionResult Login()
-        {
-            return View();
-        }
     }
 }

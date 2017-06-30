@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" data-ng-app="appBusDep">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Busqueda deportiva | Busqueda de jugadores profesionales</title>
+
+    <link rel="icon" href="images/favicon.png">
+
+    @Styles.Render("~/Content/css")
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        @Html.Partial("_Header")
+
+        <div ng-view>
+            @RenderBody()
+        </div>
+
+        @Html.Partial("_Footer")
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+        @RenderSection("scripts", required: false)
+
+        <script type="text/javascript">
+            var loading_screen = pleaseWait({
+
+            logo: "./Content/img/logo.png",
+            backgroundColor: '#f0be29',
+            loadingHtml: '<div class="spinner"></div>'
+            });
+
+            setInterval(function () { loading_screen.finish(); }, 3000);
+
+        </script>
+
+        <script src="~/Scripts/vendor/angular.js"></script>
+        <script src="~/Scripts/vendor/angular-route.js"></script>
+
+        @Scripts.Render("~/Scripts/app/main.js")
+    </div>
+
+</body>
+
+</html>
