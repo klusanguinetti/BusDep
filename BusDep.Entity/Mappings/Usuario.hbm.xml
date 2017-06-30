@@ -21,7 +21,15 @@
 			<property name="Telefono" column="Telefono" type="System.String" length="40" />
 			<property name="TipoDocumento" column="TipoDocumento" type="System.String" length="200" />
 			<many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
-      <one-to-one name="Jugador" constrained="true" foreign-key="none" class="BusDep.Entity.Jugador, BusDep.Entity"/>
 		</class>
 	</hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->
+
+
+<!--
+<bag name="Puestos" table="Puesto" cascade="all" inverse="true">
+  <key column="DeporteId" />
+  <one-to-many class="BusDep.Entity.Puesto, BusDep.Entity" />
+</bag>
+
+-->

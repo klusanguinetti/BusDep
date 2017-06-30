@@ -2,20 +2,15 @@
 	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 		<class name="BusDep.Entity.Jugador, BusDep.Entity" table="Jugador" lazy="false"> 
 			<id name="Id" column="JugadorId" type="System.Int64"  >
-				<generator class="native" />
+				<generator class="assigned" />
 			</id>
-      <many-to-one name="Usuario" unique="true" column="UsuarioId"/>
 			<property name="Altura" column="Altura" type="System.Decimal"  />
 			<property name="FotoCuertoEntero" column="FotoCuertoEntero" type="System.String" length="400" />
 			<property name="FotoRostro" column="FotoRostro" type="System.String" length="400" />
 			<property name="Perfil" column="Perfil" type="System.String" length="40" />
 			<property name="Peso" column="Peso" type="System.Decimal"  />
 			<many-to-one name="Puesto" column="PuestoId" cascade="none" class="BusDep.Entity.Puesto, BusDep.Entity" />
-      
-      <bag name="Evaluaciones" table="Evaluacion" cascade="all" inverse="true">
-        <key column="JugadorId" />
-        <one-to-many class="BusDep.Entity.Evaluacion, BusDep.Entity" />
-      </bag>
-    </class>
+			<many-to-one name="Usuario" column="UsuarioId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
+		</class>
 	</hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->

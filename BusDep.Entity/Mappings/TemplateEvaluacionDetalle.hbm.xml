@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+		<class name="BusDep.Entity.TemplateEvaluacionDetalle, BusDep.Entity" table="TemplateEvaluacionDetalle" lazy="false"> 
+			<id name="Id" column="TemplateEvaluacionDetalleId" type="System.Int64"  >
+				<generator class="assigned" />
+			</id>
+			<property name="Descripcion" column="Descripcion" type="System.String" length="200" />
+			<many-to-one name="TemplateEvaluacion" column="TemplateEvaluacionId" cascade="none" class="BusDep.Entity.TemplateEvaluacion, BusDep.Entity" />
+		</class>
+	</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->
