@@ -95,6 +95,10 @@
       <Project>{f1eb0e40-9ef3-4f91-badf-737bdaafe504}</Project>
       <Name>BusDep.IDataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusDep\BusDep.csproj">
+      <Project>{70ef3703-b4c9-474d-a7e1-45874e8537bf}</Project>
+      <Name>BusDep</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

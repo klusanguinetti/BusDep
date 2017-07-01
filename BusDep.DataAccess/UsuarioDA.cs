@@ -9,8 +9,15 @@ namespace BusDep.DataAccess
     using NHibernate.Criterion;
     public class UsuarioDA: BaseDataAccess<Usuario>, IUsuarioDA
     {
+        public virtual void Save(Usuario user)
+        {
+            if (user.Id.Equals(0))
+                user.Password = Common.Encrypt.EncryptToBase64String(user.Password);
+            base.Save(user);
+        }
         public virtual Usuario LoginUser(string mail, string password)
         {
+            password = Common.Encrypt.EncryptToBase64String(password);
             ICriteria criterio = Session.CreateCriteria(typeof(Usuario));
             criterio.Add(Restrictions.InsensitiveLike("Mail", mail)).Add(Restrictions.Eq("Password", password));
             Usuario u = criterio.UniqueResult<Usuario>();

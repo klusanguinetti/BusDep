@@ -102,7 +102,14 @@ namespace BusDep.Testing
             var user1 = login.LoginUser("klusanguinetti@gmail.com", "Facebook", "asdfg");
         }
 
+        [Test]
+        public void PruebaLogin1()
+        {
+            var login = DependencyFactory.Resolve<ILogin>();
+            var user = login.LoginUser("klusanguinetti@gmail.com", "PruebaAlta");
 
+            var user1 = login.LoginUser("klusanguinetti@gmail.com", "Facebook", "asdfg");
+        }
 
 
     }
