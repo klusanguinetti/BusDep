@@ -1,14 +1,13 @@
-﻿
-namespace BusDep.Business
+﻿namespace BusDep.Business
 {
-    using BusDep.IDataAccess;
+    using Common;
     using ViewModel;
     using Entity;
     using IBusiness;
+    using IDataAccess;
     using UnityInject;
-    public class Login : ILogin
+    public class LoginBusiness : ILoginBusiness
     {
-
         public virtual UserViewModel LoginUser(string mail, string password)
         {
             return FillUser(DependencyFactory.Resolve<IUsuarioDA>().LoginUser(mail, password));
@@ -22,12 +21,11 @@ namespace BusDep.Business
         private UserViewModel FillUser(Usuario user)
         {
             if (user != null)
-                return new UserViewModel
-                {
-                    Id = user.Id,
-                    Mail = user.Mail,
-                    TipoUsuario = user.TipoUsuario.Descripcion
-                };
+            {
+                var userView = user.MapperClass<UserViewModel>(TypeMapper.IgnoreCaseSensitive);
+                userView.TipoUsuario = user.TipoUsuario.Descripcion;
+                return userView;
+            }
             else
             {
                 return null;

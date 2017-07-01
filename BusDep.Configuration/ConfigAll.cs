@@ -38,16 +38,37 @@ namespace BusDep.Configuration
                     new InterceptionBehavior<InterceptorBase>()
               }
               );
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, CommonDA<TemplateEvaluacion>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+              }
+              );
+            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, CommonDA<DatosPersona>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+              }
+              );
             #endregion
 
             #region Business
-            DependencyFactory.RegisterType<ILogin, Login>(
+            DependencyFactory.RegisterType<ILoginBusiness, LoginBusiness>(
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBase>()
                 }
                 );
+            DependencyFactory.RegisterType<IRegistracionBusiness, RegistracionBusiness>(
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+                }
+                ); 
             #endregion
         }
 

@@ -1,7 +1,7 @@
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     30/06/2017 05:12:44 p.m.                     */
+/* Created on:     01/07/2017 06:48:42 p.m.                     */
 /*==============================================================*/
 
 
@@ -60,7 +60,7 @@ create table DatosPersona (
    NumeroDocumento      nvarchar(30)         null,
    FechaNacimiento      datetime             null,
    Numero               nvarchar(100)        null,
-   Nacionalidad         nvarchar(5)          null,
+   Nacionalidad         nvarchar(100)        null,
    Calle                nvarchar(400)        null,
    CodigoPostal         nvarchar(10)         null,
    Nacionalidades1      nvarchar(100)        null,

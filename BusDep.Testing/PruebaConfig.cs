@@ -3,6 +3,7 @@ using BusDep.Entity;
 using BusDep.IBusiness;
 using BusDep.IDataAccess;
 using BusDep.UnityInject;
+using BusDep.ViewModel;
 using NUnit.Framework;
 
 namespace BusDep.Testing
@@ -27,6 +28,12 @@ namespace BusDep.Testing
             foreach (var t in DAt.GetAll())
             {
                 DAt.Delete(t);
+            }
+            
+            var DAte = DependencyFactory.Resolve<IBaseDA<TemplateEvaluacion>>();
+            foreach (var d in DAte.GetAll())
+            {
+                DAte.Delete(d);
             }
             var DAd = DependencyFactory.Resolve<IBaseDA<Deporte>>();
             foreach (var d in DAd.GetAll())
@@ -59,6 +66,71 @@ namespace BusDep.Testing
             dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Defensor", PuestoEspecifico = "Defensor Izquierdo" });
             dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Arquero", PuestoEspecifico = "Arquero" });
             DAd.Save(dep1);
+            #endregion
+
+            #region template
+            //Técnica
+            TemplateEvaluacion template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Técnica"};
+            template.Detalles.Add( new TemplateEvaluacionDetalle {Descripcion = "Juego con ambas piernas", TemplateEvaluacion = template});
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Pase", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Control orientación (recepción y pase)", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Amague y dribleo", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Remate al arco", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Juego de cabeza", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Carga y marcación", TemplateEvaluacion = template });
+            DAte.Save(template);
+
+            //Condición Fisica
+            template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Condición Fisica" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Fuerza (explosiva)", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Velocidad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Resistencia", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Flexibilidad (movilidad)", TemplateEvaluacion = template });
+            DAte.Save(template);
+
+            //Táctica
+            template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Táctica (cualidades cognoscitivas)" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Inteligencia de juego (visión)", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Conducta o juego ofensivo", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Conducta o juevo defensivo", TemplateEvaluacion = template });
+            DAte.Save(template);
+
+            //Cualidades mentales
+            template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Cualidades mentales" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Concentración", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Voluntad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Perservación", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Confianza", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Disposición al riesgo", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Creatividad", TemplateEvaluacion = template });
+            DAte.Save(template);
+
+            //Coordinación
+            template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Coordinación" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Orientación", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Ritmo", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Reacción", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Equilibrio", TemplateEvaluacion = template });
+            DAte.Save(template);
+
+            //Cualidades mentales
+            template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Cualidades mentales" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Concentración", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Voluntad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Perseverancia", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Confianza", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Disposición al riesgo", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Creatividad", TemplateEvaluacion = template });
+            DAte.Save(template);
+
+            //Cualidades mentales
+            template = new TemplateEvaluacion { Deporte = dep1, Descripcion = "Entorno social" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Comunicación", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Conducta", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Carisma / personalidad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Seriedad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Compañerismo", TemplateEvaluacion = template });
+            DAte.Save(template);
             #endregion
 
             #region creacion usuario
@@ -96,19 +168,29 @@ namespace BusDep.Testing
         [Test]
         public void PruebaLogin()
         {
-            var login = DependencyFactory.Resolve<ILogin>();
+            var login = DependencyFactory.Resolve<ILoginBusiness>();
             var user = login.LoginUser("klusanguinetti@gmail.com", "PruebaAlta");
 
             var user1 = login.LoginUser("klusanguinetti@gmail.com", "Facebook", "asdfg");
         }
 
         [Test]
-        public void PruebaLogin1()
+        public void Registracion()
         {
-            var login = DependencyFactory.Resolve<ILogin>();
-            var user = login.LoginUser("klusanguinetti@gmail.com", "PruebaAlta");
+            var registracion = DependencyFactory.Resolve<IRegistracionBusiness>();
+            
+            UserViewModel userView = new UserViewModel { Mail = "prueba@prueba.com", Password = "Facebook", TipoUsuario = "Jugador" };
 
-            var user1 = login.LoginUser("klusanguinetti@gmail.com", "Facebook", "asdfg");
+            var userView1 = registracion.Registracion(userView);
+
+            var datos = registracion.ObtenerDatosPersonales(userView1.Id.GetValueOrDefault());
+
+            datos.Nacionalidad = "Argentino";
+            datos.Nombre = "Pepe";
+            datos.Apellido = "Asasd";
+            registracion.RegistracionDatosPersonales(datos);
+
+
         }
 
 

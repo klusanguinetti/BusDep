@@ -11,7 +11,7 @@ namespace BusDep.DataAccess
     {
         public virtual void Save(Usuario user)
         {
-            if (user.Id.Equals(0))
+            if (user.Id.Equals(0) && !string.IsNullOrWhiteSpace(user.Password))
                 user.Password = Common.Encrypt.EncryptToBase64String(user.Password);
             base.Save(user);
         }
@@ -41,6 +41,17 @@ namespace BusDep.DataAccess
             if(usuarios.Any())
                 return usuarios.First();
             return null;
+        }
+
+        public virtual Usuario Registracion(Usuario usuario)
+        {
+            if (usuario != null && usuario.Id.Equals(0) && 
+                !string.IsNullOrWhiteSpace(usuario.Mail) &&
+                !string.IsNullOrWhiteSpace(usuario.Password) && usuario.Password.Length>=8)
+            {
+                base.Save(usuario);
+            }
+            return usuario;
         }
     }
 }

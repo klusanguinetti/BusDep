@@ -8,9 +8,10 @@ namespace BusDep.ViewModel
 {
     public class UserViewModel
     {
-        public long Id { get; set; }
+        public long? Id { get; set; }
         public string Mail { get; set; }
         public string TipoUsuario { get; set; }
+        public string Password { get; set; }
 
     }
 }
