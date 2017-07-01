@@ -2,7 +2,7 @@
 	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 		<class name="BusDep.Entity.TipoVideo, BusDep.Entity" table="TipoVideo" lazy="false"> 
 			<id name="Id" column="TipoVideoId" type="System.Int64"  >
-				<generator class="assigned" />
+				<generator class="native" />
 			</id>
 			<property name="Descripcion" column="Descripcion" type="System.String" length="200" />
 		</class>

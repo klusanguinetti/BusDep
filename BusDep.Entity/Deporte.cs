@@ -1,16 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-
 namespace BusDep.Entity 
-{ 
-	public partial class Deporte
-	{
-		#region Atributos
-		public long Id { get; set; }
-		public String Descripcion { get; set; }
-		public String Tipo { get; set; }
-		#endregion 
-	}
+{
+    using System.Collections.Generic;
+    public partial class Deporte
+    {
+        public Deporte()
+        {
+            Puestos = new List<Puesto>();
+        }
+        #region Atributos
+        public long Id { get; set; }
+        public string Descripcion { get; set; }
+        public string Tipo { get; set; }
+        public IList<Puesto> Puestos { get; set; }
+        #endregion
+    }
 }

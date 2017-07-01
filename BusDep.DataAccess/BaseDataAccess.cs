@@ -26,7 +26,7 @@ namespace BusDep.DataAccess
         /// </summary>
         /// <param name="id">identificador</param>
         /// <returns></returns>
-        public static T GetById<TId>(TId id)
+        public virtual T GetById<TId>(TId id)
         {
             return Session.Load<T>(id);
         }
@@ -36,7 +36,7 @@ namespace BusDep.DataAccess
         /// </summary>
         /// <param name="obje"></param>
         /// <param name="tx">ITransaction</param>
-        public static void Save(T obje, ITransaction tx)
+        public virtual void Save(T obje, ITransaction tx)
         {
             if (tx == null)
                 throw new Exception("Error: La transaccion es null");
@@ -67,7 +67,7 @@ namespace BusDep.DataAccess
         /// <summary>
         /// Guarda el objeto en la DB
         /// </summary>
-        public static void Save(T obje)
+        public virtual void Save(T obje)
         {
             ITransaction tx = null;
             try
@@ -89,7 +89,7 @@ namespace BusDep.DataAccess
         /// </summary>
         /// <param name="obje"></param>
         /// <param name="tx">ITransaction</param>
-        public static void Delete(T obje, ITransaction tx)
+        public virtual void Delete(T obje, ITransaction tx)
         {
             if (tx == null)
                 throw new Exception("Error: La transaccion es null");
@@ -99,7 +99,7 @@ namespace BusDep.DataAccess
         /// <summary>
         /// Borra el objeto
         /// </summary>
-        public static void Delete(T obje)
+        public virtual void Delete(T obje)
         {
             ITransaction tx = null;
             try
@@ -119,7 +119,7 @@ namespace BusDep.DataAccess
         /// Devulve todos los objetos persistidos del tipo
         /// </summary>
         /// <returns></returns>
-        public static IList<T> GetAll()
+        public virtual IList<T> GetAll()
         {
             return Session.CreateCriteria(typeof(T)).List<T>();
         }
@@ -129,7 +129,7 @@ namespace BusDep.DataAccess
         /// dirección
         /// </summary>
         /// <returns></returns>
-        public static IList<T> GetAll(string orderByProperty, bool ascendente)
+        public virtual IList<T> GetAll(string orderByProperty, bool ascendente)
         {
             ICriteria criterio = Session.CreateCriteria(typeof(T));
             if (ascendente)
@@ -145,7 +145,7 @@ namespace BusDep.DataAccess
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public static IList<T> SearchBy(IList<KeyValuePair<string, object>> param)
+        public virtual IList<T> SearchBy(IList<KeyValuePair<string, object>> param)
         {
             ICriteria criterio = Session.CreateCriteria(typeof(T));
             if (param != null)
@@ -169,7 +169,7 @@ namespace BusDep.DataAccess
         /// <param name="orderByProperty"></param>
         /// <param name="ascendente"></param>
         /// <returns></returns>
-        public static IList<T> SearchBy(IList<KeyValuePair<string, object>> param, string orderByProperty, bool ascendente)
+        public virtual IList<T> SearchBy(IList<KeyValuePair<string, object>> param, string orderByProperty, bool ascendente)
         {
             ICriteria criterio = Session.CreateCriteria(typeof(T));
             if (param != null)
@@ -197,7 +197,7 @@ namespace BusDep.DataAccess
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public static IList<T> SearchLike(IList<KeyValuePair<string, object>> param)
+        public virtual IList<T> SearchLike(IList<KeyValuePair<string, object>> param)
         {
             ICriteria criterio = Session.CreateCriteria(typeof(T));
             if (param != null)
@@ -228,7 +228,7 @@ namespace BusDep.DataAccess
         /// <param name="orderByProperty"></param>
         /// <param name="ascendente"></param>
         /// <returns></returns>
-        public static IList<T> SearchLike(IList<KeyValuePair<string, object>> param, string orderByProperty, bool ascendente)
+        public virtual IList<T> SearchLike(IList<KeyValuePair<string, object>> param, string orderByProperty, bool ascendente)
         {
             ICriteria criterio = Session.CreateCriteria(typeof(T));
             if (param != null)

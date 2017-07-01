@@ -66,8 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDataAccess.cs" />
+    <Compile Include="CommonDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sessions\NHbernateHttpModule.cs" />
+    <Compile Include="UsuarioDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -85,7 +87,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Base\" />
+    <ProjectReference Include="..\BusDep.Entity\BusDep.Entity.csproj">
+      <Project>{08443261-9031-4f38-8492-cb151303b280}</Project>
+      <Name>BusDep.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.IDataAccess\BusDep.IDataAccess.csproj">
+      <Project>{f1eb0e40-9ef3-4f91-badf-737bdaafe504}</Project>
+      <Name>BusDep.IDataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

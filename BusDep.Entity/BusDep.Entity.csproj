@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Antecedente.cs" />
+    <Compile Include="DatosPersona.cs" />
     <Compile Include="Deporte.cs" />
     <Compile Include="Evaluacion.cs" />
     <Compile Include="EvaluacionCabecera.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="TipoUsuario.cs" />
     <Compile Include="TipoVideo.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioAplicativo.cs" />
     <Compile Include="Video.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +70,12 @@
     <EmbeddedResource Include="Mappings\TipoVideo.hbm.xml" />
     <EmbeddedResource Include="Mappings\Usuario.hbm.xml" />
     <EmbeddedResource Include="Mappings\Video.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\DatosPersona.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\UsuarioAplicatvo.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

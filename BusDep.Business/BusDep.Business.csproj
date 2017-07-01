@@ -40,7 +40,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusDep.Entity\BusDep.Entity.csproj">
+      <Project>{08443261-9031-4f38-8492-cb151303b280}</Project>
+      <Name>BusDep.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.IBusiness\BusDep.IBusiness.csproj">
+      <Project>{00ab7371-d630-4615-a51e-aafb1ed2b0ef}</Project>
+      <Name>BusDep.IBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.IDataAccess\BusDep.IDataAccess.csproj">
+      <Project>{f1eb0e40-9ef3-4f91-badf-737bdaafe504}</Project>
+      <Name>BusDep.IDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.ViewModel\BusDep.ViewModel.csproj">
+      <Project>{6b2017de-59c4-4213-966a-c58dd1f56052}</Project>
+      <Name>BusDep.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep\BusDep.csproj">
+      <Project>{70ef3703-b4c9-474d-a7e1-45874e8537bf}</Project>
+      <Name>BusDep</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

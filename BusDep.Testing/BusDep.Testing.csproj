@@ -60,13 +60,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusDep.DataAccess\BusDep.DataAccess.csproj">
-      <Project>{5ba7968d-c1bb-480e-9dbd-d625b8a7c8a8}</Project>
-      <Name>BusDep.DataAccess</Name>
+    <ProjectReference Include="..\BusDep.Configuration\BusDep.Configuration.csproj">
+      <Project>{e2ee939a-f9c0-47b8-ba67-00112df31c98}</Project>
+      <Name>BusDep.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusDep.Entity\BusDep.Entity.csproj">
       <Project>{08443261-9031-4f38-8492-cb151303b280}</Project>
       <Name>BusDep.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.IBusiness\BusDep.IBusiness.csproj">
+      <Project>{00ab7371-d630-4615-a51e-aafb1ed2b0ef}</Project>
+      <Name>BusDep.IBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.IDataAccess\BusDep.IDataAccess.csproj">
+      <Project>{f1eb0e40-9ef3-4f91-badf-737bdaafe504}</Project>
+      <Name>BusDep.IDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.ViewModel\BusDep.ViewModel.csproj">
+      <Project>{6b2017de-59c4-4213-966a-c58dd1f56052}</Project>
+      <Name>BusDep.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep\BusDep.csproj">
+      <Project>{70ef3703-b4c9-474d-a7e1-45874e8537bf}</Project>
+      <Name>BusDep</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

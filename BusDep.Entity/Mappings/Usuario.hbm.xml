@@ -4,28 +4,17 @@
 			<id name="Id" column="UsuarioId" type="System.Int64" unsaved-value="0" >
 				<generator class="native" />
 			</id>
-			<property name="Apellido" column="Apellido" type="System.String" length="400" />
-			<property name="Calle" column="Calle" type="System.String" length="800" />
-			<property name="Ciudad" column="Ciudad" type="System.String" length="200" />
-			<property name="CodigoPostal" column="CodigoPostal" type="System.String" length="20" />
-			<property name="FechaNacimiento" column="FechaNacimiento" type="System.DateTime"  />
 			<property name="Mail" column="Mail" type="System.String" length="400" />
-			<property name="Nacionalidad" column="Nacionalidad" type="System.String" length="10" />
-			<property name="Nacionalidades1" column="Nacionalidades1" type="System.String" length="200" />
-			<property name="Nacionalidades2" column="Nacionalidades2" type="System.String" length="200" />
-			<property name="Nombre" column="Nombre" type="System.String" length="400" />
-			<property name="Numero" column="Numero" type="System.String" length="200" />
-			<property name="NumeroDocumento" column="NumeroDocumento" type="System.String" length="60" />
-			<property name="Pais" column="Pais" type="System.String" length="200" />
-			<property name="Provincia" column="Provincia" type="System.String" length="60" />
-			<property name="Telefono" column="Telefono" type="System.String" length="40" />
-			<property name="TipoDocumento" column="TipoDocumento" type="System.String" length="200" />
-			<many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
+      <property name="Password" column="Password" type="System.String" length="100" />
+      <many-to-one name="DatosPersona" column="DatosPersonaId" cascade="all" class="BusDep.Entity.DatosPersona, BusDep.Entity" />
+      <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
+      <bag name="AplicacionToken" table="UsuarioAplicativo" cascade="all" inverse="true">
+        <key column="UsuarioId" />
+        <one-to-many class="BusDep.Entity.UsuarioAplicativo, BusDep.Entity" />
+      </bag>
 		</class>
 	</hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->
-
-
 <!--
 <bag name="Puestos" table="Puesto" cascade="all" inverse="true">
   <key column="DeporteId" />

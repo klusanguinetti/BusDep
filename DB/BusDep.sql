@@ -1,7 +1,7 @@
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     29/06/2017 10:11:03 p.m.                     */
+/* Created on:     30/06/2017 05:12:44 p.m.                     */
 /*==============================================================*/
 
 
@@ -45,6 +45,31 @@ create table Certificacion (
 go
 
 /*==============================================================*/
+/* Table: DatosPersona                                          */
+/*==============================================================*/
+create table DatosPersona (
+   DatosPersonaId       numeric(10)          identity,
+   Mail                 nvarchar(200)        null,
+   Nombre               nvarchar(200)        null,
+   Apellido             nvarchar(200)        null,
+   Telefono             nvarchar(20)         null,
+   Pais                 nvarchar(100)        null,
+   Provincia            nvarchar(30)         null,
+   Ciudad               nvarchar(100)        null,
+   TipoDocumento        nvarchar(100)        null,
+   NumeroDocumento      nvarchar(30)         null,
+   FechaNacimiento      datetime             null,
+   Numero               nvarchar(100)        null,
+   Nacionalidad         nvarchar(5)          null,
+   Calle                nvarchar(400)        null,
+   CodigoPostal         nvarchar(10)         null,
+   Nacionalidades1      nvarchar(100)        null,
+   Nacionalidades2      nvarchar(100)        null,
+   constraint PK_DATOSPERSONA primary key (DatosPersonaId)
+)
+go
+
+/*==============================================================*/
 /* Table: Deporte                                               */
 /*==============================================================*/
 create table Deporte (
@@ -82,7 +107,7 @@ go
 /* Table: EvaluacionCabecera                                    */
 /*==============================================================*/
 create table EvaluacionCabecera (
-   EvaluacionCabeceraId numeric(10)          not null,
+   EvaluacionCabeceraId numeric(10)          identity,
    EvaluacionId         numeric(10)          null,
    TemplateEvaluacionId numeric(10)          null,
    constraint PK_EVALUACIONCABECERA primary key (EvaluacionCabeceraId)
@@ -93,7 +118,7 @@ go
 /* Table: EvaluacionDetalle                                     */
 /*==============================================================*/
 create table EvaluacionDetalle (
-   EvaluacionDetalleId  numeric(10)          not null,
+   EvaluacionDetalleId  numeric(10)          identity,
    EvaluacionCabeceraId numeric(10)          null,
    TemplateEvaluacionDetalleId numeric(10)          null,
    Puntuacion           numeric(2)           null,
@@ -137,7 +162,7 @@ go
 /* Table: Jugador                                               */
 /*==============================================================*/
 create table Jugador (
-   JugadorId            numeric(10)          not null,
+   JugadorId            numeric(10)          identity,
    UsuarioId            numeric(10)          null,
    PuestoId             numeric(10)          null,
    Altura               numeric(3,2)         null,
@@ -176,7 +201,7 @@ go
 /* Table: TemplateEvaluacion                                    */
 /*==============================================================*/
 create table TemplateEvaluacion (
-   TemplateEvaluacionId numeric(10)          not null,
+   TemplateEvaluacionId numeric(10)          identity,
    DeporteId            numeric(10)          null,
    Descripcion          nvarchar(100)        null,
    constraint PK_TEMPLATEEVALUACION primary key (TemplateEvaluacionId)
@@ -187,7 +212,7 @@ go
 /* Table: TemplateEvaluacionDetalle                             */
 /*==============================================================*/
 create table TemplateEvaluacionDetalle (
-   TemplateEvaluacionDetalleId numeric(10)          not null,
+   TemplateEvaluacionDetalleId numeric(10)          identity,
    TemplateEvaluacionId numeric(10)          null,
    Descripcion          nvarchar(100)        null,
    constraint PK_TEMPLATEEVALUACIONDETALLE primary key (TemplateEvaluacionDetalleId)
@@ -208,7 +233,7 @@ go
 /* Table: TipoUsuario                                           */
 /*==============================================================*/
 create table TipoUsuario (
-   TipoUsuarioId        numeric(10)          not null,
+   TipoUsuarioId        numeric(10)          identity,
    Descripcion          nvarchar(200)        null,
    constraint PK_TIPOUSUARIO primary key (TipoUsuarioId)
 )
@@ -218,7 +243,7 @@ go
 /* Table: TipoVideo                                             */
 /*==============================================================*/
 create table TipoVideo (
-   TipoVideoId          numeric(10)          not null,
+   TipoVideoId          numeric(10)          identity,
    Descripcion          nvarchar(100)        null,
    constraint PK_TIPOVIDEO primary key (TipoVideoId)
 )
@@ -230,23 +255,22 @@ go
 create table Usuario (
    UsuarioId            numeric(10)          identity,
    TipoUsuarioId        numeric(10)          null,
+   DatosPersonaId       numeric(10)          null,
    Mail                 nvarchar(200)        null,
-   Nombre               nvarchar(200)        null,
-   Apellido             nvarchar(200)        null,
-   Telefono             nvarchar(20)         null,
-   Pais                 nvarchar(100)        null,
-   Provincia            nvarchar(30)         null,
-   Ciudad               nvarchar(100)        null,
-   TipoDocumento        nvarchar(100)        null,
-   NumeroDocumento      nvarchar(30)         null,
-   FechaNacimiento      datetime             null,
-   Numero               nvarchar(100)        null,
-   Nacionalidad         nvarchar(5)          null,
-   Calle                nvarchar(400)        null,
-   CodigoPostal         nvarchar(10)         null,
-   Nacionalidades1      nvarchar(100)        null,
-   Nacionalidades2      nvarchar(100)        null,
+   Password             nvarchar(100)        null,
    constraint PK_USUARIO primary key (UsuarioId)
+)
+go
+
+/*==============================================================*/
+/* Table: UsuarioAplicativo                                     */
+/*==============================================================*/
+create table UsuarioAplicativo (
+   UsuarioAplicativoId  numeric(10)          identity,
+   UsuarioId            numeric(10)          null,
+   Aplicativo           nvarchar(30)         null,
+   Token                nvarchar(200)        null,
+   constraint PK_USUARIOAPLICATIVO primary key (UsuarioAplicativoId)
 )
 go
 
@@ -254,7 +278,7 @@ go
 /* Table: Video                                                 */
 /*==============================================================*/
 create table Video (
-   VideoId              numeric(10)          not null,
+   VideoId              numeric(10)          identity,
    TipoVideoId          numeric(10)          null,
    UsuarioId            numeric(10)          null,
    Descripcion          nvarchar(2000)       null,
@@ -350,6 +374,16 @@ go
 alter table Usuario
    add constraint FK_TipoUsuario_Usuario foreign key (TipoUsuarioId)
       references TipoUsuario (TipoUsuarioId)
+go
+
+alter table Usuario
+   add constraint FK_Usuario_DatosPersona foreign key (DatosPersonaId)
+      references DatosPersona (DatosPersonaId)
+go
+
+alter table UsuarioAplicativo
+   add constraint FK_Aplicativo_Usuario foreign key (UsuarioId)
+      references Usuario (UsuarioId)
 go
 
 alter table Video
