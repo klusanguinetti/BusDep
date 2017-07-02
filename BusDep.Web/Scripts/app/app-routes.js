@@ -6,8 +6,12 @@
             controller: 'indexController'
         })
         .when('/Account/Login', {
-            templateUrl: '/Account/Index',
+            templateUrl: '/Account/Login',
             controller: 'loginController'
+        })
+        .when('/Account/Register', {
+            templateUrl: '/Account/Register',
+            controller: 'registerController'
         })
         .otherwise({
             redirectTo: '/'

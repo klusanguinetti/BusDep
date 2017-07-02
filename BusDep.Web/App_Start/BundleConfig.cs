@@ -16,12 +16,22 @@ namespace BusDep.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/vendor/bootstrap.js",
-                      "~/Scripts/vendor/please-wait.min.js"));
+                      "~/Scripts/vendor/please-wait.min.js",
+                      "~/Scripts/vendor/owl.carousel.min.js",
+                      "~/Scripts/vendor/jquery.matchHeight-min.js",
+                      "~/Scripts/vendor/hideMaxListItem.js",
+                      "~/Scripts/vendor/jquery.fs.scroller.js",
+                      "~/Scripts/vendor/jquery.fs.selecter.js",
+                      "~/Scripts/vendor/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
+                      "~/Content/owl.theme.css",
+                      "~/Content/owl.carousel.css",
                       "~/Content/please-wait.css",
+                      "~/Content/jquery.fs.scroller.css",
+                      "~/Content/jquery.fs.selecter.css",
                       "~/Content/style.css"));
 
             // Angular Bundle

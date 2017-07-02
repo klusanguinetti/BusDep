@@ -10,7 +10,13 @@ namespace BusDep.Web.Controllers
     {
 
         // GET: Account
-        public ActionResult Index()
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        // GET: Account
+        public ActionResult Register()
         {
             return View();
         }

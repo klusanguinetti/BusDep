@@ -17,7 +17,7 @@
 
 <body>
 
-    <div class="wrapper">
+    <div id="wrapper">
 
         @Html.Partial("_Header")
 
@@ -35,9 +35,9 @@
         <script type="text/javascript">
             var loading_screen = pleaseWait({
 
-            logo: "./Content/img/logo.png",
-            backgroundColor: '#f0be29',
-            loadingHtml: '<div class="spinner"></div>'
+            logo: "./Content/img/Logo250.png",
+            backgroundColor: '#20a759',
+            loadingHtml: '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
             });
 
             setInterval(function () { loading_screen.finish(); }, 3000);
