@@ -5,7 +5,7 @@
 				<generator class="native" />
 			</id>
 			<property name="Descripcion" column="Descripcion" type="System.String" length="200" />
-			<many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
+			<many-to-one name="TipoEvaluacion" column="TipoEvaluacionId" cascade="none" class="BusDep.Entity.TipoEvaluacion, BusDep.Entity" />
 			<bag name="Detalles" table="TemplateEvaluacionDetalle" cascade="all" inverse="true">
 				<key column="TemplateEvaluacionId" />
 				<one-to-many class="BusDep.Entity.TemplateEvaluacionDetalle, BusDep.Entity" />

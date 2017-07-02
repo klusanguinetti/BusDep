@@ -3,7 +3,7 @@ namespace BusDep.ViewModel
     using System;
     using System.Runtime.Serialization;
     [DataContract]
-    public class JugadorView
+    public class JugadorViewModel
     {
         [DataMember]
         public long Id { get; set; }

@@ -12,7 +12,7 @@ namespace BusDep.Entity
         #region Atributos
         public long Id { get; set; }
         public string Descripcion { get; set; }
-        public Deporte Deporte { get; set; }
+        public TipoEvaluacion TipoEvaluacion { get; set; }
         public IList<TemplateEvaluacionDetalle> Detalles { get; set; }
         #endregion 
     }

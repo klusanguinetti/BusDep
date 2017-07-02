@@ -1,9 +1,8 @@
-﻿using System;
-using BusDep.Business;
-using BusDep.IBusiness;
-
-namespace BusDep.Configuration
+﻿namespace BusDep.Configuration
 {
+    using System;
+    using BusDep.Business;
+    using BusDep.IBusiness;
     using BusDep.Entity;
     using BusDep.Configuration.Interception;
     using BusDep.DataAccess;
@@ -24,34 +23,6 @@ namespace BusDep.Configuration
                     new InterceptionBehavior<InterceptorBase>()
                 }
                 );
-            DependencyFactory.RegisterType<IBaseDA<TipoUsuario>, CommonDA<TipoUsuario>>(
-               new InjectionMember[]
-               {
-                    new Interceptor<VirtualMethodInterceptor>(),
-                    new InterceptionBehavior<InterceptorBase>()
-               }
-               );
-            DependencyFactory.RegisterType<IBaseDA<Deporte>, CommonDA<Deporte>>(
-              new InjectionMember[]
-              {
-                    new Interceptor<VirtualMethodInterceptor>(),
-                    new InterceptionBehavior<InterceptorBase>()
-              }
-              );
-            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, CommonDA<TemplateEvaluacion>>(
-              new InjectionMember[]
-              {
-                    new Interceptor<VirtualMethodInterceptor>(),
-                    new InterceptionBehavior<InterceptorBase>()
-              }
-              );
-            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, CommonDA<DatosPersona>>(
-              new InjectionMember[]
-              {
-                    new Interceptor<VirtualMethodInterceptor>(),
-                    new InterceptionBehavior<InterceptorBase>()
-              }
-              );
             DependencyFactory.RegisterType<IJugadorDA, JugadorDA>(
              new InjectionMember[]
              {
@@ -59,14 +30,122 @@ namespace BusDep.Configuration
                     new InterceptionBehavior<InterceptorBase>()
              }
              );
-            DependencyFactory.RegisterType<IBaseDA<Puesto>, CommonDA<Puesto>>(
-            new InjectionMember[]
-            {
+
+            #region genericos
+            DependencyFactory.RegisterType<IBaseDA<Antecedente>, CommonDA<Antecedente>>(
+               new InjectionMember[]
+               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBase>()
-            }
-            );
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, CommonDA<DatosPersona>>(
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+                }
+                );
+            DependencyFactory.RegisterType<IBaseDA<Deporte>, CommonDA<Deporte>>(
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+                }
+                );
+            DependencyFactory.RegisterType<IBaseDA<Evaluacion>, CommonDA<Evaluacion>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<EvaluacionCabecera>, CommonDA<EvaluacionCabecera>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<EvaluacionDetalle>, CommonDA<EvaluacionDetalle>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<Jugador>, CommonDA<Jugador>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<Puesto>, CommonDA<Puesto>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, CommonDA<TemplateEvaluacion>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacionDetalle>, CommonDA<TemplateEvaluacionDetalle>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<TipoUsuario>, CommonDA<TipoUsuario>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<TipoVideo>, CommonDA<TipoVideo>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<Usuario>, CommonDA<Usuario>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<UsuarioAplicativo>, CommonDA<UsuarioAplicativo>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<Video>, CommonDA<Video>>(
+               new InjectionMember[]
+               {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+               }
+               );
+            DependencyFactory.RegisterType<IBaseDA<TipoEvaluacion>, CommonDA<TipoEvaluacion>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+              }
+              );
             
+            #endregion
             #endregion
 
             #region Business
@@ -77,7 +156,7 @@ namespace BusDep.Configuration
                     new InterceptionBehavior<InterceptorBase>()
                 }
                 );
-            DependencyFactory.RegisterType<IRegistracionBusiness, RegistracionBusiness>(
+            DependencyFactory.RegisterType<IUsuarioBusiness, UsuarioBusiness>(
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),

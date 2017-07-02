@@ -3,7 +3,7 @@
     using System;
     using System.Runtime.Serialization;
     [DataContract]
-    public class UserViewModel
+    public class UsuarioViewModel
     {
         [DataMember]
         public long? Id { get; set; }
@@ -13,6 +13,12 @@
         public string TipoUsuario { get; set; }
         [DataMember]
         public string Password { get; set; }
+        [DataMember]
+        public long? DeporteId { get; set; }
+        [DataMember]
+        public long? JugadorId { get; set; }
+        [DataMember]
+        public long? DatosPersonaId { get; set; }
 
     }
 }

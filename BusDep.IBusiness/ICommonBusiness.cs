@@ -5,8 +5,8 @@ namespace BusDep.IBusiness
 {
     public interface ICommonBusiness
     {
-        JugadorView ObtenerJugador(UserViewModel usuario);
-        IEnumerable<PuestoView> ObtenerPuestos(long deporteId);
-        IEnumerable<DeporteView> ObtenerDeportes();
+        JugadorViewModel ObtenerJugador(UsuarioViewModel usuario);
+        IEnumerable<PuestoViewModel> ObtenerPuestos(long deporteId);
+        IEnumerable<DeporteViewModel> ObtenerDeportes();
     }
 }

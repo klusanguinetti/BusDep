@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-		<class name="BusDep.Entity.Evaluacion, BusDep.Entity" table="Evaluacion" lazy="false"> 
-			<id name="Id" column="EvaluacionId" type="System.Int64" unsaved-value="0" >
-				<generator class="native" />
-			</id>
-			<many-to-one name="Jugador" column="JugadorId" cascade="none" class="BusDep.Entity.Jugador, BusDep.Entity" />
-			<property name="TipoEvaluacion" column="TipoEvaluacion" type="System.Int64"  />
-		</class>
-	</hibernate-mapping>
+  <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+    <class name="BusDep.Entity.Evaluacion, BusDep.Entity" table="Evaluacion" lazy="false"> 
+      <id name="Id" column="EvaluacionId" type="System.Int64" unsaved-value="0" >
+        <generator class="native" />
+      </id>
+      <many-to-one name="Jugador" column="JugadorId" cascade="none" class="BusDep.Entity.Jugador, BusDep.Entity" />
+      <many-to-one name="TipoEvaluacion" column="TipoEvaluacionId" cascade="none" class="BusDep.Entity.TipoEvaluacion, BusDep.Entity" />
+      <bag name="Cabeceras" table="EvaluacionCabecera" cascade="all" inverse="true">
+        <key column="EvaluacionId" />
+        <one-to-many class="BusDep.Entity.EvaluacionCabecera, BusDep.Entity" />
+      </bag>
+    </class>
+  </hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->

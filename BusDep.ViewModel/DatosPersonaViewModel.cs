@@ -3,7 +3,7 @@
     using System;
     using System.Runtime.Serialization;
     [DataContract]
-    public class DatosPersonaView
+    public class DatosPersonaViewModel
     {
         [DataMember]
         public long Id { get; set; }

@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatosPersonaView.cs" />
-    <Compile Include="JugadorView.cs" />
+    <Compile Include="DatosPersonaViewModel.cs" />
+    <Compile Include="DeporteViewModel.cs" />
+    <Compile Include="EvaluacionViewModel.cs" />
+    <Compile Include="JugadorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PuestoView.cs" />
-    <Compile Include="UserViewModel.cs" />
+    <Compile Include="PuestoViewModel.cs" />
+    <Compile Include="UsuarioViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

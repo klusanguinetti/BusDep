@@ -6,6 +6,10 @@
       </id>
       <many-to-one name="Evaluacion" column="EvaluacionId" cascade="none" class="BusDep.Entity.Evaluacion, BusDep.Entity" />
       <many-to-one name="TemplateEvaluacion" column="TemplateEvaluacionId" cascade="none" class="BusDep.Entity.TemplateEvaluacion, BusDep.Entity" />
+      <bag name="Detalles" table="EvaluacionDetalle" cascade="all" inverse="true">
+        <key column="EvaluacionCabeceraId" />
+        <one-to-many class="BusDep.Entity.EvaluacionDetalle, BusDep.Entity" />
+      </bag>
     </class>
   </hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->

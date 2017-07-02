@@ -11,6 +11,7 @@ namespace BusDep.Entity
         public decimal? Peso { get; set; }
         public Puesto Puesto { get; set; }
         public Usuario Usuario { get; set; }
+
         #endregion 
     }
 }

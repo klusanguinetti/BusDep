@@ -1,7 +1,7 @@
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     01/07/2017 06:59:40 p.m.                     */
+/* Created on:     02/07/2017 01:22:15 p.m.                     */
 /*==============================================================*/
 
 
@@ -98,7 +98,8 @@ go
 create table Evaluacion (
    EvaluacionId         numeric(10)          identity,
    JugadorId            numeric(10)          null,
-   TipoEvaluacion       numeric(1)           null,
+   TipoEvaluacionId     numeric(10)          null,
+   FechaAlta            datetime             null default getdate(),
    constraint PK_EVALUACION primary key (EvaluacionId)
 )
 go
@@ -201,7 +202,7 @@ go
 /*==============================================================*/
 create table TemplateEvaluacion (
    TemplateEvaluacionId numeric(10)          identity,
-   DeporteId            numeric(10)          null,
+   TipoEvaluacionId     numeric(10)          null,
    Descripcion          nvarchar(100)        null,
    constraint PK_TEMPLATEEVALUACION primary key (TemplateEvaluacionId)
 )
@@ -215,6 +216,18 @@ create table TemplateEvaluacionDetalle (
    TemplateEvaluacionId numeric(10)          null,
    Descripcion          nvarchar(100)        null,
    constraint PK_TEMPLATEEVALUACIONDETALLE primary key (TemplateEvaluacionDetalleId)
+)
+go
+
+/*==============================================================*/
+/* Table: TipoEvaluacion                                        */
+/*==============================================================*/
+create table TipoEvaluacion (
+   TipoEvaluacionId     numeric(10)          identity,
+   DeporteId            numeric(10)          null,
+   Descripcion          nvarchar(400)        null,
+   EsDefault            nvarchar(1)          null default 'N',
+   constraint PK_TIPOEVALUACION primary key (TipoEvaluacionId)
 )
 go
 
@@ -256,6 +269,7 @@ create table Usuario (
    TipoUsuarioId        numeric(10)          null,
    DatosPersonaId       numeric(10)          null,
    JugadorId            numeric(10)          null,
+   DeporteId            numeric(10)          null,
    Mail                 nvarchar(200)        null,
    Password             nvarchar(100)        null,
    constraint PK_USUARIO primary key (UsuarioId)
@@ -299,6 +313,11 @@ go
 alter table Envio
    add constraint FK_Evento_Envio foreign key (EventoId)
       references Evento (EventoId)
+go
+
+alter table Evaluacion
+   add constraint FK_Evaluacion_TipoEvaluacion foreign key (TipoEvaluacionId)
+      references TipoEvaluacion (TipoEvaluacionId)
 go
 
 alter table Evaluacion
@@ -357,13 +376,18 @@ alter table Puesto
 go
 
 alter table TemplateEvaluacion
-   add constraint FK_Deporte_EvaluacionTemplate foreign key (DeporteId)
-      references Deporte (DeporteId)
+   add constraint FK_TipoEvaluacion_TemplateEvaluacion foreign key (TipoEvaluacionId)
+      references TipoEvaluacion (TipoEvaluacionId)
 go
 
 alter table TemplateEvaluacionDetalle
    add constraint FK_TemplateEvaluacion_Detalle foreign key (TemplateEvaluacionId)
       references TemplateEvaluacion (TemplateEvaluacionId)
+go
+
+alter table TipoEvaluacion
+   add constraint FK_TipoEvaluacion_Deporte foreign key (DeporteId)
+      references Deporte (DeporteId)
 go
 
 alter table Usuario
@@ -374,6 +398,11 @@ go
 alter table Usuario
    add constraint FK_Usuario_DatosPersona foreign key (DatosPersonaId)
       references DatosPersona (DatosPersonaId)
+go
+
+alter table Usuario
+   add constraint FK_Usuario_Deporte foreign key (DeporteId)
+      references Deporte (DeporteId)
 go
 
 alter table Usuario

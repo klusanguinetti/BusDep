@@ -6,5 +6,8 @@
         Usuario LoginUser(string mail, string password);
         Usuario LoginUser(string mail, string aplicacion, string token);
         Usuario Registracion(Usuario usuario);
+        Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId);
+
+        TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId);
     }
 }

@@ -1,15 +1,17 @@
 ﻿
 
+
+
 namespace BusDep.DataAccess
 {
     using System.Linq;
     using BusDep.Entity;
     using BusDep.IDataAccess;
     using NHibernate;
-    using NHibernate.Criterion;
+    using NHibernate.Linq;
     public class UsuarioDA : BaseDataAccess<Usuario>, IUsuarioDA
     {
-        public virtual void Save(Usuario user)
+        public new virtual void Save(Usuario user)
         {
             if (user.Id.Equals(0) && !string.IsNullOrWhiteSpace(user.Password))
                 user.Password = Common.Encrypt.EncryptToBase64String(user.Password);
@@ -18,10 +20,7 @@ namespace BusDep.DataAccess
         public virtual Usuario LoginUser(string mail, string password)
         {
             password = Common.Encrypt.EncryptToBase64String(password);
-            ICriteria criterio = Session.CreateCriteria(typeof(Usuario));
-            criterio.Add(Restrictions.InsensitiveLike("Mail", mail)).Add(Restrictions.Eq("Password", password));
-            Usuario u = criterio.UniqueResult<Usuario>();
-            return u;
+            return Session.Query<Usuario>().FirstOrDefault(o => o.Password.Equals(password) && o.Mail.ToUpper().Equals(mail.ToUpper()));
         }
 
         public virtual Usuario LoginUser(string mail, string aplicacion, string token)
@@ -52,6 +51,17 @@ namespace BusDep.DataAccess
                 Save(usuario);
             }
             return usuario;
+        }
+
+        public virtual Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId)
+        {
+            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Jugador.Id.Equals(jugadorId) && o.TipoEvaluacion.Deporte.Id.Equals(deporteId) &&
+                                                            o.TipoEvaluacion.EsDefault.Equals("S"));
+        }
+
+        public virtual TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId)
+        {
+            return Session.Query<TipoEvaluacion>().FirstOrDefault(o => o.Deporte.Id.Equals(deporteId) && o.EsDefault.Equals("S"));
         }
     }
 }
