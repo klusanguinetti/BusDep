@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Encrypt.cs" />
-    <Compile Include="Common\JsonSerialization.cs" />
+    <Compile Include="Common\Extension.cs" />
     <Compile Include="Common\MapperExten.cs" />
     <Compile Include="InjectDependency\DependencyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

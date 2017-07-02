@@ -1,12 +1,11 @@
 ﻿namespace BusDep.ViewModel
 {
-    using System;
     using System.Runtime.Serialization;
     [DataContract]
     public class UsuarioViewModel
     {
         [DataMember]
-        public long? Id { get; set; }
+        public long Id { get; set; }
         [DataMember]
         public string Mail { get; set; }
         [DataMember]

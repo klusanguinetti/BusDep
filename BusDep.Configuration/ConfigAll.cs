@@ -170,7 +170,14 @@
                     new InterceptionBehavior<InterceptorBase>()
                 }
                 );
-            
+            DependencyFactory.RegisterType<IBusquedaBusiness, BusquedaBusiness>(
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+                }
+                );
+
             #endregion
         }
 

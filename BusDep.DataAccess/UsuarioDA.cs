@@ -2,6 +2,8 @@
 
 
 
+using System.Collections.Generic;
+
 namespace BusDep.DataAccess
 {
     using System.Linq;
@@ -62,6 +64,11 @@ namespace BusDep.DataAccess
         public virtual TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId)
         {
             return Session.Query<TipoEvaluacion>().FirstOrDefault(o => o.Deporte.Id.Equals(deporteId) && o.EsDefault.Equals("S"));
+        }
+
+        public virtual List<Antecedente> ObtenerAntecedentes(long usuarioId)
+        {
+            return Session.Query<Antecedente>().Where(o => o.Usuario.Id.Equals(usuarioId)).ToList();
         }
     }
 }

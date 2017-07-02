@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 - Testing", "99 - Testin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Testing", "BusDep.Testing\BusDep.Testing.csproj", "{21C02293-5E5A-4BB7-8918-54AA39F341D3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Business", "03 - Business", "{81EB8AD6-BAE0-48A0-8E27-1E084078575D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Business", "04 - Business", "{81EB8AD6-BAE0-48A0-8E27-1E084078575D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - ViewModel", "04 - ViewModel", "{1505B296-68E5-4304-9501-EAA684BA0008}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - ViewModel", "03 - ViewModel", "{1505B296-68E5-4304-9501-EAA684BA0008}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Business", "BusDep.Business\BusDep.Business.csproj", "{B61D396E-F8A3-48DA-99C0-C9EE01A63922}"
 EndProject

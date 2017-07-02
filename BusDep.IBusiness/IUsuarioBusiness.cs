@@ -1,4 +1,5 @@
-﻿using BusDep.ViewModel;
+﻿using System.Collections.Generic;
+using BusDep.ViewModel;
 
 namespace BusDep.IBusiness
 {
@@ -11,5 +12,10 @@ namespace BusDep.IBusiness
         void ActualizarDatosJugador(JugadorViewModel jugadorView);
         EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView);
         void GuardarEvalucacion(EvaluacionViewModel evaluacion);
+
+        List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView);
+        AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId);
+        AntecedenteViewModel NuevoAntecedenteViewModel(UsuarioViewModel userView);
+        AntecedenteViewModel GuardarAntecedenteViewModel(AntecedenteViewModel antecedente);
     }
 }

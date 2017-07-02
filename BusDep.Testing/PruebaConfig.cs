@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BusDep.Common;
 using BusDep.Configuration;
@@ -18,10 +19,10 @@ namespace BusDep.Testing
         [SetUp]
         public void Init()
         {
-            if(configAll == null)
+            if (configAll == null)
                 configAll = new ConfigAll();
             configAll.Init();
-            
+
             #region borrado
             var DAev = DependencyFactory.Resolve<IBaseDA<Evaluacion>>();
             foreach (var d in DAev.GetAll())
@@ -38,7 +39,7 @@ namespace BusDep.Testing
             {
                 DAt.Delete(t);
             }
-            
+
             var DAti = DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>();
             foreach (var d in DAti.GetAll())
             {
@@ -83,10 +84,10 @@ namespace BusDep.Testing
             #endregion
 
             #region template
-            TipoEvaluacion tipoEvaluacion = new TipoEvaluacion { Deporte = dep1, Descripcion = "Auto Evaluación", EsDefault = "S"};
+            TipoEvaluacion tipoEvaluacion = new TipoEvaluacion { Deporte = dep1, Descripcion = "Auto Evaluación", EsDefault = "S" };
             //Técnica
-            TemplateEvaluacion template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Técnica"};
-            template.Detalles.Add( new TemplateEvaluacionDetalle {Descripcion = "Juego con ambas piernas", TemplateEvaluacion = template});
+            TemplateEvaluacion template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Técnica" };
+            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Juego con ambas piernas", TemplateEvaluacion = template });
             template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Pase", TemplateEvaluacion = template });
             template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Control orientación (recepción y pase)", TemplateEvaluacion = template });
             template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Amague y dribleo", TemplateEvaluacion = template });
@@ -199,40 +200,50 @@ namespace BusDep.Testing
         }
 
         [Test]
-        public void Registracion()
+        public void RegistracionMasiva()
         {
-            var registracion = DependencyFactory.Resolve<IUsuarioBusiness>();
-            var common = DependencyFactory.Resolve<ICommonBusiness>();
-            var login = DependencyFactory.Resolve<ILoginBusiness>();
+            for (int i = 0; i < 5; i++)
+            {
+                Registracion(i);
+            }
+        }
 
-            var deporte = common.ObtenerDeportes().FirstOrDefault();
-
-            UsuarioViewModel userView = new UsuarioViewModel { Mail = "prueba@prueba.com", Password = "Facebook", TipoUsuario = "Jugador", DeporteId = deporte.Id};
+        IUsuarioBusiness registracion => DependencyFactory.Resolve<IUsuarioBusiness>();
+        ICommonBusiness common => DependencyFactory.Resolve<ICommonBusiness>();
+        IBusquedaBusiness busqueda => DependencyFactory.Resolve<IBusquedaBusiness>();
+        ILoginBusiness login => DependencyFactory.Resolve<ILoginBusiness>();
+        DeporteViewModel deporte => common.ObtenerDeportes().FirstOrDefault();
+        IEnumerable<PuestoViewModel> listaPuesto => common.ObtenerPuestos(deporte.Id);
+        public void Registracion(int i)
+        {
+            //var deporte = common.ObtenerDeportes().FirstOrDefault();
+            UsuarioViewModel userView = new UsuarioViewModel { Mail = string.Format("prueba{0}@prueba.com", i), Password = string.Format("Facebook{0}", i), TipoUsuario = "Jugador", DeporteId = deporte.Id };
 
             userView = registracion.Registracion(userView);
 
             var datos = registracion.ObtenerDatosPersonales(userView);
-
+            Random rnd = new Random();
             datos.Nacionalidad = "Argentino";
-            datos.Nombre = "Pepe";
-            datos.Apellido = "Asasd";
+            datos.Nombre = string.Format("Pepe{0}", i);
+            datos.Apellido = string.Format("Asasd{0}", i);
+            datos.FechaNacimiento = new DateTime( rnd.Next(1990, 2010), rnd.Next(1,12),rnd.Next(1,28));
             registracion.RegistracionDatosPersonales(datos);
-
+            
             var jugadorView = common.ObtenerJugador(userView);
-            var listaPuesto = common.ObtenerPuestos(userView.DeporteId.GetValueOrDefault());
-            if(listaPuesto.Any())
-                jugadorView.PuestoId = listaPuesto.FirstOrDefault().Id;
-
-            jugadorView.Perfil = "Derecho";
-            jugadorView.Peso = 75.4m;
-            jugadorView.Altura = 1.87m;
-            jugadorView.FotoCuertoEntero = "aaa.jpg";
-            jugadorView.FotoRostro = "bbb.jpg";
+            //var listaPuesto = common.ObtenerPuestos(userView.DeporteId.GetValueOrDefault());
+            if (listaPuesto.Any())
+            {
+                jugadorView.PuestoId = listaPuesto.ToList()[rnd.Next(0,10)].Id;
+            }
+            jugadorView.Perfil = i.Equals(0) ? "Derecho" : (i % 2).Equals(0) ? "Derecho" : "Zurdo";
+            jugadorView.Peso = rnd.NextDecimal(75m, 110m);
+            jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m); ;
+            jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg",i);
+            jugadorView.FotoRostro = string.Format("bbb{0}.jpg",i);
             registracion.ActualizarDatosJugador(jugadorView);
-            var user = login.LoginUser("prueba@prueba.com", "Facebook");
+            var user = login.LoginUser(string.Format("prueba{0}@prueba.com", i), string.Format("Facebook{0}",i));
 
             var evaluacion = registracion.ObtenerEvaluacionViewModel(user);
-            Random rnd = new Random();
             foreach (var cabecera in evaluacion.Cabeceras)
             {
                 foreach (var detalle in cabecera.Detalle)
@@ -241,10 +252,10 @@ namespace BusDep.Testing
                 }
             }
             registracion.GuardarEvalucacion(evaluacion);
-
-            Console.WriteLine(evaluacion.SerializarToJson());
+            Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
+            var perfil = busqueda.ObtenerPerfil(user.JugadorId.GetValueOrDefault());
+            Console.WriteLine(perfil.SerializarToJson());
         }
-
-
     }
+
 }

@@ -59,9 +59,19 @@ namespace BusDep.Business
             return null;
         }
 
-        public static DeporteViewModel FilDeporteViewModel(Deporte deporte)
+        public static DeporteViewModel FillDeporteViewModel(Deporte deporte)
         {
             return deporte?.MapperClass<DeporteViewModel>();
         }
+        public static AntecedenteViewModel FillAntecedenteViewModel(Antecedente antecedente)
+        {
+            var ante = antecedente?.MapperClass<AntecedenteViewModel>();
+            if (ante != null)
+            {
+                ante.UsuarioId = antecedente.Usuario.Id;
+            }
+            return ante;
+        }
+        
     }
 }

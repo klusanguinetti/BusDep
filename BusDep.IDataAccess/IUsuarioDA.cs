@@ -1,4 +1,6 @@
-﻿namespace BusDep.IDataAccess
+﻿using System.Collections.Generic;
+
+namespace BusDep.IDataAccess
 {
     using BusDep.Entity;
     public interface IUsuarioDA : IBaseDA<Usuario>
@@ -9,5 +11,7 @@
         Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId);
 
         TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId);
+
+        List<Antecedente> ObtenerAntecedentes(long usuarioId);
     }
 }
