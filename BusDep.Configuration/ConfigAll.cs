@@ -52,6 +52,21 @@ namespace BusDep.Configuration
                     new InterceptionBehavior<InterceptorBase>()
               }
               );
+            DependencyFactory.RegisterType<IJugadorDA, JugadorDA>(
+             new InjectionMember[]
+             {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+             }
+             );
+            DependencyFactory.RegisterType<IBaseDA<Puesto>, CommonDA<Puesto>>(
+            new InjectionMember[]
+            {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+            }
+            );
+            
             #endregion
 
             #region Business
@@ -68,7 +83,15 @@ namespace BusDep.Configuration
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBase>()
                 }
-                ); 
+                );
+            DependencyFactory.RegisterType<ICommonBusiness, CommonBusiness>(
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+                }
+                );
+            
             #endregion
         }
 

@@ -1,4 +1,5 @@
-﻿using BusDep.Configuration;
+﻿using System.Linq;
+using BusDep.Configuration;
 using BusDep.Entity;
 using BusDep.IBusiness;
 using BusDep.IDataAccess;
@@ -134,24 +135,24 @@ namespace BusDep.Testing
             #endregion
 
             #region creacion usuario
-            Usuario usuario = new Usuario
-            {
-                Mail = "klusanguinetti@gmail.com",
-                Password = "PruebaAlta",
-                TipoUsuario = jugador
-            };
-            DatosPersona datos = new DatosPersona
-            {
-                Usuario = usuario,
-                Nombre = "Lucas",
-                Apellido = "Sanguinetti"
-            };
-            usuario.DatosPersona = datos;
+            //Usuario usuario = new Usuario
+            //{
+            //    Mail = "klusanguinetti@gmail.com",
+            //    Password = "PruebaAlta",
+            //    TipoUsuario = jugador
+            //};
+            //DatosPersona datos = new DatosPersona
+            //{
+            //    Usuario = usuario,
+            //    Nombre = "Lucas",
+            //    Apellido = "Sanguinetti"
+            //};
+            //usuario.DatosPersona = datos;
 
-            usuario.AplicacionToken.Add(new UsuarioAplicativo { Aplicativo = "Facebook", Token = "asdfg", Usuario = usuario });
-            usuario.AplicacionToken.Add(new UsuarioAplicativo { Aplicativo = "Google", Token = "gfdsa", Usuario = usuario });
+            //usuario.AplicacionToken.Add(new UsuarioAplicativo { Aplicativo = "Facebook", Token = "asdfg", Usuario = usuario });
+            //usuario.AplicacionToken.Add(new UsuarioAplicativo { Aplicativo = "Google", Token = "gfdsa", Usuario = usuario });
 
-            DAu.Save(usuario);
+            //DAu.Save(usuario);
             #endregion
         }
 
@@ -178,17 +179,32 @@ namespace BusDep.Testing
         public void Registracion()
         {
             var registracion = DependencyFactory.Resolve<IRegistracionBusiness>();
-            
+            var common = DependencyFactory.Resolve<ICommonBusiness>(); 
+
+
             UserViewModel userView = new UserViewModel { Mail = "prueba@prueba.com", Password = "Facebook", TipoUsuario = "Jugador" };
 
-            var userView1 = registracion.Registracion(userView);
+            userView = registracion.Registracion(userView);
 
-            var datos = registracion.ObtenerDatosPersonales(userView1.Id.GetValueOrDefault());
+            var datos = registracion.ObtenerDatosPersonales(userView.Id.GetValueOrDefault());
 
             datos.Nacionalidad = "Argentino";
             datos.Nombre = "Pepe";
             datos.Apellido = "Asasd";
             registracion.RegistracionDatosPersonales(datos);
+
+            var jugadorView = common.ObtenerJugador(userView);
+            var deportes = common.ObtenerDeportes().FirstOrDefault();
+            var listaPuesto = common.ObtenerPuestos(deportes.Id);
+            if(listaPuesto.Any())
+                jugadorView.PuestoId = listaPuesto.FirstOrDefault().Id;
+
+            jugadorView.Perfil = "Derecho";
+            jugadorView.Peso = 75.4m;
+            jugadorView.Altura = 1.87m;
+            jugadorView.FotoCuertoEntero = "aaa.jpg";
+            jugadorView.FotoRostro = "bbb.jpg";
+            registracion.ActualizarDatosJugador(jugadorView);
 
 
         }

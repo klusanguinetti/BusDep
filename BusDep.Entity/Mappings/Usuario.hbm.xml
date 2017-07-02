@@ -8,6 +8,7 @@
       <property name="Password" column="Password" type="System.String" length="100" />
       <many-to-one name="DatosPersona" column="DatosPersonaId" cascade="all" class="BusDep.Entity.DatosPersona, BusDep.Entity" />
       <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
+      <many-to-one name="Jugador" column="JugadorId" cascade="all" class="BusDep.Entity.Jugador, BusDep.Entity" />
       <bag name="AplicacionToken" table="UsuarioAplicativo" cascade="all" inverse="true">
         <key column="UsuarioId" />
         <one-to-many class="BusDep.Entity.UsuarioAplicativo, BusDep.Entity" />

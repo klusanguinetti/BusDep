@@ -10,23 +10,6 @@
     using BusDep.UnityInject;
     public class RegistracionBusiness : IRegistracionBusiness
     {
-        public virtual UserViewModel Registracion(UserViewModel userView)
-        {
-            var user = userView.MapperClass<Usuario>(TypeMapper.IgnoreCaseSensitive);
-            TipoUsuario tipoUsuario = DependencyFactory.Resolve<IBaseDA<TipoUsuario>>().GetAll().FirstOrDefault(o => o.Descripcion.Equals(userView.TipoUsuario));
-            if (tipoUsuario != null)
-            {
-                user.TipoUsuario = tipoUsuario;
-                user.DatosPersona= new DatosPersona {Usuario = user};
-            }
-            else
-            {
-                throw new Exception("No existe tipo usuario.");
-            }
-            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-            return FillUser(user);
-
-        }
         private UserViewModel FillUser(Usuario user)
         {
             if (user != null)
@@ -41,6 +24,30 @@
             }
         }
 
+        public virtual UserViewModel Registracion(UserViewModel userView)
+        {
+            var user = userView.MapperClass<Usuario>(TypeMapper.IgnoreCaseSensitive);
+            TipoUsuario tipoUsuario = DependencyFactory.Resolve<IBaseDA<TipoUsuario>>().GetAll().FirstOrDefault(o => o.Descripcion.Equals(userView.TipoUsuario));
+            if (tipoUsuario != null)
+            {
+                user.TipoUsuario = tipoUsuario;
+                user.DatosPersona= new DatosPersona {Usuario = user};
+                switch (user.TipoUsuario.Descripcion)
+                {
+                    case "Jugador":
+                        user.Jugador = new Jugador {Usuario = user};
+                        break;
+                }
+            }
+            else
+            {
+                throw new Exception("No existe tipo usuario.");
+            }
+            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
+            return FillUser(user);
+
+        }
+       
         public virtual DatosPersonaView ObtenerDatosPersonales(long userId)
         {
             var user = DependencyFactory.Resolve<IUsuarioDA>().GetById(userId);
@@ -58,5 +65,17 @@
             datosPersona.MapperClass(user.DatosPersona, TypeMapper.IgnoreCaseSensitive);
             DependencyFactory.Resolve<IUsuarioDA>().Save(user);
         }
+
+        public virtual void ActualizarDatosJugador(JugadorView jugadorView)
+        {
+            var da = DependencyFactory.Resolve<IJugadorDA>();
+            var jugador = da.GetById(jugadorView.Id);
+            jugadorView.MapperClass(jugador, TypeMapper.IgnoreCaseSensitive);
+            if(jugadorView.PuestoId.HasValue)
+                jugador.Puesto = da.ObtenerPuesto(jugadorView.PuestoId.Value);
+            da.Save(jugador);
+        }
+
+        
     }
 }

@@ -7,5 +7,6 @@ namespace BusDep.IBusiness
         UserViewModel Registracion(UserViewModel userView);
         DatosPersonaView ObtenerDatosPersonales(long userId);
         void RegistracionDatosPersonales(DatosPersonaView datosPersona);
+        void ActualizarDatosJugador(JugadorView jugadorView);
     }
 }

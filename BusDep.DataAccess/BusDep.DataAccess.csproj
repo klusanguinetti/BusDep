@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="BaseDataAccess.cs" />
     <Compile Include="CommonDA.cs" />
+    <Compile Include="JugadorDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sessions\NHbernateHttpModule.cs" />
     <Compile Include="UsuarioDA.cs" />

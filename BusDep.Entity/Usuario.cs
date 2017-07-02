@@ -17,6 +17,7 @@ namespace BusDep.Entity
         public string Password { get; set; }
         public DatosPersona DatosPersona { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
+        public Jugador Jugador { get; set; }
         public IList<UsuarioAplicativo> AplicacionToken { get; set; }
         #endregion 
     }

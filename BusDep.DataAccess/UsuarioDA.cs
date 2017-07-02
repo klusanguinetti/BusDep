@@ -7,7 +7,7 @@ namespace BusDep.DataAccess
     using BusDep.IDataAccess;
     using NHibernate;
     using NHibernate.Criterion;
-    public class UsuarioDA: BaseDataAccess<Usuario>, IUsuarioDA
+    public class UsuarioDA : BaseDataAccess<Usuario>, IUsuarioDA
     {
         public virtual void Save(Usuario user)
         {
@@ -38,18 +38,18 @@ namespace BusDep.DataAccess
             query.SetString("aplicacion", aplicacion);
             query.SetString("token", token);
             var usuarios = query.List<Usuario>();
-            if(usuarios.Any())
+            if (usuarios.Any())
                 return usuarios.First();
             return null;
         }
 
         public virtual Usuario Registracion(Usuario usuario)
         {
-            if (usuario != null && usuario.Id.Equals(0) && 
+            if (usuario != null && usuario.Id.Equals(0) &&
                 !string.IsNullOrWhiteSpace(usuario.Mail) &&
-                !string.IsNullOrWhiteSpace(usuario.Password) && usuario.Password.Length>=8)
+                !string.IsNullOrWhiteSpace(usuario.Password) && usuario.Password.Length >= 8)
             {
-                base.Save(usuario);
+                Save(usuario);
             }
             return usuario;
         }

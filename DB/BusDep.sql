@@ -1,7 +1,7 @@
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     01/07/2017 06:48:42 p.m.                     */
+/* Created on:     01/07/2017 06:59:40 p.m.                     */
 /*==============================================================*/
 
 
@@ -163,7 +163,6 @@ go
 /*==============================================================*/
 create table Jugador (
    JugadorId            numeric(10)          identity,
-   UsuarioId            numeric(10)          null,
    PuestoId             numeric(10)          null,
    Altura               numeric(3,2)         null,
    Peso                 numeric(5,2)         null,
@@ -256,6 +255,7 @@ create table Usuario (
    UsuarioId            numeric(10)          identity,
    TipoUsuarioId        numeric(10)          null,
    DatosPersonaId       numeric(10)          null,
+   JugadorId            numeric(10)          null,
    Mail                 nvarchar(200)        null,
    Password             nvarchar(100)        null,
    constraint PK_USUARIO primary key (UsuarioId)
@@ -346,11 +346,6 @@ alter table Jugador
       references Puesto (PuestoId)
 go
 
-alter table Jugador
-   add constraint FK_Usuario_Jugador foreign key (UsuarioId)
-      references Usuario (UsuarioId)
-go
-
 alter table Participacion
    add constraint FK_Evento_Participacion foreign key (EventoId)
       references Evento (EventoId)
@@ -379,6 +374,11 @@ go
 alter table Usuario
    add constraint FK_Usuario_DatosPersona foreign key (DatosPersonaId)
       references DatosPersona (DatosPersonaId)
+go
+
+alter table Usuario
+   add constraint FK_Usuario_Jugador foreign key (JugadorId)
+      references Jugador (JugadorId)
 go
 
 alter table UsuarioAplicativo
