@@ -1,0 +1,434 @@
+[
+  {
+    "Division": "Primera División",
+    "Nombre": "Aldosivi (Mar del Plata)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Arsenal (Sarandí)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Atlético Rafaela (Rafaela)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Atlético Tucumán (San Miguel de Tucumán)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Banfield (Banfield)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Belgrano (Córdoba)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Boca Juniors (Buenos Aires)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Colón (Santa Fé)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Defensa y Justicia (Florencio Varela)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Estudiantes (La Plata)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Gimnasia y Esgrima (La Plata)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Godoy Cruz (Godoy Cruz)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Huracán (Buenos Aires)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Independiente (Avellaneda)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Lanús (Lanús)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Newell's Old Boys (Rosario)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Olimpo (Bahia Branca)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Patronato (Paraná)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Quilmes (Quilmes)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Racing Club (Avellaneda)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "River Plate (Buenos Aires)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Rosario Central (Rosario)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "San Lorenzo (Buenos Aires)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "San Martín (San Juan)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Sarmiento (Junín)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Club Atlético Talleres (Córdoba)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Temperley (Temperley)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Tigre (Victoria)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Club Atlético Unión (Santa Fé)"
+  },
+  {
+    "Division": "Primera División",
+    "Nombre": "Vélez Sarsfield (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "All Boys (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Almagro (José Ingenieros)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Argentinos Juniors (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Atlético Paraná (Paraná)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Boca Unidos (Corrientes)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Brown (Adrogué)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Central Córdoba (Santiago del Estero)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Chacarita Juniors (Villa Maipú)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Crucero del Norte (Garupá)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Douglas Haig (Pergamino)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Ferro Carril Oeste (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Flandria (Jáuregui)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Gimnasia y Esgrima (San Salvador de Jujuy)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Guillermo Brown (Puerto Madryn)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Independiente Rivadavia (Mendoza)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Instituto (Córdoba)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Juventud Unida (Gualeguaychú)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Los Andes (Lomas de Zamora)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Nueva Chicago (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Santamarina (Tandil)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "San Martín (Tucunán)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Sportivo Estudiantes (San Luis)"
+  },
+  {
+    "Division": "Primera B Nacional",
+    "Nombre": "Villa Dálmine (Campana)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Acassuso (San Isidro)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Almirante Brown (Isidro Casanova)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Atlanta (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Barracas Central (Barracas)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Colegiales (Munro)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Comunicaciones (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Defensores de Belgrano (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Club Deportivo Español (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Deportivo Morón (Morón)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Estudiantes (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Excursionistas (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Fênix (Pilar)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Platense (Florida)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Riestra (Buenos Aires)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "San Telmo (Dock Sud)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "CA Talleres (Remedios de Escalada)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Tristán Suárez (Tristán Suárez)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "UAI Urquiza (Villa Lynch)"
+  },
+  {
+    "Division": "Primera B Metropolitana ",
+    "Nombre": "Villa San Carlos (Berisso)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Argentino de Merlo (Merlo)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Argentino de Quilmes (Quilmes)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Armenio (Ingeniero Maschwitz)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Berazategui (Berazategui)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Cañuelas (Cañuelas)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Central Córdoba (Rosario)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Defensores de Cambaceres (Ensenada)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Defensores Unidos (Zárate)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Deportivo Laferrere (Gregorio de Laferrere)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Dock Sud (Dock Sud)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Sportivo Barracas (Barracas)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Sportivo Italiano (Ciudad Evita)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "El Porvenir (Gerli)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Ferrocarril Midland (Libertad)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "J.J. Urquiza (Loma Hermosa)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Deportivo Merlo (Merlo)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Luján (Luján)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "Sacachispas (Buenos Aires)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "San Martín (Burzaco)"
+  },
+  {
+    "Division": "Primera C Metropolitana",
+    "Nombre": "San Miguel (Los Polvorines)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Argentino (Rosário)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Atlas (General Rodríguez)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Central Ballester (José León Suárez)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Centro Español (Villa Sarmiento)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Claypole (Claypole)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Deportivo Paraguayo (Buenos Aires)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "General Lamadrid (Villa Devoto)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Ituzaingó (Ituzaingó)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Juventud Unida (SM) (San Miguel)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Leandro N. Alem (General Rodríguez)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Deportivo Liniers (San Justo)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Lugano (Tapiales)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Deportivo Muñiz (Muñiz)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Puerto Nuevo (Campana)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Victoriano Arenas (Piñeyro)"
+  },
+  {
+    "Division": "Primera D Metropolitana",
+    "Nombre": "Deportivo Yupanqui (Buenos Aires)"
+  }
+]

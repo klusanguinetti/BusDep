@@ -16,6 +16,8 @@ namespace BusDep.Business
                 userView.DeporteId = user.Deporte?.Id;
                 userView.JugadorId = user.Jugador?.Id;
                 userView.DatosPersonaId = user.DatosPersona?.Id;
+                userView.Nombre = user.DatosPersona?.Nombre;
+                userView.Apellido = user.DatosPersona?.Apellido;
                 return userView;
             }
             return null;

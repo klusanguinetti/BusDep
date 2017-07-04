@@ -24,11 +24,20 @@ namespace BusDep.Business
             if (tipoUsuario != null)
             {
                 user.TipoUsuario = tipoUsuario;
-                user.DatosPersona = new DatosPersona { Usuario = user };
+                user.DatosPersona = new DatosPersona { Usuario = user, Nombre = userView.Nombre, Apellido = userView.Nombre};
                 switch (user.TipoUsuario.Descripcion)
                 {
                     case "Jugador":
                         user.Jugador = new Jugador { Usuario = user };
+                        break;
+                    case "Entrenador":
+                        //user.Jugador = new Jugador { Usuario = user };
+                        break;
+                    case "Intermediario":
+                        //user.Jugador = new Jugador { Usuario = user };
+                        break;
+                    case "Club":
+                        //user.Jugador = new Jugador { Usuario = user };
                         break;
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using BusDep.Common;
 using BusDep.Configuration;
@@ -16,6 +17,7 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
         private ConfigAll configAll = null;
+        public bool cargaDB = false;
         [SetUp]
         public void Init()
         {
@@ -23,6 +25,8 @@ namespace BusDep.Testing
                 configAll = new ConfigAll();
             configAll.Init();
 
+            if (!cargaDB)
+                return;
             #region borrado
             var DAev = DependencyFactory.Resolve<IBaseDA<Evaluacion>>();
             foreach (var d in DAev.GetAll())
@@ -226,22 +230,22 @@ namespace BusDep.Testing
             datos.Nacionalidad = "Argentino";
             datos.Nombre = string.Format("Pepe{0}", i);
             datos.Apellido = string.Format("Asasd{0}", i);
-            datos.FechaNacimiento = new DateTime( rnd.Next(1990, 2010), rnd.Next(1,12),rnd.Next(1,28));
+            datos.FechaNacimiento = new DateTime(rnd.Next(1990, 2010), rnd.Next(1, 12), rnd.Next(1, 28));
             registracion.RegistracionDatosPersonales(datos);
-            
+
             var jugadorView = common.ObtenerJugador(userView);
             //var listaPuesto = common.ObtenerPuestos(userView.DeporteId.GetValueOrDefault());
             if (listaPuesto.Any())
             {
-                jugadorView.PuestoId = listaPuesto.ToList()[rnd.Next(0,10)].Id;
+                jugadorView.PuestoId = listaPuesto.ToList()[rnd.Next(0, 10)].Id;
             }
             jugadorView.Perfil = i.Equals(0) ? "Derecho" : (i % 2).Equals(0) ? "Derecho" : "Zurdo";
             jugadorView.Peso = rnd.NextDecimal(75m, 110m);
             jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m); ;
-            jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg",i);
-            jugadorView.FotoRostro = string.Format("bbb{0}.jpg",i);
+            jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
+            jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
             registracion.ActualizarDatosJugador(jugadorView);
-            var user = login.LoginUser(string.Format("prueba{0}@prueba.com", i), string.Format("Facebook{0}",i));
+            var user = login.LoginUser(string.Format("prueba{0}@prueba.com", i), string.Format("Facebook{0}", i));
 
             var evaluacion = registracion.ObtenerEvaluacionViewModel(user);
             foreach (var cabecera in evaluacion.Cabeceras)
@@ -255,6 +259,31 @@ namespace BusDep.Testing
             Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
             var perfil = busqueda.ObtenerPerfil(user.JugadorId.GetValueOrDefault());
             Console.WriteLine(perfil.SerializarToJson());
+        }
+
+        [Test]
+        public void LeerJson()
+        {
+            var path = System.Reflection.Assembly.GetAssembly(this.GetType()).CodeBase;
+            UriBuilder uri = new UriBuilder(path);
+            path = Uri.UnescapeDataString(uri.Path);
+
+            var directory = Directory.GetParent(path).FullName;
+            var jsonName = "Clubes.json";
+            var targetPath = Path.Combine(directory, jsonName);
+
+            if (File.Exists(targetPath))
+            {
+                var json = File.ReadAllText(targetPath);
+                var DataList = json.DeserializarToJson<List<ClubViewModel>>();
+            }
+            jsonName = "Paises.json";
+            targetPath = Path.Combine(directory, jsonName);
+            if (File.Exists(targetPath))
+            {
+                var json = File.ReadAllText(targetPath);
+                var DataList = json.DeserializarToJson<List<PaisViewModel>>();
+            }
         }
     }
 

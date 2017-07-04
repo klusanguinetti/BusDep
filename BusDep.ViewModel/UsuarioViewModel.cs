@@ -18,6 +18,9 @@
         public long? JugadorId { get; set; }
         [DataMember]
         public long? DatosPersonaId { get; set; }
-
+        [DataMember]
+        public string Nombre { get; set; }
+        [DataMember]
+        public string Apellido { get; set; }
     }
 }
