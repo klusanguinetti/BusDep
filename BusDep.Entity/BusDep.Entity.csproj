@@ -42,6 +42,7 @@
     <Compile Include="Antecedente.cs" />
     <Compile Include="DatosPersona.cs" />
     <Compile Include="Deporte.cs" />
+    <Compile Include="DTO\JugadorBusquedaDTO.cs" />
     <Compile Include="Evaluacion.cs" />
     <Compile Include="EvaluacionCabecera.cs" />
     <Compile Include="EvaluacionDetalle.cs" />

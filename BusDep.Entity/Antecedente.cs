@@ -6,7 +6,7 @@ namespace BusDep.Entity
         #region Atributos
         public virtual long Id { get; set; }
         public virtual DateTime? FechaFin { get; set; }
-        public virtual DateTime? FechaInicio { get; set; }
+        public virtual DateTime FechaInicio { get; set; }
         public virtual string InformacionAdicional { get; set; }
         public virtual string InstitucionDescripcion { get; set; }
         public virtual string LogoInstitucion { get; set; }

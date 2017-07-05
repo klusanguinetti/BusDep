@@ -4144,10 +4144,11 @@ TableComment 0 Arial,8,N</a:FontList>
 <a:Code>UsuarioId</a:Code>
 <a:CreationDate>1494462810</a:CreationDate>
 <a:Creator>Lucas</a:Creator>
-<a:ModificationDate>1499198762</a:ModificationDate>
+<a:ModificationDate>1499201567</a:ModificationDate>
 <a:Modifier>B033824</a:Modifier>
 <a:DataType>numeric(10)</a:DataType>
 <a:Length>10</a:Length>
+<a:Identity>1</a:Identity>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o127">

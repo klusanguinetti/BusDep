@@ -11,7 +11,7 @@
         [DataMember]
         public DateTime? FechaFin { get; set; }
         [DataMember]
-        public DateTime? FechaInicio { get; set; }
+        public DateTime FechaInicio { get; set; }
         [DataMember]
         public string InformacionAdicional { get; set; }
         [DataMember]

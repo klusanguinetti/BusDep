@@ -33,6 +33,13 @@ namespace BusDep.Testing
             {
                 DAev.Delete(d);
             }
+
+            var DAan = DependencyFactory.Resolve<IBaseDA<Antecedente>>();
+            foreach (var d in DAan.GetAll())
+            {
+                DAan.Delete(d);
+            }
+
             IUsuarioDA DAu = DependencyFactory.Resolve<IUsuarioDA>();
             foreach (var d in DAu.GetAll())
             {
@@ -206,7 +213,7 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 Registracion(i);
             }
@@ -261,16 +268,26 @@ namespace BusDep.Testing
                 }
             }
             jugador.GuardarEvalucacion(evaluacion);
+
+            var ante = jugador.NuevoAntecedenteViewModel(userView);
+            ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
+            ante.FechaInicio = DateTime.Now.AddYears(-rnd.Next(6, 10));
+            ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0,2));
+            jugador.GuardarAntecedenteViewModel(ante);
+            DateTime fechafin = ante.FechaFin.GetValueOrDefault();
+            ante = jugador.NuevoAntecedenteViewModel(userView);
+            ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
+            ante.FechaInicio = fechafin.AddYears(rnd.Next(6, 6));
+            jugador.GuardarAntecedenteViewModel(ante);
+
             Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
-            var perfil = busqueda.ObtenerPerfil(user.JugadorId.GetValueOrDefault());
-            Console.WriteLine(perfil.SerializarToJson());
         }
 
         [Test]
         public void BusquedaJugador()
         {
-            var list = busqueda.BuscarJugador(null, null, null, null, "Contratado", "Profecional", null);
-
+            var list = busqueda.BuscarJugador(54, null, 14, 21, "Libre", "Amateur", "3");
+            Console.WriteLine(list.SerializarToJson());
         }
 
         [Test]
@@ -296,6 +313,25 @@ namespace BusDep.Testing
                 var json = File.ReadAllText(targetPath);
                 var DataList = json.DeserializarToJson<List<PaisViewModel>>();
             }
+        }
+
+        private List<ClubViewModel> Clubes => LeerCluber(); 
+        private List<ClubViewModel> LeerCluber()
+        {
+            var path = System.Reflection.Assembly.GetAssembly(this.GetType()).CodeBase;
+            UriBuilder uri = new UriBuilder(path);
+            path = Uri.UnescapeDataString(uri.Path);
+
+            var directory = Directory.GetParent(path).FullName;
+            var jsonName = "Clubes.json";
+            var targetPath = Path.Combine(directory, jsonName);
+
+            if (File.Exists(targetPath))
+            {
+                var json = File.ReadAllText(targetPath);
+                return json.DeserializarToJson<List<ClubViewModel>>();
+            }
+            return new List<ClubViewModel>();
         }
     }
 

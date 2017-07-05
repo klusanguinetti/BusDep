@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BusDep.Entity;
+using BusDep.Entity.DTO;
 
 namespace BusDep.IDataAccess
 {
@@ -7,6 +8,6 @@ namespace BusDep.IDataAccess
     {
         Puesto ObtenerPuesto(long puestoId);
 
-        List<Jugador> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre);
+        List<JugadorBusquedaDTO> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre);
     }
 }
