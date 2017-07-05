@@ -13,6 +13,14 @@
             templateUrl: '/Account/Register',
             controller: 'registerController'
         })
+        .when('/Search', {
+            templateUrl: '/Search/Search',
+            controller: 'searchController'
+        })
+        .when('/Profile/:type/:id', {
+            templateUrl: '/Profile/Index',
+            controller: 'publicProfileController'
+        })
         .otherwise({
             redirectTo: '/'
         });

@@ -1,0 +1,608 @@
+﻿@{
+    Layout = null;
+}
+
+<div ng-controller="searchController">
+
+    <div class="search-row-wrapper" style="background-image: url(../../Content/img/1.jpg); background-size: cover; background-position: center center;">
+        <div class="container text-center">
+            <div class="col-sm-3">
+                <input class="form-control keyword" type="text" placeholder="¿Que buscas?">
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" name="category" id="search-category">
+                    <option selected="selected" value="">Todas las categorias</option>
+                    <option value="111">Jugadores</option>
+                    <option value="112">Clubes</option>
+                    <option value="113">Intermediarios</option>
+                    <option value="114">Entrenadores</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" name="location" id="id-location">
+                    <option selected="selected" value="">Todos los lugares</option>
+                    <option value="Capital federal"> Capital federal</option>
+                    <option value="Buenos Aires"> Buenos Aires</option>
+                    <option value="Cordoba">Cordoba </option>
+                    <option value="Mendoza"> Mendoza</option>
+                    <option value="Santa Fe"> Santa Fe</option>
+                    <option value="Tucumán"> Tucumán</option>
+                    <option value="La Pampa"> La Pampa</option>
+                    <option value="Jujuy"> Jujuy</option>
+                    <option value="Santa Cruz"> Santa Cruz</option>
+                    <option value="Santa Cruz"> Santa Cruz</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn btn-block btn-primary"> Encontrar <i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3 page-sidebar mobile-filter-sidebar">
+                    <aside>
+                        <div class="inner-box">
+                            <div class=" list-filter">
+                                <h5 class="list-title"><strong><a href="#"> Edad </a></strong></h5>
+                                <div class="filter-date filter-content">
+                                    <ul>
+                                        <li>
+                                            <input type="radio" value="1" id="posted_1" name="posted">
+                                            <label for="posted_1">Hasta 18</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" value="3" id="posted_3" name="posted">
+                                            <label for="posted_3">Hasta 25</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" value="7" id="posted_7" name="posted">
+                                            <label for="posted_7">Hasta 35</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" checked="checked" value="30" id="posted_30" name="posted">
+                                            <label for="posted_30">Mayor de 35</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="list-filter">
+                                <h5 class="list-title"><strong><a href="#">Habilidades</a></strong></h5>
+                                <div class="filter-content filter-employment-type">
+                                    <ul class="browse-list list-unstyled">
+                                        <li>
+                                            <input type="checkbox" id="employment_all" value="all" class="emp" checked="checked">
+                                            <label for="employment_all">Todas</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtft" value="jtft" class="emp emp-type">
+                                            <label for="employment_jtft">Conducción</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtpt" value="jtpt" class="emp emp-type">
+                                            <label for="employment_jtpt">Finta</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtct" value="jtct" class="emp emp-type">
+                                            <label for="employment_jtct">Control orientado</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtin" value="jtin" class="emp emp-type">
+                                            <label for="employment_jtin">Pase</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtse" value="jtse" class="emp emp-type">
+                                            <label for="employment_jtse">Dribleo</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class=" list-filter">
+                                <h5 class="list-title"><strong><a href="#">Rango de salario</a></strong></h5>
+                                <div class="filter-salary filter-content ">
+                                    <form role="form" class="form-inline ">
+                                        <div class="form-group col-sm-4 no-padding">
+                                            <input type="text" placeholder="$ 1000 " id="minPrice" class="form-control">
+                                        </div>
+                                        <div class="form-group col-sm-1 no-padding text-center hidden-xs"> -</div>
+                                        <div class="form-group col-sm-4 no-padding">
+                                            <input type="text" placeholder="$ 15000 " id="maxPrice" class="form-control">
+                                        </div>
+                                        <div class="form-group col-sm-3 no-padding">
+                                            <button class="btn btn-default pull-right btn-block-xs" type="submit">
+                                                Ir
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <ul class="mt15">
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_0" value="0" checked="checked">
+                                            <label for="pay_0">Cualquiera</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_20" value="20">
+                                            <label for="pay_20">$20,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_40" value="40">
+                                            <label for="pay_40">$40,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_60" value="60">
+                                            <label for="pay_60">$60,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_80" value="80">
+                                            <label for="pay_80">$80,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_100" value="100">
+                                            <label for="pay_100">$100,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_120" value="120">
+                                            <label for="pay_120">$120,000+</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>
+
+                            <div class="locations-list  list-filter">
+                                <h5 class="list-title"><strong><a href="#">Categorías</a></strong></h5>
+                                <ul class="browse-list list-unstyled long-list">
+                                    <li>
+                                        <a href="job-list.html">Portero <span class="count">(52)</span> </a>
+                                    </li>
+                                    <li>
+                                        <a href="job-list.html">Defensor central <span class="count">(156)</span> </a>
+                                    </li>
+                                    <li>
+                                        <a href="job-list.html">Defensor lateral <span class="count">(25)</span></a>
+                                    </li>
+                                    <li><a href="job-list.html">Mediocampista defensivo <span class="count">(87)</span></a></li>
+                                    <li><a href="job-list.html">Mediocampista Central <span class="count">(15)</span></a></li>
+                                    <li><a href="job-list.html">Lateral volante <span class="count">(125)</span></a></li>
+                                    <li><a href="job-list.html">Volante de corte <span class="count">(7)</span></a></li>
+                                    <li><a href="job-list.html">Volante de salida <span class="count">(85)</span></a></li>
+                                    <li>
+                                        <a href="job-list.html">Volante mixto <span class="count">(56)</span></a>
+                                    </li>
+                                    <li><a href="job-list.html">Media punta derecha <span class="count">(100)</span></a></li>
+                                    <li>
+                                        <a href="job-list.html">Delantero centro <span class="count">(180)</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="job-list.html">Puntero <span class="count">(200)</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="locations-list  list-filter">
+                                <h5 class="list-title"><strong><a href="#">Ubicación</a></strong></h5>
+                                <ul class="browse-list list-unstyled long-list">
+                                    <li><a href="job-list.html">Capital Federal</a></li>
+                                    <li><a href="job-list.html">Buenos Aires</a></li>
+                                    <li><a href="job-list.html">Santa Fe</a></li>
+                                    <li><a href="job-list.html">Cordoba</a></li>
+                                    <li><a href="job-list.html">Mendoza</a></li>
+                                    <li><a href="job-list.html">La Pampa</a></li>
+                                </ul>
+                            </div>
+
+                            <div style="clear:both"></div>
+                        </div>
+
+                    </aside>
+                </div>
+
+                <div class="col-sm-9 page-content col-thin-left">
+                    <div class="category-list">
+                        <div class="tab-box clearfix ">
+
+                            <div class="col-lg-12  box-title no-border">
+                                <div class="inner">
+                                    <h2>
+                                        <span> 	Mediocampista  </span> defensivo
+                                        <small> 12+ perfiles encontrados</small>
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div class="mobile-filter-bar col-lg-12  ">
+                                <ul class="list-unstyled list-inline no-margin no-padding">
+                                    <li class="filter-toggle">
+                                        <a class="">
+                                            <i class=" icon-th-list"></i>
+                                            Filtros
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown">
+                                            <a data-toggle="dropdown" class="dropdown-toggle">
+                                                <i class="caret "></i>
+                                                Filtrar por
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" rel="nofollow">Relevance</a></li>
+                                                <li><a href="#" rel="nofollow">Date</a></li>
+                                                <li><a href="#" rel="nofollow">Company</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-overly-mask"></div>
+
+                            <div class="tab-filter hide-xs">
+                                <div class="selecter select-short-by closed" tabindex="0">
+                                    <select class="selectpicker selecter-element" data-style="btn-select" data-width="auto" tabindex="-1">
+                                        <option value="Short by">Ordenar por</option>
+                                        <option value="Relevance">Relevance</option>
+                                        <option value="Company">Company</option>
+                                    </select><span class="selecter-selected">Ordenar por</span><div class="selecter-options scroller"><div class="scroller-bar" style="height: 100px;"><div class="scroller-track" style="height: 100px; margin-bottom: 0px; margin-top: 0px;"><div class="scroller-handle"></div></div></div><div class="scroller-content"><span class="selecter-item selected" data-value="Short by">Short by</span><span class="selecter-item" data-value="Relevance">Relevance</span><span class="selecter-item" data-value="Company">Company</span></div></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="listing-filter hidden-xs">
+                            <div class="pull-left col-sm-6 col-xs-12">
+                                <div class="breadcrumb-list text-center-xs">
+                                    <a class="jobs-s-tag" rel="nofollow" title="Software Architect">
+                                        MEDIOCAMPISTA DEFENSIVO
+                                    </a>
+                                    en <a rel="nofollow" class="jobs-s-tag"> Capital federal</a>
+                                </div>
+                            </div>
+                            <div class="pull-right col-sm-6 col-xs-12 text-right text-center-xs listing-view-action">
+                                <a class="clear-all-button text-muted">Limpiar filtros</a>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+
+                        <div class="adds-wrapper jobs-list">
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/angel_di_maria.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title "><a href="#!/Profile/player/521">Angel Di Maria</a></h5>
+                                        <h4 class="#!/Profile/player/521">
+                                            <a href="#!/Profile/player/521"> Extremo / Delantero </a>
+                                        </h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> New York, NY </span> <span class="date"><i class=" icon-clock"> </i>25 años / 192 cm</span><span class="salary"> <i class=" icon-money"> </i> $50000 - $81000 a year</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/carlos_teves.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title "><a href="#!/Profile/player/521">Carlos Tevez</a></h5>
+                                        <h4 class="job-title">
+                                            <a href="#!/Profile/player/521">
+                                                Extremo / Delantero
+                                            </a>
+                                        </h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> New York, NY </span> <span class="date"><i class=" icon-clock"> </i>Full-time</span><span class=" salary"> <i class=" icon-money"> </i> $10000 - $23000 a year</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/ezequiel.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title "><a href="#!/Profile/player/521">Ezequiel</a></h5>
+                                        <h4 class="job-title">
+                                            <a href="#!/Profile/player/521">Extremo / Delantero</a>
+                                        </h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> New York, NY </span> <span class="date"><i class=" icon-clock"> </i>Contract </span><span class=" salary"> <i class=" icon-money"> </i>$50.00 - $60.00 / Hr</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/gonzalo_higuain.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title"><a href="#!/Profile/player/521">Gonzalo Higuain</a></h5>
+                                        <h4 class="job-title">
+                                            <a href="#!/Profile/player/521">
+                                                Extremo / Delantero
+                                            </a>
+                                        </h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> Barrington, IL</span> <span class="date"><i class=" icon-clock"> </i>Full-time</span><span class=" salary"> <i class=" icon-money"> </i> $20000 - $41000 a year</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/marcos_rojo.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title "><a href="#!/Profile/player/521">Marcos Rojo</a></h5>
+                                        <h4 class="job-title"><a href="#!/Profile/player/521">Extremo / Delantero</a></h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> New York, NY </span> <span class="date"><i class=" icon-clock"> </i>Full-time</span><span class=" salary"> <i class=" icon-money"> </i> $50000 - $70000 a year</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/javier_mascherano.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title "><a href="#!/Profile/player/521">Javier Mascherano.</a></h5>
+                                        <h4 class="job-title">
+                                            <a href="#!/Profile/player/521">
+                                                Extremo / Delantero
+                                            </a>
+                                        </h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> Mountain View, OR</span> <span class="date"><i class=" icon-clock"> </i>Full-time</span><span class=" salary"> <i class=" icon-money"> </i> $30000 - $51000 a year</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="item-list job-item">
+                                <div class="col-sm-1  col-xs-2 no-padding photobox">
+                                    <div class="add-image"><a href="#!/Profile/player/521"><img alt="company logo" src="~/Content/img/jugadores-fotos/paulo_dybala.jpg" class="thumbnail no-margin"></a></div>
+                                </div>
+
+                                <div class="col-sm-10  col-xs-10  add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h5 class="company-title "><a href="#!/Profile/player/521">Paulo Dybala</a></h5>
+                                        <h4 class="job-title"><a href="#!/Profile/player/521">Extremo / Delantero</a></h4>
+                                        <span class="info-row"> <span class="item-location"><i class="fa fa-map-marker"></i> San Francisco </span> <span class="date"><i class=" icon-clock"> </i>Full-time</span><span class=" salary"> <i class=" icon-money"> </i> $30000 - $51000 a year</span></span>
+                                        <div class="jobs-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="job-actions">
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <a class="save-job" href="#">
+                                                        <span class="fa fa-star-o"></span>
+                                                        Agregar favoritos
+                                                    </a>
+                                                </li>
+                                                <li class="saved-job hide">
+                                                    <a href="#" class="saved-job">
+                                                        <span class="fa fa-star"></span>
+                                                        Agregado a favoritos
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="email-job">
+                                                        <i class="fa fa-envelope"></i>
+                                                        Contactar jugador
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tab-box  save-search-bar text-center">
+                            <a href="#">
+                                <i class="icon-star-empty"></i>
+                                Salvar búsqueda
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pagination-bar text-center">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"> ...</a></li>
+                            <li><a class="pagination-btn" href="#">Siguiente »</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="post-promo text-center">
+                        <h2> ¿Te gustaria ver tu perfil aca? </h2>
+                        <h5> ¡Registrate gratuitamente y deja que los mejores clubes y representantes te encuentren! </h5>
+                        <a href="#!/Account/Login" class="btn btn-lg btn-border btn-post btn-danger">Quiero registrarme</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -128,6 +128,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,6 +191,7 @@
     <Content Include="Content\img\jugadores-fotos\javier_mascherano.jpg" />
     <Content Include="Content\img\jugadores-fotos\marcos_rojo.jpg" />
     <Content Include="Content\img\jugadores-fotos\paulo_dybala.jpg" />
+    <Content Include="Content\img\logos-clubes\PSG.png" />
     <Content Include="Content\img\property-agency-logo.png" />
     <Content Include="Content\img\user.jpg" />
     <Content Include="Content\jquery.fs.scroller.css" />
@@ -210,6 +213,8 @@
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
+    <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
+    <Content Include="Scripts\app\components\search\searchController.js" />
     <Content Include="Scripts\vendor\angular-animate.js" />
     <Content Include="Scripts\vendor\angular-animate.min.js" />
     <Content Include="Scripts\vendor\angular-aria.js" />
@@ -1042,11 +1047,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\fontello\" />
     <Folder Include="Models\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="Scripts\app\shared\directives\" />
   </ItemGroup>
   <ItemGroup>
