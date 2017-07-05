@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+    <class name="BusDep.Entity.Club, BusDep.Entity" table="Club" lazy="true"> 
+      <id name="Id" column="UsuarioId" type="System.Int64"  >
+        <generator class="native" />
+      </id>
+      <many-to-one name="Usuario" unique="true" column="UsuarioId" class="BusDep.Entity.Usuario, BusDep.Entity"/>
+    </class>
+  </hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->

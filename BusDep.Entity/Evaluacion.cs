@@ -9,11 +9,11 @@ namespace BusDep.Entity
             Cabeceras = new List<EvaluacionCabecera>();
         }
         #region Atributos
-        public long Id { get; set; }
-        public Jugador Jugador { get; set; }
-        public TipoEvaluacion TipoEvaluacion { get; set; }
+        public virtual long Id { get; set; }
+        public virtual Jugador Jugador { get; set; }
+        public virtual TipoEvaluacion TipoEvaluacion { get; set; }
 
-        public IList<EvaluacionCabecera> Cabeceras { get; set; }
+        public virtual IList<EvaluacionCabecera> Cabeceras { get; set; }
         #endregion 
     }
 }

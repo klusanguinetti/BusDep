@@ -74,6 +74,24 @@ namespace BusDep.Business
             }
             return ante;
         }
-        
+
+        public static JugadorBusquedaViewModel FillJugadorBusquedaViewModel(Jugador jugador)
+        {
+            if (jugador != null)
+            {
+                var jugadorView = jugador.MapperClass<JugadorBusquedaViewModel>();
+                jugadorView.Id = jugador.Id;
+                jugadorView.PuestoDescripcion = jugador.Puesto?.Descripcion;
+                jugadorView.Nombre = jugador.Usuario.DatosPersona?.Nombre;
+                jugadorView.Apellido = jugador.Usuario.DatosPersona?.Apellido;
+                jugadorView.Nacionalidades1 = jugador.Usuario.DatosPersona?.Nacionalidades1;
+                jugadorView.Nacionalidad = jugador.Usuario.DatosPersona?.Nacionalidad;
+                jugadorView.PuestoDescripcion = jugador.Puesto?.Descripcion;
+                return jugadorView;
+            }
+            return null;
+        }
+
+
     }
 }

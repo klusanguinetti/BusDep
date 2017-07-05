@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-		<class name="BusDep.Entity.TipoVideo, BusDep.Entity" table="TipoVideo" lazy="false"> 
+		<class name="BusDep.Entity.TipoVideo, BusDep.Entity" table="TipoVideo" lazy="true"> 
 			<id name="Id" column="TipoVideoId" type="System.Int64"  >
 				<generator class="native" />
 			</id>

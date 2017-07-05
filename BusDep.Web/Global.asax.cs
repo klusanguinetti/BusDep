@@ -36,7 +36,7 @@ namespace BusDep.Web
                     start = new ConfigAll();
                 start.Init();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

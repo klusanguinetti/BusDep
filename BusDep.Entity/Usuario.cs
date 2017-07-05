@@ -12,14 +12,18 @@ namespace BusDep.Entity
         #endregion
 
         #region Atributos
-        public long Id { get; set; }
-        public string Mail { get; set; }
-        public string Password { get; set; }
-        public DatosPersona DatosPersona { get; set; }
-        public TipoUsuario TipoUsuario { get; set; }
-        public Deporte Deporte { get; set; }
-        public Jugador Jugador { get; set; }
-        public IList<UsuarioAplicativo> AplicacionToken { get; set; }
+        public virtual long Id { get; set; }
+        public virtual string Mail { get; set; }
+        public virtual string Password { get; set; }
+        public virtual DatosPersona DatosPersona { get; set; }
+        public virtual TipoUsuario TipoUsuario { get; set; }
+        public virtual Deporte Deporte { get; set; }
+        public virtual Jugador Jugador { get; set; }
+        public virtual Intermediario Intermediario { get; set; }
+        public virtual Entrenador Entrenador { get; set; }
+        public virtual Club Club { get; set; }
+
+        public virtual IList<UsuarioAplicativo> AplicacionToken { get; set; }
         #endregion 
     }
 }

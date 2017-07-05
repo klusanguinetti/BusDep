@@ -1,32 +1,30 @@
-namespace BusDep.ViewModel
+﻿namespace BusDep.ViewModel
 {
     using System;
     using System.Runtime.Serialization;
     [DataContract]
-    public class JugadorViewModel
+    public class JugadorBusquedaViewModel
     {
         [DataMember]
         public long Id { get; set; }
         [DataMember]
-        public decimal? Altura { get; set; }
+        public string Nombre { get; set; }
         [DataMember]
-        public string FotoCuertoEntero { get; set; }
-        [DataMember]
+        public string Apellido { get; set; }
         public string FotoRostro { get; set; }
         [DataMember]
-        public string Perfil { get; set; }
+        public string Nacionalidad { get; set; }
         [DataMember]
-        public decimal? Peso { get; set; }
-        [DataMember]
-        public long? PuestoId { get; set; }
+        public string Nacionalidades1 { get; set; }
         [DataMember]
         public string PuestoDescripcion { get; set; }
         [DataMember]
-        public long UsuarioId { get; set; }
+        public string ClubActual { get; set; }
+        [DataMember]
+        public string Perfil { get; set; }
         [DataMember]
         public string Pie { get; set; }
         [DataMember]
         public string Fichaje { get; set; }
-
     }
 }

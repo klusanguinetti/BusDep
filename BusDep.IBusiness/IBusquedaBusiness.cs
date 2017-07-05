@@ -7,5 +7,8 @@ namespace BusDep.IBusiness
     public interface IBusquedaBusiness
     {
         PerfilJugadorViewModel ObtenerPerfil(long jugadorId);
+
+        List<JugadorBusquedaViewModel> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta,
+            string fichaje, string perfil, string nombre);
     }
 }

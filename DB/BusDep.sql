@@ -1,7 +1,7 @@
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     02/07/2017 01:22:15 p.m.                     */
+/* Created on:     04/07/2017 05:53:38 p.m.                     */
 /*==============================================================*/
 
 
@@ -29,6 +29,9 @@ create table Antecedente (
    FechaFin             datetime             null,
    InformacionAdicional nvarchar(2000)       null,
    Video                nvarchar(400)        null,
+   Goles                numeric(8)           null,
+   Partidos             numeric(8)           null,
+   Asistencias          numeric(8)           null,
    constraint PK_ANTECEDENTE primary key (AntecedenteId)
 )
 go
@@ -45,10 +48,21 @@ create table Certificacion (
 go
 
 /*==============================================================*/
+/* Table: Club                                                  */
+/*==============================================================*/
+create table Club (
+   ClubId               numeric(10)          identity,
+   UsuarioId            numeric(10)          null,
+   constraint PK_CLUB primary key (ClubId)
+)
+go
+
+/*==============================================================*/
 /* Table: DatosPersona                                          */
 /*==============================================================*/
 create table DatosPersona (
    DatosPersonaId       numeric(10)          identity,
+   UsuarioId            numeric(10)          null,
    Mail                 nvarchar(200)        null,
    Nombre               nvarchar(200)        null,
    Apellido             nvarchar(200)        null,
@@ -77,6 +91,16 @@ create table Deporte (
    Descripcion          nvarchar(100)        null,
    Tipo                 nvarchar(100)        null,
    constraint PK_DEPORTE primary key (DeporteId)
+)
+go
+
+/*==============================================================*/
+/* Table: Entrenador                                            */
+/*==============================================================*/
+create table Entrenador (
+   EntrenadorId         numeric(10)          identity,
+   UsuarioId            numeric(10)          null,
+   constraint PK_ENTRENADOR primary key (EntrenadorId)
 )
 go
 
@@ -160,16 +184,29 @@ create table InscripcionEvento (
 go
 
 /*==============================================================*/
+/* Table: Intermediario                                         */
+/*==============================================================*/
+create table Intermediario (
+   IntermediarioId      numeric(10)          identity,
+   UsuarioId            numeric(10)          null,
+   constraint PK_INTERMEDIARIO primary key (IntermediarioId)
+)
+go
+
+/*==============================================================*/
 /* Table: Jugador                                               */
 /*==============================================================*/
 create table Jugador (
    JugadorId            numeric(10)          identity,
    PuestoId             numeric(10)          null,
+   UsuarioId            numeric(10)          null,
    Altura               numeric(3,2)         null,
    Peso                 numeric(5,2)         null,
    FotoCuertoEntero     nvarchar(200)        null,
    FotoRostro           nvarchar(200)        null,
    Perfil               nvarchar(20)         null,
+   Fichaje              nvarchar(50)         null,
+   Pie                  nvarchar(20)         null,
    constraint PK_JUGADOR primary key (JugadorId)
 )
 go
@@ -267,8 +304,6 @@ go
 create table Usuario (
    UsuarioId            numeric(10)          identity,
    TipoUsuarioId        numeric(10)          null,
-   DatosPersonaId       numeric(10)          null,
-   JugadorId            numeric(10)          null,
    DeporteId            numeric(10)          null,
    Mail                 nvarchar(200)        null,
    Password             nvarchar(100)        null,
@@ -302,6 +337,21 @@ go
 
 alter table Antecedente
    add constraint FK_Antecedente_Usuario foreign key (UsuarioId)
+      references Usuario (UsuarioId)
+go
+
+alter table Club
+   add constraint FK_CLUB_REFERENCE_USUARIO foreign key (UsuarioId)
+      references Usuario (UsuarioId)
+go
+
+alter table DatosPersona
+   add constraint FK_DATOSPER_REFERENCE_USUARIO foreign key (UsuarioId)
+      references Usuario (UsuarioId)
+go
+
+alter table Entrenador
+   add constraint FK_ENTRENAD_REFERENCE_USUARIO foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
@@ -360,9 +410,19 @@ alter table InscripcionEvento
       references Evento (EventoId)
 go
 
+alter table Intermediario
+   add constraint FK_INTERMED_REFERENCE_USUARIO foreign key (UsuarioId)
+      references Usuario (UsuarioId)
+go
+
 alter table Jugador
    add constraint FK_Puesto_Jugador foreign key (PuestoId)
       references Puesto (PuestoId)
+go
+
+alter table Jugador
+   add constraint FK_JUGADOR_REFERENCE_USUARIO foreign key (UsuarioId)
+      references Usuario (UsuarioId)
 go
 
 alter table Participacion
@@ -396,18 +456,8 @@ alter table Usuario
 go
 
 alter table Usuario
-   add constraint FK_Usuario_DatosPersona foreign key (DatosPersonaId)
-      references DatosPersona (DatosPersonaId)
-go
-
-alter table Usuario
    add constraint FK_Usuario_Deporte foreign key (DeporteId)
       references Deporte (DeporteId)
-go
-
-alter table Usuario
-   add constraint FK_Usuario_Jugador foreign key (JugadorId)
-      references Jugador (JugadorId)
 go
 
 alter table UsuarioAplicativo

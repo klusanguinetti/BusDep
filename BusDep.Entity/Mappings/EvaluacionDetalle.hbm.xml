@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 	<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-		<class name="BusDep.Entity.EvaluacionDetalle, BusDep.Entity" table="EvaluacionDetalle" lazy="false"> 
+		<class name="BusDep.Entity.EvaluacionDetalle, BusDep.Entity" table="EvaluacionDetalle" lazy="true"> 
 			<id name="Id" column="EvaluacionDetalleId" type="System.Int64"  >
 				<generator class="native" />
 			</id>

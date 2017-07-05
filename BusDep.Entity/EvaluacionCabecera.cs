@@ -9,10 +9,10 @@ namespace BusDep.Entity
             Detalles = new List<EvaluacionDetalle>();
         }
         #region Atributos
-        public long Id { get; set; }
-        public Evaluacion Evaluacion { get; set; }
-        public TemplateEvaluacion TemplateEvaluacion { get; set; }
-        public IList<EvaluacionDetalle> Detalles { get; set; }
+        public virtual long Id { get; set; }
+        public virtual Evaluacion Evaluacion { get; set; }
+        public virtual TemplateEvaluacion TemplateEvaluacion { get; set; }
+        public virtual IList<EvaluacionDetalle> Detalles { get; set; }
         #endregion 
     }
 }

@@ -1,101 +1,17 @@
-﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using BusDep.Common;
+using BusDep.Entity;
+using BusDep.IBusiness;
+using BusDep.IDataAccess;
+using BusDep.UnityInject;
+using BusDep.ViewModel;
 
 namespace BusDep.Business
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using BusDep.Common;
-    using BusDep.IBusiness;
-    using BusDep.ViewModel;
-    using BusDep.Entity;
-    using BusDep.IDataAccess;
-    using BusDep.UnityInject;
-
-    public class UsuarioBusiness : IUsuarioBusiness
+    public class UsuarioJugadorBusiness : IUsuarioJugadorBusiness
     {
-        public virtual UsuarioViewModel Registracion(UsuarioViewModel userView)
-        {
-            var user = userView.MapperClass<Usuario>(TypeMapper.IgnoreCaseSensitive);
-            TipoUsuario tipoUsuario =
-                DependencyFactory.Resolve<IBaseDA<TipoUsuario>>()
-                    .GetAll()
-                    .FirstOrDefault(o => o.Descripcion.Equals(userView.TipoUsuario));
-            if (tipoUsuario != null)
-            {
-                user.TipoUsuario = tipoUsuario;
-                user.DatosPersona = new DatosPersona { Usuario = user, Nombre = userView.Nombre, Apellido = userView.Nombre};
-                switch (user.TipoUsuario.Descripcion)
-                {
-                    case "Jugador":
-                        user.Jugador = new Jugador { Usuario = user };
-                        break;
-                    case "Entrenador":
-                        user.Entrenador = new Entrenador { Usuario = user };
-                        break;
-                    case "Intermediario":
-                        user.Intermediario = new Intermediario { Usuario = user };
-                        break;
-                    case "Club":
-                        user.Club = new Club { Usuario = user };
-                        break;
-                }
-            }
-            else
-            {
-                throw new Exception("No existe tipo usuario.");
-            }
-            user.Deporte = userView.DeporteId.HasValue
-                ? DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(userView.DeporteId)
-                : DependencyFactory.Resolve<IBaseDA<Deporte>>().GetAll().First();
-            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-            //DependencyFactory.Resolve<IBaseDA<DatosPersona>>().Save(user.DatosPersona);
-            //DependencyFactory.Resolve<IBaseDA<Jugador>>().Save(user.Jugador);
-            return FillViewModel.FillUsuarioViewModel(user);
-
-        }
-
-        public virtual DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView)
-        {
-            if (userView.DatosPersonaId.HasValue)
-            {
-                return FillViewModel.FillDatosPersonaViewModel(
-                    DependencyFactory.Resolve<IBaseDA<DatosPersona>>().GetById(userView.DatosPersonaId));
-            }
-            return null;
-
-        }
-
-        public virtual void RegistracionDatosPersonales(DatosPersonaViewModel datosPersona)
-        {
-            var user = DependencyFactory.Resolve<IUsuarioDA>().GetById(datosPersona.UsuarioId);
-            datosPersona.MapperClass(user.DatosPersona, TypeMapper.IgnoreCaseSensitive);
-            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-        }
-
-        public virtual void ActualizarDatosJugador(JugadorViewModel jugadorView)
-        {
-            var jugador = DependencyFactory.Resolve<IJugadorDA>().GetById(jugadorView.Id);
-            jugadorView.MapperClass(jugador, TypeMapper.IgnoreCaseSensitive);
-            if (jugadorView.PuestoId.HasValue)
-            { 
-                if(jugador.Puesto==null || !jugador.Puesto.Id.Equals(jugadorView.PuestoId.Value))
-                    jugador.Puesto = DependencyFactory.Resolve<IJugadorDA>().ObtenerPuesto(jugadorView.PuestoId.Value);
-            }
-            DependencyFactory.Resolve<IJugadorDA>().Save(jugador);
-        }
-
-        public virtual JugadorViewModel ObtenerJugador(UsuarioViewModel userView)
-        {
-            if (userView.JugadorId.HasValue)
-            {
-                return
-                    FillViewModel.FillJugadorViewModel(
-                        DependencyFactory.Resolve<IJugadorDA>().GetById(userView.JugadorId));
-            }
-            return null;
-        }
-
         public virtual EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView)
         {
             var evaluacion =
@@ -166,7 +82,7 @@ namespace BusDep.Business
                     .ObtenerTipoEvaluacionDefault(userView.DeporteId.GetValueOrDefault());
             if (tipoEvaluacion == null)
             {
-                throw new Exception("No existe tipo de evaluación default");
+                throw new Exception("No existe tipo de evaluaci�n default");
             }
             else
             {
@@ -226,7 +142,7 @@ namespace BusDep.Business
             Antecedente ante = null;
             if (antecedente.Id.Equals(0))
             {
-                ante = new Antecedente{ Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(antecedente.UsuarioId) };
+                ante = new Antecedente { Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(antecedente.UsuarioId) };
             }
             else
             {
@@ -237,6 +153,29 @@ namespace BusDep.Business
 
             return FillViewModel.FillAntecedenteViewModel(ante);
         }
+        public virtual void ActualizarDatosJugador(JugadorViewModel jugadorView)
+        {
+            var jugador = DependencyFactory.Resolve<IJugadorDA>().GetById(jugadorView.Id);
+            jugadorView.MapperClass(jugador, TypeMapper.IgnoreCaseSensitive);
+            if (jugadorView.PuestoId.HasValue)
+            {
+                if (jugador.Puesto == null || !jugador.Puesto.Id.Equals(jugadorView.PuestoId.Value))
+                    jugador.Puesto = DependencyFactory.Resolve<IJugadorDA>().ObtenerPuesto(jugadorView.PuestoId.Value);
+            }
+            DependencyFactory.Resolve<IJugadorDA>().Save(jugador);
+        }
+
+        public virtual JugadorViewModel ObtenerJugador(UsuarioViewModel userView)
+        {
+            if (userView.JugadorId.HasValue)
+            {
+                return
+                    FillViewModel.FillJugadorViewModel(
+                        DependencyFactory.Resolve<IJugadorDA>().GetById(userView.JugadorId));
+            }
+            return null;
+        }
+
+       
     }
 }
-

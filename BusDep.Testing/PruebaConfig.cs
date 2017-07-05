@@ -216,6 +216,9 @@ namespace BusDep.Testing
         ICommonBusiness common => DependencyFactory.Resolve<ICommonBusiness>();
         IBusquedaBusiness busqueda => DependencyFactory.Resolve<IBusquedaBusiness>();
         ILoginBusiness login => DependencyFactory.Resolve<ILoginBusiness>();
+
+        IUsuarioJugadorBusiness jugador => DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
         DeporteViewModel deporte => common.ObtenerDeportes().FirstOrDefault();
         IEnumerable<PuestoViewModel> listaPuesto => common.ObtenerPuestos(deporte.Id);
         public void Registracion(int i)
@@ -239,15 +242,17 @@ namespace BusDep.Testing
             {
                 jugadorView.PuestoId = listaPuesto.ToList()[rnd.Next(0, 10)].Id;
             }
-            jugadorView.Perfil = i.Equals(0) ? "Derecho" : (i % 2).Equals(0) ? "Derecho" : "Zurdo";
+            jugadorView.Pie = i.Equals(0) ? "Derecho" : (i % 2).Equals(0) ? "Derecho" : "Zurdo";
+            jugadorView.Fichaje = i.Equals(0) ? "Libre" : (i % 2).Equals(0) ? "Libre" : "Contratado";
+            jugadorView.Perfil = i.Equals(0) ? "Amateur" : (i % 2).Equals(0) ? "Amateur" : "Profecional";
             jugadorView.Peso = rnd.NextDecimal(75m, 110m);
             jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m); ;
             jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
             jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
-            registracion.ActualizarDatosJugador(jugadorView);
+            jugador.ActualizarDatosJugador(jugadorView);
             var user = login.LoginUser(string.Format("prueba{0}@prueba.com", i), string.Format("Facebook{0}", i));
 
-            var evaluacion = registracion.ObtenerEvaluacionViewModel(user);
+            var evaluacion = jugador.ObtenerEvaluacionViewModel(user);
             foreach (var cabecera in evaluacion.Cabeceras)
             {
                 foreach (var detalle in cabecera.Detalle)
@@ -255,10 +260,17 @@ namespace BusDep.Testing
                     detalle.Puntuacion = rnd.Next(0, 5);
                 }
             }
-            registracion.GuardarEvalucacion(evaluacion);
+            jugador.GuardarEvalucacion(evaluacion);
             Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
             var perfil = busqueda.ObtenerPerfil(user.JugadorId.GetValueOrDefault());
             Console.WriteLine(perfil.SerializarToJson());
+        }
+
+        [Test]
+        public void BusquedaJugador()
+        {
+            var list = busqueda.BuscarJugador(null, null, null, null, "Contratado", "Profecional", null);
+
         }
 
         [Test]

@@ -3,10 +3,10 @@ namespace BusDep.Entity
 	public partial class Puesto
 	{
 		#region Atributos
-		public long Id { get; set; }
-		public Deporte Deporte { get; set; }
-		public string Descripcion { get; set; }
-		public string PuestoEspecifico { get; set; }
+		public virtual long Id { get; set; }
+		public virtual Deporte Deporte { get; set; }
+		public virtual string Descripcion { get; set; }
+		public virtual string PuestoEspecifico { get; set; }
 		#endregion 
 	}
 }

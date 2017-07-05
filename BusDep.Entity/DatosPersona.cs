@@ -3,23 +3,23 @@ namespace BusDep.Entity
     using System;
     public class DatosPersona
     {
-        public long Id { get; set; }
-        public Usuario Usuario { get; set; }
-        public string Apellido { get; set; }
-        public string Calle { get; set; }
-        public string Ciudad { get; set; }
-        public string CodigoPostal { get; set; }
-        public DateTime? FechaNacimiento { get; set; }
-        public string Nacionalidad { get; set; }
-        public string Nacionalidades1 { get; set; }
-        public string Nacionalidades2 { get; set; }
-        public string Nombre { get; set; }
-        public string Numero { get; set; }
-        public string NumeroDocumento { get; set; }
-        public string Pais { get; set; }
-        public string Provincia { get; set; }
-        public string Telefono { get; set; }
-        public string TipoDocumento { get; set; }
+        public virtual long Id { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual string Apellido { get; set; }
+        public virtual string Calle { get; set; }
+        public virtual string Ciudad { get; set; }
+        public virtual string CodigoPostal { get; set; }
+        public virtual DateTime? FechaNacimiento { get; set; }
+        public virtual string Nacionalidad { get; set; }
+        public virtual string Nacionalidades1 { get; set; }
+        public virtual string Nacionalidades2 { get; set; }
+        public virtual string Nombre { get; set; }
+        public virtual string Numero { get; set; }
+        public virtual string NumeroDocumento { get; set; }
+        public virtual string Pais { get; set; }
+        public virtual string Provincia { get; set; }
+        public virtual string Telefono { get; set; }
+        public virtual string TipoDocumento { get; set; }
         
     }
 }

@@ -1,4 +1,5 @@
-﻿using BusDep.Common;
+﻿using System.Linq;
+using BusDep.Common;
 using BusDep.Entity;
 using BusDep.IDataAccess;
 using BusDep.UnityInject;
@@ -25,8 +26,18 @@ namespace BusDep.Business
             {
                 perfil.Antecedentes.Add(FillViewModel.FillAntecedenteViewModel(item));
             }
-            perfil.AutoEvaluacion = DependencyFactory.Resolve<IUsuarioBusiness>().ObtenerEvaluacionViewModel(usuario);
+            perfil.AutoEvaluacion = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(usuario);
             return perfil;
+        }
+
+
+        public List<JugadorBusquedaViewModel> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre)
+        {
+
+            return (from o in DependencyFactory.Resolve<IJugadorDA>()
+                .BuscarJugador(puestoId, pais, edadDesde, edadHasta, fichaje, perfil, nombre)
+                    select FillViewModel.FillJugadorBusquedaViewModel(o)).ToList();
+
         }
     }
 }
