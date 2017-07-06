@@ -41,7 +41,13 @@ namespace BusDep.Testing
                 DAan.Delete(d);
             }
 
-            IUsuarioDA DAu = DependencyFactory.Resolve<IUsuarioDA>();
+            var DAju = DependencyFactory.Resolve<IBaseDA<Jugador>>(); 
+            foreach (var d in DAju.GetAll())
+            {
+                DAju.Delete(d);
+            }
+
+            var DAu = DependencyFactory.Resolve<IUsuarioDA>();
             foreach (var d in DAu.GetAll())
             {
                 DAu.Delete(d);
@@ -207,7 +213,7 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 200; i++)
             {
                 Registracion(i);
             }
@@ -217,26 +223,29 @@ namespace BusDep.Testing
         public void Registracion(int i)
         {
             //var deporte = common.ObtenerDeportes().FirstOrDefault();
+            Random rnd = new Random();
+            var apellido = Apellidos[rnd.Next(0, 40)];
+            var nombre = Nombres[rnd.Next(0, 40)];
             UsuarioViewModel userView = new UsuarioViewModel
             {
-                Mail = string.Format("prueba{0}@prueba.com", i),
-                Password = string.Format("Facebook{0}", i),
+                Mail = string.Format(nombre + "{0}@{1}.com", i, apellido),
+                Password = string.Format("{0}{1}", apellido, nombre),
                 TipoUsuario = "Jugador",
-                DeporteId = deporte.Id
+                DeporteId = deporte.Id,
+                Nombre = nombre,
+                Apellido = apellido
             };
-
+            
             userView = registracion.Registracion(userView);
 
             var datos = registracion.ObtenerDatosPersonales(userView);
-            Random rnd = new Random();
+            
             var pais = Paises.First(o => o.CodigoIso.Equals("ARG"));
             datos.Pais = pais.Nombre;
             datos.PaisIso = pais.CodigoIso;
             pais = Paises[rnd.Next(0, 6)];
             datos.Nacionalidad = pais.Nombre;
             datos.NacionalidadIso = pais.CodigoIso;
-            datos.Nombre = string.Format("Pepe{0}", i);
-            datos.Apellido = string.Format("Asasd{0}", i);
             datos.FechaNacimiento = new DateTime(rnd.Next(1990, 2010), rnd.Next(1, 12), rnd.Next(1, 28));
             registracion.RegistracionDatosPersonales(datos);
 
@@ -255,7 +264,7 @@ namespace BusDep.Testing
             jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
             jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
             jugador.ActualizarDatosJugador(jugadorView);
-            var user = login.LoginUser(string.Format("prueba{0}@prueba.com", i), string.Format("Facebook{0}", i));
+            var user = login.LoginUser(string.Format(nombre + "{0}@{1}.com", i, apellido), string.Format("{0}{1}", apellido, nombre));
 
             var evaluacion = jugador.ObtenerEvaluacionViewModel(user);
             foreach (var cabecera in evaluacion.Cabeceras)
@@ -356,61 +365,118 @@ namespace BusDep.Testing
             return new List<PaisViewModel>();
         }
 
-        private string[] Nombres()
+        private string[] Nombres => CargarNombres();
+
+        private string[] CargarNombres()
         {
             return new[]
-                {
-                    "BENJAMIN",
-                    "VICENTE",
-                    "MARTIN",
-                    "MATIAS",
-                    "JOAQUIN",
-                    "AGUSTIN",
-                    "CRISTOBAL",
-                    "MAXIMILIANO",
-                    "SEBASTIAN",
-                    "TOMAS",
-                    "DIEGO",
-                    "JOSE",
-                    "NICOLAS",
-                    "FELIPE",
-                    "LUCAS",
-                    "ALONSO",
-                    "BASTIAN",
-                    "JUAN",
-                    "GABRIEL",
-                    "IGNACIO",
-                    "FRANCISCO",
-                    "RENATO",
-                    "MAXIMO",
-                    "MATEO",
-                    "JAVIER",
-                    "DANIEL",
-                    "LUIS",
-                    "GASPAR",
-                    "ANGEL",
-                    "FERNANDO",
-                    "CARLOS",
-                    "EMILIO",
-                    "FRANCO",
-                    "CRISTIAN",
-                    "PABLO",
-                    "SANTIAGO",
-                    "ESTEBAN",
-                    "DAVID",
-                    "DAMIAN",
-                    "JORGE",
-                    "CAMILO",
-                    "ALEXANDER",
-                    "RODRIGO",
-                    "AMARO",
-                    "LUCIANO",
-                    "BRUNO",
-                    "ALEXIS",
-                    "VICTOR",
-                    "THOMAS",
-                    "JULIAN"
-                };
+            {
+                "Benjamin",
+                "Vicente",
+                "Martin",
+                "Matias",
+                "Joaquin",
+                "Agustin",
+                "Cristobal",
+                "Maximiliano",
+                "Sebastian",
+                "Tomas",
+                "Diego",
+                "Jose",
+                "Nicolas",
+                "Felipe",
+                "Lucas",
+                "Alonso",
+                "Bastian",
+                "Juan",
+                "Gabriel",
+                "Ignacio",
+                "Francisco",
+                "Renato",
+                "Maximo",
+                "Mateo",
+                "Javier",
+                "Daniel",
+                "Luis",
+                "Gaspar",
+                "Angel",
+                "Fernando",
+                "Carlos",
+                "Emilio",
+                "Franco",
+                "Cristian",
+                "Pablo",
+                "Santiago",
+                "Esteban",
+                "David",
+                "Damian",
+                "Jorge",
+                "Camilo",
+                "Alexander",
+                "Rodrigo",
+                "Amaro",
+                "Luciano",
+                "Bruno",
+                "Alexis",
+                "Victor",
+                "Thomas",
+                "Julian"
+
+            };
+        }
+
+        private string[] Apellidos => CargarApelidos();
+        private string[] CargarApelidos()
+        {
+            return new[]
+            {
+                "Garcia",
+                "Lopez",
+                "Perez",
+                "Gonzalez",
+                "Sanchez",
+                "Martinez",
+                "Rodriguez",
+                "Fernandez",
+                "Gomez",
+                "Martin",
+                "Garcia",
+                "Hernandez",
+                "Ruiz",
+                "Diaz",
+                "Alvarez",
+                "Jimenez",
+                "Lopez",
+                "Moreno",
+                "Perez",
+                "Munoz",
+                "Alonso",
+                "Gutierrez",
+                "Romero",
+                "Sanz",
+                "Torres",
+                "Suarez",
+                "Ramirez",
+                "Vazquez",
+                "Navarro",
+                "Dominguez",
+                "Ramos",
+                "Castro",
+                "Gil",
+                "Flores",
+                "Morales",
+                "Blanco",
+                "Sanchez",
+                "Fernandez",
+                "Serrano",
+                "Molina",
+                "Martinez",
+                "Ortiz",
+                "Gonzalez",
+                "Santos",
+                "Perez",
+                "Ortega"
+            };
         }
     }
 }
