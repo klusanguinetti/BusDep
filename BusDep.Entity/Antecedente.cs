@@ -8,8 +8,8 @@ namespace BusDep.Entity
         public virtual DateTime? FechaFin { get; set; }
         public virtual DateTime FechaInicio { get; set; }
         public virtual string InformacionAdicional { get; set; }
-        public virtual string InstitucionDescripcion { get; set; }
-        public virtual string LogoInstitucion { get; set; }
+        public virtual string ClubDescripcion { get; set; }
+        public virtual string ClubLogo { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual string Video { get; set; }
         public virtual int? Goles { get; set; }

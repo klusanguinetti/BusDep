@@ -2,6 +2,7 @@
 {
     public class PaisViewModel
     {
-        public string Pais { get; set; }
+        public string Nombre { get; set; }
+        public string CodigoIso { get; set; }
     }
 }

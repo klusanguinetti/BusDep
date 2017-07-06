@@ -13,6 +13,8 @@ namespace BusDep.Entity
         public virtual Usuario Usuario { get; set; }
         public virtual string Pie { get; set; }
         public virtual string Fichaje { get; set; }
+        public virtual string ClubDescripcion { get; set; }
+        public virtual string ClubLogo { get; set; }
         #endregion 
     }
 

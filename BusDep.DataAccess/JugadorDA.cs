@@ -30,16 +30,13 @@ namespace BusDep.DataAccess
                  ju.Usuario.DatosPersona.Nombre.Contains(nombre) || ju.Usuario.DatosPersona.Apellido.Contains(nombre))
                          select new JugadorBusquedaDTO {
                              Apellido = ju.Usuario.DatosPersona.Apellido,
-                             ClubActual =
-                             ( from ant in Session.Query<Antecedente>()
-                                 where ant.Usuario.Id.Equals(ju.Usuario.Id)
-                                 orderby  ant.FechaInicio descending 
-                                 select ant.InstitucionDescripcion).FirstOrDefault(),
+                             ClubActual = ju.ClubDescripcion,
+                             LogClubActual = ju.ClubLogo,
                              Fichaje = ju.Fichaje,
                              FotoRostro = ju.FotoRostro,
                              Id = ju.Id,
                              Nacionalidad = ju.Usuario.DatosPersona.Nacionalidad,
-                             Nacionalidades1 = ju.Usuario.DatosPersona.Nacionalidades1,
+                             Nacionalidad1 = ju.Usuario.DatosPersona.Nacionalidad1,
                              Nombre =  ju.Usuario.DatosPersona.Nombre,
                              Perfil = ju.Perfil,
                              Pie = ju.Pie,
@@ -47,5 +44,11 @@ namespace BusDep.DataAccess
                               };
             return result.ToList();
         }
+
+        public virtual List<Antecedente> ObtenerAntecedentes(long usuarioId)
+        {
+            return Session.Query<Antecedente>().Where(o => o.Usuario.Id.Equals(usuarioId)).ToList();
+        }
+
     }
 }

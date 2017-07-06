@@ -1,4 +1,5 @@
-﻿namespace BusDep.ViewModel
+﻿
+namespace BusDep.ViewModel
 {
     using System;
     using System.Runtime.Serialization;
@@ -15,11 +16,13 @@
         [DataMember]
         public string Nacionalidad { get; set; }
         [DataMember]
-        public string Nacionalidades1 { get; set; }
+        public string Nacionalidad1 { get; set; }
         [DataMember]
         public string PuestoDescripcion { get; set; }
         [DataMember]
         public string ClubActual { get; set; }
+        [DataMember]
+        public string LogClubActual { get; set; }
         [DataMember]
         public string Perfil { get; set; }
         [DataMember]

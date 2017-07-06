@@ -17,7 +17,8 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
         private ConfigAll configAll = null;
-        public bool cargaDB = false;
+        public bool cargaDB = true;
+
         [SetUp]
         public void Init()
         {
@@ -168,27 +169,6 @@ namespace BusDep.Testing
 
             DAti.Save(tipoEvaluacion);
             #endregion
-
-            #region creacion usuario
-            //Usuario usuario = new Usuario
-            //{
-            //    Mail = "klusanguinetti@gmail.com",
-            //    Password = "PruebaAlta",
-            //    TipoUsuario = jugador
-            //};
-            //DatosPersona datos = new DatosPersona
-            //{
-            //    Usuario = usuario,
-            //    Nombre = "Lucas",
-            //    Apellido = "Sanguinetti"
-            //};
-            //usuario.DatosPersona = datos;
-
-            //usuario.AplicacionToken.Add(new UsuarioAplicativo { Aplicativo = "Facebook", Token = "asdfg", Usuario = usuario });
-            //usuario.AplicacionToken.Add(new UsuarioAplicativo { Aplicativo = "Google", Token = "gfdsa", Usuario = usuario });
-
-            //DAu.Save(usuario);
-            #endregion
         }
 
         [TearDown]
@@ -201,6 +181,20 @@ namespace BusDep.Testing
     [TestFixture]
     public class PruebaConfig
     {
+        #region atributos
+
+        private IUsuarioBusiness registracion => DependencyFactory.Resolve<IUsuarioBusiness>();
+        private ICommonBusiness common => DependencyFactory.Resolve<ICommonBusiness>();
+        private IBusquedaBusiness busqueda => DependencyFactory.Resolve<IBusquedaBusiness>();
+        private ILoginBusiness login => DependencyFactory.Resolve<ILoginBusiness>();
+
+        private IUsuarioJugadorBusiness jugador => DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+        private DeporteViewModel deporte => common.ObtenerDeportes().FirstOrDefault();
+        private IEnumerable<PuestoViewModel> listaPuesto => common.ObtenerPuestos(deporte.Id);
+
+        #endregion
+
         [Test]
         public void PruebaLogin()
         {
@@ -219,25 +213,28 @@ namespace BusDep.Testing
             }
         }
 
-        IUsuarioBusiness registracion => DependencyFactory.Resolve<IUsuarioBusiness>();
-        ICommonBusiness common => DependencyFactory.Resolve<ICommonBusiness>();
-        IBusquedaBusiness busqueda => DependencyFactory.Resolve<IBusquedaBusiness>();
-        ILoginBusiness login => DependencyFactory.Resolve<ILoginBusiness>();
 
-        IUsuarioJugadorBusiness jugador => DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
-
-        DeporteViewModel deporte => common.ObtenerDeportes().FirstOrDefault();
-        IEnumerable<PuestoViewModel> listaPuesto => common.ObtenerPuestos(deporte.Id);
         public void Registracion(int i)
         {
             //var deporte = common.ObtenerDeportes().FirstOrDefault();
-            UsuarioViewModel userView = new UsuarioViewModel { Mail = string.Format("prueba{0}@prueba.com", i), Password = string.Format("Facebook{0}", i), TipoUsuario = "Jugador", DeporteId = deporte.Id };
+            UsuarioViewModel userView = new UsuarioViewModel
+            {
+                Mail = string.Format("prueba{0}@prueba.com", i),
+                Password = string.Format("Facebook{0}", i),
+                TipoUsuario = "Jugador",
+                DeporteId = deporte.Id
+            };
 
             userView = registracion.Registracion(userView);
 
             var datos = registracion.ObtenerDatosPersonales(userView);
             Random rnd = new Random();
-            datos.Nacionalidad = "Argentino";
+            var pais = Paises.First(o => o.CodigoIso.Equals("ARG"));
+            datos.Pais = pais.Nombre;
+            datos.PaisIso = pais.CodigoIso;
+            pais = Paises[rnd.Next(0, 6)];
+            datos.Nacionalidad = pais.Nombre;
+            datos.NacionalidadIso = pais.CodigoIso;
             datos.Nombre = string.Format("Pepe{0}", i);
             datos.Apellido = string.Format("Asasd{0}", i);
             datos.FechaNacimiento = new DateTime(rnd.Next(1990, 2010), rnd.Next(1, 12), rnd.Next(1, 28));
@@ -253,7 +250,8 @@ namespace BusDep.Testing
             jugadorView.Fichaje = i.Equals(0) ? "Libre" : (i % 2).Equals(0) ? "Libre" : "Contratado";
             jugadorView.Perfil = i.Equals(0) ? "Amateur" : (i % 2).Equals(0) ? "Amateur" : "Profecional";
             jugadorView.Peso = rnd.NextDecimal(75m, 110m);
-            jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m); ;
+            jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m);
+            ;
             jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
             jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
             jugador.ActualizarDatosJugador(jugadorView);
@@ -272,7 +270,7 @@ namespace BusDep.Testing
             var ante = jugador.NuevoAntecedenteViewModel(userView);
             ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
             ante.FechaInicio = DateTime.Now.AddYears(-rnd.Next(6, 10));
-            ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0,2));
+            ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0, 2));
             jugador.GuardarAntecedenteViewModel(ante);
             DateTime fechafin = ante.FechaFin.GetValueOrDefault();
             ante = jugador.NuevoAntecedenteViewModel(userView);
@@ -315,7 +313,8 @@ namespace BusDep.Testing
             }
         }
 
-        private List<ClubViewModel> Clubes => LeerCluber(); 
+        private List<ClubViewModel> Clubes => LeerCluber();
+
         private List<ClubViewModel> LeerCluber()
         {
             var path = System.Reflection.Assembly.GetAssembly(this.GetType()).CodeBase;
@@ -333,6 +332,86 @@ namespace BusDep.Testing
             }
             return new List<ClubViewModel>();
         }
-    }
 
+        private List<PaisViewModel> Paises => LeerPaises();
+
+        private List<PaisViewModel> LeerPaises()
+        {
+            var path = System.Reflection.Assembly.GetAssembly(this.GetType()).CodeBase;
+            UriBuilder uri = new UriBuilder(path);
+            path = Uri.UnescapeDataString(uri.Path);
+
+            var directory = Directory.GetParent(path).FullName;
+            var jsonName = "Paises.json";
+            var targetPath = Path.Combine(directory, jsonName);
+
+            if (File.Exists(targetPath))
+            {
+                var json = File.ReadAllText(targetPath);
+                return
+                    json.DeserializarToJson<List<PaisViewModel>>()
+                        .Where(o => new[] { "ARG", "BOL", "BRA", "CHL", "COL", "PRY", "PER" }.Contains(o.CodigoIso))
+                        .ToList();
+            }
+            return new List<PaisViewModel>();
+        }
+
+        private string[] Nombres()
+        {
+            return new[]
+                {
+                    "BENJAMIN",
+                    "VICENTE",
+                    "MARTIN",
+                    "MATIAS",
+                    "JOAQUIN",
+                    "AGUSTIN",
+                    "CRISTOBAL",
+                    "MAXIMILIANO",
+                    "SEBASTIAN",
+                    "TOMAS",
+                    "DIEGO",
+                    "JOSE",
+                    "NICOLAS",
+                    "FELIPE",
+                    "LUCAS",
+                    "ALONSO",
+                    "BASTIAN",
+                    "JUAN",
+                    "GABRIEL",
+                    "IGNACIO",
+                    "FRANCISCO",
+                    "RENATO",
+                    "MAXIMO",
+                    "MATEO",
+                    "JAVIER",
+                    "DANIEL",
+                    "LUIS",
+                    "GASPAR",
+                    "ANGEL",
+                    "FERNANDO",
+                    "CARLOS",
+                    "EMILIO",
+                    "FRANCO",
+                    "CRISTIAN",
+                    "PABLO",
+                    "SANTIAGO",
+                    "ESTEBAN",
+                    "DAVID",
+                    "DAMIAN",
+                    "JORGE",
+                    "CAMILO",
+                    "ALEXANDER",
+                    "RODRIGO",
+                    "AMARO",
+                    "LUCIANO",
+                    "BRUNO",
+                    "ALEXIS",
+                    "VICTOR",
+                    "THOMAS",
+                    "JULIAN"
+                };
+        }
+    }
 }
+

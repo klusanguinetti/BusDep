@@ -151,6 +151,36 @@ namespace BusDep.Business
             antecedente.MapperClass(ante, TypeMapper.IgnoreCaseSensitive);
             DependencyFactory.Resolve<IBaseDA<Antecedente>>().Save(ante);
 
+            var listaAntecedentes = DependencyFactory.Resolve<IJugadorDA>().ObtenerAntecedentes(antecedente.UsuarioId).OrderByDescending(o => o.FechaInicio);
+            Jugador jugador = listaAntecedentes.Any()? listaAntecedentes.First().Usuario.Jugador : null;
+            if(jugador==null)
+                throw new Exception("No existe Jugador relacionado");
+            if (listaAntecedentes.Count().Equals(1))
+            {
+                jugador.ClubDescripcion = listaAntecedentes.First().ClubDescripcion;
+                jugador.ClubDescripcion = listaAntecedentes.First().ClubLogo;
+            }
+            else
+            {
+                var ultimo = listaAntecedentes.First();
+                jugador.ClubDescripcion = listaAntecedentes.First().ClubDescripcion;
+                jugador.ClubDescripcion = listaAntecedentes.First().ClubLogo;
+                foreach (var item in listaAntecedentes)
+                {
+                    if (item.Id.Equals(ultimo.Id))
+                        continue;
+                    else
+                    {
+                        if (!item.FechaFin.HasValue)
+                        {
+                            item.FechaFin = ultimo.FechaInicio.AddDays(-1);
+                            DependencyFactory.Resolve<IBaseDA<Antecedente>>().Save(item);
+                        }
+                        ultimo = item;
+                    }
+                }
+            }
+            DependencyFactory.Resolve<IJugadorDA>().Save(jugador);
             return FillViewModel.FillAntecedenteViewModel(ante);
         }
         public virtual void ActualizarDatosJugador(JugadorViewModel jugadorView)

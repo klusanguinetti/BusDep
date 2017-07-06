@@ -20,11 +20,13 @@
         [DataMember]
         public DateTime? FechaNacimiento { get; set; }
         [DataMember]
-        public string Nacionalidad { get; set; }
+        public virtual string Nacionalidad { get; set; }
         [DataMember]
-        public string Nacionalidades1 { get; set; }
+        public virtual string Nacionalidad1 { get; set; }
         [DataMember]
-        public string Nacionalidades2 { get; set; }
+        public virtual string NacionalidadIso { get; set; }
+        [DataMember]
+        public virtual string NacionalidadIso1 { get; set; }
         [DataMember]
         public string Nombre { get; set; }
         [DataMember]
@@ -33,6 +35,8 @@
         public string NumeroDocumento { get; set; }
         [DataMember]
         public string Pais { get; set; }
+        [DataMember]
+        public virtual string PaisIso { get; set; }
         [DataMember]
         public string Provincia { get; set; }
         [DataMember]

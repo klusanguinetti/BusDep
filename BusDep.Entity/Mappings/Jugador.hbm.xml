@@ -11,6 +11,8 @@
       <property name="Peso" column="Peso" type="System.Decimal"  />
       <property name="Fichaje" column="Fichaje" type="System.String" length="50" />
       <property name="Pie" column="Pie" type="System.String" length="40" />
+      <property name="ClubDescripcion" column="ClubDescripcion" type="System.String" length="400" />
+      <property name="ClubLogo" column="ClubLogo" type="System.String" length="200" />
       <many-to-one name="Puesto" column="PuestoId" cascade="none" class="BusDep.Entity.Puesto, BusDep.Entity" />
       <many-to-one name="Usuario" unique="true" column="UsuarioId" class="BusDep.Entity.Usuario, BusDep.Entity"/>
     </class>

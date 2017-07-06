@@ -1,242 +1,986 @@
 [
-  { "Pais": "Andorra" },
-  { "Pais": "Emiratos Árabes Unidos" },
-  { "Pais": "Afganistán" },
-  { "Pais": "Antigua y Barbuda" },
-  { "Pais": "Anguila" },
-  { "Pais": "Albania" },
-  { "Pais": "Armenia" },
-  { "Pais": "Antillas Neerlandesas" },
-  { "Pais": "Angola" },
-  { "Pais": "Antártida" },
-  { "Pais": "Argentina" },
-  { "Pais": "Samoa Americana" },
-  { "Pais": "Austria" },
-  { "Pais": "Australia" },
-  { "Pais": "Aruba" },
-  { "Pais": "Islas Áland" },
-  { "Pais": "Azerbaiyán" },
-  { "Pais": "Bosnia y Herzegovina" },
-  { "Pais": "Barbados" },
-  { "Pais": "Bangladesh" },
-  { "Pais": "Bélgica" },
-  { "Pais": "Burkina Faso" },
-  { "Pais": "Bulgaria" },
-  { "Pais": "Bahréin" },
-  { "Pais": "Burundi" },
-  { "Pais": "Benin" },
-  { "Pais": "San Bartolomé" },
-  { "Pais": "Bermudas" },
-  { "Pais": "Brunéi" },
-  { "Pais": "Bolivia" },
-  { "Pais": "Brasil" },
-  { "Pais": "Bahamas" },
-  { "Pais": "Bhután" },
-  { "Pais": "Isla Bouvet" },
-  { "Pais": "Botsuana" },
-  { "Pais": "Belarús" },
-  { "Pais": "Belice" },
-  { "Pais": "Canadá" },
-  { "Pais": "Islas Cocos" },
-  { "Pais": "República Centro-Africana" },
-  { "Pais": "Congo" },
-  { "Pais": "Suiza" },
-  { "Pais": "Costa de Marfil" },
-  { "Pais": "Islas Cook" },
-  { "Pais": "Chile" },
-  { "Pais": "Camerún" },
-  { "Pais": "China" },
-  { "Pais": "Colombia" },
-  { "Pais": "Costa Rica" },
-  { "Pais": "Cuba" },
-  { "Pais": "Cabo Verde" },
-  { "Pais": "Islas Christmas" },
-  { "Pais": "Chipre" },
-  { "Pais": "República Checa" },
-  { "Pais": "Alemania" },
-  { "Pais": "Yibuti" },
-  { "Pais": "Dinamarca" },
-  { "Pais": "Domínica" },
-  { "Pais": "República Dominicana" },
-  { "Pais": "Argel" },
-  { "Pais": "Ecuador" },
-  { "Pais": "Estonia" },
-  { "Pais": "Egipto" },
-  { "Pais": "Sahara Occidental" },
-  { "Pais": "Eritrea" },
-  { "Pais": "España" },
-  { "Pais": "Etiopía" },
-  { "Pais": "Finlandia" },
-  { "Pais": "Fiji" },
-  { "Pais": "Islas Malvinas" },
-  { "Pais": "Micronesia" },
-  { "Pais": "Islas Faroe" },
-  { "Pais": "Francia" },
-  { "Pais": "Gabón" },
-  { "Pais": "Reino Unido" },
-  { "Pais": "Granada" },
-  { "Pais": "Georgia" },
-  { "Pais": "Guayana Francesa" },
-  { "Pais": "Guernsey" },
-  { "Pais": "Ghana" },
-  { "Pais": "Gibraltar" },
-  { "Pais": "Groenlandia" },
-  { "Pais": "Gambia" },
-  { "Pais": "Guinea" },
-  { "Pais": "Guadalupe" },
-  { "Pais": "Guinea Ecuatorial" },
-  { "Pais": "Grecia" },
-  { "Pais": "Georgia del Sur e Islas Sandwich del Sur" },
-  { "Pais": "Guatemala" },
-  { "Pais": "Guam" },
-  { "Pais": "Guinea-Bissau" },
-  { "Pais": "Guayana" },
-  { "Pais": "Hong Kong" },
-  { "Pais": "Islas Heard y McDonald" },
-  { "Pais": "Honduras" },
-  { "Pais": "Croacia" },
-  { "Pais": "Haití" },
-  { "Pais": "Hungría" },
-  { "Pais": "Indonesia" },
-  { "Pais": "Irlanda" },
-  { "Pais": "Israel" },
-  { "Pais": "Isla de Man" },
-  { "Pais": "India" },
-  { "Pais": "Territorio Británico del Océano Índico" },
-  { "Pais": "Irak" },
-  { "Pais": "Irán" },
-  { "Pais": "Islandia" },
-  { "Pais": "Italia" },
-  { "Pais": "Jersey" },
-  { "Pais": "Jamaica" },
-  { "Pais": "Jordania" },
-  { "Pais": "Japón" },
-  { "Pais": "Kenia" },
-  { "Pais": "Kirguistán" },
-  { "Pais": "Camboya" },
-  { "Pais": "Kiribati" },
-  { "Pais": "Comoros" },
-  { "Pais": "San Cristóbal y Nieves" },
-  { "Pais": "Corea del Norte" },
-  { "Pais": "Corea del Sur" },
-  { "Pais": "Kuwait" },
-  { "Pais": "Islas Caimán" },
-  { "Pais": "Kazajstán" },
-  { "Pais": "Laos" },
-  { "Pais": "Líbano" },
-  { "Pais": "Santa Lucía" },
-  { "Pais": "Liechtenstein" },
-  { "Pais": "Sri Lanka" },
-  { "Pais": "Liberia" },
-  { "Pais": "Lesotho" },
-  { "Pais": "Lituania" },
-  { "Pais": "Luxemburgo" },
-  { "Pais": "Letonia" },
-  { "Pais": "Libia" },
-  { "Pais": "Marruecos" },
-  { "Pais": "Mónaco" },
-  { "Pais": "Moldova" },
-  { "Pais": "Montenegro" },
-  { "Pais": "Madagascar" },
-  { "Pais": "Islas Marshall" },
-  { "Pais": "Macedonia" },
-  { "Pais": "Mali" },
-  { "Pais": "Myanmar" },
-  { "Pais": "Mongolia" },
-  { "Pais": "Macao" },
-  { "Pais": "Martinica" },
-  { "Pais": "Mauritania" },
-  { "Pais": "Montserrat" },
-  { "Pais": "Malta" },
-  { "Pais": "Mauricio" },
-  { "Pais": "Maldivas" },
-  { "Pais": "Malawi" },
-  { "Pais": "México" },
-  { "Pais": "Malasia" },
-  { "Pais": "Mozambique" },
-  { "Pais": "Namibia" },
-  { "Pais": "Nueva Caledonia" },
-  { "Pais": "Níger" },
-  { "Pais": "Islas Norkfolk" },
-  { "Pais": "Nigeria" },
-  { "Pais": "Nicaragua" },
-  { "Pais": "Países Bajos" },
-  { "Pais": "Noruega" },
-  { "Pais": "Nepal" },
-  { "Pais": "Nauru" },
-  { "Pais": "Niue" },
-  { "Pais": "Nueva Zelanda" },
-  { "Pais": "Omán" },
-  { "Pais": "Panamá" },
-  { "Pais": "Perú" },
-  { "Pais": "Polinesia Francesa" },
-  { "Pais": "Papúa Nueva Guinea" },
-  { "Pais": "Filipinas" },
-  { "Pais": "Pakistán" },
-  { "Pais": "Polonia" },
-  { "Pais": "San Pedro y Miquelón" },
-  { "Pais": "Islas Pitcairn" },
-  { "Pais": "Puerto Rico" },
-  { "Pais": "Palestina" },
-  { "Pais": "Portugal" },
-  { "Pais": "Islas Palaos" },
-  { "Pais": "Paraguay" },
-  { "Pais": "Qatar" },
-  { "Pais": "Reunión" },
-  { "Pais": "Rumanía" },
-  { "Pais": "Serbia y Montenegro" },
-  { "Pais": "Rusia" },
-  { "Pais": "Ruanda" },
-  { "Pais": "Arabia Saudita" },
-  { "Pais": "Islas Solomón" },
-  { "Pais": "Seychelles" },
-  { "Pais": "Sudán" },
-  { "Pais": "Suecia" },
-  { "Pais": "Singapur" },
-  { "Pais": "Santa Elena" },
-  { "Pais": "Eslovenia" },
-  { "Pais": "Islas Svalbard y Jan Mayen" },
-  { "Pais": "Eslovaquia" },
-  { "Pais": "Sierra Leona" },
-  { "Pais": "San Marino" },
-  { "Pais": "Senegal" },
-  { "Pais": "Somalia" },
-  { "Pais": "Surinam" },
-  { "Pais": "Santo Tomé y Príncipe" },
-  { "Pais": "El Salvador" },
-  { "Pais": "Siria" },
-  { "Pais": "Suazilandia" },
-  { "Pais": "Islas Turcas y Caicos" },
-  { "Pais": "Chad" },
-  { "Pais": "Territorios Australes Franceses" },
-  { "Pais": "Togo" },
-  { "Pais": "Tailandia" },
-  { "Pais": "Tanzania" },
-  { "Pais": "Tayikistán" },
-  { "Pais": "Tokelau" },
-  { "Pais": "Timor-Leste" },
-  { "Pais": "Turkmenistán" },
-  { "Pais": "Túnez" },
-  { "Pais": "Tonga" },
-  { "Pais": "Turquía" },
-  { "Pais": "Trinidad y Tobago" },
-  { "Pais": "Tuvalu" },
-  { "Pais": "Taiwán" },
-  { "Pais": "Ucrania" },
-  { "Pais": "Uganda" },
-  { "Pais": "Estados Unidos de América" },
-  { "Pais": "Uruguay" },
-  { "Pais": "Uzbekistán" },
-  { "Pais": "Ciudad del Vaticano" },
-  { "Pais": "San Vicente y las Granadinas" },
-  { "Pais": "Venezuela" },
-  { "Pais": "Islas Vírgenes Británicas" },
-  { "Pais": "Islas Vírgenes de los Estados Unidos de América" },
-  { "Pais": "Vietnam" },
-  { "Pais": "Vanuatu" },
-  { "Pais": "Wallis y Futuna" },
-  { "Pais": "Samoa" },
-  { "Pais": "Yemen" },
-  { "Pais": "Mayotte" },
-  { "Pais": "Sudáfrica" }
+  {
+    "Nombre": "Afghanistan",
+    "CodigoIso": "AFG"
+  },
+  {
+    "Nombre": "Albania",
+    "CodigoIso": "ALB"
+  },
+  {
+    "Nombre": "Germany",
+    "CodigoIso": "DEU"
+  },
+  {
+    "Nombre": "Algeria",
+    "CodigoIso": "DZA"
+  },
+  {
+    "Nombre": "Andorra",
+    "CodigoIso": "AND"
+  },
+  {
+    "Nombre": "Angola",
+    "CodigoIso": "AGO"
+  },
+  {
+    "Nombre": "Anguilla",
+    "CodigoIso": "AIA"
+  },
+  {
+    "Nombre": "Antarctica",
+    "CodigoIso": "ATA"
+  },
+  {
+    "Nombre": "Antigua and Barbuda",
+    "CodigoIso": "ATG"
+  },
+  {
+    "Nombre": "Netherlands Antilles",
+    "CodigoIso": "ANT"
+  },
+  {
+    "Nombre": "Saudi Arabia",
+    "CodigoIso": "SAU"
+  },
+  {
+    "Nombre": "Argentina",
+    "CodigoIso": "ARG"
+  },
+  {
+    "Nombre": "Armenia",
+    "CodigoIso": "ARM"
+  },
+  {
+    "Nombre": "Aruba",
+    "CodigoIso": "ABW"
+  },
+  {
+    "Nombre": "Australia",
+    "CodigoIso": "AUS"
+  },
+  {
+    "Nombre": "Austria",
+    "CodigoIso": "AUT"
+  },
+  {
+    "Nombre": "Azerbaijan",
+    "CodigoIso": "AZE"
+  },
+  {
+    "Nombre": "Belgium",
+    "CodigoIso": "BEL"
+  },
+  {
+    "Nombre": "Bahamas",
+    "CodigoIso": "BHS"
+  },
+  {
+    "Nombre": "Bahrain",
+    "CodigoIso": "BHR"
+  },
+  {
+    "Nombre": "Bangladesh",
+    "CodigoIso": "BGD"
+  },
+  {
+    "Nombre": "Barbados",
+    "CodigoIso": "BRB"
+  },
+  {
+    "Nombre": "Belize",
+    "CodigoIso": "BLZ"
+  },
+  {
+    "Nombre": "Benin",
+    "CodigoIso": "BEN"
+  },
+  {
+    "Nombre": "Bhutan",
+    "CodigoIso": "BTN"
+  },
+  {
+    "Nombre": "Belarus",
+    "CodigoIso": "BLR"
+  },
+  {
+    "Nombre": "Myanmar",
+    "CodigoIso": "MMR"
+  },
+  {
+    "Nombre": "Bolivia",
+    "CodigoIso": "BOL"
+  },
+  {
+    "Nombre": "Bosnia and Herzegovina",
+    "CodigoIso": "BIH"
+  },
+  {
+    "Nombre": "Botswana",
+    "CodigoIso": "BWA"
+  },
+  {
+    "Nombre": "Brazil",
+    "CodigoIso": "BRA"
+  },
+  {
+    "Nombre": "Brunei",
+    "CodigoIso": "BRN"
+  },
+  {
+    "Nombre": "Bulgaria",
+    "CodigoIso": "BGR"
+  },
+  {
+    "Nombre": "Burkina Faso",
+    "CodigoIso": "BFA"
+  },
+  {
+    "Nombre": "Burundi",
+    "CodigoIso": "BDI"
+  },
+  {
+    "Nombre": "Cape Verde",
+    "CodigoIso": "CPV"
+  },
+  {
+    "Nombre": "Cambodia",
+    "CodigoIso": "KHM"
+  },
+  {
+    "Nombre": "Cameroon",
+    "CodigoIso": "CMR"
+  },
+  {
+    "Nombre": "Canada",
+    "CodigoIso": "CAN"
+  },
+  {
+    "Nombre": "Chad",
+    "CodigoIso": "TCD"
+  },
+  {
+    "Nombre": "Chile",
+    "CodigoIso": "CHL"
+  },
+  {
+    "Nombre": "China",
+    "CodigoIso": "CHN"
+  },
+  {
+    "Nombre": "Cyprus",
+    "CodigoIso": "CYP"
+  },
+  {
+    "Nombre": "Vatican City State",
+    "CodigoIso": "VAT"
+  },
+  {
+    "Nombre": "Colombia",
+    "CodigoIso": "COL"
+  },
+  {
+    "Nombre": "Comoros",
+    "CodigoIso": "COM"
+  },
+  {
+    "Nombre": "Congo",
+    "CodigoIso": "COG"
+  },
+  {
+    "Nombre": "Congo",
+    "CodigoIso": "COD"
+  },
+  {
+    "Nombre": "North Korea",
+    "CodigoIso": "PRK"
+  },
+  {
+    "Nombre": "South Korea",
+    "CodigoIso": "KOR"
+  },
+  {
+    "Nombre": "Ivory Coast",
+    "CodigoIso": "CIV"
+  },
+  {
+    "Nombre": "Costa Rica",
+    "CodigoIso": "CRI"
+  },
+  {
+    "Nombre": "Croatia",
+    "CodigoIso": "HRV"
+  },
+  {
+    "Nombre": "Cuba",
+    "CodigoIso": "CUB"
+  },
+  {
+    "Nombre": "Denmark",
+    "CodigoIso": "DNK"
+  },
+  {
+    "Nombre": "Dominica",
+    "CodigoIso": "DMA"
+  },
+  {
+    "Nombre": "Ecuador",
+    "CodigoIso": "ECU"
+  },
+  {
+    "Nombre": "Egypt",
+    "CodigoIso": "EGY"
+  },
+  {
+    "Nombre": "El Salvador",
+    "CodigoIso": "SLV"
+  },
+  {
+    "Nombre": "United Arab Emirates",
+    "CodigoIso": "ARE"
+  },
+  {
+    "Nombre": "Eritrea",
+    "CodigoIso": "ERI"
+  },
+  {
+    "Nombre": "Slovakia",
+    "CodigoIso": "SVK"
+  },
+  {
+    "Nombre": "Slovenia",
+    "CodigoIso": "SVN"
+  },
+  {
+    "Nombre": "Spain",
+    "CodigoIso": "ESP"
+  },
+  {
+    "Nombre": "United States of America",
+    "CodigoIso": "USA"
+  },
+  {
+    "Nombre": "Estonia",
+    "CodigoIso": "EST"
+  },
+  {
+    "Nombre": "Ethiopia",
+    "CodigoIso": "ETH"
+  },
+  {
+    "Nombre": "Philippines",
+    "CodigoIso": "PHL"
+  },
+  {
+    "Nombre": "Finland",
+    "CodigoIso": "FIN"
+  },
+  {
+    "Nombre": "Fiji",
+    "CodigoIso": "FJI"
+  },
+  {
+    "Nombre": "France",
+    "CodigoIso": "FRA"
+  },
+  {
+    "Nombre": "Gabon",
+    "CodigoIso": "GAB"
+  },
+  {
+    "Nombre": "Gambia",
+    "CodigoIso": "GMB"
+  },
+  {
+    "Nombre": "Georgia",
+    "CodigoIso": "GEO"
+  },
+  {
+    "Nombre": "Ghana",
+    "CodigoIso": "GHA"
+  },
+  {
+    "Nombre": "Gibraltar",
+    "CodigoIso": "GIB"
+  },
+  {
+    "Nombre": "Grenada",
+    "CodigoIso": "GRD"
+  },
+  {
+    "Nombre": "Greece",
+    "CodigoIso": "GRC"
+  },
+  {
+    "Nombre": "Greenland",
+    "CodigoIso": "GRL"
+  },
+  {
+    "Nombre": "Guadeloupe",
+    "CodigoIso": "GLP"
+  },
+  {
+    "Nombre": "Guam",
+    "CodigoIso": "GUM"
+  },
+  {
+    "Nombre": "Guatemala",
+    "CodigoIso": "GTM"
+  },
+  {
+    "Nombre": "French Guiana",
+    "CodigoIso": "GUF"
+  },
+  {
+    "Nombre": "Guernsey",
+    "CodigoIso": "GGY"
+  },
+  {
+    "Nombre": "Guinea",
+    "CodigoIso": "GIN"
+  },
+  {
+    "Nombre": "Equatorial Guinea",
+    "CodigoIso": "GNQ"
+  },
+  {
+    "Nombre": "Guinea-Bissau",
+    "CodigoIso": "GNB"
+  },
+  {
+    "Nombre": "Guyana",
+    "CodigoIso": "GUY"
+  },
+  {
+    "Nombre": "Haiti",
+    "CodigoIso": "HTI"
+  },
+  {
+    "Nombre": "Honduras",
+    "CodigoIso": "HND"
+  },
+  {
+    "Nombre": "Hong Kong",
+    "CodigoIso": "HKG"
+  },
+  {
+    "Nombre": "Hungary",
+    "CodigoIso": "HUN"
+  },
+  {
+    "Nombre": "India",
+    "CodigoIso": "IND"
+  },
+  {
+    "Nombre": "Indonesia",
+    "CodigoIso": "IDN"
+  },
+  {
+    "Nombre": "Iran",
+    "CodigoIso": "IRN"
+  },
+  {
+    "Nombre": "Iraq",
+    "CodigoIso": "IRQ"
+  },
+  {
+    "Nombre": "Ireland",
+    "CodigoIso": "IRL"
+  },
+  {
+    "Nombre": "Bouvet Island",
+    "CodigoIso": "BVT"
+  },
+  {
+    "Nombre": "Isle of Man",
+    "CodigoIso": "IMN"
+  },
+  {
+    "Nombre": "Christmas Island",
+    "CodigoIso": "CXR"
+  },
+  {
+    "Nombre": "Norfolk Island",
+    "CodigoIso": "NFK"
+  },
+  {
+    "Nombre": "Iceland",
+    "CodigoIso": "ISL"
+  },
+  {
+    "Nombre": "Bermuda Islands",
+    "CodigoIso": "BMU"
+  },
+  {
+    "Nombre": "Cayman Islands",
+    "CodigoIso": "CYM"
+  },
+  {
+    "Nombre": "Cocos (Keeling) Islands",
+    "CodigoIso": "CCK"
+  },
+  {
+    "Nombre": "Cook Islands",
+    "CodigoIso": "COK"
+  },
+  {
+    "Nombre": "Åland Islands",
+    "CodigoIso": "ALA"
+  },
+  {
+    "Nombre": "Faroe Islands",
+    "CodigoIso": "FRO"
+  },
+  {
+    "Nombre": "South Georgia and the South Sandwich Islands",
+    "CodigoIso": "SGS"
+  },
+  {
+    "Nombre": "Heard Island and McDonald Islands",
+    "CodigoIso": "HMD"
+  },
+  {
+    "Nombre": "Maldives",
+    "CodigoIso": "MDV"
+  },
+  {
+    "Nombre": "Falkland Islands (Malvinas)",
+    "CodigoIso": "FLK"
+  },
+  {
+    "Nombre": "Northern Mariana Islands",
+    "CodigoIso": "MNP"
+  },
+  {
+    "Nombre": "Marshall Islands",
+    "CodigoIso": "MHL"
+  },
+  {
+    "Nombre": "Pitcairn Islands",
+    "CodigoIso": "PCN"
+  },
+  {
+    "Nombre": "Solomon Islands",
+    "CodigoIso": "SLB"
+  },
+  {
+    "Nombre": "Turks and Caicos Islands",
+    "CodigoIso": "TCA"
+  },
+  {
+    "Nombre": "United States Minor Outlying Islands",
+    "CodigoIso": "UMI"
+  },
+  {
+    "Nombre": "Virgin Islands",
+    "CodigoIso": "VG"
+  },
+  {
+    "Nombre": "United States Virgin Islands",
+    "CodigoIso": "VIR"
+  },
+  {
+    "Nombre": "Israel",
+    "CodigoIso": "ISR"
+  },
+  {
+    "Nombre": "Italy",
+    "CodigoIso": "ITA"
+  },
+  {
+    "Nombre": "Jamaica",
+    "CodigoIso": "JAM"
+  },
+  {
+    "Nombre": "Japan",
+    "CodigoIso": "JPN"
+  },
+  {
+    "Nombre": "Jersey",
+    "CodigoIso": "JEY"
+  },
+  {
+    "Nombre": "Jordan",
+    "CodigoIso": "JOR"
+  },
+  {
+    "Nombre": "Kazakhstan",
+    "CodigoIso": "KAZ"
+  },
+  {
+    "Nombre": "Kenya",
+    "CodigoIso": "KEN"
+  },
+  {
+    "Nombre": "Kyrgyzstan",
+    "CodigoIso": "KGZ"
+  },
+  {
+    "Nombre": "Kiribati",
+    "CodigoIso": "KIR"
+  },
+  {
+    "Nombre": "Kuwait",
+    "CodigoIso": "KWT"
+  },
+  {
+    "Nombre": "Lebanon",
+    "CodigoIso": "LBN"
+  },
+  {
+    "Nombre": "Laos",
+    "CodigoIso": "LAO"
+  },
+  {
+    "Nombre": "Lesotho",
+    "CodigoIso": "LSO"
+  },
+  {
+    "Nombre": "Latvia",
+    "CodigoIso": "LVA"
+  },
+  {
+    "Nombre": "Liberia",
+    "CodigoIso": "LBR"
+  },
+  {
+    "Nombre": "Libya",
+    "CodigoIso": "LBY"
+  },
+  {
+    "Nombre": "Liechtenstein",
+    "CodigoIso": "LIE"
+  },
+  {
+    "Nombre": "Lithuania",
+    "CodigoIso": "LTU"
+  },
+  {
+    "Nombre": "Luxembourg",
+    "CodigoIso": "LUX"
+  },
+  {
+    "Nombre": "Mexico",
+    "CodigoIso": "MEX"
+  },
+  {
+    "Nombre": "Monaco",
+    "CodigoIso": "MCO"
+  },
+  {
+    "Nombre": "Macao",
+    "CodigoIso": "MAC"
+  },
+  {
+    "Nombre": "Macedonia",
+    "CodigoIso": "MKD"
+  },
+  {
+    "Nombre": "Madagascar",
+    "CodigoIso": "MDG"
+  },
+  {
+    "Nombre": "Malaysia",
+    "CodigoIso": "MYS"
+  },
+  {
+    "Nombre": "Malawi",
+    "CodigoIso": "MWI"
+  },
+  {
+    "Nombre": "Mali",
+    "CodigoIso": "MLI"
+  },
+  {
+    "Nombre": "Malta",
+    "CodigoIso": "MLT"
+  },
+  {
+    "Nombre": "Morocco",
+    "CodigoIso": "MAR"
+  },
+  {
+    "Nombre": "Martinique",
+    "CodigoIso": "MTQ"
+  },
+  {
+    "Nombre": "Mauritius",
+    "CodigoIso": "MUS"
+  },
+  {
+    "Nombre": "Mauritania",
+    "CodigoIso": "MRT"
+  },
+  {
+    "Nombre": "Mayotte",
+    "CodigoIso": "MYT"
+  },
+  {
+    "Nombre": "Estados Federados de",
+    "CodigoIso": "FSM"
+  },
+  {
+    "Nombre": "Moldova",
+    "CodigoIso": "MDA"
+  },
+  {
+    "Nombre": "Mongolia",
+    "CodigoIso": "MNG"
+  },
+  {
+    "Nombre": "Montenegro",
+    "CodigoIso": "MNE"
+  },
+  {
+    "Nombre": "Montserrat",
+    "CodigoIso": "MSR"
+  },
+  {
+    "Nombre": "Mozambique",
+    "CodigoIso": "MOZ"
+  },
+  {
+    "Nombre": "Namibia",
+    "CodigoIso": "NAM"
+  },
+  {
+    "Nombre": "Nauru",
+    "CodigoIso": "NRU"
+  },
+  {
+    "Nombre": "Nepal",
+    "CodigoIso": "NPL"
+  },
+  {
+    "Nombre": "Nicaragua",
+    "CodigoIso": "NIC"
+  },
+  {
+    "Nombre": "Niger",
+    "CodigoIso": "NER"
+  },
+  {
+    "Nombre": "Nigeria",
+    "CodigoIso": "NGA"
+  },
+  {
+    "Nombre": "Niue",
+    "CodigoIso": "NIU"
+  },
+  {
+    "Nombre": "Norway",
+    "CodigoIso": "NOR"
+  },
+  {
+    "Nombre": "New Caledonia",
+    "CodigoIso": "NCL"
+  },
+  {
+    "Nombre": "New Zealand",
+    "CodigoIso": "NZL"
+  },
+  {
+    "Nombre": "Oman",
+    "CodigoIso": "OMN"
+  },
+  {
+    "Nombre": "Netherlands",
+    "CodigoIso": "NLD"
+  },
+  {
+    "Nombre": "Pakistan",
+    "CodigoIso": "PAK"
+  },
+  {
+    "Nombre": "Palau",
+    "CodigoIso": "PLW"
+  },
+  {
+    "Nombre": "Palestine",
+    "CodigoIso": "PSE"
+  },
+  {
+    "Nombre": "Panama",
+    "CodigoIso": "PAN"
+  },
+  {
+    "Nombre": "Papua New Guinea",
+    "CodigoIso": "PNG"
+  },
+  {
+    "Nombre": "Paraguay",
+    "CodigoIso": "PRY"
+  },
+  {
+    "Nombre": "Peru",
+    "CodigoIso": "PER"
+  },
+  {
+    "Nombre": "French Polynesia",
+    "CodigoIso": "PYF"
+  },
+  {
+    "Nombre": "Poland",
+    "CodigoIso": "POL"
+  },
+  {
+    "Nombre": "Portugal",
+    "CodigoIso": "PRT"
+  },
+  {
+    "Nombre": "Puerto Rico",
+    "CodigoIso": "PRI"
+  },
+  {
+    "Nombre": "Qatar",
+    "CodigoIso": "QAT"
+  },
+  {
+    "Nombre": "United Kingdom",
+    "CodigoIso": "GBR"
+  },
+  {
+    "Nombre": "Central African Republic",
+    "CodigoIso": "CAF"
+  },
+  {
+    "Nombre": "Czech Republic",
+    "CodigoIso": "CZE"
+  },
+  {
+    "Nombre": "Dominican Republic",
+    "CodigoIso": "DOM"
+  },
+  {
+    "Nombre": "Réunion",
+    "CodigoIso": "REU"
+  },
+  {
+    "Nombre": "Rwanda",
+    "CodigoIso": "RWA"
+  },
+  {
+    "Nombre": "Romania",
+    "CodigoIso": "ROU"
+  },
+  {
+    "Nombre": "Russia",
+    "CodigoIso": "RUS"
+  },
+  {
+    "Nombre": "Western Sahara",
+    "CodigoIso": "ESH"
+  },
+  {
+    "Nombre": "Samoa",
+    "CodigoIso": "WSM"
+  },
+  {
+    "Nombre": "American Samoa",
+    "CodigoIso": "ASM"
+  },
+  {
+    "Nombre": "Saint Barthélemy",
+    "CodigoIso": "BLM"
+  },
+  {
+    "Nombre": "Saint Kitts and Nevis",
+    "CodigoIso": "KNA"
+  },
+  {
+    "Nombre": "San Marino",
+    "CodigoIso": "SMR"
+  },
+  {
+    "Nombre": "Saint Martin (French part)",
+    "CodigoIso": "MAF"
+  },
+  {
+    "Nombre": "Saint Pierre and Miquelon",
+    "CodigoIso": "SPM"
+  },
+  {
+    "Nombre": "Saint Vincent and the Grenadines",
+    "CodigoIso": "VCT"
+  },
+  {
+    "Nombre": "Ascensión y Tristán de Acuña",
+    "CodigoIso": "SHN"
+  },
+  {
+    "Nombre": "Saint Lucia",
+    "CodigoIso": "LCA"
+  },
+  {
+    "Nombre": "Sao Tome and Principe",
+    "CodigoIso": "STP"
+  },
+  {
+    "Nombre": "Senegal",
+    "CodigoIso": "SEN"
+  },
+  {
+    "Nombre": "Serbia",
+    "CodigoIso": "SRB"
+  },
+  {
+    "Nombre": "Seychelles",
+    "CodigoIso": "SYC"
+  },
+  {
+    "Nombre": "Sierra Leone",
+    "CodigoIso": "SLE"
+  },
+  {
+    "Nombre": "Singapore",
+    "CodigoIso": "SGP"
+  },
+  {
+    "Nombre": "Syria",
+    "CodigoIso": "SYR"
+  },
+  {
+    "Nombre": "Somalia",
+    "CodigoIso": "SOM"
+  },
+  {
+    "Nombre": "Sri Lanka",
+    "CodigoIso": "LKA"
+  },
+  {
+    "Nombre": "South Africa",
+    "CodigoIso": "ZAF"
+  },
+  {
+    "Nombre": "Sudan",
+    "CodigoIso": "SDN"
+  },
+  {
+    "Nombre": "Sweden",
+    "CodigoIso": "SWE"
+  },
+  {
+    "Nombre": "Switzerland",
+    "CodigoIso": "CHE"
+  },
+  {
+    "Nombre": "Suriname",
+    "CodigoIso": "SUR"
+  },
+  {
+    "Nombre": "Svalbard and Jan Mayen",
+    "CodigoIso": "SJM"
+  },
+  {
+    "Nombre": "Swaziland",
+    "CodigoIso": "SWZ"
+  },
+  {
+    "Nombre": "Tajikistan",
+    "CodigoIso": "TJK"
+  },
+  {
+    "Nombre": "Thailand",
+    "CodigoIso": "THA"
+  },
+  {
+    "Nombre": "Taiwan",
+    "CodigoIso": "TWN"
+  },
+  {
+    "Nombre": "Tanzania",
+    "CodigoIso": "TZA"
+  },
+  {
+    "Nombre": "British Indian Ocean Territory",
+    "CodigoIso": "IOT"
+  },
+  {
+    "Nombre": "French Southern Territories",
+    "CodigoIso": "ATF"
+  },
+  {
+    "Nombre": "East Timor",
+    "CodigoIso": "TLS"
+  },
+  {
+    "Nombre": "Togo",
+    "CodigoIso": "TGO"
+  },
+  {
+    "Nombre": "Tokelau",
+    "CodigoIso": "TKL"
+  },
+  {
+    "Nombre": "Tonga",
+    "CodigoIso": "TON"
+  },
+  {
+    "Nombre": "Trinidad and Tobago",
+    "CodigoIso": "TTO"
+  },
+  {
+    "Nombre": "Tunisia",
+    "CodigoIso": "TUN"
+  },
+  {
+    "Nombre": "Turkmenistan",
+    "CodigoIso": "TKM"
+  },
+  {
+    "Nombre": "Turkey",
+    "CodigoIso": "TUR"
+  },
+  {
+    "Nombre": "Tuvalu",
+    "CodigoIso": "TUV"
+  },
+  {
+    "Nombre": "Ukraine",
+    "CodigoIso": "UKR"
+  },
+  {
+    "Nombre": "Uganda",
+    "CodigoIso": "UGA"
+  },
+  {
+    "Nombre": "Uruguay",
+    "CodigoIso": "URY"
+  },
+  {
+    "Nombre": "Uzbekistan",
+    "CodigoIso": "UZB"
+  },
+  {
+    "Nombre": "Vanuatu",
+    "CodigoIso": "VUT"
+  },
+  {
+    "Nombre": "Venezuela",
+    "CodigoIso": "VEN"
+  },
+  {
+    "Nombre": "Vietnam",
+    "CodigoIso": "VNM"
+  },
+  {
+    "Nombre": "Wallis and Futuna",
+    "CodigoIso": "WLF"
+  },
+  {
+    "Nombre": "Yemen",
+    "CodigoIso": "YEM"
+  },
+  {
+    "Nombre": "Djibouti",
+    "CodigoIso": "DJI"
+  },
+  {
+    "Nombre": "Zambia",
+    "CodigoIso": "ZMB"
+  },
+  {
+    "Nombre": "Zimbabwe",
+    "CodigoIso": "ZWE"
+  }
 ]

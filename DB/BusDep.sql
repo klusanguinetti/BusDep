@@ -1,7 +1,7 @@
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     04/07/2017 05:53:38 p.m.                     */
+/* Created on:     05/07/2017 02:05:54 p.m.                     */
 /*==============================================================*/
 
 
@@ -23,8 +23,8 @@ go
 create table Antecedente (
    AntecedenteId        numeric(10)          identity,
    UsuarioId            numeric(10)          null,
-   InstitucionDescripcion nvarchar(400)        null,
-   LogoInstitucion      nvarchar(200)        null,
+   ClubDescripcion      nvarchar(400)        null,
+   ClubLogo             nvarchar(200)        null,
    FechaInicio          datetime             null,
    FechaFin             datetime             null,
    InformacionAdicional nvarchar(2000)       null,
@@ -68,17 +68,19 @@ create table DatosPersona (
    Apellido             nvarchar(200)        null,
    Telefono             nvarchar(20)         null,
    Pais                 nvarchar(100)        null,
+   PaisIso              nvarchar(5)          null,
    Provincia            nvarchar(30)         null,
    Ciudad               nvarchar(100)        null,
    TipoDocumento        nvarchar(100)        null,
    NumeroDocumento      nvarchar(30)         null,
    FechaNacimiento      datetime             null,
    Numero               nvarchar(100)        null,
-   Nacionalidad         nvarchar(100)        null,
    Calle                nvarchar(400)        null,
    CodigoPostal         nvarchar(10)         null,
-   Nacionalidades1      nvarchar(100)        null,
-   Nacionalidades2      nvarchar(100)        null,
+   Nacionalidad         nvarchar(100)        null,
+   Nacionalidad1        nvarchar(100)        null,
+   NacionalidadIso      nvarchar(5)          null,
+   NacionalidadIso1     nvarchar(5)          null,
    constraint PK_DATOSPERSONA primary key (DatosPersonaId)
 )
 go
@@ -207,6 +209,8 @@ create table Jugador (
    Perfil               nvarchar(20)         null,
    Fichaje              nvarchar(50)         null,
    Pie                  nvarchar(20)         null,
+   ClubDescripcion      nvarchar(400)        null,
+   ClubLogo             nvarchar(200)        null,
    constraint PK_JUGADOR primary key (JugadorId)
 )
 go

@@ -8,8 +8,6 @@ namespace BusDep.Entity.DTO
 {
     public class JugadorBusquedaDTO
     {
-
-
         public long Id { get; set; }
 
         public string Nombre { get; set; }
@@ -19,11 +17,12 @@ namespace BusDep.Entity.DTO
 
         public string Nacionalidad { get; set; }
 
-        public string Nacionalidades1 { get; set; }
+        public string Nacionalidad1 { get; set; }
 
         public string PuestoDescripcion { get; set; }
 
         public string ClubActual { get; set; }
+        public string LogClubActual { get; set; }
 
         public string Perfil { get; set; }
 

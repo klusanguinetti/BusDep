@@ -7,13 +7,13 @@
     <property name="FechaFin" column="FechaFin" type="System.DateTime"  />
     <property name="FechaInicio" column="FechaInicio" type="System.DateTime"  />
     <property name="InformacionAdicional" column="InformacionAdicional" type="System.String" length="4000" />
-    <property name="InstitucionDescripcion" column="InstitucionDescripcion" type="System.String" length="800" />
-    <property name="LogoInstitucion" column="LogoInstitucion" type="System.String" length="400" />
-    <many-to-one name="Usuario" column="UsuarioId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
+    <property name="ClubDescripcion" column="ClubDescripcion" type="System.String" length="400" />
+    <property name="ClubLogo" column="ClubLogo" type="System.String" length="200" />
     <property name="Video" column="Video" type="System.String" length="800" />
     <property name="Goles" column="Goles" type="System.Int32" />
     <property name="Partidos" column="Partidos" type="System.Int32" />
     <property name="Asistencias" column="Asistencias" type="System.Int32" />
+    <many-to-one name="Usuario" column="UsuarioId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
   </class>
 </hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->
