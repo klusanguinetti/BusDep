@@ -17,19 +17,25 @@
                                         <div class="col-md-6">
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="job-finder" value="job finder" checked="">
+                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Jugador" checked="">
                                                     Jugador
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="job-seeker" value="job-seeker">
+                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Entrenador">
+                                                    Entrenador
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Intermediario">
                                                     Intermediario
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="job-seeker" value="job-seeker">
+                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Club">
                                                     Club
                                                 </label>
                                             </div>
@@ -39,14 +45,14 @@
                                     <div class="form-group required">
                                         <label class="col-md-4 control-label">Primer Nombre <sup>*</sup></label>
                                         <div class="col-md-6">
-                                            <input name="" placeholder="Primer Nombre" class="form-control input-md" required="" type="text">
+                                            <input name="" placeholder="Primer Nombre" class="form-control input-md" required="" type="text" data-ng-model="registration.Nombre" autofocus>
                                         </div>
                                     </div>
 
                                     <div class="form-group required">
                                         <label class="col-md-4 control-label">Apellido <sup>*</sup></label>
                                         <div class="col-md-6">
-                                            <input name="textinput" placeholder="Apellido" class="form-control input-md" type="text">
+                                            <input name="textinput" placeholder="Apellido" class="form-control input-md" type="text" required data-ng-model="registration.Apellido">
                                         </div>
                                     </div>
 
@@ -58,13 +64,13 @@
                                             <sup>*</sup>
                                         </label>
                                         <div class="col-md-6">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required data-ng-model="registration.Mail">
                                         </div>
                                     </div>
                                     <div class="form-group required">
                                         <label for="inputPassword3" class="col-md-4 control-label">Contraseña </label>
                                         <div class="col-md-6">
-                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña" required data-ng-model="registration.Password">
                                             <p class="help-block">
                                                 Al menos 5 caracteres
                                             </p>
@@ -83,9 +89,15 @@
                                                 </label>
                                             </div>
                                             <div style="clear:both"></div>
-                                            <a class="btn btn-primary" href="job-account-home.html">Registrarme</a>
+                                            <a class="btn btn-primary" data-ng-click="signUp()">Registrarme</a>
                                         </div>
+
                                     </div>
+
+                                    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                                        {{message}}
+                                    </div>
+
                                 </fieldset>
                             </form>
                         </div>

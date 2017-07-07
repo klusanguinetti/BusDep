@@ -41,6 +41,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -126,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountApiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -549,6 +554,7 @@
     <Content Include="Content\img\user.jpg" />
     <Content Include="Content\jquery.fs.scroller.css" />
     <Content Include="Content\jquery.fs.selecter.css" />
+    <Content Include="Content\loading-bar.min.css" />
     <Content Include="Content\longshadow.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\owl.carousel.css" />
@@ -568,6 +574,8 @@
     <Content Include="Scripts\app\components\account\registerController.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
+    <Content Include="Scripts\app\shared\factories\authInterceptorService.js" />
+    <Content Include="Scripts\app\shared\factories\authService.js" />
     <Content Include="Scripts\vendor\angular-animate.js" />
     <Content Include="Scripts\vendor\angular-animate.min.js" />
     <Content Include="Scripts\vendor\angular-aria.js" />
@@ -577,6 +585,8 @@
     <Content Include="Scripts\vendor\angular-csp.css" />
     <Content Include="Scripts\vendor\angular-loader.js" />
     <Content Include="Scripts\vendor\angular-loader.min.js" />
+    <Content Include="Scripts\vendor\angular-local-storage.js" />
+    <Content Include="Scripts\vendor\angular-local-storage.min.js" />
     <Content Include="Scripts\vendor\angular-material-mocks.js" />
     <Content Include="Scripts\vendor\angular-material.js" />
     <Content Include="Scripts\vendor\angular-material.min.js" />
@@ -600,7 +610,7 @@
     <Content Include="Scripts\vendor\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\components\account\loginController.js" />
-    <Content Include="Scripts\app\components\index\publicController.js" />
+    <Content Include="Scripts\app\components\index\indexController.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\vendor\errors.json" />
@@ -1376,6 +1386,7 @@
     <Content Include="Scripts\vendor\jquery.validate.min.js" />
     <Content Include="Scripts\vendor\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\vendor\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\vendor\loading-bar.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.6.2.js" />
     <Content Include="Scripts\vendor\owl.carousel.min.js" />
     <Content Include="Scripts\vendor\please-wait.min.js" />
@@ -1407,7 +1418,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\fontello\" />
     <Folder Include="Models\" />
-    <Folder Include="NewFolder1\" />
     <Folder Include="Scripts\app\shared\directives\" />
   </ItemGroup>
   <ItemGroup>
@@ -1418,6 +1428,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusDep.Business\BusDep.Business.csproj">
+      <Project>{B61D396E-F8A3-48DA-99C0-C9EE01A63922}</Project>
+      <Name>BusDep.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusDep.Configuration\BusDep.Configuration.csproj">
       <Project>{e2ee939a-f9c0-47b8-ba67-00112df31c98}</Project>
       <Name>BusDep.Configuration</Name>
@@ -1425,6 +1439,14 @@
     <ProjectReference Include="..\BusDep.IBusiness\BusDep.IBusiness.csproj">
       <Project>{00ab7371-d630-4615-a51e-aafb1ed2b0ef}</Project>
       <Name>BusDep.IBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep.ViewModel\BusDep.ViewModel.csproj">
+      <Project>{6B2017DE-59C4-4213-966A-C58DD1F56052}</Project>
+      <Name>BusDep.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusDep\BusDep.csproj">
+      <Project>{70EF3703-B4C9-474D-A7E1-45874E8537BF}</Project>
+      <Name>BusDep</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

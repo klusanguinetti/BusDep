@@ -22,7 +22,7 @@ namespace BusDep.Web
                       "~/Scripts/vendor/hideMaxListItem.js",
                       "~/Scripts/vendor/jquery.fs.scroller.js",
                       "~/Scripts/vendor/jquery.fs.selecter.js",
-                      "~/Scripts/vendor/script.js"));
+                      "~/Scripts/vendor/jquery.fs.selecter.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -32,6 +32,7 @@ namespace BusDep.Web
                       "~/Content/please-wait.css",
                       "~/Content/jquery.fs.scroller.css",
                       "~/Content/jquery.fs.selecter.css",
+                      "~/Content/loading-bar.min.css",
                       "~/Content/style.css"));
 
             // Angular Bundle
