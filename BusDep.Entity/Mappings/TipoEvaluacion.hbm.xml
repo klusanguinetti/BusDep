@@ -6,6 +6,7 @@
       </id>
       <property name="Descripcion" column="Descripcion" type="System.String" length="400" />
       <many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
+      <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
       <property name="EsDefault" column="EsDefault" type="System.String" length="1" />
       <bag name="Templates" table="TemplateEvaluacion" cascade="all" inverse="true">
         <key column="TipoEvaluacionId" />

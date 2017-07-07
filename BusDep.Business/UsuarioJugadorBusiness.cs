@@ -79,7 +79,7 @@ namespace BusDep.Business
         {
             var tipoEvaluacion =
                 DependencyFactory.Resolve<IUsuarioDA>()
-                    .ObtenerTipoEvaluacionDefault(userView.DeporteId.GetValueOrDefault());
+                    .ObtenerTipoEvaluacionDefault(userView.DeporteId.GetValueOrDefault(), userView.TipoUsuario);
             if (tipoEvaluacion == null)
             {
                 throw new Exception("No existe tipo de evaluación default");

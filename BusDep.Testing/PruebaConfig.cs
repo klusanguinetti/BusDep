@@ -19,6 +19,14 @@ namespace BusDep.Testing
         private ConfigAll configAll = null;
         public bool cargaDB = true;
 
+        private void Detele(dynamic dataAccess)
+        {
+            foreach (var d in dataAccess.GetAll())
+            {
+                dataAccess.Delete(d);
+            }
+        }
+
         [SetUp]
         public void Init()
         {
@@ -29,53 +37,29 @@ namespace BusDep.Testing
             if (!cargaDB)
                 return;
             #region borrado
-            var DAev = DependencyFactory.Resolve<IBaseDA<Evaluacion>>();
-            foreach (var d in DAev.GetAll())
-            {
-                DAev.Delete(d);
-            }
-
-            var DAan = DependencyFactory.Resolve<IBaseDA<Antecedente>>();
-            foreach (var d in DAan.GetAll())
-            {
-                DAan.Delete(d);
-            }
-
-            var DAju = DependencyFactory.Resolve<IBaseDA<Jugador>>(); 
-            foreach (var d in DAju.GetAll())
-            {
-                DAju.Delete(d);
-            }
-
-            var DAu = DependencyFactory.Resolve<IUsuarioDA>();
-            foreach (var d in DAu.GetAll())
-            {
-                DAu.Delete(d);
-            }
-            var DAt = DependencyFactory.Resolve<IBaseDA<TipoUsuario>>();
-            foreach (var t in DAt.GetAll())
-            {
-                DAt.Delete(t);
-            }
-
+            dynamic dataAccess = DependencyFactory.Resolve<IBaseDA<Evaluacion>>();
+            Detele(dataAccess);
+            Detele(DependencyFactory.Resolve<IBaseDA<Antecedente>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<Jugador>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<Entrenador>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<Intermediario>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<Club>>());
+            Detele(DependencyFactory.Resolve<IUsuarioDA>());
+            Detele(DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<TipoUsuario>>());
             var DAti = DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>();
             foreach (var d in DAti.GetAll())
             {
                 DAti.Delete(d);
             }
-            var DAte = DependencyFactory.Resolve<IBaseDA<TemplateEvaluacion>>();
-            foreach (var d in DAte.GetAll())
-            {
-                DAte.Delete(d);
-            }
-            var DAd = DependencyFactory.Resolve<IBaseDA<Deporte>>();
-            foreach (var d in DAd.GetAll())
-            {
-                DAd.Delete(d);
-            }
+            Detele(DependencyFactory.Resolve<IBaseDA<TemplateEvaluacion>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<Deporte>>());
             #endregion
 
             #region tipo usuario
+
+            var DAt = DependencyFactory.Resolve<IBaseDA<TipoUsuario>>();
+            var DAd = DependencyFactory.Resolve<IBaseDA<Deporte>>();
             TipoUsuario jugador = new TipoUsuario { Descripcion = "Jugador" };
             DAt.Save(jugador);
             TipoUsuario tu = new TipoUsuario { Descripcion = "Entrenador" };
@@ -102,7 +86,7 @@ namespace BusDep.Testing
             #endregion
 
             #region template
-            TipoEvaluacion tipoEvaluacion = new TipoEvaluacion { Deporte = dep1, Descripcion = "Auto Evaluación", EsDefault = "S" };
+            TipoEvaluacion tipoEvaluacion = new TipoEvaluacion { Deporte = dep1, Descripcion = "Auto Evaluación", EsDefault = "S", TipoUsuario= jugador };
             //Técnica
             TemplateEvaluacion template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Técnica" };
             template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Juego con ambas piernas", TemplateEvaluacion = template });
@@ -213,7 +197,7 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Registracion(i);
             }

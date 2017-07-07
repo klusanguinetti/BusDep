@@ -10,7 +10,7 @@ namespace BusDep.IDataAccess
         Usuario Registracion(Usuario usuario);
         Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId);
 
-        TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId);
+        TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario);
 
         List<Antecedente> ObtenerAntecedentes(long usuarioId);
     }

@@ -11,7 +11,8 @@ namespace BusDep.Configuration.Interception
         {
 
             var result = getNext()(input, getNext);
-            InterceptExceptions(result, input);
+            if (result.Exception != null)
+                InterceptExceptions(result, input);
             return result;
 
         }

@@ -144,7 +144,27 @@
                     new InterceptionBehavior<InterceptorBase>()
               }
               );
-            
+            DependencyFactory.RegisterType<IBaseDA<Entrenador>, CommonDA<Entrenador>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+              }
+              );
+            DependencyFactory.RegisterType<IBaseDA<Intermediario>, CommonDA<Intermediario>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+              }
+              );
+            DependencyFactory.RegisterType<IBaseDA<Club>, CommonDA<Club>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBase>()
+              }
+              );
             #endregion
             #endregion
 

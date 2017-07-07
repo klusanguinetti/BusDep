@@ -33,6 +33,7 @@ namespace BusDep.Web
                       "~/Content/jquery.fs.scroller.css",
                       "~/Content/jquery.fs.selecter.css",
                       "~/Content/loading-bar.min.css",
+                      "~/Content/country-flags-icon.css",
                       "~/Content/style.css"));
 
             // Angular Bundle

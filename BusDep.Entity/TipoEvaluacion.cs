@@ -12,6 +12,7 @@ namespace BusDep.Entity
         public virtual string Descripcion { get; set; }
         public virtual string EsDefault { get; set; }
         public virtual Deporte Deporte { get; set; }
+        public virtual TipoUsuario TipoUsuario { get; set; }
         public virtual IList<TemplateEvaluacion> Templates { get; set; }
     }
 }

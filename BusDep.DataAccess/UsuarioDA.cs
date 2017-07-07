@@ -57,13 +57,15 @@ namespace BusDep.DataAccess
 
         public virtual Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId)
         {
-            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Jugador.Id.Equals(jugadorId) && o.TipoEvaluacion.Deporte.Id.Equals(deporteId) &&
-                                                            o.TipoEvaluacion.EsDefault.Equals("S"));
+            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Jugador.Id.Equals(jugadorId) 
+            && o.TipoEvaluacion.Deporte.Id.Equals(deporteId) && o.TipoEvaluacion.EsDefault.Equals("S")
+            && o.TipoEvaluacion.TipoUsuario == o.Jugador.Usuario.TipoUsuario);
         }
 
-        public virtual TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId)
+        public virtual TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario)
         {
-            return Session.Query<TipoEvaluacion>().FirstOrDefault(o => o.Deporte.Id.Equals(deporteId) && o.EsDefault.Equals("S"));
+            return Session.Query<TipoEvaluacion>().FirstOrDefault(o => o.Deporte.Id.Equals(deporteId) && o.EsDefault.Equals("S")
+            && o.TipoUsuario.Descripcion.Equals(tipoUsuario));
         }
 
         public virtual List<Antecedente> ObtenerAntecedentes(long usuarioId)

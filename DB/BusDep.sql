@@ -1,7 +1,9 @@
+use master
+go
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     05/07/2017 02:05:54 p.m.                     */
+/* Created on:     07/07/2017 04:39:54 p.m.                     */
 /*==============================================================*/
 
 
@@ -266,6 +268,7 @@ go
 create table TipoEvaluacion (
    TipoEvaluacionId     numeric(10)          identity,
    DeporteId            numeric(10)          null,
+   TipoUsuarioId        numeric(10)          null,
    Descripcion          nvarchar(400)        null,
    EsDefault            nvarchar(1)          null default 'N',
    constraint PK_TIPOEVALUACION primary key (TipoEvaluacionId)
@@ -452,6 +455,11 @@ go
 alter table TipoEvaluacion
    add constraint FK_TipoEvaluacion_Deporte foreign key (DeporteId)
       references Deporte (DeporteId)
+go
+
+alter table TipoEvaluacion
+   add constraint FK_TipoEvaluacion_TipoUsuario foreign key (TipoUsuarioId)
+      references TipoUsuario (TipoUsuarioId)
 go
 
 alter table Usuario

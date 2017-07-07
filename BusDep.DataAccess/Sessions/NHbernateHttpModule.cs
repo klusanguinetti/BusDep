@@ -90,6 +90,11 @@
             config.Configure();
             string stringconexion = config.GetProperty("connection.connection_string");
             string[] parseString = stringconexion.Split(';');
+            if (System.Environment.MachineName.ToUpper().Equals("NBI051856") )
+            {
+                stringconexion = @"Server=NBI051856\SQLEXPRESS2012;Initial Catalog=BusDep;User Id=sa;Password=Server2012;";
+                config.SetProperty("connection.connection_string", stringconexion);
+            }
             //stringconexion = string.Empty;
             //foreach (string s in parseString)
             //{
