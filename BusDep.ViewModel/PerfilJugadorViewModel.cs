@@ -23,11 +23,19 @@
         [DataMember]
         public DateTime? FechaNacimiento { get; set; }
         [DataMember]
+        public string Pais { get; set; }
+        [DataMember]
+        public string PaisIso { get; set; }
+        [DataMember]
         public string Nacionalidad { get; set; }
         [DataMember]
         public string Nacionalidades1 { get; set; }
         [DataMember]
         public string Nacionalidades2 { get; set; }
+        [DataMember]
+        public virtual string NacionalidadIso { get; set; }
+        [DataMember]
+        public virtual string NacionalidadIso1 { get; set; }
         #endregion
         #region Datos Jugador
         [DataMember]
@@ -42,6 +50,8 @@
         public decimal? Peso { get; set; }
         [DataMember]
         public string PuestoDescripcion { get; set; }
+        [DataMember]
+        public string Informacion { get; set; }
         #endregion
         #region Antecedentes deportivos
         public List<AntecedenteViewModel> Antecedentes { get; set; }

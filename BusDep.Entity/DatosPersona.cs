@@ -22,6 +22,7 @@ namespace BusDep.Entity
         public virtual string Provincia { get; set; }
         public virtual string Telefono { get; set; }
         public virtual string TipoDocumento { get; set; }
-        
+        public virtual string Informacion { get; set; }
+
     }
 }

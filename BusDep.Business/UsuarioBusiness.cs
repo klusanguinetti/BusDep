@@ -24,7 +24,7 @@ namespace BusDep.Business
             if (tipoUsuario != null)
             {
                 user.TipoUsuario = tipoUsuario;
-                user.DatosPersona = new DatosPersona { Usuario = user, Nombre = userView.Nombre, Apellido = userView.Nombre};
+                user.DatosPersona = new DatosPersona { Usuario = user, Nombre = userView.Nombre, Apellido = userView.Apellido};
                 switch (user.TipoUsuario.Descripcion)
                 {
                     case "Jugador":

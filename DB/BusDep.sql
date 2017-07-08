@@ -3,7 +3,7 @@ go
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     07/07/2017 04:39:54 p.m.                     */
+/* Created on:     08/07/2017 01:32:00 p.m.                     */
 /*==============================================================*/
 
 
@@ -83,6 +83,7 @@ create table DatosPersona (
    Nacionalidad1        nvarchar(100)        null,
    NacionalidadIso      nvarchar(5)          null,
    NacionalidadIso1     nvarchar(5)          null,
+   Informacion          nvarchar(4000)       null,
    constraint PK_DATOSPERSONA primary key (DatosPersonaId)
 )
 go

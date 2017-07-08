@@ -43,5 +43,7 @@
         public string Telefono { get; set; }
         [DataMember]
         public string TipoDocumento { get; set; }
+        [DataMember]
+        public string Informacion { get; set; }
     }
 }

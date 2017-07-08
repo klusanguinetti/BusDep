@@ -231,6 +231,9 @@ namespace BusDep.Testing
             datos.Nacionalidad = pais.Nombre;
             datos.NacionalidadIso = pais.CodigoIso;
             datos.FechaNacimiento = new DateTime(rnd.Next(1990, 2010), rnd.Next(1, 12), rnd.Next(1, 28));
+
+            datos.Informacion = string.Format("{0} {1} {2} {3} {4} {5}", datos.Nombre, datos.Apellido, ", Pais:",
+                datos.Pais, ", Fecha Nacimiento:", datos.FechaNacimiento);
             registracion.RegistracionDatosPersonales(datos);
 
             var jugadorView = common.ObtenerJugador(userView);
@@ -247,6 +250,7 @@ namespace BusDep.Testing
             ;
             jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
             jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
+
             jugador.ActualizarDatosJugador(jugadorView);
             var user = login.LoginUser(string.Format(nombre + "{0}@{1}.com", i, apellido), string.Format("{0}{1}", apellido, nombre));
 
@@ -264,11 +268,14 @@ namespace BusDep.Testing
             ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
             ante.FechaInicio = DateTime.Now.AddYears(-rnd.Next(6, 10));
             ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0, 2));
+            ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1} - Hasta: {2}", ante.InstitucionDescripcion, ante.FechaInicio, ante.FechaFin);
+
             jugador.GuardarAntecedenteViewModel(ante);
             DateTime fechafin = ante.FechaFin.GetValueOrDefault();
             ante = jugador.NuevoAntecedenteViewModel(userView);
             ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
             ante.FechaInicio = fechafin.AddYears(rnd.Next(6, 6));
+            ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1}", ante.InstitucionDescripcion, ante.FechaInicio);
             jugador.GuardarAntecedenteViewModel(ante);
 
             Console.WriteLine(string.Format("Usuario:{0}", user.Mail));

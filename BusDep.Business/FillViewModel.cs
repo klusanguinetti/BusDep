@@ -18,6 +18,8 @@ namespace BusDep.Business
                 userView.DatosPersonaId = user.DatosPersona?.Id;
                 userView.Nombre = user.DatosPersona?.Nombre;
                 userView.Apellido = user.DatosPersona?.Apellido;
+                userView.Pais = user.DatosPersona?.Pais;
+                userView.PaisIso = user.DatosPersona?.PaisIso;
                 return userView;
             }
             return null;
@@ -29,6 +31,8 @@ namespace BusDep.Business
             {
                 var jugadorView = jugador.MapperClass<JugadorViewModel>();
                 jugadorView.UsuarioId = jugador.Usuario.Id;
+                jugadorView.Pais = jugador.Usuario.DatosPersona.Pais;
+                jugadorView.PaisIso = jugador.Usuario.DatosPersona.PaisIso;
                 if (jugador.Puesto != null)
                 {
                     jugadorView.PuestoId = jugador.Puesto.Id;
@@ -79,14 +83,13 @@ namespace BusDep.Business
         {
             if (jugador != null)
             {
-                var jugadorView = jugador.MapperClass<JugadorBusquedaViewModel>();
+                var jugadorView = jugador.MapperClass<JugadorBusquedaViewModel>(TypeMapper.IgnoreCaseSensitive);
                 jugadorView.Id = jugador.Id;
                 jugadorView.PuestoDescripcion = jugador.Puesto?.Descripcion;
-                jugadorView.Nombre = jugador.Usuario.DatosPersona?.Nombre;
-                jugadorView.Apellido = jugador.Usuario.DatosPersona?.Apellido;
-                jugadorView.Nacionalidad1 = jugador.Usuario.DatosPersona?.Nacionalidad1;
-                jugadorView.Nacionalidad = jugador.Usuario.DatosPersona?.Nacionalidad;
+                jugador.MapperClass(jugador.Usuario.DatosPersona, TypeMapper.IgnoreCaseSensitive);
                 jugadorView.PuestoDescripcion = jugador.Puesto?.Descripcion;
+                jugadorView.Pais = jugador.Usuario.DatosPersona.Pais;
+                jugadorView.PaisIso = jugador.Usuario.DatosPersona.PaisIso;
                 return jugadorView;
             }
             return null;

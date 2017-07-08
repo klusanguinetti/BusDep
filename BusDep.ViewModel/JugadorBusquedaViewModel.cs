@@ -18,6 +18,10 @@ namespace BusDep.ViewModel
         [DataMember]
         public string Nacionalidad1 { get; set; }
         [DataMember]
+        public string NacionalidadIso { get; set; }
+        [DataMember]
+        public string Nacionalidad1Iso { get; set; }
+        [DataMember]
         public string PuestoDescripcion { get; set; }
         [DataMember]
         public string ClubActual { get; set; }
@@ -29,5 +33,11 @@ namespace BusDep.ViewModel
         public string Pie { get; set; }
         [DataMember]
         public string Fichaje { get; set; }
+        [DataMember]
+        public string Informacion { get; set; }
+        [DataMember]
+        public string Pais { get; set; }
+        [DataMember]
+        public string PaisIso { get; set; }
     }
 }

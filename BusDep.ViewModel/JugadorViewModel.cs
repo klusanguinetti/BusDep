@@ -27,6 +27,10 @@ namespace BusDep.ViewModel
         public string Pie { get; set; }
         [DataMember]
         public string Fichaje { get; set; }
+        [DataMember]
+        public string Pais { get; set; }
+        [DataMember]
+        public string PaisIso { get; set; }
 
     }
 }

@@ -22,5 +22,9 @@
         public string Nombre { get; set; }
         [DataMember]
         public string Apellido { get; set; }
+        [DataMember]
+        public string Pais { get; set; }
+        [DataMember]
+        public virtual string PaisIso { get; set; }
     }
 }
