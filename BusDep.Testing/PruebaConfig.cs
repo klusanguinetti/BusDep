@@ -16,7 +16,6 @@ namespace BusDep.Testing
     [SetUpFixture]
     public class InicioPruebas
     {
-        private ConfigAll configAll = null;
         public bool cargaDB = false;
 
         private void Detele(dynamic dataAccess)
@@ -30,10 +29,8 @@ namespace BusDep.Testing
         [SetUp]
         public void Init()
         {
-            if (configAll == null)
-                configAll = new ConfigAll();
-            configAll.Init();
-
+            ConfigAll.Instance.Init();
+            
             if (!cargaDB)
                 return;
             #region borrado
@@ -164,7 +161,7 @@ namespace BusDep.Testing
         [TearDown]
         public void Dispose()
         {
-            configAll?.Dispose();
+            ConfigAll.Instance.Dispose();
         }
     }
 

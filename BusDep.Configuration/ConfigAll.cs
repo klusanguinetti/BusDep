@@ -11,8 +11,29 @@
     using Microsoft.Practices.Unity;
     using Microsoft.Practices.Unity.InterceptionExtension;
 
+
+
     public class ConfigAll : IDisposable
     {
+       
+
+        private ConfigAll()
+        {
+        }
+
+        private static ConfigAll instance = null;
+        // Propiedad para acceder a la instancia
+        public static ConfigAll Instance
+        {
+            get
+            {
+                return instance ?? new ConfigAll();
+            }
+        }
+        public bool IsClearContainer
+        {
+            get { return DependencyFactory.IsClearContainer; }
+        }
         public void Init()
         {
             #region DataAccess
@@ -210,6 +231,7 @@
         public void Dispose()
         {
             DependencyFactory.ClearContainer();
+            instance = null;
         }
     }
 }

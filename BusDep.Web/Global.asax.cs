@@ -16,16 +16,20 @@ namespace BusDep.Web
 
         public MvcApplication()
         {
-            start = new ConfigAll();
+            this.BeginRequest += MvcApplication_BeginRequest;
         }
-        #endregion
-        #region atributo
-        private ConfigAll start;
-        #endregion
 
+
+        #endregion
+        #region eventos
+        private void MvcApplication_BeginRequest(object sender, EventArgs e)
+        {
+            if (ConfigAll.Instance.IsClearContainer)
+                ConfigAll.Instance.Init();
+
+        }
         protected void Application_Start()
         {
-
             try
             {
                 AreaRegistration.RegisterAllAreas();
@@ -33,22 +37,19 @@ namespace BusDep.Web
                 FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
                 RouteConfig.RegisterRoutes(RouteTable.Routes);
                 BundleConfig.RegisterBundles(BundleTable.Bundles);
-                if (start == null)
-                    start = new ConfigAll();
-                start.Init();
+                ConfigAll.Instance.Init();
             }
             catch (Exception)
             {
                 throw;
             }
-           
-        }
 
+        }
         public override void Dispose()
         {
-            if (start != null)
-                start.Dispose();
+            ConfigAll.Instance.Dispose();
             base.Dispose();
         }
+        #endregion
     }
 }

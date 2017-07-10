@@ -39,6 +39,7 @@
         /// other actions on the container.
         /// </summary>
         private static IUnityContainer Container { get; set; }
+        public static bool IsClearContainer { get; internal set; }
         #endregion
 
 
@@ -46,23 +47,27 @@
 
         public static void RegisterType<TTo, TFrom>(LifetimeManager lifetimeManager) where TFrom : TTo
         {
+            IsClearContainer = false;
             if (!Container.IsRegistered<TTo>())
                 Container.RegisterType<TTo, TFrom>(lifetimeManager);
         }
 
         public static void RegisterType<TTo, TFrom>() where TFrom : TTo
         {
+            IsClearContainer = false;
             if (!Container.IsRegistered<TTo>())
                 RegisterType<TTo, TFrom>(new ContainerControlledLifetimeManager());
         }
 
         public static void RegisterType<TTo, TFrom>(IEnumerable<InjectionMember> injectionMember) where TFrom : TTo
         {
+            IsClearContainer = false;
             if (!Container.IsRegistered<TTo>())
                 RegisterType<TTo, TFrom>(new ContainerControlledLifetimeManager(), injectionMember.ToArray());
         }
         public static void RegisterType<TTo, TFrom>(LifetimeManager lifetimeManager, IEnumerable<InjectionMember> injectionMember) where TFrom : TTo
         {
+            IsClearContainer = false;
             if (!Container.IsRegistered<TTo>())
                 Container.RegisterType<TTo, TFrom>(lifetimeManager, injectionMember.ToArray());
         }
@@ -86,6 +91,7 @@
                 }
                 Container.AddNewExtension<Interception>();
             }
+            IsClearContainer = true;
         }
 
         /// <summary>
