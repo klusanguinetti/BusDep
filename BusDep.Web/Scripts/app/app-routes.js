@@ -21,6 +21,10 @@
             templateUrl: '/Profile/Index',
             controller: 'publicProfileController'
         })
+        .when('/Profile/PrivateProfile', {
+            templateUrl: '/Profile/PrivateProfile',
+            controller: 'privateProfileController'
+        })
         .otherwise({
             redirectTo: '/'
         });

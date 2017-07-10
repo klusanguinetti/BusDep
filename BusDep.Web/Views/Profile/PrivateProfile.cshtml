@@ -1,0 +1,217 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="main-container" ng-controller="privateProfileController">
+    <div class="container">
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+                <div class="inner-box">
+                    <div class="row">
+                        <div class="col-md-5 col-xs-4 col-xxs-12">
+                            <h3 class="no-padding text-center-480 useradmin">
+                                <a href="#">
+                                    <img class="userImg" src="~/Content/img/user.jpg" alt="user"> {{datosPersonales.Nombre}} {{datosPersonales.Apellido}}
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="col-md-7 col-xs-8 col-xxs-12">
+                            <div class="header-data text-center-xs">
+
+                                <div class="hdata">
+                                    <div class="mcol-left">
+
+                                        <i class="fa fa-eye ln-shadow"></i>
+                                    </div>
+                                    <div class="mcol-right">
+
+                                        <p><a href="#">6236</a> <em>Visitas</em></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="hdata">
+                                    <div class="mcol-left">
+
+                                        <i class="icon-th-thumb ln-shadow"></i>
+                                    </div>
+                                    <div class="mcol-right">
+
+                                        <p><a href="#">12</a><em>Habilidades</em></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="hdata">
+                                    <div class="mcol-left">
+
+                                        <i class="fa fa-user ln-shadow"></i>
+                                    </div>
+                                    <div class="mcol-right">
+
+                                        <p><a href="#">18</a> <em>Favoritos </em></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <div class="welcome-msg">
+                        <h3 class="page-sub-header2 clearfix no-padding">Hola, {{datosPersonales.Nombre}} </h3>
+                        <span class="page-sub-header-sub small">Tu ultimo acceso a la página: Lunes 23 de julio del 2014 a las 14:23 hrs  [AR time (GMT + 6:00hrs)]</span>
+                    </div>
+                    <div id="accordion" class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a href="#collapseB1" data-toggle="collapse">
+                                        Mis detalles
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div class="panel-collapse collapse in" id="collapseB1">
+                                <div class="panel-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Nombre</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="Jhon" ng-model="datosPersonales.Nombre">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Apellido</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="Doe" ng-model="datosPersonales.Apellido">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control" placeholder="jhon.deo@example.com" disabled ng-model="Mail">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Dirección</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Phone" class="col-sm-3 control-label">Teléfono</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="Phone" placeholder="880 124 9820" ng-model="datosPersonales.Telefono">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Código postal</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="1217" ng-model="datosPersonales.CodigoPostal">
+                                            </div>
+                                        </div>
+                                        <div class="form-group hide">
+                                            <label class="col-sm-3 control-label">Facebook account map</label>
+                                            <div class="col-sm-9">
+                                                <div class="form-control"><a class="link" href="fb.html">Jhone.doe</a> <a class=""> <i class="fa fa-minus-circle"></i></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-default" ng-click="UpdateProfile()">Actualizar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a href="" data-target="collapse"> Configuración de acceso </a>
+                                </h4>
+                            </div>
+
+                            <div class="panel-collapse collapse in" id="collapseB2">
+                                <div class="panel-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                @*<div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        Comments are enabled on my ads
+                                                    </label>
+                                                </div>*@
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Nueva clave</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Repetir clave</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-default">Actualizar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a href="#collapseB3" data-toggle="collapse">
+                                        Preferencias
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse collapse in" id="collapseB3">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">
+                                                   Quiero que mi perfil sea privado
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    No quiero recibir mensajes de otros perfiles
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

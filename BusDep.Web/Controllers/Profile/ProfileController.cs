@@ -14,5 +14,12 @@ namespace BusDep.Web.Controllers
             return View();
         }
 
+        // GET: Profile
+        public ActionResult PrivateProfile()
+        {
+            return View();
+        }
+
+
     }
 }

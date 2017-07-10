@@ -3,135 +3,219 @@
 }
 
 <div class="main-container" ng-controller="registerController">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 page-content">
+
+    <div class="container" ng-style="{'min-height':{{fixedWidth}}}">
+
+        <div class="row" data-ng-hide="!savedSuccessfully">
+            <div class="col-md-12 page-content">
                 <div class="inner-box category-content">
-                    <h2 class="title-2"><i class="icon-user-add"></i> Crea tu cuenta, es gratis </h2>
                     <div class="row">
-                        <div class="col-sm-12">
-                            <form class="form-horizontal">
-                                <fieldset>
-                                    <div class="form-group required">
-                                        <label class="col-md-4 control-label">Eres un <sup>*</sup></label>
-                                        <div class="col-md-6">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Jugador" checked="">
-                                                    Jugador
-                                                </label>
+                        <div class="col-lg-12">
+                            <div class="alert alert-success pgray  alert-lg" role="alert">
+                                <h2 class="no-margin no-padding">
+                                    ✔ ¡Felicitaciones! Ya formas parte de la comunidad de Busqueda Deportiva.
+                                </h2>
+                                <p>
+                                    En unos segundos seras redirigido al inicio de sesión.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+     
+                </div>
+
+            </div>
+        </div>
+
+            <div class="row" data-ng-hide="savedSuccessfully">
+                <div class="col-md-8 page-content">
+                    <div class="inner-box category-content">
+                        <h2 class="title-2"><i class="icon-user-add"></i> Crea tu cuenta, es gratis </h2>
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <form class="form-horizontal" novalidate="" name="userForm" ng-submit="signUp()">
+
+                                    <fieldset>
+
+                                        <div class="form-group required" ng-class="{ 'has-error': userForm.optionsRadios.$touched && userForm.optionsRadios.$invalid }">
+
+                                            <label class="col-md-4 control-label">Eres un <sup>*</sup></label>
+
+                                            <div class="col-md-6">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario" value="Jugador" checked="">
+                                                        Jugador
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario" value="Entrenador">
+                                                        Entrenador
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario" value="Intermediario">
+                                                        Intermediario
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario" value="Club">
+                                                        Club
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Entrenador">
-                                                    Entrenador
-                                                </label>
+
+                                            <div class="help-block" ng-messages="userForm.optionsRadios.$error" ng-if="userForm.optionsRadios.$touched">
+                                                <p ng-message="required">Debes escojer un tipo.</p>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Intermediario">
-                                                    Intermediario
-                                                </label>
+
+                                        </div>
+
+                                        <div class="form-group required" ng-class="{ 'has-error': (userForm.name.$touched && userForm.name.$invalid) || (userForm.$submitted && userForm.name.$invalid)}">
+
+                                            <label class="col-md-4 control-label">Primer Nombre <sup>*</sup></label>
+
+                                            <div class="col-md-6">
+                                                <input name="name" placeholder="Primer Nombre" class="form-control input-md"
+                                                       type="text" ng-model="registration.Nombre" ng-minlength="3"
+                                                       ng-maxlength="30" required autofocus>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" ng-model="registration.TipoUsuario"  value="Club">
-                                                    Club
-                                                </label>
+
+                                            <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched || userForm.$submitted">
+                                                <p ng-message="minlength">Tu nombre es muy corto.</p>
+                                                <p ng-message="maxlength">Tu nombre es muy largo.</p>
+                                                <p ng-message="required">Tu nombre es necesario.</p>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group required">
-                                        <label class="col-md-4 control-label">Primer Nombre <sup>*</sup></label>
-                                        <div class="col-md-6">
-                                            <input name="" placeholder="Primer Nombre" class="form-control input-md" required="" type="text" data-ng-model="registration.Nombre" autofocus>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group required">
-                                        <label class="col-md-4 control-label">Apellido <sup>*</sup></label>
-                                        <div class="col-md-6">
-                                            <input name="textinput" placeholder="Apellido" class="form-control input-md" type="text" required data-ng-model="registration.Apellido">
-                                        </div>
-                                    </div>
+                                        <div class="form-group required" ng-class="{ 'has-error': (userForm.apellido.$touched && userForm.apellido.$invalid) || (userForm.$submitted && userForm.apellido.$invalid) }">
 
-                                    <hr />
+                                            <label class="col-md-4 control-label">Primer Apellido <sup>*</sup></label>
 
-                                    <div class="form-group required">
-                                        <label for="inputEmail3" class="col-md-4 control-label">
-                                            Email
-                                            <sup>*</sup>
-                                        </label>
-                                        <div class="col-md-6">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required data-ng-model="registration.Mail">
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label for="inputPassword3" class="col-md-4 control-label">Contraseña </label>
-                                        <div class="col-md-6">
-                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Contraseña" required data-ng-model="registration.Password">
-                                            <p class="help-block">
-                                                Al menos 5 caracteres
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label"></label>
-                                        <div class="col-md-8">
-                                            <div class="termbox mb10">
-                                                <label class="checkbox-inline" for="checkboxes-1">
-                                                    <input name="checkboxes" id="checkboxes-1" value="1" type="checkbox">
-                                                    He leido y estoy deacuerdo con los <a href="#!">
-                                                        Terminos
-                                                        &amp; Condiciones
-                                                    </a>
-                                                </label>
+                                            <div class="col-md-6">
+
+                                                <input name="apellido" placeholder="Apellido" class="form-control input-md"
+                                                       type="text" required data-ng-model="registration.Apellido"
+                                                       ng-minlength="3" ng-maxlength="30">
+
                                             </div>
-                                            <div style="clear:both"></div>
-                                            <a class="btn btn-primary" data-ng-click="signUp()">Registrarme</a>
+
+                                            <div class="help-block" ng-messages="userForm.apellido.$error" ng-if="userForm.apellido.$touched || userForm.$submitted">
+                                                <p ng-message="minlength">Tu apellido es muy corto.</p>
+                                                <p ng-message="maxlength">Tu apellido es muy largo.</p>
+                                                <p ng-message="required">Tu apellido es necesario.</p>
+                                            </div>
+
                                         </div>
 
-                                    </div>
+                                        <hr />
 
-                                    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
-                                        {{message}}
-                                    </div>
+                                        <div class="form-group required" ng-class="{ 'has-error': (userForm.email.$touched && userForm.email.$invalid) || (userForm.$submitted && userForm.email.$invalid) }">
 
-                                </fieldset>
-                            </form>
+                                            <label for="inputEmail3" class="col-md-4 control-label">
+                                                Email
+                                                <sup>*</sup>
+                                            </label>
+
+                                            <div class="col-md-6">
+                                                <input type="email" name="email" class="form-control" placeholder="Email" required data-ng-model="registration.Mail">
+                                            </div>
+
+                                            <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched || userForm.$submitted">
+                                                <p ng-message="required">Tu email es necesario.</p>
+                                                <p ng-message="email">Debes colocar un email valido</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group required" ng-class="{ 'has-error': (userForm.password.$touched && userForm.password.$invalid) || (userForm.$submitted && userForm.password.$invalid) }">
+
+                                            <label for="inputPassword3" class="col-md-4 control-label">Contraseña </label>
+
+                                            <div class="col-md-6">
+                                                <input type="password" name="password" class="form-control" placeholder="Contraseña" required data-ng-model="registration.Password" ng-minlength="6">
+                                                <p class="help-block">
+                                                    Al menos 6 caracteres
+                                                </p>
+                                            </div>
+
+                                            <div class="help-block" ng-messages="userForm.password.$error" ng-if="userForm.password.$touched || userForm.$submitted">
+                                                <p ng-message="required">Tu contraseña es necesaria.</p>
+                                                <p ng-message="minlength">Tu contraseña es muy corta. Minimo 6 caracteres alfanuméricos.</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group" ng-class="{ 'has-error': userForm.condiciones.$touched && userForm.condiciones.$invalid }">
+
+                                            <label class="col-md-4 control-label"></label>
+
+                                            <div class="col-md-8">
+
+                                                <div class="termbox mb10">
+
+                                                    <label class="checkbox-inline" for="checkboxes-1">
+                                                        <input name="condiciones" value="1" type="checkbox" required checked>
+                                                        He leido y estoy deacuerdo con los <a href="#!">
+                                                            Terminos
+                                                            &amp; Condiciones
+                                                        </a>
+                                                    </label>
+
+                                                    <div class="help-block" ng-messages="userForm.condiciones.$error" ng-if="userForm.condiciones.$touched">
+                                                        <p ng-message="required">Debes aceptar los términos.</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div style="clear:both"></div>
+
+                                                <button class="btn btn-primary" type="submit" ng-disabled="buttonDisabled">Registrarme</button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </fieldset>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 reg-sidebar">
+                    <div class="reg-sidebar-inner text-center">
+                        <div class="promo-text-box">
+                            <i class="icon-briefcase fa fa-4x icon-color-1"></i>
+                            <h3><strong>Registrate </strong></h3>
+                            <p>
+                                Solo llenando el formulario de la izquierda ya estaras registrado de manera gratuita y sin problemas.
+                            </p>
+                        </div>
+                        <div class="promo-text-box">
+                            <i class="icon-pencil-circled fa fa-4x icon-color-2"></i>
+                            <h3><strong>Carga tu perfil y habilidades</strong></h3>
+                            <p>
+                                La aplicación te dara la oportunidad de mostrar tu habilidades y experiencia mediante un conjunto de examenes.
+                            </p>
+                        </div>
+                        <div class="promo-text-box">
+                            <i class="icon-heart-2 fa fa-4x icon-color-3"></i>
+                            <h3><strong>Encuentra el club que buscas.</strong></h3>
+                            <p>
+                                Solo relajate y deja que cientos de clubes y entrenadores te encuentren.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 reg-sidebar">
-                <div class="reg-sidebar-inner text-center">
-                    <div class="promo-text-box">
-                        <i class="icon-briefcase fa fa-4x icon-color-1"></i>
-                        <h3><strong>Registrate </strong></h3>
-                        <p>
-                            Solo llenando el formulario de la izquierda ya estaras registrado de manera gratuita y sin problemas.
-                        </p>
-                    </div>
-                    <div class="promo-text-box">
-                        <i class="icon-pencil-circled fa fa-4x icon-color-2"></i>
-                        <h3><strong>Carga tu perfil y habilidades</strong></h3>
-                        <p>
-                            La aplicación te dara la oportunidad de mostrar tu habilidades y experiencia mediante un conjunto de examenes.
-                        </p>
-                    </div>
-                    <div class="promo-text-box">
-                        <i class="icon-heart-2 fa fa-4x icon-color-3"></i>
-                        <h3><strong>Encuentra el club que buscas.</strong></h3>
-                        <p>
-                            Solo relajate y deja que cientos de clubes y entrenadores te encuentren.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
-
-    </div>
 
 </div>

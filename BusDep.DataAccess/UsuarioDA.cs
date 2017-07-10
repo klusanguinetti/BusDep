@@ -11,6 +11,9 @@ namespace BusDep.DataAccess
     using BusDep.IDataAccess;
     using NHibernate;
     using NHibernate.Linq;
+    using System;
+    using System.Text;
+
     public class UsuarioDA : BaseDataAccess<Usuario>, IUsuarioDA
     {
         public new virtual void Save(Usuario user)
@@ -21,8 +24,13 @@ namespace BusDep.DataAccess
         }
         public virtual Usuario LoginUser(string mail, string password)
         {
-            password = Common.Encrypt.EncryptToBase64String(password);
+
+            byte[] data = Convert.FromBase64String(password);
+            string decodedPassword = Encoding.UTF8.GetString(data);
+
+            password = Common.Encrypt.EncryptToBase64String(decodedPassword);
             return Session.Query<Usuario>().FirstOrDefault(o => o.Password.Equals(password) && o.Mail.ToUpper().Equals(mail.ToUpper()));
+
         }
 
         public virtual Usuario LoginUser(string mail, string aplicacion, string token)

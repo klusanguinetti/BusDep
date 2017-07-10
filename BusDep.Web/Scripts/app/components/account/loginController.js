@@ -13,16 +13,20 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$timeo
 
     $scope.login = function () {
 
-        authService.login($scope.loginData).then(function (response) {
+        if ($scope.loginForm.$valid) {
 
+            authService.login($scope.loginData).then(function (response) {
 
-            $location.path('/Home/Index');
+                $location.path('/Home/Index');
 
-        },
-         function (err) {
-             $scope.savedSuccessfully = true;
-             $scope.message = "Usuario/Contraseña no encontrados";
-         });
+            },
+        function (err) {
+            $scope.savedSuccessfully = true;
+            $scope.message = "Usuario/Contraseña no encontrados";
+        });
+
+        }
+
     };
 
 }]);

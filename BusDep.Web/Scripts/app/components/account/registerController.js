@@ -2,7 +2,9 @@
 app.controller('registerController', ['$scope', '$location', '$timeout', 'authService', function ($scope, $location, $timeout, authService) {
 
     $scope.savedSuccessfully = false;
-    $scope.message = "";
+    $scope.buttonDisabled = false;
+
+    $scope.fixedWidth = window.innerHeight - 220;
 
     $scope.registration = {
         Nombre: "",
@@ -14,10 +16,13 @@ app.controller('registerController', ['$scope', '$location', '$timeout', 'authSe
 
     $scope.signUp = function () {
 
+        if ($scope.userForm.$valid) {
+
+        $scope.buttonDisabled = true;
+
         authService.saveRegistration($scope.registration).then(function (response) {
 
             $scope.savedSuccessfully = true;
-            $scope.message = "Fuiste registrado con éxito en la página, seras dirigido a la página de login en 3 segundos.";
             startTimer();
 
         },
@@ -28,8 +33,12 @@ app.controller('registerController', ['$scope', '$location', '$timeout', 'authSe
                      errors.push(response.data.modelState[key][i]);
                  }
              }
+             $scope.buttonDisabled = false;
              $scope.message = "Failed to register user due to:" + errors.join(' ');
          });
+
+        }
+
     };
 
     var startTimer = function () {

@@ -11,24 +11,44 @@
                         <img alt="img" class="img-responsive" src="~/Content/img/Logo250.png" style="display: inline;"> 
                     </div>
                     <div class="panel-body">
-                        <form role="form">
-                            <div class="form-group">
+
+                        <form role="form" novalidate="" name="loginForm" ng-submit="login()">
+
+                            <div class="form-group" ng-class="{ 'has-error': (loginForm.email.$touched && loginForm.email.$invalid) || (loginForm.$submitted && loginForm.email.$invalid)}">
+
                                 <label for="sender-email" class="control-label">Email:</label>
+
                                 <div class="input-icon">
                                     <i class="icon-user fa"></i>
-                                    <input id="sender-email" type="text" placeholder="Email" class="form-control email" data-ng-model="loginData.mail" required autofocus>
+                                    <input name="email" type="text" placeholder="Email" class="form-control email" data-ng-model="loginData.mail" required autofocus>
                                 </div>
+
+                                <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted">
+                                    <p ng-message="required">Tu email es necesario.</p>
+                                </div>
+
                             </div>
-                            <div class="form-group">
+
+                            <div class="form-group" ng-class="{ 'has-error': (loginForm.password.$touched && loginForm.password.$invalid) || (loginForm.$submitted && loginForm.password.$invalid)}">
+
                                 <label for="user-pass" class="control-label">Contraseña:</label>
+
                                 <div class="input-icon">
                                     <i class="icon-lock fa"></i>
-                                    <input type="password" class="form-control" placeholder="Contraseña" required id="user-pass" data-ng-model="loginData.password">
+                                    <input type="password" class="form-control" placeholder="Contraseña" required name="password" data-ng-model="loginData.password" ng-minlength="6">
                                 </div>
+
+                                <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.$submitted">
+                                    <p ng-message="required">Tu contraseña es necesaria.</p>
+                                    <p ng-message="minlength">Tu contraseña es muy corta.</p>
+                                </div>
+
                             </div>
+
                             <div class="form-group">
-                                <a data-ng-click="login()" class="btn btn-primary  btn-block">Iniciar sesión</a>
+                                <button class="btn btn-primary btn-block">Iniciar sesión</button>
                             </div>
+
                         </form>
 
                         <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
@@ -36,6 +56,7 @@
                         </div>
 
                     </div>
+
                     <div class="panel-footer">
                         <div class="checkbox pull-left">
                             <label>
@@ -43,15 +64,15 @@
                             </label>
                         </div>
                         <p class="text-center pull-right">
-                            <a href="forgot-password.html"> ¿Olvidaste tu contraseña? </a>
+                            <a href=""> ¿Olvidaste tu contraseña? </a>
                         </p>
-                        <div style=" clear:both"></div>
+                        <div style="clear:both"></div>
                     </div>
                 </div>
                 <div class="login-box-btm text-center">
                     <p>
                         ¿No tienes una cuenta aun? <br>
-                        <a href="job-signup.html"><strong>¡Quiero Registrarme!</strong> </a>
+                        <a href="#!Account/Register"><strong>¡Quiero Registrarme!</strong> </a>
                     </p>
                 </div>
             </div>

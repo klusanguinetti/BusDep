@@ -133,7 +133,8 @@
     <Compile Include="Controllers\AccountApiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\Profile\ProfileApiController.cs" />
+    <Compile Include="Controllers\Profile\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -572,6 +573,8 @@
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
+    <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
+    <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
     <Content Include="Scripts\app\shared\factories\authInterceptorService.js" />
@@ -1413,6 +1416,8 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\PrivateProfile.cshtml" />
+    <Content Include="Views\Shared\_Profile_Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,13 +14,46 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li data-ng-hide="!authentication.isAuth"><a href="#">Bienvenido <b>{{authentication.userName}}</b></a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Cerrar sesión</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Cerrar sesión <i class="glyphicon glyphicon-off"></i> </a></li>
+
+                    <li class="dropdown" data-ng-hide="!authentication.isAuth">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <span>{{authentication.userName}}</span> <i class="icon-user fa"></i> <i class="icon-down-open-big fa"></i>
+                        </a>
+                        <ul class="dropdown-menu user-menu">
+                            <li class="active">
+                                <a href="#!Profile/PrivateProfile">
+                                    <i class="icon-home"></i> Mi pefil
+                                </a>
+                            </li>
+                            <li><a href="account-myads.html"><i class="icon-th-thumb"></i> Habilidades </a></li>
+                            <li>
+                                <a href="account-favourite-ads.html"><i class="icon-heart"></i> Mis favoritos </a>
+                            </li>
+                            <li>
+                                <a href="account-saved-search.html">
+                                    <i class="icon-star-circled"></i> Mis busquedas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="account-archived-ads.html">
+                                    <i class="icon-folder-close"></i> Certificaciones
+                                </a>
+                            </li>
+                            <li>
+                                <a href="account-pending-approval-ads.html">
+                                    <i class="icon-hourglass"></i> Mis pendientes
+                                </a>
+                            </li>
+                            <li><a href="statements.html"><i class="icon-money"></i> Ofertas </a></li>
+                        </ul>
+                    </li>
 
                     <li data-ng-hide="authentication.isAuth"><a href="#!/Account/Login">Iniciar sesión</a></li>
-                    <li data-ng-hide="authentication.isAuth"><a href="#!/Account/Register">Registrase</a></li>
+                    <li data-ng-hide="authentication.isAuth"><a href="#!/Account/Register">Registrarme</a></li>
 
                     <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="#!">Buscar</a></li>
+
 
                 </ul>
 

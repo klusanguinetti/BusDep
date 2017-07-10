@@ -6,7 +6,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
     var _authentication = {
         isAuth: false,
-        userName: ""
+        userName: "",
+        datosPersonaId: ""
     };
 
     var _saveRegistration = function (registration) {
@@ -21,16 +22,17 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
     var _login = function (loginData) {
 
-        var data = "grant_type=password&mail=" + loginData.mail + "&password=" + loginData.password;
+        var data = "grant_type=password&mail=" + loginData.mail + "&password=" + window.btoa(loginData.password);
 
         var deferred = $q.defer();
 
         $http.post(serviceBase + 'Account/Login', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
 
-            localStorageService.set('authorizationData', { token: response.data.access_token, userName: response.data.Mail });
+            localStorageService.set('authorizationData', { token: response.data.access_token, userName: response.data.Mail, id: response.data.Id });
 
             _authentication.isAuth = true;
             _authentication.userName = response.data.Mail;
+            _authentication.datosPersonaId = response.data.Id;
 
             deferred.resolve(response);
 
@@ -51,15 +53,18 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
         _authentication.isAuth = false;
         _authentication.userName = "";
+        _authentication.datosPersonaId = "";
 
     };
 
     var _fillAuthData = function () {
 
         var authData = localStorageService.get('authorizationData');
+
         if (authData) {
             _authentication.isAuth = true;
             _authentication.userName = authData.userName;
+            _authentication.datosPersonaId = authData.id;
         }
 
     }
