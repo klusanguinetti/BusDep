@@ -17,7 +17,7 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
         private ConfigAll configAll = null;
-        public bool cargaDB = true;
+        public bool cargaDB = false;
 
         private void Detele(dynamic dataAccess)
         {
@@ -313,9 +313,9 @@ namespace BusDep.Testing
             }
         }
 
-        private List<ClubViewModel> Clubes => LeerCluber();
+        private List<ClubViewModel> Clubes => LeerClubes();
 
-        private List<ClubViewModel> LeerCluber()
+        private List<ClubViewModel> LeerClubes()
         {
             var path = System.Reflection.Assembly.GetAssembly(this.GetType()).CodeBase;
             UriBuilder uri = new UriBuilder(path);
@@ -468,6 +468,17 @@ namespace BusDep.Testing
                 "Perez",
                 "Ortega"
             };
+        }
+        [Test]
+        public void ReadClub()
+        {
+            string css = @".flagclubicon.flag-{0} {{ background - image: url('../Content/img/Clubes/{0}.png'); }}" + Environment.NewLine;
+            string ret = string.Empty;
+            foreach (var club in Clubes)
+            {
+                ret += string.Format(css, club.Code);
+            }
+            Console.WriteLine(ret);
         }
     }
 }

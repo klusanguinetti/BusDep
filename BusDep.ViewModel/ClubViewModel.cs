@@ -9,5 +9,7 @@
         public string Division { get; set; }
         [DataMember]
         public string Nombre { get; set; }
+        [DataMember]
+        public string Code { get; set; }
     }
 }

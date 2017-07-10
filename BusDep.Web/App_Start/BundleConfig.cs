@@ -34,7 +34,8 @@ namespace BusDep.Web
                       "~/Content/jquery.fs.selecter.css",
                       "~/Content/loading-bar.min.css",
                       "~/Content/country-flags-icon.css",
-                      "~/Content/style.css"));
+                      "~/Content/club-flags-icon.css",
+                      "~/Content/style.css").WithLastModifiedToken());
 
             // Angular Bundle
 
