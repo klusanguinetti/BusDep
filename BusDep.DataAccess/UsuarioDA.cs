@@ -80,5 +80,12 @@ namespace BusDep.DataAccess
         {
             return Session.Query<Antecedente>().Where(o => o.Usuario.Id.Equals(usuarioId)).ToList();
         }
+
+        public virtual Usuario ActualizarPassword(Usuario usuario)
+        {
+            usuario.Password = Common.Encrypt.EncryptToBase64String(usuario.Password);
+            base.Save(usuario);
+            return usuario;
+        }
     }
 }

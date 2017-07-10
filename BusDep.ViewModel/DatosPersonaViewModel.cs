@@ -12,7 +12,7 @@
         [DataMember]
         public string Apellido { get; set; }
         [DataMember]
-        public string Calle { get; set; }
+        public string Direccion { get; set; }
         [DataMember]
         public string Ciudad { get; set; }
         [DataMember]
@@ -29,8 +29,6 @@
         public virtual string NacionalidadIso1 { get; set; }
         [DataMember]
         public string Nombre { get; set; }
-        [DataMember]
-        public string Numero { get; set; }
         [DataMember]
         public string NumeroDocumento { get; set; }
         [DataMember]

@@ -4,7 +4,7 @@
       <generator class="native" />
     </id>
     <property name="Apellido" column="Apellido" type="System.String" length="200" />
-    <property name="Calle" column="Calle" type="System.String" length="400" />
+    <property name="Direccion" column="Direccion" type="System.String" length="400" />
     <property name="Ciudad" column="Ciudad" type="System.String" length="100" />
     <property name="CodigoPostal" column="CodigoPostal" type="System.String" length="10" />
     <property name="FechaNacimiento" column="FechaNacimiento" type="System.DateTime"  />
@@ -13,7 +13,6 @@
     <property name="NacionalidadIso" column="NacionalidadIso" type="System.String" length="100" />
     <property name="NacionalidadIso1" column="NacionalidadIso1" type="System.String" length="100" />
     <property name="Nombre" column="Nombre" type="System.String" length="400" />
-    <property name="Numero" column="Numero" type="System.String" length="200" />
     <property name="NumeroDocumento" column="NumeroDocumento" type="System.String" length="60" />
     <property name="Pais" column="Pais" type="System.String" length="100" />
     <property name="PaisIso" column="PaisIso" type="System.String" length="100" />

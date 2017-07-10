@@ -27,4 +27,20 @@
         [DataMember]
         public virtual string PaisIso { get; set; }
     }
+
+    [DataContract]
+    public class UsuarioCambioPasswordViewModel
+    {
+        [DataMember]
+        public long Id { get; set; }
+
+        [DataMember]
+        public string Mail { get; set; }
+
+        [DataMember]
+        public string OldPassword { get; set; }
+
+        [DataMember]
+        public string Password { get; set; }
+    }
 }

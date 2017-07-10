@@ -15,5 +15,16 @@
             return FillViewModel.FillUsuarioViewModel(DependencyFactory.Resolve<IUsuarioDA>().LoginUser(mail, aplicacion, token));
 
         }
+        public virtual UsuarioViewModel ActualizarPassword(UsuarioCambioPasswordViewModel usuarioCambioPassword)
+        {
+            var usuario = DependencyFactory.Resolve<IUsuarioDA>().LoginUser(usuarioCambioPassword.Mail, usuarioCambioPassword.OldPassword);
+            if(usuario==null)
+                return null;
+            else
+            {
+                usuario.Password = usuario.Password;
+                return FillViewModel.FillUsuarioViewModel(DependencyFactory.Resolve<IUsuarioDA>().ActualizarPassword(usuario));
+            }
+        }
     }
 }

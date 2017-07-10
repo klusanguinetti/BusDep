@@ -13,5 +13,7 @@ namespace BusDep.IDataAccess
         TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario);
 
         List<Antecedente> ObtenerAntecedentes(long usuarioId);
+
+        Usuario ActualizarPassword(Usuario usuario);
     }
 }

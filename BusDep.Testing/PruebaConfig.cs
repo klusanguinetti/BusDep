@@ -16,8 +16,23 @@ namespace BusDep.Testing
     [SetUpFixture]
     public class InicioPruebas
     {
-        public bool cargaDB = false;
 
+        [SetUp]
+        public void Init()
+        {
+            ConfigAll.Instance.Init();
+        }
+
+        [TearDown]
+        public void Dispose()
+        {
+            ConfigAll.Instance.Dispose();
+        }
+    }
+
+    [TestFixture]
+    public class LimpiesaDB
+    {
         private void Detele(dynamic dataAccess)
         {
             foreach (var d in dataAccess.GetAll())
@@ -25,15 +40,12 @@ namespace BusDep.Testing
                 dataAccess.Delete(d);
             }
         }
-
-        [SetUp]
-        public void Init()
+        [Test]
+        public void LimpiesaYCargaDeDatos()
         {
-            ConfigAll.Instance.Init();
-            
-            if (!cargaDB)
-                return;
+
             #region borrado
+
             dynamic dataAccess = DependencyFactory.Resolve<IBaseDA<Evaluacion>>();
             Detele(dataAccess);
             Detele(DependencyFactory.Resolve<IBaseDA<Antecedente>>());
@@ -51,6 +63,7 @@ namespace BusDep.Testing
             }
             Detele(DependencyFactory.Resolve<IBaseDA<TemplateEvaluacion>>());
             Detele(DependencyFactory.Resolve<IBaseDA<Deporte>>());
+
             #endregion
 
             #region tipo usuario
@@ -65,105 +78,291 @@ namespace BusDep.Testing
             DAt.Save(tu);
             tu = new TipoUsuario { Descripcion = "Club" };
             DAt.Save(tu);
+
             #endregion
 
             #region deporte y puestos
+
             Deporte dep1 = new Deporte { Descripcion = "Futbol", Tipo = "Futbol" };
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Delantero", PuestoEspecifico = "Delantero Centro" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Delantero", PuestoEspecifico = "Delantero Derecho" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Delantero", PuestoEspecifico = "Delantero Izquierdo" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Mediocampista", PuestoEspecifico = "Mediocampista Centro" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Mediocampista", PuestoEspecifico = "Mediocampista Derecho" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Mediocampista", PuestoEspecifico = "Mediocampista Izquierdo" });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Delantero",
+                PuestoEspecifico = "Delantero Centro"
+            });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Delantero",
+                PuestoEspecifico = "Delantero Derecho"
+            });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Delantero",
+                PuestoEspecifico = "Delantero Izquierdo"
+            });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Mediocampista",
+                PuestoEspecifico = "Mediocampista Centro"
+            });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Mediocampista",
+                PuestoEspecifico = "Mediocampista Derecho"
+            });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Mediocampista",
+                PuestoEspecifico = "Mediocampista Izquierdo"
+            });
             dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Defensor", PuestoEspecifico = "Defensor Centro" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Defensor", PuestoEspecifico = "Defensor Derecho" });
-            dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Defensor", PuestoEspecifico = "Defensor Izquierdo" });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Defensor",
+                PuestoEspecifico = "Defensor Derecho"
+            });
+            dep1.Puestos.Add(new Puesto
+            {
+                Deporte = dep1,
+                Descripcion = "Defensor",
+                PuestoEspecifico = "Defensor Izquierdo"
+            });
             dep1.Puestos.Add(new Puesto { Deporte = dep1, Descripcion = "Arquero", PuestoEspecifico = "Arquero" });
             DAd.Save(dep1);
+
             #endregion
 
             #region template
-            TipoEvaluacion tipoEvaluacion = new TipoEvaluacion { Deporte = dep1, Descripcion = "Auto Evaluación", EsDefault = "S", TipoUsuario= jugador };
+
+            TipoEvaluacion tipoEvaluacion = new TipoEvaluacion
+            {
+                Deporte = dep1,
+                Descripcion = "Auto Evaluación",
+                EsDefault = "S",
+                TipoUsuario = jugador
+            };
             //Técnica
-            TemplateEvaluacion template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Técnica" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Juego con ambas piernas", TemplateEvaluacion = template });
+            TemplateEvaluacion template = new TemplateEvaluacion
+            {
+                TipoEvaluacion = tipoEvaluacion,
+                Descripcion = "Técnica"
+            };
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Juego con ambas piernas",
+                TemplateEvaluacion = template
+            });
             template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Pase", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Control orientación (recepción y pase)", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Amague y dribleo", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Remate al arco", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Juego de cabeza", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Carga y marcación", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Control orientación (recepción y pase)",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Amague y dribleo",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Remate al arco",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Juego de cabeza",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Carga y marcación",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             //Condición Fisica
             template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Condición Fisica" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Fuerza (explosiva)", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Velocidad", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Resistencia", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Flexibilidad (movilidad)", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Fuerza (explosiva)",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Velocidad",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Resistencia",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Flexibilidad (movilidad)",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             //Táctica
-            template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Táctica (cualidades cognoscitivas)" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Inteligencia de juego (visión)", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Conducta o juego ofensivo", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Conducta o juevo defensivo", TemplateEvaluacion = template });
+            template = new TemplateEvaluacion
+            {
+                TipoEvaluacion = tipoEvaluacion,
+                Descripcion = "Táctica (cualidades cognoscitivas)"
+            };
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Inteligencia de juego (visión)",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Conducta o juego ofensivo",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Conducta o juevo defensivo",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             //Cualidades mentales
             template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Cualidades mentales" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Concentración", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Voluntad", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Perservación", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Confianza", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Disposición al riesgo", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Creatividad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Concentración",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Voluntad",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Perservación",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Confianza",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Disposición al riesgo",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Creatividad",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             //Coordinación
             template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Coordinación" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Orientación", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Orientación",
+                TemplateEvaluacion = template
+            });
             template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Ritmo", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Reacción", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Equilibrio", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Reacción",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Equilibrio",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             //Cualidades mentales
             template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Cualidades mentales" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Concentración", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Voluntad", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Perseverancia", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Confianza", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Disposición al riesgo", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Creatividad", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Concentración",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Voluntad",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Perseverancia",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Confianza",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Disposición al riesgo",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Creatividad",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             //Cualidades mentales
             template = new TemplateEvaluacion { TipoEvaluacion = tipoEvaluacion, Descripcion = "Entorno social" };
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Comunicación", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Conducta", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Carisma / personalidad", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Seriedad", TemplateEvaluacion = template });
-            template.Detalles.Add(new TemplateEvaluacionDetalle { Descripcion = "Compañerismo", TemplateEvaluacion = template });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Comunicación",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Conducta",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Carisma / personalidad",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Seriedad",
+                TemplateEvaluacion = template
+            });
+            template.Detalles.Add(new TemplateEvaluacionDetalle
+            {
+                Descripcion = "Compañerismo",
+                TemplateEvaluacion = template
+            });
             tipoEvaluacion.Templates.Add(template);
             //DAte.Save(template);
 
             DAti.Save(tipoEvaluacion);
+
             #endregion
         }
-
-        [TearDown]
-        public void Dispose()
-        {
-            ConfigAll.Instance.Dispose();
-        }
     }
+
 
     [TestFixture]
     public class PruebaConfig
@@ -216,11 +415,11 @@ namespace BusDep.Testing
                 Nombre = nombre,
                 Apellido = apellido
             };
-            
+
             userView = registracion.Registracion(userView);
 
             var datos = registracion.ObtenerDatosPersonales(userView);
-            
+
             var pais = Paises.First(o => o.CodigoIso.Equals("ARG"));
             datos.Pais = pais.Nombre;
             datos.PaisIso = pais.CodigoIso;
