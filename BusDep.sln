@@ -32,6 +32,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.ViewModel", "BusDep.ViewModel\BusDep.ViewModel.csproj", "{6B2017DE-59C4-4213-966A-C58DD1F56052}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Common", "00 - Common", "{7782FDC5-3F2D-403A-813F-7E9874B0812E}"
+	ProjectSection(SolutionItems) = preProject
+		DB\BusDep.sql = DB\BusDep.sql
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep", "BusDep\BusDep.csproj", "{70EF3703-B4C9-474D-A7E1-45874E8537BF}"
 EndProject
