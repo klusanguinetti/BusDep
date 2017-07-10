@@ -3,7 +3,7 @@ go
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     10/07/2017 07:42:38 p.m.                     */
+/* Created on:     10/07/2017 08:32:24 p.m.                     */
 /*==============================================================*/
 
 
@@ -348,17 +348,17 @@ alter table Antecedente
 go
 
 alter table Club
-   add constraint FK_CLUB_REFERENCE_USUARIO foreign key (UsuarioId)
+   add constraint FK_Usuario_Club foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
 alter table DatosPersona
-   add constraint FK_DATOSPER_REFERENCE_USUARIO foreign key (UsuarioId)
+   add constraint FK_DatosPersona_Usuario foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
 alter table Entrenador
-   add constraint FK_ENTRENAD_REFERENCE_USUARIO foreign key (UsuarioId)
+   add constraint FK_Usuario_Entrenador foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
@@ -418,7 +418,7 @@ alter table InscripcionEvento
 go
 
 alter table Intermediario
-   add constraint FK_INTERMED_REFERENCE_USUARIO foreign key (UsuarioId)
+   add constraint FK_Usuario_Intermediario foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
@@ -428,7 +428,7 @@ alter table Jugador
 go
 
 alter table Jugador
-   add constraint FK_JUGADOR_REFERENCE_USUARIO foreign key (UsuarioId)
+   add constraint FK_Usuario_Jugador foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
