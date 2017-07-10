@@ -44,7 +44,7 @@ namespace BusDep.Web
 
             var scriptBundle = new ScriptBundle(VIRTUAL_BUNDLE_PATH)
                 .Include(ANGULAR_APP_ROOT + "app.js")
-                .IncludeDirectory(ANGULAR_APP_ROOT, "*.js", searchSubdirectories: true);
+                .IncludeDirectory(ANGULAR_APP_ROOT, "*.js", searchSubdirectories: true).WithLastModifiedToken();
 
             bundles.Add(scriptBundle);
 
