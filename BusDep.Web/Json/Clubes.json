@@ -1,434 +1,537 @@
 [
   {
     "Division": "Primera División",
-    "Nombre": "Aldosivi (Mar del Plata)"
+    "Nombre": "Aldosivi",
+    "Code": "al"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Arsenal (Sarandí)"
+    "Nombre": "Arsenal",
+    "Code": "ar"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Atlético Rafaela (Rafaela)"
+    "Nombre": "Atlético Rafaela",
+    "Code": "ra"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Atlético Tucumán (San Miguel de Tucumán)"
+    "Nombre": "Atlético Tucumán",
+    "Code": "ra"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Banfield (Banfield)"
+    "Nombre": "Banfield",
+    "Code": "ra"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Belgrano (Córdoba)"
+    "Nombre": "Belgrano",
+    "Code": "be"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Boca Juniors (Buenos Aires)"
+    "Nombre": "Boca Juniors",
+    "Code": "bj"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Colón (Santa Fé)"
+    "Nombre": "Colón",
+    "Code": "co"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Defensa y Justicia (Florencio Varela)"
+    "Nombre": "Defensa y Justicia",
+    "Code": "dj"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Estudiantes (La Plata)"
+    "Nombre": "Estudiantes",
+    "Code": "es"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Gimnasia y Esgrima (La Plata)"
+    "Nombre": "Gimnasia y Esgrima",
+    "Code": "ge"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Godoy Cruz (Godoy Cruz)"
+    "Nombre": "Godoy Cruz",
+    "Code": "gc"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Huracán (Buenos Aires)"
+    "Nombre": "Huracán",
+    "Code": "hu"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Independiente (Avellaneda)"
+    "Nombre": "Independiente",
+    "Code": "in"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Lanús (Lanús)"
+    "Nombre": "Lanús",
+    "Code": "la"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Newell's Old Boys (Rosario)"
+    "Nombre": "Newell's Old Boys",
+    "Code": "nw"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Olimpo (Bahia Branca)"
+    "Nombre": "Olimpo",
+    "Code": "ol"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Patronato (Paraná)"
+    "Nombre": "Patronato",
+    "Code": "pa"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Quilmes (Quilmes)"
+    "Nombre": "Quilmes",
+    "Code": "qi"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Racing Club (Avellaneda)"
+    "Nombre": "Racing Club",
+    "Code": "rc"
   },
   {
     "Division": "Primera División",
-    "Nombre": "River Plate (Buenos Aires)"
+    "Nombre": "River Plate",
+    "Code": "rp"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Rosario Central (Rosario)"
+    "Nombre": "Rosario Central",
+    "Code": "ro"
   },
   {
     "Division": "Primera División",
-    "Nombre": "San Lorenzo (Buenos Aires)"
+    "Nombre": "San Lorenzo",
+    "Code": "sl"
   },
   {
     "Division": "Primera División",
-    "Nombre": "San Martín (San Juan)"
+    "Nombre": "San Martín",
+    "Code": "sm"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Sarmiento (Junín)"
+    "Nombre": "Sarmiento (Junín)",
+    "Code": "so"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Club Atlético Talleres (Córdoba)"
+    "Nombre": "Club Atlético Talleres",
+    "Code": "ll"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Temperley (Temperley)"
+    "Nombre": "Temperley",
+    "Code": "te"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Tigre (Victoria)"
+    "Nombre": "Tigre",
+    "Code": "ti"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Club Atlético Unión (Santa Fé)"
+    "Nombre": "Club Atlético Unión",
+    "Code": "un"
   },
   {
     "Division": "Primera División",
-    "Nombre": "Vélez Sarsfield (Buenos Aires)"
+    "Nombre": "Vélez Sarsfield",
+    "Code": "vs"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "All Boys (Buenos Aires)"
+    "Nombre": "All Boys",
+    "Code": "bo"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Almagro (José Ingenieros)"
+    "Nombre": "Almagro",
+    "Code": "am"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Argentinos Juniors (Buenos Aires)"
+    "Nombre": "Argentinos Juniors",
+    "Code": "aj"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Atlético Paraná (Paraná)"
+    "Nombre": "Atlético Paraná",
+    "Code": "ap"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Boca Unidos (Corrientes)"
+    "Nombre": "Boca Unidos",
+    "Code": "bu"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Brown (Adrogué)"
+    "Nombre": "Club Almirante Brown",
+    "Code": "ab"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Central Córdoba (Santiago del Estero)"
+    "Nombre": "Central Córdoba",
+    "Code": "cc"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Chacarita Juniors (Villa Maipú)"
+    "Nombre": "Chacarita Juniors",
+    "Code": "cj"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Crucero del Norte (Garupá)"
+    "Nombre": "Crucero del Norte",
+    "Code": "cn"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Douglas Haig (Pergamino)"
+    "Nombre": "Douglas Haig",
+    "Code": "dh"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Ferro Carril Oeste (Buenos Aires)"
+    "Nombre": "Ferro Carril Oeste",
+    "Code": "fo"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Flandria (Jáuregui)"
+    "Nombre": "Flandria",
+    "Code": "fl"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Gimnasia y Esgrima (San Salvador de Jujuy)"
+    "Nombre": "Gimnasia y Esgrima Jujuy",
+    "Code": "jj"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Guillermo Brown (Puerto Madryn)"
+    "Nombre": "Guillermo Brown (Puerto Madryn)",
+    "Code": "gb"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Independiente Rivadavia (Mendoza)"
+    "Nombre": "Independiente Rivadavia",
+    "Code": "ir"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Instituto (Córdoba)"
+    "Nombre": "Instituto",
+    "Code": "is"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Juventud Unida (Gualeguaychú)"
+    "Nombre": "Juventud Unida (Gualeguaychú)",
+    "Code": "ju"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Los Andes (Lomas de Zamora)"
+    "Nombre": "Los Andes",
+    "Code": "as"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Nueva Chicago (Buenos Aires)"
+    "Nombre": "Nueva Chicago",
+    "Code": "nc"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Santamarina (Tandil)"
+    "Nombre": "Santamarina (Tandil)",
+    "Code": "st"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "San Martín (Tucunán)"
+    "Nombre": "San Martín (Tucunán)",
+    "Code": "sn"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Sportivo Estudiantes (San Luis)"
+    "Nombre": "Sportivo Estudiantes (San Luis)",
+    "Code": "se"
   },
   {
     "Division": "Primera B Nacional",
-    "Nombre": "Villa Dálmine (Campana)"
+    "Nombre": "Villa Dálmine (Campana)",
+    "Code": "vd"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Acassuso (San Isidro)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Acassuso (San Isidro)",
+    "Code": "ac"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Almirante Brown (Isidro Casanova)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Atlanta (Buenos Aires)",
+    "Code": "lt"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Atlanta (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Barracas Central",
+    "Code": "bc"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Barracas Central (Barracas)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Colegiales (Munro)",
+    "Code": "cl"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Colegiales (Munro)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Comunicaciones (Buenos Aires)",
+    "Code": "cm"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Comunicaciones (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Defensores de Belgrano (Buenos Aires)",
+    "Code": "de"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Defensores de Belgrano (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Club Deportivo Español (Buenos Aires)",
+    "Code": "do"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Club Deportivo Español (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Deportivo Morón (Morón)",
+    "Code": "mo"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Deportivo Morón (Morón)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Estudiantes (Buenos Aires)",
+    "Code": "nt"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Estudiantes (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Excursionistas (Buenos Aires)",
+    "Code": "ex"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Excursionistas (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Fênix (Pilar)",
+    "Code": "fx"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Fênix (Pilar)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Platense",
+    "Code": "pl"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Platense (Florida)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Riestra (Buenos Aires)",
+    "Code": "ri"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Riestra (Buenos Aires)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "San Telmo (Dock Sud)",
+    "Code": "tl"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "San Telmo (Dock Sud)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "CA Talleres (Remedios de Escalada)",
+    "Code": "ct"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "CA Talleres (Remedios de Escalada)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Tristán Suárez (Tristán Suárez)",
+    "Code": "ts"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Tristán Suárez (Tristán Suárez)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "UAI Urquiza (Villa Lynch)",
+    "Code": "ua"
   },
   {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "UAI Urquiza (Villa Lynch)"
-  },
-  {
-    "Division": "Primera B Metropolitana ",
-    "Nombre": "Villa San Carlos (Berisso)"
+    "Division": "Primera B Metropolitana",
+    "Nombre": "Villa San Carlos (Berisso)",
+    "Code": "sc"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Argentino de Merlo (Merlo)"
+    "Nombre": "Argentino de Merlo (Merlo)",
+    "Code": "me"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Argentino de Quilmes (Quilmes)"
+    "Nombre": "Argentino de Quilmes (Quilmes)",
+    "Code": "aq"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Armenio (Ingeniero Maschwitz)"
+    "Nombre": "Armenio (Ingeniero Maschwitz)",
+    "Code": "ai"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Berazategui (Berazategui)"
+    "Nombre": "Berazategui (Berazategui)",
+    "Code": "bz"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Cañuelas (Cañuelas)"
+    "Nombre": "Cañuelas",
+    "Code": "cu"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Central Córdoba (Rosario)"
+    "Nombre": "Central Córdoba (Rosario)",
+    "Code": "cr"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Defensores de Cambaceres (Ensenada)"
+    "Nombre": "Defensores de Cambaceres (Ensenada)",
+    "Code": "cb"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Defensores Unidos (Zárate)"
+    "Nombre": "Defensores Unidos (Zárate)",
+    "Code": "dz"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Deportivo Laferrere (Gregorio de Laferrere)"
+    "Nombre": "Deportivo Laferrere (Gregorio de Laferrere)",
+    "Code": "lf"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Dock Sud (Dock Sud)"
+    "Nombre": "Dock Sud (Dock Sud)",
+    "Code": "ds"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Sportivo Barracas (Barracas)"
+    "Nombre": "Sportivo Barracas (Barracas)",
+    "Code": "sb"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Sportivo Italiano (Ciudad Evita)"
+    "Nombre": "Sportivo Italiano (Ciudad Evita)",
+    "Code": "si"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "El Porvenir (Gerli)"
+    "Nombre": "El Porvenir (Gerli)",
+    "Code": "ep"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Ferrocarril Midland (Libertad)"
+    "Nombre": "Ferrocarril Midland (Libertad)",
+    "Code": "fm"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "J.J. Urquiza (Loma Hermosa)"
+    "Nombre": "J.J. Urquiza (Loma Hermosa)",
+    "Code": "jr"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Deportivo Merlo (Merlo)"
+    "Nombre": "Deportivo Merlo (Merlo)",
+    "Code": "dm"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Luján (Luján)"
+    "Nombre": "Luján (Luján)",
+    "Code": "lj"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "Sacachispas (Buenos Aires)"
+    "Nombre": "Sacachispas (Buenos Aires)",
+    "Code": "sh"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "San Martín (Burzaco)"
+    "Nombre": "San Martín (Burzaco)",
+    "Code": "ma"
   },
   {
     "Division": "Primera C Metropolitana",
-    "Nombre": "San Miguel (Los Polvorines)"
+    "Nombre": "San Miguel (Los Polvorines)",
+    "Code": "mi"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Argentino (Rosário)"
+    "Nombre": "Argentino (Rosário)",
+    "Code": "ao"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Atlas (General Rodríguez)"
+    "Nombre": "Atlas (General Rodríguez)",
+    "Code": "aa"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Central Ballester (José León Suárez)"
+    "Nombre": "Central Ballester (José León Suárez)",
+    "Code": "le"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Centro Español (Villa Sarmiento)"
+    "Nombre": "Centro Español (Villa Sarmiento)",
+    "Code": "no"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Claypole (Claypole)"
+    "Nombre": "Claypole (Claypole)",
+    "Code": "cy"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Deportivo Paraguayo (Buenos Aires)"
+    "Nombre": "Deportivo Paraguayo (Buenos Aires)",
+    "Code": "dp"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "General Lamadrid (Villa Devoto)"
+    "Nombre": "General Lamadrid (Villa Devoto)",
+    "Code": "ld"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Ituzaingó (Ituzaingó)"
+    "Nombre": "Ituzaingó (Ituzaingó)",
+    "Code": "it"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Juventud Unida (SM) (San Miguel)"
+    "Nombre": "Juventud Unida (SM) (San Miguel)",
+    "Code": "jv"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Leandro N. Alem (General Rodríguez)"
+    "Nombre": "Leandro N. Alem (General Rodríguez)",
+    "Code": "ln"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Deportivo Liniers (San Justo)"
+    "Nombre": "Deportivo Liniers (San Justo)",
+    "Code": "dl"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Lugano (Tapiales)"
+    "Nombre": "Lugano (Tapiales)",
+    "Code": "lu"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Deportivo Muñiz (Muñiz)"
+    "Nombre": "Deportivo Muñiz (Muñiz)",
+    "Code": "mu"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Puerto Nuevo (Campana)"
+    "Nombre": "Puerto Nuevo (Campana)",
+    "Code": "pn"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Victoriano Arenas (Piñeyro)"
+    "Nombre": "Victoriano Arenas (Piñeyro)",
+    "Code": "va"
   },
   {
     "Division": "Primera D Metropolitana",
-    "Nombre": "Deportivo Yupanqui (Buenos Aires)"
+    "Nombre": "Deportivo Yupanqui (Buenos Aires)",
+    "Code": "yu"
   }
 ]
