@@ -151,6 +151,7 @@
     <Content Include="Content\angular-material.min.css" />
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootsnav.css" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\club-flags-icon.css" />
@@ -583,6 +584,7 @@
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
+    <Content Include="Scripts\app\shared\directives\datetimepicker.js" />
     <Content Include="Scripts\app\shared\factories\authInterceptorService.js" />
     <Content Include="Scripts\app\shared\factories\authService.js" />
     <Content Include="Scripts\vendor\angular-animate.js" />
@@ -620,6 +622,7 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\components\account\loginController.js" />
     <Content Include="Scripts\app\components\index\indexController.js" />
+    <Content Include="Scripts\vendor\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\vendor\errors.json" />
@@ -1397,6 +1400,7 @@
     <Content Include="Scripts\vendor\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\vendor\loading-bar.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.6.2.js" />
+    <Content Include="Scripts\vendor\moment.min.js" />
     <Content Include="Scripts\vendor\owl.carousel.min.js" />
     <Content Include="Scripts\vendor\please-wait.min.js" />
     <Content Include="Scripts\vendor\script.js" />
@@ -1429,7 +1433,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\fontello\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\app\shared\directives\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -18,6 +18,8 @@ namespace BusDep.Web
                       "~/Scripts/vendor/bootstrap.js",
                       "~/Scripts/vendor/please-wait.min.js",
                       "~/Scripts/vendor/owl.carousel.min.js",
+                      "~/Scripts/vendor/moment.min.js",
+                      "~/Scripts/vendor/bootstrap-datetimepicker.min.js",
                       "~/Scripts/vendor/jquery.matchHeight-min.js",
                       "~/Scripts/vendor/hideMaxListItem.js",
                       "~/Scripts/vendor/jquery.fs.scroller.js",
@@ -34,6 +36,7 @@ namespace BusDep.Web
                       "~/Content/jquery.fs.selecter.css",
                       "~/Content/loading-bar.min.css",
                       "~/Content/country-flags-icon.css",
+                      "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/club-flags-icon.css",
                       "~/Content/style.css").WithLastModifiedToken());
 
