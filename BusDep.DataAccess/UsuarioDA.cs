@@ -65,7 +65,7 @@ namespace BusDep.DataAccess
 
         public virtual Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId)
         {
-            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Jugador.Id.Equals(jugadorId) 
+            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Jugador.Id.Equals(jugadorId)
             && o.TipoEvaluacion.Deporte.Id.Equals(deporteId) && o.TipoEvaluacion.EsDefault.Equals("S")
             && o.TipoEvaluacion.TipoUsuario == o.Jugador.Usuario.TipoUsuario);
         }
@@ -78,7 +78,10 @@ namespace BusDep.DataAccess
 
         public virtual List<Antecedente> ObtenerAntecedentes(long usuarioId)
         {
-            return Session.Query<Antecedente>().Where(o => o.Usuario.Id.Equals(usuarioId)).ToList();
+            return (from ant in Session.Query<Antecedente>()
+                     where ant.Usuario.Id.Equals(usuarioId)
+                     orderby ant.FechaInicio descending
+                     select ant).ToList();
         }
 
         public virtual Usuario ActualizarPassword(Usuario usuario)

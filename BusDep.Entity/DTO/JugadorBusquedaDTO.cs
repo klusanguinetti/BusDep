@@ -18,6 +18,9 @@ namespace BusDep.Entity.DTO
         public string Nacionalidad { get; set; }
 
         public string Nacionalidad1 { get; set; }
+        public string NacionalidadIso { get; set; }
+
+        public string NacionalidadIso1 { get; set; }
 
         public string PuestoDescripcion { get; set; }
 
@@ -29,6 +32,10 @@ namespace BusDep.Entity.DTO
         public string Pie { get; set; }
 
         public string Fichaje { get; set; }
+        
+        public string Pais { get; set; }
+        
+        public string PaisIso { get; set; }
 
     }
 }
