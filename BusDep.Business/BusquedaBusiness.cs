@@ -39,5 +39,12 @@ namespace BusDep.Business
                     select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
 
         }
+
+        public List<JugadorBusquedaViewModel> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre)
+        {
+            return (from o in DependencyFactory.Resolve<IJugadorDA>()
+                .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, nombre)
+                    select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
+        }
     }
 }

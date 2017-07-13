@@ -24,10 +24,10 @@ namespace BusDep.DataAccess
                 && (edadDesde.HasValue ? ju.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value): 1.Equals(1))
                 && (edadHasta.HasValue ? ju.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
                 && (string.IsNullOrWhiteSpace(pais) ? 1.Equals(1) : ju.Usuario.DatosPersona.Pais.Equals(pais))
-                && (string.IsNullOrWhiteSpace(fichaje) ? 1.Equals(1) : ju.Fichaje.Equals(fichaje))
-                && (string.IsNullOrWhiteSpace(perfil) ? 1.Equals(1) : ju.Perfil.Equals(perfil))
+                && (string.IsNullOrWhiteSpace(fichaje) ? 1.Equals(1) : ju.Fichaje.ToUpper().Equals(fichaje.ToUpper()))
+                && (string.IsNullOrWhiteSpace(perfil) ? 1.Equals(1) : ju.Perfil.ToUpper().Equals(perfil.ToUpper()))
                 && (string.IsNullOrWhiteSpace(nombre) ? 1.Equals(1) :
-                 ju.Usuario.DatosPersona.Nombre.Contains(nombre) || ju.Usuario.DatosPersona.Apellido.Contains(nombre))
+                 ju.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) || ju.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper()))
                          select new JugadorBusquedaDTO {
                              Apellido = ju.Usuario.DatosPersona.Apellido,
                              ClubActual = ju.ClubDescripcion,
@@ -52,6 +52,41 @@ namespace BusDep.DataAccess
         public virtual List<Antecedente> ObtenerAntecedentes(long usuarioId)
         {
             return Session.Query<Antecedente>().Where(o => o.Usuario.Id.Equals(usuarioId)).ToList();
+        }
+
+
+        public virtual List<JugadorBusquedaDTO> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre)
+        {
+
+            var result = from ju in Session.Query<Jugador>()
+                         where
+                         (string.IsNullOrWhiteSpace(puesto) ? 1.Equals(1) : ju.Puesto.Descripcion.Equals(puesto))
+                         && (edadDesde.HasValue ? ju.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
+                         && (edadHasta.HasValue ? ju.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
+                         && (string.IsNullOrWhiteSpace(fichaje) ? 1.Equals(1) : ju.Fichaje.ToUpper().Equals(fichaje.ToUpper()))
+                         && (string.IsNullOrWhiteSpace(perfil) ? 1.Equals(1) : ju.Perfil.ToUpper().Equals(perfil.ToUpper()))
+                         && (string.IsNullOrWhiteSpace(nombre) ? 1.Equals(1) :
+                          ju.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) || ju.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper()))
+                         select new JugadorBusquedaDTO
+                         {
+                             Apellido = ju.Usuario.DatosPersona.Apellido,
+                             ClubActual = ju.ClubDescripcion,
+                             LogClubActual = ju.ClubLogo,
+                             Fichaje = ju.Fichaje,
+                             FotoRostro = ju.FotoRostro,
+                             Id = ju.Id,
+                             Nacionalidad = ju.Usuario.DatosPersona.Nacionalidad,
+                             Nacionalidad1 = ju.Usuario.DatosPersona.Nacionalidad1,
+                             NacionalidadIso = ju.Usuario.DatosPersona.NacionalidadIso,
+                             NacionalidadIso1 = ju.Usuario.DatosPersona.NacionalidadIso1,
+                             Pais = ju.Usuario.DatosPersona.Pais,
+                             PaisIso = ju.Usuario.DatosPersona.PaisIso,
+                             Nombre = ju.Usuario.DatosPersona.Nombre,
+                             Perfil = ju.Perfil,
+                             Pie = ju.Pie,
+                             PuestoDescripcion = ju.Puesto.PuestoEspecifico
+                         };
+            return result.ToList();
         }
 
     }
