@@ -365,7 +365,7 @@ namespace BusDep.Testing
 
 
     [TestFixture]
-    public class PruebaConfig
+    public class PruebaUsuarios
     {
         #region atributos
 
@@ -389,21 +389,36 @@ namespace BusDep.Testing
 
             var user1 = login.LoginUser("klusanguinetti@gmail.com", "Facebook", "asdfg");
         }
-
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 Registracion(i);
             }
         }
 
-
+        [Test]
+        public void BuscarPerfil()
+        {
+            var jugador = busqueda.ObtenerPerfil(178);
+            Console.WriteLine(jugador.SerializarToJson());
+        }
+        Random rnd = new Random();
         public void Registracion(int i)
         {
             //var deporte = common.ObtenerDeportes().FirstOrDefault();
-            Random rnd = new Random();
+            
             var apellido = Apellidos[rnd.Next(0, 40)];
             var nombre = Nombres[rnd.Next(0, 40)];
             UsuarioViewModel userView = new UsuarioViewModel
@@ -415,12 +430,11 @@ namespace BusDep.Testing
                 Nombre = nombre,
                 Apellido = apellido
             };
-
             userView = registracion.Registracion(userView);
 
             var datos = registracion.ObtenerDatosPersonales(userView);
 
-            var pais = Paises.First(o => o.CodigoIso.Equals("ARG"));
+            var pais = Paises.First(o => o.CodigoIso.Equals("ar"));
             datos.Pais = pais.Nombre;
             datos.PaisIso = pais.CodigoIso;
             pais = Paises[rnd.Next(0, 6)];
@@ -448,7 +462,7 @@ namespace BusDep.Testing
             jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
 
             jugador.ActualizarDatosJugador(jugadorView);
-            var user = login.LoginUser(string.Format(nombre + "{0}@{1}.com", i, apellido), string.Format("{0}{1}", apellido, nombre));
+            var user = login.LoginUser(string.Format(nombre + "{0}@{1}.com", i, apellido), Base64Encode(string.Format("{0}{1}", apellido, nombre)));
 
             var evaluacion = jugador.ObtenerEvaluacionViewModel(user);
             foreach (var cabecera in evaluacion.Cabeceras)
@@ -462,7 +476,7 @@ namespace BusDep.Testing
 
             var ante = jugador.NuevoAntecedenteViewModel(userView);
             ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
-            ante.FechaInicio = DateTime.Now.AddYears(-rnd.Next(6, 10));
+            ante.FechaInicio = new DateTime(rnd.Next(2010, 2015), rnd.Next(1, 12), rnd.Next(1, 28));// DateTime.Now.AddYears(-rnd.Next(6, 10));
             ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0, 2));
             ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1} - Hasta: {2}", ante.InstitucionDescripcion, ante.FechaInicio, ante.FechaFin);
 
@@ -470,7 +484,7 @@ namespace BusDep.Testing
             DateTime fechafin = ante.FechaFin.GetValueOrDefault();
             ante = jugador.NuevoAntecedenteViewModel(userView);
             ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
-            ante.FechaInicio = fechafin.AddYears(rnd.Next(6, 6));
+            ante.FechaInicio = fechafin.AddMonths(rnd.Next(1, 6));
             ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1}", ante.InstitucionDescripcion, ante.FechaInicio);
             jugador.GuardarAntecedenteViewModel(ante);
 
@@ -480,7 +494,7 @@ namespace BusDep.Testing
         [Test]
         public void BusquedaJugador()
         {
-            var list = busqueda.BuscarJugador(54, null, 14, 21, "Libre", "Amateur", "3");
+            var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Id, null, null, null, "Libre", "Amateur", null);
             Console.WriteLine(list.SerializarToJson());
         }
 
@@ -529,7 +543,18 @@ namespace BusDep.Testing
             return new List<ClubViewModel>();
         }
 
-        private List<PaisViewModel> Paises => LeerPaises();
+        private List<PaisViewModel> paises = null;
+        private List<PaisViewModel> Paises
+        {
+            get
+            {
+                if (paises == null)
+                    paises = LeerPaises();
+                return paises;
+            }
+        } 
+
+
 
         private List<PaisViewModel> LeerPaises()
         {
@@ -546,7 +571,7 @@ namespace BusDep.Testing
                 var json = File.ReadAllText(targetPath);
                 return
                     json.DeserializarToJson<List<PaisViewModel>>()
-                        .Where(o => new[] { "ARG", "BOL", "BRA", "CHL", "COL", "PRY", "PER" }.Contains(o.CodigoIso))
+                        .Where(o => new[] { "ar", "bo", "br", "cl", "co", "py", "pe" }.Contains(o.CodigoIso))
                         .ToList();
             }
             return new List<PaisViewModel>();
