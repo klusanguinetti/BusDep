@@ -16,6 +16,8 @@ namespace BusDep.Business
     {
         public virtual UsuarioViewModel Registracion(UsuarioViewModel userView)
         {
+            if(!DependencyFactory.Resolve<IUsuarioDA>().ExisteUsuario(userView.Mail))
+            { 
             var user = userView.MapperClass<Usuario>(TypeMapper.IgnoreCaseSensitive);
             TipoUsuario tipoUsuario =
                 DependencyFactory.Resolve<IBaseDA<TipoUsuario>>()
@@ -52,7 +54,11 @@ namespace BusDep.Business
             //DependencyFactory.Resolve<IBaseDA<DatosPersona>>().Save(user.DatosPersona);
             //DependencyFactory.Resolve<IBaseDA<Jugador>>().Save(user.Jugador);
             return FillViewModel.FillUsuarioViewModel(user);
-
+            }
+            else
+            {
+                throw new Exception("Usuario ya registrado.");
+            }
         }
 
         public virtual DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView)

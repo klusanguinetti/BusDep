@@ -15,5 +15,7 @@ namespace BusDep.IDataAccess
         List<Antecedente> ObtenerAntecedentes(long usuarioId);
 
         Usuario ActualizarPassword(Usuario usuario);
+
+        bool ExisteUsuario(string mail);
     }
 }

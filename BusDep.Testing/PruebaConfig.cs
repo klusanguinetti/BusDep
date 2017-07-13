@@ -402,7 +402,7 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 1; i++)
             {
                 Registracion(i);
             }
@@ -452,9 +452,9 @@ namespace BusDep.Testing
             {
                 jugadorView.PuestoId = listaPuesto.ToList()[rnd.Next(0, 10)].Id;
             }
-            jugadorView.Pie = i.Equals(0) ? "Derecho" : (i % 2).Equals(0) ? "Derecho" : "Zurdo";
-            jugadorView.Fichaje = i.Equals(0) ? "Libre" : (i % 2).Equals(0) ? "Libre" : "Contratado";
-            jugadorView.Perfil = i.Equals(0) ? "Amateur" : (i % 2).Equals(0) ? "Amateur" : "Profecional";
+            jugadorView.Pie = Pies[rnd.Next(0, 3)];
+            jugadorView.Fichaje = Fichajes[rnd.Next(0, 2)];
+            jugadorView.Perfil = Perfiles[rnd.Next(0, 2)];
             jugadorView.Peso = rnd.NextDecimal(75m, 110m);
             jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m);
             ;
@@ -475,17 +475,22 @@ namespace BusDep.Testing
             jugador.GuardarEvalucacion(evaluacion);
 
             var ante = jugador.NuevoAntecedenteViewModel(userView);
-            ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
+            var club = Clubes[rnd.Next(0, 20)];
+            ante.ClubDescripcion = club.Nombre;
+            ante.ClubLogo = club.Code;
             ante.FechaInicio = new DateTime(rnd.Next(2010, 2015), rnd.Next(1, 12), rnd.Next(1, 28));// DateTime.Now.AddYears(-rnd.Next(6, 10));
             ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0, 2));
-            ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1} - Hasta: {2}", ante.InstitucionDescripcion, ante.FechaInicio, ante.FechaFin);
+            ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1} - Hasta: {2}", ante.ClubDescripcion, ante.FechaInicio, ante.FechaFin);
 
             jugador.GuardarAntecedenteViewModel(ante);
             DateTime fechafin = ante.FechaFin.GetValueOrDefault();
+
             ante = jugador.NuevoAntecedenteViewModel(userView);
-            ante.InstitucionDescripcion = Clubes[rnd.Next(0, 20)].Nombre;
+            club = Clubes[rnd.Next(0, 20)];
+            ante.ClubDescripcion = club.Nombre;
+            ante.ClubLogo = club.Code;
             ante.FechaInicio = fechafin.AddMonths(rnd.Next(1, 6));
-            ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1}", ante.InstitucionDescripcion, ante.FechaInicio);
+            ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1}", ante.ClubDescripcion, ante.FechaInicio);
             jugador.GuardarAntecedenteViewModel(ante);
 
             Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
@@ -577,6 +582,9 @@ namespace BusDep.Testing
             return new List<PaisViewModel>();
         }
 
+        private string[] Pies = new[] {"Derecho", "Zurdo", "Ambidiestro"};
+        private string[] Fichajes = new[] { "Libre", "Contratado" };
+        private string[] Perfiles = new[] { "Amateur", "Profecional" };
         private string[] Nombres => CargarNombres();
 
         private string[] CargarNombres()

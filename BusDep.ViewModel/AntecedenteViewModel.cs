@@ -15,9 +15,9 @@
         [DataMember]
         public string InformacionAdicional { get; set; }
         [DataMember]
-        public string InstitucionDescripcion { get; set; }
+        public string ClubDescripcion { get; set; }
         [DataMember]
-        public string LogoInstitucion { get; set; }
+        public string ClubLogo { get; set; }
         [DataMember]
         public long UsuarioId { get; set; }
         [DataMember]

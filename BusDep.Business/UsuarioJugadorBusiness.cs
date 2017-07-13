@@ -158,13 +158,13 @@ namespace BusDep.Business
             if (listaAntecedentes.Count().Equals(1))
             {
                 jugador.ClubDescripcion = listaAntecedentes.First().ClubDescripcion;
-                jugador.ClubDescripcion = listaAntecedentes.First().ClubLogo;
+                jugador.ClubLogo = listaAntecedentes.First().ClubLogo;
             }
             else
             {
                 var ultimo = listaAntecedentes.First();
                 jugador.ClubDescripcion = listaAntecedentes.First().ClubDescripcion;
-                jugador.ClubDescripcion = listaAntecedentes.First().ClubLogo;
+                jugador.ClubLogo = listaAntecedentes.First().ClubLogo;
                 foreach (var item in listaAntecedentes)
                 {
                     if (item.Id.Equals(ultimo.Id))

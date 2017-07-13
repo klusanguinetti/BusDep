@@ -90,5 +90,10 @@ namespace BusDep.DataAccess
             base.Save(usuario);
             return usuario;
         }
+
+        public bool ExisteUsuario(string mail)
+        {
+            return !Session.Query<Usuario>().Count(o => o.Mail.ToUpper().Equals(mail.ToUpper().Trim())).Equals(0);
+        }
     }
 }
