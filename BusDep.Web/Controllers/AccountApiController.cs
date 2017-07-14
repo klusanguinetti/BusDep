@@ -3,6 +3,7 @@ using BusDep.IBusiness;
 using BusDep.UnityInject;
 using BusDep.ViewModel;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace BusDep.Web.Controllers
@@ -28,17 +29,19 @@ namespace BusDep.Web.Controllers
         // POST api/Account/Login
         [AllowAnonymous]
         [Route("Login")]
-        public IHttpActionResult Login(UsuarioViewModel loginModel)
+        public HttpResponseMessage Login(UsuarioViewModel loginModel)
         {
 
             var user = this.login.LoginUser(loginModel.Mail, loginModel.Password);
 
             if (user != null)
             {
-                return Ok(user);
+                return Request.CreateResponse(HttpStatusCode.OK, user);
+            }else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "NotFound");
             }
 
-            return NotFound();
 
         }
 

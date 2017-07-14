@@ -9,6 +9,13 @@
 
     $scope.datosPersonales = {};
 
+    $scope.loginData = {
+        Id: authService.authentication.datosPersonaId,
+        Mail: $scope.Mail,
+        OldPassword: "",
+        Password: ""
+    };
+
     angular.element(function () {
     
         privateProfileService.getUserDetails(authService.authentication.datosPersonaId).then(function (response) {
@@ -28,6 +35,37 @@
     });
 
 
+    $scope.passwordUpdate = function () {
+
+        $scope.loginData.Password = window.btoa($scope.loginData.Password);
+
+        $scope.loginData.OldPassword = window.btoa($scope.loginData.OldPassword);
+
+        if ($scope.passwordForm.$valid) {
+
+            privateProfileService.passwordUpdate($scope.loginData).then(function (response) {
+
+                $scope.passwordChangeSuccess = true;
+                $scope.messageType = "success";
+                $scope.message = "¡Has actualizado tu contraseña con éxito!";
+                $scope.messageIcon = "fa-check";
+
+                $scope.loginData.Password = "";
+                $scope.loginData.OldPassword = "";
+
+            }).catch(function(err) {
+                
+                $scope.passwordChangeSuccess = true;
+                $scope.messageType = "danger";
+                $scope.message = "¡Contraseña actual inválida!";
+                $scope.messageIcon = "fa-exclamation-triangle";
+
+            });
+
+        }
+
+    };
+
     $scope.UpdateProfile = function () {
 
         privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
@@ -36,8 +74,7 @@
 
         },
          function (err) {
-             $scope.savedSuccessfully = true;
-             $scope.message = "Usuario/Contraseña no encontrados";
+
          });
 
     };

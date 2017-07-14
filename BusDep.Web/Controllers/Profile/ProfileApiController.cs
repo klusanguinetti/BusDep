@@ -33,7 +33,38 @@ namespace BusDep.Web.Controllers.Profile
                 throw;
             }
 
-     
+
+        }
+
+        // POST api/Account/Register
+        [AllowAnonymous]
+        [Route("Password/Save")]
+        public HttpResponseMessage PasswordSave(UsuarioCambioPasswordViewModel password)
+        {
+
+            ILoginBusiness changePassword = DependencyFactory.Resolve<ILoginBusiness>();
+
+            try
+            {
+                var result = changePassword.ActualizarPassword(password);
+
+                if (result == null)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "NotFound");
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, "Contraseña cambiada");
+                }
+
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Ha ocurrido un grave error");
+                throw;
+            }
+
+
         }
 
         // POST api/Account/Register

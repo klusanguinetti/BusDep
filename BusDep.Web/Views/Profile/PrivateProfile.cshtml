@@ -249,41 +249,86 @@
                             </div>
 
                             <div class="panel-collapse collapse in" id="collapseB2">
+
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form">
+
+                                    <div class="alert alert-{{messageType}} pgray  alert-lg" role="alert" ng-show="passwordChangeSuccess">
+          
+                                        <p>
+                                            <i class="fa {{messageIcon}}" style="margin-right: 15px; font-size: 20px;"></i> {{message}}
+                                        </p>
+
+                                    </div>
+
+                                    <form class="form-horizontal" role="form" name="passwordForm" ng-submit="passwordUpdate()" novalidate="">
+
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                @*<div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox">
-                                                            Comments are enabled on my ads
-                                                        </label>
-                                                    </div>*@
+
+
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Nueva clave</label>
+
+                                        <div class="form-group" ng-class="{ 'has-error': (passwordForm.oldPassword.$touched && passwordForm.oldPassword.$invalid) || (passwordForm.$submitted && passwordForm.oldPassword.$invalid)}">
+
+                                            <label class="col-sm-3 control-label">Contraseña actual</label>
+
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control" placeholder="">
+                                                <input name="oldPassword" type="password" class="form-control" placeholder="Repite tu contraseña actual"
+                                                       ng-model="loginData.OldPassword" ng-minlength="6" required>
                                             </div>
+
+                                            <div class="help-block col-sm-9" ng-messages="passwordForm.oldPassword.$error" ng-if="passwordForm.oldPassword.$touched || passwordForm.$submitted">
+                                                <p ng-message="required">La contraseña actual es necesaria.</p>
+                                                <p ng-message="minlength">Tu contraseña es muy corta.</p>
+                                            </div>
+
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Repetir clave</label>
+
+                                        <div class="form-group" ng-class="{ 'has-error': (passwordForm.password.$touched && passwordForm.password.$invalid) || (passwordForm.$submitted && passwordForm.password.$invalid)}">
+
+                                            <label class="col-sm-3 control-label">Nueva Contraseña</label>
+
                                             <div class="col-sm-9">
-                                                <input type="password" class="form-control" placeholder="">
+                                                <input name="password" type="password" class="form-control" placeholder="Introduce tu nueva contraseña"
+                                                       ng-model="loginData.Password" ng-minlength="6" required>
                                             </div>
+
+                                            <div class="help-block col-sm-9" ng-messages="passwordForm.password.$error" ng-if="passwordForm.password.$touched || passwordForm.$submitted">
+                                                <p ng-message="required">Tu contraseña es necesaria.</p>
+                                                <p ng-message="minlength">Tu contraseña es muy corta.</p>
+                                            </div>
+
                                         </div>
+
+                                        @*<div class="form-group" ng-class="{ 'has-error': (passwordForm.passwordRepeat.$touched && passwordForm.passwordRepeat.$invalid) || (passwordForm.$submitted && passwordForm.passwordRepeat.$invalid)}">
+
+                                            <label class="col-sm-3 control-label">Repetir Contraseña</label>
+
+                                            <div class="col-sm-9">
+                                                <input name="passwordRepeat" type="password" class="form-control" placeholder="Repite tu nueva contraseña"
+                                                        ng-minlength="6">
+                                            </div>
+
+                                            <div class="help-block col-sm-9" ng-messages="passwordForm.passwordRepeat.$error" ng-if="passwordForm.passwordRepeat.$touched || passwordForm.$submitted">
+                                                <p ng-message="required">La repetición de la contraseña es necesaria.</p>
+                                            </div>
+
+                                        </div>*@
+
                                         <div class="form-group">
                                             <div class="col-sm-offset-3 col-sm-9">
                                                 <button type="submit" class="btn btn-default page-action">Actualizar</button>
                                             </div>
                                         </div>
+
                                     </form>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div class="panel panel-default">
+                        @*<div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a href="#collapseB3" data-toggle="collapse">
@@ -311,7 +356,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
+
                     </div>
 
                 </div>

@@ -14,17 +14,26 @@
 
                         <form role="form" novalidate="" name="loginForm" ng-submit="login()">
 
+                            <div class="alert alert-danger pgray  alert-lg" role="alert" ng-show="errorLogin">
+
+                                <p>
+                                    <i class="fa fa-exclamation-triangle" style="margin-right: 15px; font-size: 20px;"></i> ¡Usuario / Contraseña invalidos!
+                                </p>
+
+                            </div>
+
                             <div class="form-group" ng-class="{ 'has-error': (loginForm.email.$touched && loginForm.email.$invalid) || (loginForm.$submitted && loginForm.email.$invalid)}">
 
                                 <label for="sender-email" class="control-label">Email:</label>
 
                                 <div class="input-icon">
                                     <i class="icon-user fa"></i>
-                                    <input name="email" type="text" placeholder="Email" class="form-control email" data-ng-model="loginData.mail" required autofocus>
+                                    <input name="email" type="email" placeholder="Email" class="form-control email" data-ng-model="loginData.mail" required autofocus>
                                 </div>
 
                                 <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted">
                                     <p ng-message="required">Tu email es necesario.</p>
+                                    <p ng-message="email">Debes colocar un email valido</p>
                                 </div>
 
                             </div>

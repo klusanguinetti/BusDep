@@ -11,6 +11,24 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
     };
 
+    this.passwordUpdate = function (loginDetails) {
+
+        var deferred = $q.defer();
+
+        $http.post(serviceBase + 'Password/Save', loginDetails).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+
+            deferred.reject(err);
+
+        });
+
+        return deferred.promise;
+
+    };
+
     this.getUserDetails = function (datosPersonaId) {
 
         var data = "datosPersonaId=" + datosPersonaId;
@@ -21,10 +39,9 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
             deferred.resolve(response);
 
-        }), function errorCallback(response) {
-
+        }).catch(function(err) {
             deferred.reject(err);
-        }
+        });
 
         return deferred.promise;
 

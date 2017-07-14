@@ -36,12 +36,10 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
             deferred.resolve(response);
 
-        }), function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+        }).catch(function(err) {
             _logOut();
             deferred.reject(err);
-        }
+        });
 
         return deferred.promise;
 

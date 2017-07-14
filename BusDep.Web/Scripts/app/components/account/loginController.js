@@ -2,7 +2,7 @@
 app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', function ($scope, $location, authService, $timeout) {
 
     $scope.savedSuccessfully = false;
-    $scope.message = "";
+    $scope.errorLogin = false;
 
     $scope.loginData = {
         mail: "",
@@ -19,11 +19,13 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$timeo
 
                 $location.path('/Home/Index');
 
-            },
-        function (err) {
-            $scope.savedSuccessfully = true;
-            $scope.message = "Usuario/Contraseña no encontrados";
-        });
+            }).catch(function (err) {
+
+                if (err.status == "404") {
+                    $scope.errorLogin = true;
+                }
+
+            });
 
         }
 

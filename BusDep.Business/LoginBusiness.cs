@@ -4,6 +4,9 @@
     using IBusiness;
     using IDataAccess;
     using UnityInject;
+    using System;
+    using System.Text;
+
     public class LoginBusiness : ILoginBusiness
     {
         public virtual UsuarioViewModel LoginUser(string mail, string password)
@@ -22,7 +25,11 @@
                 return null;
             else
             {
-                usuario.Password = usuario.Password;
+
+                byte[] data = Convert.FromBase64String(usuarioCambioPassword.Password);
+                string decodedPassword = Encoding.UTF8.GetString(data);
+
+                usuario.Password = decodedPassword;
                 return FillViewModel.FillUsuarioViewModel(DependencyFactory.Resolve<IUsuarioDA>().ActualizarPassword(usuario));
             }
         }
