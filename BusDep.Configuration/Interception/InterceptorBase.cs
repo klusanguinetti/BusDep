@@ -1,46 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using BusDep.Common;
 using Microsoft.Practices.Unity.InterceptionExtension;
 
 namespace BusDep.Configuration.Interception
 {
-    public class InterceptorBase : IInterceptionBehavior
+    public abstract class InterceptorBase : IInterceptionBehavior
     {
         public IEnumerable<Type> GetRequiredInterfaces() => Type.EmptyTypes;
         public virtual IMethodReturn Invoke(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
         {
-
-            var result = getNext()(input, getNext);
-            if (result.Exception != null)
-                InterceptExceptions(result, input);
-            return result;
-
-        }
-        private void InterceptExceptions(IMethodReturn result, IMethodInvocation input)
-        {
-            if (result.Exception != null)
+            using (TraceLog4Net trace = new TraceLog4Net(GetType(), input.Target.GetType(), input.MethodBase.Name))
             {
-                //OracleException ex = null;
-                //if (result.Exception.InnerException != null)
-                //{
-                //    ex = (result.Exception.InnerException as OracleException);
-                //}
-
-                //if (ex != null && Math.Abs(ex.Number) == 20499)
-                //{
-                //    result.Exception = new DBCodeException(ex.Number, ex.Message);
-                //}
-                //if (!(result.Exception is IsbanException))
-                //{
-                //    var message = string.Format("Error {0} | Día y Hora: {1}. | Exception: {2}", this.GetType().Name,
-                //        DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), result.Exception);
-                //    TraceHelper.Error(message);
-                //    var innerException = new Exception(result.Exception.Message);
-                //    result.Exception = new DBException("Error no controlado en Acceso a Datos.", innerException);
-                //}
+                var result = getNext()(input, getNext);
+                if (result.Exception != null)
+                    InterceptExceptions(result, input);
+                return result;
             }
+        }
+
+        public abstract void InterceptExceptions(IMethodReturn result, IMethodInvocation input);
+
+        internal string GenerarInformacionTecnica(IMethodReturn result, IMethodInvocation input)
+        {
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("Clase: {0}", input.Target.GetType().Name));
+            sb.AppendLine(string.Format("Metodo: {0}", input.MethodBase.Name));
+            sb.AppendLine(string.Format("Parametros: {0}", input.Arguments.Count > 0 ? input.Arguments.SerializarToJson() : string.Empty));
+            return sb.ToString();
         }
 
         public bool WillExecute => true;
     }
+
+    public class InterceptorDataAccess : InterceptorBase
+    {
+
+        public override void InterceptExceptions(IMethodReturn result, IMethodInvocation input)
+        {
+            if (result.Exception != null && !(result.Exception is IExceptionCode))
+            {
+                result.Exception = new ExceptionDataAccess(-99, "A ocurrido un error por favor intente más tarde",
+                    this.GenerarInformacionTecnica(result, input), result.Exception);
+            }
+        }
+
+
+
+    }
+    public class InterceptorBusiness : InterceptorBase
+    {
+
+        public override void InterceptExceptions(IMethodReturn result, IMethodInvocation input)
+        {
+            if (result.Exception != null && !(result.Exception is IExceptionCode))
+            {
+                result.Exception = new ExceptionBusiness(-99, "A ocurrido un error por favor intente más tarde",
+                    this.GenerarInformacionTecnica(result, input), result.Exception);
+            }
+        }
+    }
+
 }

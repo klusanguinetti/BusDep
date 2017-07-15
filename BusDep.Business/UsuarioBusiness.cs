@@ -16,44 +16,44 @@ namespace BusDep.Business
     {
         public virtual UsuarioViewModel Registracion(UsuarioViewModel userView)
         {
-            if(!DependencyFactory.Resolve<IUsuarioDA>().ExisteUsuario(userView.Mail))
-            { 
-            var user = userView.MapperClass<Usuario>(TypeMapper.IgnoreCaseSensitive);
-            TipoUsuario tipoUsuario =
-                DependencyFactory.Resolve<IBaseDA<TipoUsuario>>()
-                    .GetAll()
-                    .FirstOrDefault(o => o.Descripcion.Equals(userView.TipoUsuario));
-            if (tipoUsuario != null)
+            if (!DependencyFactory.Resolve<IUsuarioDA>().ExisteUsuario(userView.Mail))
             {
-                user.TipoUsuario = tipoUsuario;
-                user.DatosPersona = new DatosPersona { Usuario = user, Nombre = userView.Nombre, Apellido = userView.Apellido};
-                switch (user.TipoUsuario.Descripcion)
+                var user = userView.MapperClass<Usuario>(TypeMapper.IgnoreCaseSensitive);
+                TipoUsuario tipoUsuario =
+                    DependencyFactory.Resolve<IBaseDA<TipoUsuario>>()
+                        .GetAll()
+                        .FirstOrDefault(o => o.Descripcion.Equals(userView.TipoUsuario));
+                if (tipoUsuario != null)
                 {
-                    case "Jugador":
-                        user.Jugador = new Jugador { Usuario = user };
-                        break;
-                    case "Entrenador":
-                        user.Entrenador = new Entrenador { Usuario = user };
-                        break;
-                    case "Intermediario":
-                        user.Intermediario = new Intermediario { Usuario = user };
-                        break;
-                    case "Club":
-                        user.Club = new Club { Usuario = user };
-                        break;
+                    user.TipoUsuario = tipoUsuario;
+                    user.DatosPersona = new DatosPersona { Usuario = user, Nombre = userView.Nombre, Apellido = userView.Apellido };
+                    switch (user.TipoUsuario.Descripcion)
+                    {
+                        case "Jugador":
+                            user.Jugador = new Jugador { Usuario = user };
+                            break;
+                        case "Entrenador":
+                            user.Entrenador = new Entrenador { Usuario = user };
+                            break;
+                        case "Intermediario":
+                            user.Intermediario = new Intermediario { Usuario = user };
+                            break;
+                        case "Club":
+                            user.Club = new Club { Usuario = user };
+                            break;
+                    }
                 }
-            }
-            else
-            {
-                throw new Exception("No existe tipo usuario.");
-            }
-            user.Deporte = userView.DeporteId.HasValue
-                ? DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(userView.DeporteId)
-                : DependencyFactory.Resolve<IBaseDA<Deporte>>().GetAll().First();
-            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-            //DependencyFactory.Resolve<IBaseDA<DatosPersona>>().Save(user.DatosPersona);
-            //DependencyFactory.Resolve<IBaseDA<Jugador>>().Save(user.Jugador);
-            return FillViewModel.FillUsuarioViewModel(user);
+                else
+                {
+                    throw new Exception("No existe tipo usuario.");
+                }
+                user.Deporte = userView.DeporteId.HasValue
+                    ? DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(userView.DeporteId)
+                    : DependencyFactory.Resolve<IBaseDA<Deporte>>().GetAll().First();
+                DependencyFactory.Resolve<IUsuarioDA>().Save(user);
+                //DependencyFactory.Resolve<IBaseDA<DatosPersona>>().Save(user.DatosPersona);
+                //DependencyFactory.Resolve<IBaseDA<Jugador>>().Save(user.Jugador);
+                return FillViewModel.FillUsuarioViewModel(user);
             }
             else
             {
@@ -78,7 +78,7 @@ namespace BusDep.Business
             datosPersona.MapperClass(user.DatosPersona, TypeMapper.IgnoreCaseSensitive);
             DependencyFactory.Resolve<IUsuarioDA>().Save(user);
         }
-        
+
     }
 }
 

@@ -1,18 +1,13 @@
-﻿
-
-
-
-using System.Collections.Generic;
-
-namespace BusDep.DataAccess
+﻿namespace BusDep.DataAccess
 {
-    using System.Linq;
-    using BusDep.Entity;
-    using BusDep.IDataAccess;
-    using NHibernate;
-    using NHibernate.Linq;
     using System;
     using System.Text;
+    using System.Linq;
+    using System.Collections.Generic;
+    using NHibernate;
+    using NHibernate.Linq;
+    using BusDep.Entity;
+    using BusDep.IDataAccess;
 
     public class UsuarioDA : BaseDataAccess<Usuario>, IUsuarioDA
     {
@@ -30,6 +25,8 @@ namespace BusDep.DataAccess
 
             password = Common.Encrypt.EncryptToBase64String(decodedPassword);
             return Session.Query<Usuario>().FirstOrDefault(o => o.Password.Equals(password) && o.Mail.ToUpper().Equals(mail.ToUpper()));
+
+            
 
         }
 
@@ -63,11 +60,11 @@ namespace BusDep.DataAccess
             return usuario;
         }
 
-        public virtual Evaluacion ObtenerEvaluacionDefault(long jugadorId, long deporteId)
+        public virtual Evaluacion ObtenerEvaluacionDefault(long usuarioId, long deporteId)
         {
-            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Jugador.Id.Equals(jugadorId)
+            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Usuario.Id.Equals(usuarioId)
             && o.TipoEvaluacion.Deporte.Id.Equals(deporteId) && o.TipoEvaluacion.EsDefault.Equals("S")
-            && o.TipoEvaluacion.TipoUsuario == o.Jugador.Usuario.TipoUsuario);
+            && o.TipoEvaluacion.TipoUsuario == o.Usuario.TipoUsuario);
         }
 
         public virtual TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario)

@@ -16,7 +16,7 @@ namespace BusDep.Business
         {
             var evaluacion =
                 DependencyFactory.Resolve<IUsuarioDA>()
-                    .ObtenerEvaluacionDefault(userView.JugadorId.GetValueOrDefault(),
+                    .ObtenerEvaluacionDefault(userView.Id,
                         userView.DeporteId.GetValueOrDefault()) ??
                 this.GenerarEvaluacion(userView);
             var eva = new EvaluacionViewModel
@@ -89,7 +89,7 @@ namespace BusDep.Business
                 var evaluacion = new Evaluacion
                 {
                     TipoEvaluacion = tipoEvaluacion,
-                    Jugador = DependencyFactory.Resolve<IJugadorDA>().GetById(userView.JugadorId.GetValueOrDefault())
+                    Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(userView.Id)
                 };
                 foreach (var templateEvaluacion in tipoEvaluacion.Templates)
                 {

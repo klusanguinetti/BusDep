@@ -1,4 +1,6 @@
-﻿namespace BusDep.ViewModel
+﻿using System;
+
+namespace BusDep.ViewModel
 {
     using System.Runtime.Serialization;
     [DataContract]
@@ -25,7 +27,9 @@
         [DataMember]
         public string Pais { get; set; }
         [DataMember]
-        public virtual string PaisIso { get; set; }
+        public string PaisIso { get; set; }
+        [DataMember]
+        public DateTime? UltimoLogin { get; set; }
     }
 
     [DataContract]

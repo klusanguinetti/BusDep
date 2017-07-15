@@ -402,18 +402,13 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 50; i++)
             {
                 Registracion(i);
             }
         }
 
-        [Test]
-        public void BuscarPerfil()
-        {
-            var jugador = busqueda.ObtenerPerfil(178);
-            Console.WriteLine(jugador.SerializarToJson());
-        }
+        
         Random rnd = new Random();
         public void Registracion(int i)
         {
