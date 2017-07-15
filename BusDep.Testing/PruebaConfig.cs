@@ -17,13 +17,13 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Init()
         {
             ConfigAll.Instance.Init();
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Dispose()
         {
             ConfigAll.Instance.Dispose();
@@ -402,7 +402,7 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Registracion(i);
             }

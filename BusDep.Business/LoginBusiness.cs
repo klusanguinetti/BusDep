@@ -26,7 +26,7 @@
             else
             {
 
-                byte[] data = Convert.FromBase64String(usuarioCambioPassword.Password);
+                byte[] data = Convert.FromBase64String(usuarioCambioPassword.NewPassword);
                 string decodedPassword = Encoding.UTF8.GetString(data);
 
                 usuario.Password = decodedPassword;

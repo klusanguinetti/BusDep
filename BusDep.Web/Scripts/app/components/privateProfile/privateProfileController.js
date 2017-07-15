@@ -1,4 +1,5 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'authService', '$http', function ($scope, privateProfileService, authService, $http) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'authService', '$http',
+    function ($scope, privateProfileService, authService, $http) {
 
     $scope.savedSuccessfully = false;
     $scope.message = "";

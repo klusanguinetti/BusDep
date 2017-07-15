@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.factory('authService', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
 
-    var serviceBase = '/api/';
+    var serviceBase = '/Account/';
     var authServiceFactory = {};
 
     var _authentication = {
@@ -14,7 +14,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
         _logOut();
 
-        return $http.post(serviceBase + 'Account/Register', registration).then(function (response) {
+        return $http.post(serviceBase + 'RegisterPost', registration).then(function (response) {
             return response;
         });
 
@@ -26,7 +26,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'Account/Login', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+        $http.post(serviceBase + 'LoginPost', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
 
             localStorageService.set('authorizationData', { token: response.data.access_token, userName: response.data.Mail, id: response.data.Id });
 
