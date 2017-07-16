@@ -35,7 +35,7 @@
             var usuario = DependencyFactory.Resolve<IUsuarioDA>().LoginUser(usuarioCambioPassword.Mail, usuarioCambioPassword.OldPassword);
             if(usuario==null)
                 throw new Exception("Password invalida");
-            byte[] data = Convert.FromBase64String(usuarioCambioPassword.Password);
+            byte[] data = Convert.FromBase64String(usuarioCambioPassword.NewPassword);
             string decodedPassword = Encoding.UTF8.GetString(data);
             usuario.Password = decodedPassword;
             var user = DependencyFactory.Resolve<IUsuarioDA>().ActualizarPassword(usuario);

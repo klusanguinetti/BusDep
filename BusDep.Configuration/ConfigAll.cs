@@ -185,6 +185,18 @@
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
+            DependencyFactory.RegisterType<IBaseDA<LogActividad>, CommonDA<LogActividad>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+              }
+              );
+            DependencyFactory.RegisterType<IBaseDA<LogError>, CommonDA<LogError>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+              }
+              );
             #endregion
             #endregion
 

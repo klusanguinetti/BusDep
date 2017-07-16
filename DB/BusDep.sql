@@ -3,7 +3,7 @@ go
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     10/07/2017 08:32:24 p.m.                     */
+/* Created on:     16/07/2017 11:08:54 a.m.                     */
 /*==============================================================*/
 
 
@@ -125,8 +125,8 @@ go
 /*==============================================================*/
 create table Evaluacion (
    EvaluacionId         numeric(10)          identity,
-   JugadorId            numeric(10)          null,
    TipoEvaluacionId     numeric(10)          null,
+   UsuarioId            numeric(10)          null,
    FechaAlta            datetime             null default getdate(),
    constraint PK_EVALUACION primary key (EvaluacionId)
 )
@@ -218,6 +218,31 @@ create table Jugador (
 go
 
 /*==============================================================*/
+/* Table: LogActividad                                          */
+/*==============================================================*/
+create table LogActividad (
+   LogActividadId       numeric(10)          identity,
+   UsuarioId            numeric(10)          null,
+   Metodo               nvarchar(400)        null,
+   Informacion          nvarchar(4000)       null,
+   Fecha                datetime             null,
+   constraint PK_LOGACTIVIDAD primary key (LogActividadId)
+)
+go
+
+/*==============================================================*/
+/* Table: LogError                                              */
+/*==============================================================*/
+create table LogError (
+   LogErrorId           numeric(10)          identity,
+   Modulo               nvarchar(400)        null,
+   Descripcion          nvarchar(4000)       null,
+   Fecha                datetime             null,
+   constraint PK_LOGERROR primary key (LogErrorId)
+)
+go
+
+/*==============================================================*/
 /* Table: Participacion                                         */
 /*==============================================================*/
 create table Participacion (
@@ -271,6 +296,8 @@ create table TipoEvaluacion (
    TipoUsuarioId        numeric(10)          null,
    Descripcion          nvarchar(400)        null,
    EsDefault            nvarchar(1)          null default 'N',
+   FechaAlta            datetime             null default getdate(),
+   Estado               nvarchar(2)          null default 'A',
    constraint PK_TIPOEVALUACION primary key (TipoEvaluacionId)
 )
 go
@@ -314,6 +341,7 @@ create table Usuario (
    DeporteId            numeric(10)          null,
    Mail                 nvarchar(200)        null,
    Password             nvarchar(100)        null,
+   UltimoLogin          datetime             null,
    constraint PK_USUARIO primary key (UsuarioId)
 )
 go
@@ -378,8 +406,8 @@ alter table Evaluacion
 go
 
 alter table Evaluacion
-   add constraint FK_Jugador_Evaluacion foreign key (JugadorId)
-      references Jugador (JugadorId)
+   add constraint FK_EVALUACI_REFERENCE_USUARIO foreign key (UsuarioId)
+      references Usuario (UsuarioId)
 go
 
 alter table EvaluacionCabecera
