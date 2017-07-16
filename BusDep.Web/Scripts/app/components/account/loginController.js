@@ -3,6 +3,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$timeo
 
     $scope.savedSuccessfully = false;
     $scope.errorLogin = false;
+    $scope.buttonDisabled = false;
 
     $scope.loginData = {
         mail: "",
@@ -15,6 +16,8 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$timeo
 
         if ($scope.loginForm.$valid) {
 
+            $scope.buttonDisabled = true;
+
             authService.login($scope.loginData).then(function (response) {
 
                 $location.path('/Home/Index');
@@ -24,6 +27,8 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$timeo
                 if (err.status == "404") {
                     $scope.errorLogin = true;
                 }
+
+                $scope.buttonDisabled = false;
 
             });
 

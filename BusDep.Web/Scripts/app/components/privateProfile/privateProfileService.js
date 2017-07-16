@@ -13,11 +13,9 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
     this.passwordUpdate = function (loginDetails) {
 
-        var data = "Id=" + loginDetails.Id + "&Mail=" + loginDetails.Mail + "&OldPassword=" + loginDetails.OldPassword + "&NewPassword=" + loginDetails.Password;
-
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'PasswordSave', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+        $http.post(serviceBase + 'PasswordSave', loginDetails).then(function (response) {
 
             deferred.resolve(response);
 
