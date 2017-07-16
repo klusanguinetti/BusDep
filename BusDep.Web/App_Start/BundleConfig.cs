@@ -38,6 +38,7 @@ namespace BusDep.Web
                       "~/Content/country-flags-icon.css",
                       "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/club-flags-icon.css",
+                      "~/Content/ui-carousel.min.css",
                       "~/Content/style.css").WithLastModifiedToken());
 
             // Angular Bundle

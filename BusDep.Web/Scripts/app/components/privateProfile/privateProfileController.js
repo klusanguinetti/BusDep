@@ -14,7 +14,7 @@
         Id: authService.authentication.datosPersonaId,
         Mail: $scope.Mail,
         OldPassword: "",
-        Password: ""
+        NewPassword: ""
     };
 
     angular.element(function () {
@@ -38,7 +38,7 @@
 
     $scope.passwordUpdate = function () {
 
-        $scope.loginData.Password = window.btoa($scope.loginData.Password);
+        $scope.loginData.NewPassword = window.btoa($scope.loginData.NewPassword);
 
         $scope.loginData.OldPassword = window.btoa($scope.loginData.OldPassword);
 
@@ -51,7 +51,7 @@
                 $scope.message = "¡Has actualizado tu contraseña con éxito!";
                 $scope.messageIcon = "fa-check";
 
-                $scope.loginData.Password = "";
+                $scope.loginData.NewPassword = "";
                 $scope.loginData.OldPassword = "";
 
             }).catch(function(err) {

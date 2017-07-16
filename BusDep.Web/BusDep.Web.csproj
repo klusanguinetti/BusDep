@@ -160,6 +160,7 @@
     <Content Include="Content\fontello.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont3295.svg" />
+    <Content Include="Content\fonts\ui-carousel.svg" />
     <Content Include="Content\img\1.jpg" />
     <Content Include="Content\img\cancha-main.jpg" />
     <Content Include="Content\img\Clubes\aa.png" />
@@ -557,6 +558,9 @@
     <Content Include="Content\img\jugadores-fotos\paulo_dybala.jpg" />
     <Content Include="Content\img\logos-clubes\PSG.png" />
     <Content Include="Content\img\property-agency-logo.png" />
+    <Content Include="Content\img\slide_1.jpg" />
+    <Content Include="Content\img\slide_2.jpg" />
+    <Content Include="Content\img\slide_3.jpg" />
     <Content Include="Content\img\user.jpg" />
     <Content Include="Content\jquery.fs.scroller.css" />
     <Content Include="Content\jquery.fs.selecter.css" />
@@ -567,6 +571,7 @@
     <Content Include="Content\owl.theme.css" />
     <Content Include="Content\please-wait.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\ui-carousel.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -655,6 +660,9 @@
     <Content Include="Content\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="Json\Paises.json" />
     <Content Include="Json\Clubes.json" />
+    <Content Include="Content\fonts\ui-carousel.eot" />
+    <Content Include="Content\fonts\ui-carousel.ttf" />
+    <Content Include="Content\fonts\ui-carousel.woff" />
     <None Include="Scripts\vendor\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -1402,6 +1410,7 @@
     <Content Include="Scripts\vendor\owl.carousel.min.js" />
     <Content Include="Scripts\vendor\please-wait.min.js" />
     <Content Include="Scripts\vendor\script.js" />
+    <Content Include="Scripts\vendor\ui-carousel.min.js" />
     <Content Include="Scripts\vendor\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
