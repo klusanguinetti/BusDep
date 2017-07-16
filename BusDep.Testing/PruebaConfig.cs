@@ -17,13 +17,13 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Init()
         {
             ConfigAll.Instance.Init();
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void Dispose()
         {
             ConfigAll.Instance.Dispose();
@@ -402,7 +402,7 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 200; i++)
             {
                 Registracion(i);
             }
@@ -425,7 +425,15 @@ namespace BusDep.Testing
                 Nombre = nombre,
                 Apellido = apellido
             };
-            userView = registracion.Registracion(userView);
+            try
+            {
+                userView = registracion.Registracion(userView);
+            }
+            catch 
+            {                
+                return;
+            }
+            
 
             var datos = registracion.ObtenerDatosPersonales(userView);
 
@@ -497,7 +505,17 @@ namespace BusDep.Testing
             var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Id, null, null, null, "Libre", "Amateur", null);
             Console.WriteLine(list.SerializarToJson());
         }
+        [Test]
+        public void BusquedaJugador1()
+        {
+            for (int i = 0; i < 150; i++)
+            {
+                var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion, null, null, Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)], null);
+                Console.WriteLine(list.SerializarToJson());
+            }
 
+            
+        }
         [Test]
         public void LeerJson()
         {

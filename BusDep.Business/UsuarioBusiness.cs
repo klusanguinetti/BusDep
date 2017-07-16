@@ -14,6 +14,7 @@ namespace BusDep.Business
 
     public class UsuarioBusiness : IUsuarioBusiness
     {
+        [AuditMethod]
         public virtual UsuarioViewModel Registracion(UsuarioViewModel userView)
         {
             if (!DependencyFactory.Resolve<IUsuarioDA>().ExisteUsuario(userView.Mail))
@@ -45,7 +46,7 @@ namespace BusDep.Business
                 }
                 else
                 {
-                    throw new Exception("No existe tipo usuario.");
+                    throw new ExceptionBusiness(5, "Error en selección de tipo de usuario.");
                 }
                 user.Deporte = userView.DeporteId.HasValue
                     ? DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(userView.DeporteId)
@@ -57,10 +58,10 @@ namespace BusDep.Business
             }
             else
             {
-                throw new Exception("Usuario ya registrado.");
+                throw new ExceptionBusiness(4, "Usuario ya existe.");
             }
         }
-
+        [AuditMethod]
         public virtual DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView)
         {
             if (userView.DatosPersonaId.HasValue)
@@ -71,7 +72,7 @@ namespace BusDep.Business
             return null;
 
         }
-
+        [AuditMethod]
         public virtual void RegistracionDatosPersonales(DatosPersonaViewModel datosPersona)
         {
             var user = DependencyFactory.Resolve<IUsuarioDA>().GetById(datosPersona.UsuarioId);

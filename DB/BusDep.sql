@@ -1,9 +1,7 @@
-use master
-go
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     16/07/2017 11:08:54 a.m.                     */
+/* Created on:     16/07/2017 12:52:04 p.m.                     */
 /*==============================================================*/
 
 
@@ -222,7 +220,6 @@ go
 /*==============================================================*/
 create table LogActividad (
    LogActividadId       numeric(10)          identity,
-   UsuarioId            numeric(10)          null,
    Metodo               nvarchar(400)        null,
    Informacion          nvarchar(4000)       null,
    Fecha                datetime             null,

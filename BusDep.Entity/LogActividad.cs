@@ -6,10 +6,9 @@ namespace BusDep.Entity
     {
         #region Atributos
         public virtual long Id { get; set; }
-        public virtual long UsuarioId { get; set; }
         public virtual DateTime? Fecha { get; set; }
         public virtual string Metodo { get; set; }
-        public virtual string Descripcion { get; set; }
+        public virtual string Informacion { get; set; }
         #endregion 
     }
 }

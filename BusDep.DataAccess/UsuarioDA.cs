@@ -25,9 +25,6 @@
 
             password = Common.Encrypt.EncryptToBase64String(decodedPassword);
             return Session.Query<Usuario>().FirstOrDefault(o => o.Password.Equals(password) && o.Mail.ToUpper().Equals(mail.ToUpper()));
-
-            
-
         }
 
         public virtual Usuario LoginUser(string mail, string aplicacion, string token)

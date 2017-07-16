@@ -4,10 +4,9 @@
     <id name="Id" column="LogActividadId" type="System.Int64" unsaved-value="0" >
       <generator class="native" />
     </id>
-    <property name="UsuarioId" column="UsuarioId" type="System.Int64"  />
     <property name="Fecha" column="Fecha" type="System.DateTime"  />
     <property name="Metodo" column="Metodo" type="System.String" length="400" />
-    <property name="Descripcion" column="Descripcion" type="System.String" length="4000" />
+    <property name="Informacion" column="Informacion" type="System.String" length="4000" />
   </class>
 </hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->

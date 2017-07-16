@@ -54,7 +54,6 @@ create table LogError (
 go
 create table LogActividad (
    LogActividadId       numeric(10)          identity,
-   UsuarioId            numeric(10)          null,
    Metodo               nvarchar(400)        null,
    Informacion          nvarchar(4000)       null,
    Fecha                datetime             null,
