@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/api/Profile/';
+    var serviceBase = '/Profile/';
 
     this.saveUserDetails = function (userDetails) {
 
@@ -13,9 +13,11 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
     this.passwordUpdate = function (loginDetails) {
 
+        var data = "Id=" + loginDetails.Id + "&Mail=" + loginDetails.Mail + "&OldPassword=" + loginDetails.OldPassword + "&NewPassword=" + loginDetails.Password;
+
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'Password/Save', loginDetails).then(function (response) {
+        $http.post(serviceBase + 'PasswordSave', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
 
             deferred.resolve(response);
 
@@ -35,7 +37,7 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'Get', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+        $http.post(serviceBase + 'GetDatosPersona', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
 
             deferred.resolve(response);
 

@@ -3,6 +3,7 @@
 namespace BusDep.ViewModel
 {
     using System.Runtime.Serialization;
+
     [DataContract]
     public class UsuarioViewModel
     {
@@ -32,19 +33,5 @@ namespace BusDep.ViewModel
         public DateTime? UltimoLogin { get; set; }
     }
 
-    [DataContract]
-    public class UsuarioCambioPasswordViewModel
-    {
-        [DataMember]
-        public long Id { get; set; }
 
-        [DataMember]
-        public string Mail { get; set; }
-
-        [DataMember]
-        public string OldPassword { get; set; }
-
-        [DataMember]
-        public string Password { get; set; }
-    }
 }

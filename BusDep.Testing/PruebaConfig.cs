@@ -17,13 +17,13 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Init()
         {
             ConfigAll.Instance.Init();
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Dispose()
         {
             ConfigAll.Instance.Dispose();
