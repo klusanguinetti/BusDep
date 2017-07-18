@@ -8,6 +8,8 @@
       <many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
       <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
       <property name="EsDefault" column="EsDefault" type="System.String" length="1" />
+      <property name="Estado" column="Estado" type="System.String" length="2" />
+      <property name="FechaAlta" column="FechaAlta" type="System.DateTime"  />
       <bag name="Templates" table="TemplateEvaluacion" cascade="all" inverse="true">
         <key column="TipoEvaluacionId" />
         <one-to-many class="BusDep.Entity.TemplateEvaluacion, BusDep.Entity" />

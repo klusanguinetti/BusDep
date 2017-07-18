@@ -10,7 +10,7 @@ namespace BusDep.Entity
         }
         #region Atributos
         public virtual long Id { get; set; }
-        public virtual Jugador Jugador { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public virtual TipoEvaluacion TipoEvaluacion { get; set; }
 
         public virtual IList<EvaluacionCabecera> Cabeceras { get; set; }

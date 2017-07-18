@@ -1,3 +1,5 @@
+using System;
+
 namespace BusDep.Entity 
 {
     using System.Collections.Generic;
@@ -22,7 +24,8 @@ namespace BusDep.Entity
         public virtual Intermediario Intermediario { get; set; }
         public virtual Entrenador Entrenador { get; set; }
         public virtual Club Club { get; set; }
-
+        public virtual DateTime? UltimoLogin { get; set; }
+        
         public virtual IList<UsuarioAplicativo> AplicacionToken { get; set; }
         #endregion 
     }

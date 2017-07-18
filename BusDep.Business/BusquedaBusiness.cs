@@ -12,6 +12,7 @@ namespace BusDep.Business
     using BusDep.IBusiness;
     public class BusquedaBusiness : IBusquedaBusiness
     {
+        [AuditMethod]
         public virtual PerfilJugadorViewModel ObtenerPerfil(long jugadorId)
         {
             PerfilJugadorViewModel perfil = new PerfilJugadorViewModel { PerfilId = jugadorId };
@@ -31,7 +32,7 @@ namespace BusDep.Business
             return perfil;
         }
 
-
+        [AuditMethod]
         public virtual List<JugadorBusquedaViewModel> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre)
         {
             return (from o in DependencyFactory.Resolve<IJugadorDA>()
@@ -39,8 +40,8 @@ namespace BusDep.Business
                     select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
 
         }
-
-        public List<JugadorBusquedaViewModel> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre)
+        [AuditMethod]
+        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre)
         {
             return (from o in DependencyFactory.Resolve<IJugadorDA>()
                 .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, nombre)

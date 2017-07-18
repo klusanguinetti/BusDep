@@ -4,7 +4,7 @@
       <id name="Id" column="EvaluacionId" type="System.Int64" unsaved-value="0" >
         <generator class="native" />
       </id>
-      <many-to-one name="Jugador" column="JugadorId" cascade="none" class="BusDep.Entity.Jugador, BusDep.Entity" />
+      <many-to-one name="Usuario" column="UsuarioId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
       <many-to-one name="TipoEvaluacion" column="TipoEvaluacionId" cascade="none" class="BusDep.Entity.TipoEvaluacion, BusDep.Entity" />
       <bag name="Cabeceras" table="EvaluacionCabecera" cascade="all" inverse="true">
         <key column="EvaluacionId" />

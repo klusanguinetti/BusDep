@@ -17,7 +17,7 @@ namespace BusDep.Business
             {
                 return FillViewModel.FillJugadorViewModel(DependencyFactory.Resolve<IJugadorDA>().GetById(usuario.JugadorId));
             }
-            return null;
+            throw new ExceptionBusiness(1, "No existe Jugador");
         }
         public virtual IEnumerable<PuestoViewModel> ObtenerPuestos(long deporteId)
         {

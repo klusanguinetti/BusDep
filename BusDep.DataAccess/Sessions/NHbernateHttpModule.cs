@@ -92,7 +92,8 @@
             string[] parseString = stringconexion.Split(';');
             if (System.Environment.MachineName.ToUpper().Equals("NBI051856") )
             {
-                stringconexion = @"Server=NBI051856\SQLEXPRESS2012;Initial Catalog=BusDep;User Id=sa;Password=Server2012;";
+                //stringconexion = @"Server=NBI051856\SQLEXPRESS2012;Initial Catalog=BusDep;User Id=sa;Password=Server2012;";
+                stringconexion = @"Server=tcp:allprogram.database.windows.net,1433;Initial Catalog=busdep;Persist Security Info=False;User ID=Administrador;Password=Server2012;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 config.SetProperty("connection.connection_string", stringconexion);
             }
             //stringconexion = string.Empty;

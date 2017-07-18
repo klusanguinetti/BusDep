@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="BusDep.Entity.LogActividad, BusDep.Entity" table="LogActividad" lazy="true">
+    <id name="Id" column="LogActividadId" type="System.Int64" unsaved-value="0" >
+      <generator class="native" />
+    </id>
+    <property name="Fecha" column="Fecha" type="System.DateTime"  />
+    <property name="Metodo" column="Metodo" type="System.String" length="400" />
+    <property name="Informacion" column="Informacion" type="System.String" length="4000" />
+  </class>
+</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->

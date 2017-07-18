@@ -16,7 +16,7 @@ namespace BusDep.Business
         {
             var evaluacion =
                 DependencyFactory.Resolve<IUsuarioDA>()
-                    .ObtenerEvaluacionDefault(userView.JugadorId.GetValueOrDefault(),
+                    .ObtenerEvaluacionDefault(userView.Id,
                         userView.DeporteId.GetValueOrDefault()) ??
                 this.GenerarEvaluacion(userView);
             var eva = new EvaluacionViewModel
@@ -82,14 +82,14 @@ namespace BusDep.Business
                     .ObtenerTipoEvaluacionDefault(userView.DeporteId.GetValueOrDefault(), userView.TipoUsuario);
             if (tipoEvaluacion == null)
             {
-                throw new Exception("No existe tipo de evaluación default");
+                throw new ExceptionBusiness(6, "No existe tipo de evaluación default");
             }
             else
             {
                 var evaluacion = new Evaluacion
                 {
                     TipoEvaluacion = tipoEvaluacion,
-                    Jugador = DependencyFactory.Resolve<IJugadorDA>().GetById(userView.JugadorId.GetValueOrDefault())
+                    Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(userView.Id)
                 };
                 foreach (var templateEvaluacion in tipoEvaluacion.Templates)
                 {
@@ -116,12 +116,7 @@ namespace BusDep.Business
 
         public virtual List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView)
         {
-            List<AntecedenteViewModel> ilRest = new List<AntecedenteViewModel>();
-            foreach (var item in DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(userView.Id))
-            {
-                ilRest.Add(FillViewModel.FillAntecedenteViewModel(item));
-            }
-            return ilRest;
+            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(userView.Id).Select(item => FillViewModel.FillAntecedenteViewModel(item)).ToList();
         }
 
         public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId)
@@ -140,14 +135,7 @@ namespace BusDep.Business
         public virtual AntecedenteViewModel GuardarAntecedenteViewModel(AntecedenteViewModel antecedente)
         {
             Antecedente ante = null;
-            if (antecedente.Id.Equals(0))
-            {
-                ante = new Antecedente { Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(antecedente.UsuarioId) };
-            }
-            else
-            {
-                ante = DependencyFactory.Resolve<IBaseDA<Antecedente>>().GetById(antecedente.Id);
-            }
+            ante = antecedente.Id.Equals(0) ? new Antecedente { Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(antecedente.UsuarioId) } : DependencyFactory.Resolve<IBaseDA<Antecedente>>().GetById(antecedente.Id);
             antecedente.MapperClass(ante, TypeMapper.IgnoreCaseSensitive);
             DependencyFactory.Resolve<IBaseDA<Antecedente>>().Save(ante);
 
@@ -203,7 +191,7 @@ namespace BusDep.Business
                     FillViewModel.FillJugadorViewModel(
                         DependencyFactory.Resolve<IJugadorDA>().GetById(userView.JugadorId));
             }
-            return null;
+            throw new ExceptionBusiness(1, "No existe Jugador");
         }
 
        

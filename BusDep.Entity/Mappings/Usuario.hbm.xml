@@ -6,21 +6,14 @@
       </id>
       <property name="Mail" column="Mail" type="System.String" length="400" />
       <property name="Password" column="Password" type="System.String" length="100" />
+      <property name="UltimoLogin" column="UltimoLogin" type="System.DateTime"  />
       <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
-
       <many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
-
       <one-to-one name="DatosPersona" class="BusDep.Entity.DatosPersona, BusDep.Entity" cascade="all"/>
       <one-to-one name="Jugador" class="BusDep.Entity.Jugador, BusDep.Entity" cascade="all" />
       <one-to-one name="Intermediario" class="BusDep.Entity.Intermediario, BusDep.Entity" cascade="all"/>
       <one-to-one name="Entrenador" class="BusDep.Entity.Entrenador, BusDep.Entity" cascade="all"/>
       <one-to-one name="Club" class="BusDep.Entity.Club, BusDep.Entity" cascade="all" />
-      
-      <!--<many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
-      <many-to-one name="Jugador" column="JugadorId" cascade="all" class="BusDep.Entity.Jugador, BusDep.Entity" />
-      <many-to-one name="Intermediario" column="IntermediarioId" cascade="all" class="BusDep.Entity.Intermediario, BusDep.Entity" />
-      <many-to-one name="Entrenador" column="EntrenadorId" cascade="all" class="BusDep.Entity.Entrenador, BusDep.Entity" />
-      <many-to-one name="Club" column="ClubId" cascade="all" class="BusDep.Entity.Club, BusDep.Entity" />-->
       <bag name="AplicacionToken" table="UsuarioAplicativo" cascade="all" inverse="true">
         <key column="UsuarioId" />
         <one-to-many class="BusDep.Entity.UsuarioAplicativo, BusDep.Entity" />

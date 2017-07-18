@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditMethodAttribute.cs" />
     <Compile Include="IBusquedaBusiness.cs" />
     <Compile Include="ICommonBusiness.cs" />
     <Compile Include="ILoginBusiness.cs" />
