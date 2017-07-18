@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace BusDep.ViewModel
 {
     using System;

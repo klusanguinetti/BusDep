@@ -668,7 +668,6 @@
     <Content Include="Content\fonts\ui-carousel.eot" />
     <Content Include="Content\fonts\ui-carousel.ttf" />
     <Content Include="Content\fonts\ui-carousel.woff" />
-    <None Include="Properties\PublishProfiles\allwiners - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\allwiners - Web Deploy.pubxml" />
     <None Include="Scripts\vendor\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />

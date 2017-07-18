@@ -12,6 +12,10 @@ namespace BusDep.IBusiness
         List<JugadorBusquedaViewModel> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta,
             string fichaje, string perfil, string nombre);
         
-        List<JugadorBusquedaViewModel> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre);
+        List<JugadorBusquedaViewModel> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string pie, string nombre);
+
+        List<JugadorBusquedaViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje,
+            string[] perfil, string[] pie, string nombre);
+        
     }
 }

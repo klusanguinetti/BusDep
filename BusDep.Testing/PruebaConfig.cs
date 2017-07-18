@@ -408,12 +408,12 @@ namespace BusDep.Testing
             }
         }
 
-        
+
         Random rnd = new Random();
         public void Registracion(int i)
         {
             //var deporte = common.ObtenerDeportes().FirstOrDefault();
-            
+
             var apellido = Apellidos[rnd.Next(0, 40)];
             var nombre = Nombres[rnd.Next(0, 40)];
             UsuarioViewModel userView = new UsuarioViewModel
@@ -429,11 +429,11 @@ namespace BusDep.Testing
             {
                 userView = registracion.Registracion(userView);
             }
-            catch 
-            {                
+            catch
+            {
                 return;
             }
-            
+
 
             var datos = registracion.ObtenerDatosPersonales(userView);
 
@@ -510,11 +510,21 @@ namespace BusDep.Testing
         {
             for (int i = 0; i < 150; i++)
             {
-                var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion, null, null, Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)], null);
+                var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion, null, null, Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)], null, null);
                 Console.WriteLine(list.SerializarToJson());
             }
 
-            
+
+        }
+        [Test]
+        public void BusquedaJugador2()
+        {
+            for (int w = 0; w < 15; w++)
+            {
+                var list = busqueda.BuscarJugador(new[] { listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion }, null, null,
+                    new[] { "Libre" }, new[] { "Profecional" }, new[] { "Derecho", "Ambidiestro" }, null);
+                Console.WriteLine(list.SerializarToJson());
+            }
         }
         [Test]
         public void LeerJson()
@@ -570,7 +580,7 @@ namespace BusDep.Testing
                     paises = LeerPaises();
                 return paises;
             }
-        } 
+        }
 
 
 
@@ -595,7 +605,7 @@ namespace BusDep.Testing
             return new List<PaisViewModel>();
         }
 
-        private string[] Pies = new[] {"Derecho", "Zurdo", "Ambidiestro"};
+        private string[] Pies = new[] { "Derecho", "Zurdo", "Ambidiestro" };
         private string[] Fichajes = new[] { "Libre", "Contratado" };
         private string[] Perfiles = new[] { "Amateur", "Profecional" };
         private string[] Nombres => CargarNombres();
@@ -722,6 +732,23 @@ namespace BusDep.Testing
             }
             Console.WriteLine(ret);
         }
+
+        [Test]
+        public void TestCombo()
+        {
+            var il = common.ObtenerComboPuestosEspecifico(deporte.Id);
+            Console.Write(il.SerializarToJson());
+
+            var il1 = common.ObtenerComboPuestos(deporte.Id);
+            Console.Write(il1.SerializarToJson());
+
+            Console.Write(common.ObtenerComboPie().SerializarToJson());
+            Console.Write(common.ObtenerComboFichajes().SerializarToJson());
+            Console.Write(common.ObtenerComboPerfiles().SerializarToJson());
+        }
+
+
     }
+
 }
 
