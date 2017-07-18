@@ -43,7 +43,7 @@ namespace BusDep.Web
 
             // Angular Bundle
 
-            const string ANGULAR_APP_ROOT = "~/Scripts/app/";
+            const string ANGULAR_APP_ROOT = "~/Scripts/app";
             const string VIRTUAL_BUNDLE_PATH = ANGULAR_APP_ROOT + "main.js";
 
             var scriptBundle = new ScriptBundle(VIRTUAL_BUNDLE_PATH)
