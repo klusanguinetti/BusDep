@@ -1,9 +1,9 @@
-﻿app.config(function ($routeProvider) {
+﻿app.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
         .when('/', {
             templateUrl: '/Home/HomeContent',
-            controller: 'indexController'
+            controller: 'indexController',
         })
         .when('/Account/Login', {
             templateUrl: '/Account/Login',
@@ -24,9 +24,13 @@
         .when('/Profile/PrivateProfile', {
             templateUrl: '/Profile/PrivateProfile',
             controller: 'privateProfileController',
-            authorize: true
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
         })
         .otherwise({
             redirectTo: '/'
         });
-});
+}]);

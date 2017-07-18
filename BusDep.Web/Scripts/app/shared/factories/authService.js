@@ -1,5 +1,6 @@
 ﻿'use strict';
-app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', function ($http, $q, localStorageService, $rootScope) {
+app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', '$location',
+    function ($http, $q, localStorageService, $rootScope, $location) {
 
     /*Declaración de variables*/
 
@@ -47,8 +48,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', 
 
         $http.post(serviceBase + 'SignOut').then(function (response) {
 
-            $rootScope.user.authenticated = null;
-            $rootScope.user.UserName = null;
+            $rootScope.user.authenticated = false;
+            $rootScope.user.UserName = '';
 
             deferred.resolve(response);
 
@@ -62,11 +63,39 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', 
 
     };
 
+
+    var _isLogIn= function () {
+
+        console.log($rootScope.user.authenticated);
+        var iPermissionPassed = false;
+        // we will return a promise .
+        var deferred = $q.defer();
+
+        if (!$rootScope.user.authenticated) {
+
+            //If user does not have required access, 
+            //we will route the user to unauthorized access page
+            $location.path('/Account/Login');
+            //As there could be some delay when location change event happens, 
+            //we will keep a watch on $locationChangeSuccess event
+            // and would resolve promise when this event occurs.
+            $rootScope.$on('$locationChangeSuccess', function (next, current) {
+                deferred.resolve();
+            });
+
+        } else {
+            deferred.resolve();
+        }
+
+
+    };
+
     /*Declaración de returns*/
 
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;
+    authServiceFactory.isLogIn = _isLogIn;
 
     return authServiceFactory;
 
