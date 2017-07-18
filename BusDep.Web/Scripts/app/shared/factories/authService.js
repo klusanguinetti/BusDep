@@ -1,14 +1,13 @@
 ﻿'use strict';
-app.factory('authService', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
+app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', function ($http, $q, localStorageService, $rootScope) {
+
+    /*Declaración de variables*/
 
     var serviceBase = '/Account/';
+
     var authServiceFactory = {};
 
-    var _authentication = {
-        isAuth: false,
-        userName: "",
-        datosPersonaId: ""
-    };
+    /*Declaración de funciones*/
 
     var _saveRegistration = function (registration) {
 
@@ -22,21 +21,18 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
     var _login = function (loginData) {
 
-        var data = "grant_type=password&mail=" + loginData.mail + "&password=" + window.btoa(loginData.password);
+        loginData.password = window.btoa(loginData.password)
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'LoginPost', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
-
-            localStorageService.set('authorizationData', { token: response.data.access_token, userName: response.data.Mail, id: response.data.Id });
-
-            _authentication.isAuth = true;
-            _authentication.userName = response.data.Mail;
-            _authentication.datosPersonaId = response.data.Id;
+        $http.post(serviceBase + 'LoginPost', loginData).then(function (response) {
+ 
+            $rootScope.user.authenticated = true;
+            $rootScope.user.UserName = loginData.mail;
 
             deferred.resolve(response);
 
-        }).catch(function(err) {
+        }).catch(function (err) {
             _logOut();
             deferred.reject(err);
         });
@@ -47,31 +43,30 @@ app.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
     var _logOut = function () {
 
-        localStorageService.remove('authorizationData');
+        var deferred = $q.defer();
 
-        _authentication.isAuth = false;
-        _authentication.userName = "";
-        _authentication.datosPersonaId = "";
+        $http.post(serviceBase + 'SignOut').then(function (response) {
+
+            $rootScope.user.authenticated = null;
+            $rootScope.user.UserName = null;
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+
+            deferred.reject(err);
+
+        });
+
+        return deferred.promise;
 
     };
 
-    var _fillAuthData = function () {
-
-        var authData = localStorageService.get('authorizationData');
-
-        if (authData) {
-            _authentication.isAuth = true;
-            _authentication.userName = authData.userName;
-            _authentication.datosPersonaId = authData.id;
-        }
-
-    }
+    /*Declaración de returns*/
 
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;
-    authServiceFactory.fillAuthData = _fillAuthData;
-    authServiceFactory.authentication = _authentication;
 
     return authServiceFactory;
 

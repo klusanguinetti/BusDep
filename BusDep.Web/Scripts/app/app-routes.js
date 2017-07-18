@@ -2,7 +2,7 @@
 
     $routeProvider
         .when('/', {
-            templateUrl: '/Home/Index',
+            templateUrl: '/Home/HomeContent',
             controller: 'indexController'
         })
         .when('/Account/Login', {
@@ -23,7 +23,8 @@
         })
         .when('/Profile/PrivateProfile', {
             templateUrl: '/Profile/PrivateProfile',
-            controller: 'privateProfileController'
+            controller: 'privateProfileController',
+            authorize: true
         })
         .otherwise({
             redirectTo: '/'

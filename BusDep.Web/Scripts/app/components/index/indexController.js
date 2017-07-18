@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope', '$location', 'authService', 'Carousel', function ($scope, $location, authService, Carousel) {
+app.controller('indexController', ['$scope', '$location', 'authService', 'Carousel', '$rootScope', function ($scope, $location, authService, Carousel, $rootScope) {
 
     $scope.slides= [
       'http://lorempixel.com/1600/400/sports/1',
@@ -8,8 +8,17 @@ app.controller('indexController', ['$scope', '$location', 'authService', 'Carous
     ]
 
     $scope.logOut = function () {
-        authService.logOut();
-        $location.path('/home');
+
+        authService.logOut().then(function (response) {
+
+            $location.path('/home');
+
+        }).catch(function (err) {
+
+            console.log("Ha ocurrido un error al cerrar sesión: " + err)
+
+        });
+
     }
 
     $scope.authentication = authService.authentication;

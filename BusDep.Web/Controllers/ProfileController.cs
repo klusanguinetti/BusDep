@@ -1,19 +1,25 @@
 ﻿using BusDep.IBusiness;
 using BusDep.UnityInject;
 using BusDep.ViewModel;
+using BusDep.Web.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BusDep.Web.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
 
+        private AuthHelper authHelper = new AuthHelper();
+
         #region Get functions 
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
@@ -59,6 +65,13 @@ namespace BusDep.Web.Controllers
 
             try
             {
+
+                var authInfo = authHelper.GetAuthData();
+
+                password.Id = authInfo.Id;
+
+                password.Mail = authInfo.Mail;
+
                 var result = changePassword.ActualizarPassword(password);
 
                 if (result == null)
@@ -82,14 +95,17 @@ namespace BusDep.Web.Controllers
 
         }
 
-        public JsonResult GetDatosPersona(UsuarioViewModel usuarioViewModel)
+        public JsonResult GetDatosPersona()
         {
 
             var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
 
+            UsuarioViewModel LoggedUser = new UsuarioViewModel();
+
             try
             {
-                var user = usuario.ObtenerDatosPersonales(usuarioViewModel);
+
+                var user = usuario.ObtenerDatosPersonales(authHelper.GetAuthData());
 
                 Response.StatusCode = 200;
 

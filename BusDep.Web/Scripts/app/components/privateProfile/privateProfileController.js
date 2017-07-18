@@ -1,25 +1,25 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'authService', '$http',
-    function ($scope, privateProfileService, authService, $http) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'authService', '$http','$rootScope',
+    function ($scope, privateProfileService, authService, $http, $rootScope) {
 
     $scope.savedSuccessfully = false;
     $scope.message = "";
 
-    $scope.Mail = authService.authentication.userName;
+    $scope.Mail = $rootScope.user.UserName;
 
     $scope.paises = {};
 
     $scope.datosPersonales = {};
 
     $scope.loginData = {
-        Id: authService.authentication.datosPersonaId,
-        Mail: $scope.Mail,
+        Id: "",
+        Mail: "",
         OldPassword: "",
         NewPassword: ""
     };
 
     angular.element(function () {
     
-        privateProfileService.getUserDetails(authService.authentication.datosPersonaId).then(function (response) {
+        privateProfileService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
                 $scope.paises = data.data;

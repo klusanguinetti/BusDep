@@ -22,9 +22,7 @@ namespace BusDep.Web
                       "~/Scripts/vendor/bootstrap-datetimepicker.min.js",
                       "~/Scripts/vendor/jquery.matchHeight-min.js",
                       "~/Scripts/vendor/hideMaxListItem.js",
-                      "~/Scripts/vendor/jquery.fs.scroller.js",
-                      "~/Scripts/vendor/jquery.fs.selecter.js",
-                      "~/Scripts/vendor/jquery.fs.selecter.js"));
+                      "~/Scripts/vendor/jquery.fs.scroller.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

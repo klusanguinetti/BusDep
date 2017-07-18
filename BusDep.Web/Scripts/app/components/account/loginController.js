@@ -1,39 +1,44 @@
 ﻿'use strict';
-app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', function ($scope, $location, authService, $timeout) {
+app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', 'authInterceptorService',
+    function ($scope, $location, authService, $timeout, authInterceptorService) {
 
-    $scope.savedSuccessfully = false;
-    $scope.errorLogin = false;
-    $scope.buttonDisabled = false;
+        /*Declaración de variables*/
 
-    $scope.loginData = {
-        mail: "",
-        password: ""
-    };
+        $scope.savedSuccessfully = false;
+        $scope.errorLogin = false;
+        $scope.buttonDisabled = false;
 
-    $scope.message = "";
+        $scope.loginData = {
+            mail: "",
+            password: ""
+        };
 
-    $scope.login = function () {
+        $scope.message = "";
 
-        if ($scope.loginForm.$valid) {
+        /*Declaración de funciones*/
 
-            $scope.buttonDisabled = true;
+        $scope.login = function () {
 
-            authService.login($scope.loginData).then(function (response) {
+            if ($scope.loginForm.$valid) {
 
-                $location.path('/Home/Index');
+                $scope.buttonDisabled = true;
 
-            }).catch(function (err) {
+                authService.login($scope.loginData).then(function (response) {
 
-                if (err.status == "404") {
-                    $scope.errorLogin = true;
-                }
+                    $location.path('/Home/Index');
 
-                $scope.buttonDisabled = false;
+                }).catch(function (err) {
 
-            });
+                    if (err.status == "404") {
+                        $scope.errorLogin = true;
+                    }
 
-        }
+                    $scope.buttonDisabled = false;
 
-    };
+                });
 
-}]);
+            }
+
+        };
+
+    }]);

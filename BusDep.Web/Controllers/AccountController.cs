@@ -2,14 +2,10 @@
 using BusDep.UnityInject;
 using BusDep.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BusDep.Web.Controllers
 {
@@ -33,8 +29,8 @@ namespace BusDep.Web.Controllers
 
         #region Post Functions
 
-
-        public JsonResult LoginPost(UsuarioViewModel loginModel)
+        [HttpPost]
+        public ActionResult LoginPost(UsuarioViewModel loginModel)
         {
 
             ILoginBusiness login = DependencyFactory.Resolve<ILoginBusiness>();
@@ -43,8 +39,13 @@ namespace BusDep.Web.Controllers
 
             if (user != null)
             {
+
+                FormsAuthentication.SetAuthCookie(user.Mail + "|" + user.Id, true);
+
                 Response.StatusCode = 200;
+
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
             }
             else
             {
@@ -72,6 +73,22 @@ namespace BusDep.Web.Controllers
 
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
+        public JsonResult SignOut()
+        {
+            try
+            {
+                Response.StatusCode = 201;
+                FormsAuthentication.SignOut();
+                return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error del servidor: " + ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
 
         }

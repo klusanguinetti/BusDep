@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Class\AuthHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -1424,8 +1425,6 @@
     <Content Include="Scripts\vendor\jquery-1.10.2.min.map" />
     <Content Include="Scripts\vendor\version.json" />
     <Content Include="Views\Home\Container.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -1435,6 +1434,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\PrivateProfile.cshtml" />
     <Content Include="Views\Shared\_Profile_Sidebar.cshtml" />
+    <Content Include="Views\Home\HomeContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

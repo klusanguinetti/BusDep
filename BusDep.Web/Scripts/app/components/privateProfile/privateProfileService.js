@@ -29,13 +29,11 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
     };
 
-    this.getUserDetails = function (datosPersonaId) {
-
-        var data = "datosPersonaId=" + datosPersonaId;
+    this.getUserDetails = function () {
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'GetDatosPersona', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+        $http.post(serviceBase + 'GetDatosPersona').then(function (response) {
 
             deferred.resolve(response);
 
