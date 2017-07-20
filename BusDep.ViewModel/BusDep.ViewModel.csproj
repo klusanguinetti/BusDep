@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="AntecedenteViewModel.cs" />
     <Compile Include="BootStrapperDataModel.cs" />
-    <Compile Include="ClubViewModel.cs" />
+    <Compile Include="ClubDetalleViewModel.cs" />
     <Compile Include="ComboViewModel.cs" />
     <Compile Include="DatosPersonaViewModel.cs" />
     <Compile Include="DeporteViewModel.cs" />

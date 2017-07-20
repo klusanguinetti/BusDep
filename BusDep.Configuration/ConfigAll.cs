@@ -185,6 +185,13 @@
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
+            DependencyFactory.RegisterType<IBaseDA<ClubDetalle>, CommonDA<ClubDetalle>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorDataAccess>()
+              }
+              );
             DependencyFactory.RegisterType<IBaseDA<LogActividad>, CommonDA<LogActividad>>(
               new InjectionMember[]
               {

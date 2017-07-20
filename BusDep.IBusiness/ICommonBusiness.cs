@@ -12,5 +12,7 @@ namespace BusDep.IBusiness
         IEnumerable<ComboViewModel> ObtenerComboPie();
         IEnumerable<ComboViewModel> ObtenerComboFichajes();
         IEnumerable<ComboViewModel> ObtenerComboPerfiles();
+        IEnumerable<ClubDetalleViewModel> ObtenerClubes();
+
     }
 }

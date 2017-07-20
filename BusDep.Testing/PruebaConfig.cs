@@ -56,6 +56,7 @@ namespace BusDep.Testing
             Detele(DependencyFactory.Resolve<IUsuarioDA>());
             Detele(DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>());
             Detele(DependencyFactory.Resolve<IBaseDA<TipoUsuario>>());
+            Detele(DependencyFactory.Resolve<IBaseDA<ClubDetalle>>());
             var DAti = DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>();
             foreach (var d in DAti.GetAll())
             {
@@ -540,7 +541,7 @@ namespace BusDep.Testing
             if (File.Exists(targetPath))
             {
                 var json = File.ReadAllText(targetPath);
-                var DataList = json.DeserializarToJson<List<ClubViewModel>>();
+                var DataList = json.DeserializarToJson<List<ClubDetalleViewModel>>();
             }
             jsonName = "Paises.json";
             targetPath = Path.Combine(directory, jsonName);
@@ -551,9 +552,9 @@ namespace BusDep.Testing
             }
         }
 
-        private List<ClubViewModel> Clubes => LeerClubes();
+        private List<ClubDetalleViewModel> Clubes => LeerClubes();
 
-        private List<ClubViewModel> LeerClubes()
+        private List<ClubDetalleViewModel> LeerClubes()
         {
             var path = System.Reflection.Assembly.GetAssembly(this.GetType()).CodeBase;
             UriBuilder uri = new UriBuilder(path);
@@ -566,9 +567,9 @@ namespace BusDep.Testing
             if (File.Exists(targetPath))
             {
                 var json = File.ReadAllText(targetPath);
-                return json.DeserializarToJson<List<ClubViewModel>>();
+                return json.DeserializarToJson<List<ClubDetalleViewModel>>();
             }
-            return new List<ClubViewModel>();
+            return new List<ClubDetalleViewModel>();
         }
 
         private List<PaisViewModel> paises = null;
@@ -745,6 +746,18 @@ namespace BusDep.Testing
             Console.Write(common.ObtenerComboPie().SerializarToJson());
             Console.Write(common.ObtenerComboFichajes().SerializarToJson());
             Console.Write(common.ObtenerComboPerfiles().SerializarToJson());
+            Console.Write(common.ObtenerClubes().SerializarToJson());
+        }
+
+        [Test]
+        public void CargaClub()
+        {
+            dynamic dataAccess = DependencyFactory.Resolve<IBaseDA<ClubDetalle>>();
+            foreach (var viewModel in Clubes)
+            {
+                var club = viewModel.MapperClass<ClubDetalle>();
+                dataAccess.Save(club);
+            }
         }
 
 

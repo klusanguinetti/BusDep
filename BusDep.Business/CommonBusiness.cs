@@ -54,6 +54,12 @@ namespace BusDep.Business
         {
             return new[] { "Amateur", "Profecional" }.Select(o => new ComboViewModel { Id = o, Descripcion = o });
         }
-        
+
+        public IEnumerable<ClubDetalleViewModel> ObtenerClubes()
+        {
+            var clubes = DependencyFactory.Resolve<IBaseDA<ClubDetalle>>().GetAll();
+            return clubes.MapperEnumerable<ClubDetalleViewModel>(TypeMapper.IgnoreCaseSensitive);
+
+        }
     }
 }

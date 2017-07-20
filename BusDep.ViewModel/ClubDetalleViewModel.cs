@@ -3,7 +3,7 @@
     using System;
     using System.Runtime.Serialization;
     [DataContract]
-    public class ClubViewModel
+    public class ClubDetalleViewModel
     {
         [DataMember]
         public string Division { get; set; }
