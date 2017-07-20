@@ -11,14 +11,6 @@ namespace BusDep.Business
 {
     public class CommonBusiness : ICommonBusiness
     {
-        public virtual JugadorViewModel ObtenerJugador(UsuarioViewModel usuario)
-        {
-            if (usuario.JugadorId.HasValue)
-            {
-                return FillViewModel.FillJugadorViewModel(DependencyFactory.Resolve<IJugadorDA>().GetById(usuario.JugadorId));
-            }
-            throw new ExceptionBusiness(1, "No existe Jugador");
-        }
         public virtual IEnumerable<PuestoViewModel> ObtenerPuestos(long deporteId)
         {
             var deporte = DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(deporteId);

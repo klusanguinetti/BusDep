@@ -449,7 +449,7 @@ namespace BusDep.Testing
                 datos.Pais, ", Fecha Nacimiento:", datos.FechaNacimiento);
             registracion.RegistracionDatosPersonales(datos);
 
-            var jugadorView = common.ObtenerJugador(userView);
+            var jugadorView = jugador.ObtenerJugador(userView);
             //var listaPuesto = common.ObtenerPuestos(userView.DeporteId.GetValueOrDefault());
             if (listaPuesto.Any())
             {
