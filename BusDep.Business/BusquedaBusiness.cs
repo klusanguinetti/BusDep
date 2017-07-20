@@ -19,7 +19,7 @@ namespace BusDep.Business
             var jugador = DependencyFactory.Resolve<IBaseDA<Jugador>>().GetById(jugadorId);
             if (jugador == null)
                 return null;
-            UsuarioViewModel usuario = new UsuarioViewModel {Id = jugador.Usuario.Id, DeporteId = jugador.Usuario.Deporte.Id, JugadorId = jugador.Id };
+            UsuarioViewModel usuario = new UsuarioViewModel { Id = jugador.Usuario.Id, DeporteId = jugador.Usuario.Deporte.Id, JugadorId = jugador.Id };
             jugador.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             jugador.Usuario.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             jugador.Usuario.DatosPersona.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
@@ -54,6 +54,44 @@ namespace BusDep.Business
             return (from o in DependencyFactory.Resolve<IJugadorDA>()
                 .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre)
                     select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
+        }
+
+
+        [AuditMethod]
+        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje,
+           string[] perfil, string[] pie, string nombre, int pagina, int cantidad)
+        {
+
+            return (from o in DependencyFactory.Resolve<IJugadorDA>()
+               .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina,cantidad)
+             select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
+
+            //if (pagina < 1 || cantidad < 1)
+            //{
+            //    return BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre);
+            //}
+            //var liPre = DependencyFactory.Resolve<IJugadorDA>()
+            //    .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina, cantidad);
+
+            //var inicio = pagina.Equals(1) ? 0 : ((pagina - 1) * cantidad);
+            //var fin = inicio + cantidad;
+            //var listR = new List<JugadorBusquedaViewModel>();
+            //while (inicio < fin)
+            //{
+            //    if (liPre.Count >= inicio)
+            //    {
+            //        listR.Add(liPre[inicio].MapperClass<JugadorBusquedaViewModel>());
+            //        inicio++;
+            //    }
+            //    else
+            //    {
+            //        return listR;
+            //    }
+
+            //}
+
+
+           // return listR;
         }
     }
 }
