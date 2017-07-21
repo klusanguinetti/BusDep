@@ -35,10 +35,10 @@ namespace BusDep.Web.Controllers
 
             ILoginBusiness login = DependencyFactory.Resolve<ILoginBusiness>();
 
-            var user = login.LoginUser(loginModel.Mail, loginModel.Password);
-
-            if (user != null)
+            try
             {
+
+                var user = login.LoginUser(loginModel.Mail, loginModel.Password);
 
                 FormsAuthentication.SetAuthCookie(user.Mail + "|" + user.Id, true);
 
@@ -47,11 +47,19 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             }
-            else
+            catch (ExceptionBusiness ex)
             {
+
                 Response.StatusCode = 404;
-                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
             }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error del servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
 
         }
 
@@ -68,9 +76,13 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 422; //Unprocessable entity
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
             catch (Exception)
             {
-
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

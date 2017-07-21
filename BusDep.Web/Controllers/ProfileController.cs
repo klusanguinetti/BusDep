@@ -74,17 +74,15 @@ namespace BusDep.Web.Controllers
 
                 var result = changePassword.ActualizarPassword(password);
 
-                if (result == null)
-                {
-                    Response.StatusCode = 404;
-                    return new JsonResult { Data = "Objecto no encontrado", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
-                else
-                {
-                    Response.StatusCode = 200;
-                    return new JsonResult { Data = "Contraseña cambiada", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
+                Response.StatusCode = 200;
 
+                return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+  
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 404;
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             catch (Exception)
             {

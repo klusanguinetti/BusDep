@@ -12,24 +12,35 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', 
 
     var _saveRegistration = function (registration) {
 
+        var deferred = $q.defer();
+
         _logOut();
 
-        return $http.post(serviceBase + 'RegisterPost', registration).then(function (response) {
-            return response;
+        $http.post(serviceBase + 'RegisterPost', registration).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
         });
+
+        return deferred.promise;
 
     };
 
     var _login = function (loginData) {
 
-        loginData.password = window.btoa(loginData.password)
+        var logindataPost = {
+            mail: loginData.mail,
+            password: window.btoa(loginData.password)
+        };
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'LoginPost', loginData).then(function (response) {
+        $http.post(serviceBase + 'LoginPost', logindataPost).then(function (response) {
  
             $rootScope.user.authenticated = true;
-            $rootScope.user.UserName = loginData.mail;
+            $rootScope.user.UserName = logindataPost.mail;
 
             deferred.resolve(response);
 
@@ -63,10 +74,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', 
 
     };
 
-
     var _isLogIn= function () {
 
-        console.log($rootScope.user.authenticated);
         var iPermissionPassed = false;
         // we will return a promise .
         var deferred = $q.defer();
@@ -86,7 +95,6 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', 
         } else {
             deferred.resolve();
         }
-
 
     };
 

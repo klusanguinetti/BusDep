@@ -26,6 +26,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/ui-carousel.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 
+    <link rel="stylesheet" type="text/css" href="~/Content/ngDialog/ngDialog.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/ngDialog/ngDialog-theme-default.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/angular-toast/angular-toastr.min.css">
+
 </head>
 
 <body ng-init="user={authenticated:@Model.Authenticated,UserName:'@Model.UserName'}">
@@ -34,22 +39,27 @@
 
         @Html.Partial("_Header")
 
-        <div ng-view autoscroll="true">
+
+        <div ng-view class="reveal-animation" autoscroll="true">
           
         </div>
 
         @Html.Partial("_Footer")
 
-        <script src="~/Scripts/vendor/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/vendor/jquery/jquery-1.10.2.min.js"></script>
 
-        <script src="~/Scripts/vendor/bootstrap.js"></script>
-        <script src="~/Scripts/vendor/please-wait.min.js"></script>
-        <script src="~/Scripts/vendor/owl.carousel.min.js"></script>
-        <script src="~/Scripts/vendor/moment.min.js"></script>
-        <script src="~/Scripts/vendor/bootstrap-datetimepicker.min.js"></script>
-        <script src="~/Scripts/vendor/jquery.matchHeight-min.js"></script>
-        <script src="~/Scripts/vendor/hideMaxListItem.js"></script>
-        <script src="~/Scripts/vendor/jquery.fs.scroller.js"></script>
+        <script src="~/Scripts/vendor/boostrap/bootstrap.js"></script>
+
+        <script src="~/Scripts/vendor/custom/please-wait.min.js"></script>
+        <script src="~/Scripts/vendor/custom/owl.carousel.min.js"></script>
+        <script src="~/Scripts/vendor/custom/moment.min.js"></script>
+        <script src="~/Scripts/vendor/custom/hideMaxListItem.js"></script>
+
+        <script src="~/Scripts/vendor/boostrap/bootstrap-datetimepicker.min.js"></script>
+
+        <script src="~/Scripts/vendor/jquery/jquery.matchHeight-min.js"></script>
+        <script src="~/Scripts/vendor/jquery/jquery.fs.scroller.js"></script>
+
 
         <script type="text/javascript">
             var loading_screen = pleaseWait({
@@ -63,17 +73,29 @@
 
         </script>
 
-        <script src="~/Scripts/vendor/angular.js"></script>
-        <script src="~/Scripts/vendor/angular-route.js"></script>
-        <script src="~/Scripts/vendor/angular-messages.js"></script>
-        <script src="~/Scripts/vendor/loading-bar.min.js"></script>
-        <script src="~/Scripts/vendor/angular-local-storage.min.js"></script>
-        <script src="~/Scripts/vendor/ui-carousel.min.js"></script>
+        <!-- Angular vendors -->
+
+        <script src="~/Scripts/vendor/angular/angular.min.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-route.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-messages.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-animate.min.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-local-storage.min.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-promise-buttons.min.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-toastr.min.js"></script>
+        <script src="~/Scripts/vendor/angular/angular-toastr.tpls.min.js"></script>
+
+        <script src="~/Scripts/vendor/custom/loading-bar.min.js"></script>
+        <script src="~/Scripts/vendor/custom/ui-carousel.min.js"></script>
+        <script src="~/Scripts/vendor/custom/ngDialog.min.js"></script>
+
+        
+        <!-- Fin Angular vendors -->
 
         <!-- Angular app -->
 
         <script src="~/Scripts/app/app.js"></script>
         <script src="~/Scripts/app/app-routes.js"></script>
+        <script src="~/Scripts/app/app-animations.js"></script>
 
         <script src="~/Scripts/app/components/account/loginController.js"></script>
         <script src="~/Scripts/app/components/account/registerController.js"></script>
@@ -92,6 +114,8 @@
         <script src="~/Scripts/app/shared/factories/authInterceptorService.js"></script>
 
         <script src="~/Scripts/app/shared/factories/authService.js"></script>
+
+        <!-- Fin Angular app -->
 
     </div>
 

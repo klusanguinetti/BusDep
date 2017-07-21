@@ -6,6 +6,8 @@
 @import url("fileinput.min.css");
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto+Condensed:300,400,700);
+@import url("promise-buttom/promise-buttom.css");
+
 @media (min-width: 1024px) {
     .container {
         max-width: 1024px;
@@ -4727,4 +4729,9 @@ ul.list-number {
 
 .page-action{
     background-color:#20a759;
+}
+
+.reveal-animation {
+  top: 0;
+  left: 0;
 }

@@ -1,12 +1,8 @@
 ﻿'use strict';
-app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', 'authInterceptorService',
-    function ($scope, $location, authService, $timeout, authInterceptorService) {
+app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', 'authInterceptorService','toastr',
+    function ($scope, $location, authService, $timeout, authInterceptorService,toastr) {
 
         /*Declaración de variables*/
-
-        $scope.savedSuccessfully = false;
-        $scope.errorLogin = false;
-        $scope.buttonDisabled = false;
 
         $scope.loginData = {
             mail: "",
@@ -21,19 +17,17 @@ app.controller('loginController', ['$scope', '$location', 'authService', '$timeo
 
             if ($scope.loginForm.$valid) {
 
-                $scope.buttonDisabled = true;
-
-                authService.login($scope.loginData).then(function (response) {
+               return authService.login($scope.loginData).then(function (response) {
 
                     $location.path('/Home/Index');
 
                 }).catch(function (err) {
 
                     if (err.status == "404") {
-                        $scope.errorLogin = true;
+                        toastr.error('¡Usuario/Contraseña invalidos!', 'Error');
+                    } else {
+                        toastr.error('¡Error desconocido!', 'Error');
                     }
-
-                    $scope.buttonDisabled = false;
 
                 });
 

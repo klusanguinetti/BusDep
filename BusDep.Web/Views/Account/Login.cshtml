@@ -12,7 +12,7 @@
                     </div>
                     <div class="panel-body">
 
-                        <form role="form" novalidate="" name="loginForm" ng-submit="login()">
+                        <form role="form" novalidate="" name="loginForm" ng-submit="login()" promise-btn>
 
                             <div class="alert alert-danger pgray  alert-lg" role="alert" ng-show="errorLogin">
 
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button class="btn btn-primary btn-block" ng-disabled="buttonDisabled">Iniciar sesión</button>
+                                <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
                             </div>
 
                         </form>
@@ -67,11 +67,13 @@
                     </div>
 
                     <div class="panel-footer">
+
                         <div class="checkbox pull-left">
                             <label>
-                                <input type="checkbox" value="1" name="remember" id="remember"> Mantener sesión iniciada
+                                <input type="checkbox" value="1" name="remember" id="remember" checked> Mantener sesión iniciada
                             </label>
                         </div>
+
                         <p class="text-center pull-right">
                             <a href=""> ¿Olvidaste tu contraseña? </a>
                         </p>

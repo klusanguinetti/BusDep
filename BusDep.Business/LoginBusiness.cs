@@ -14,7 +14,7 @@
         {
             var user = DependencyFactory.Resolve<IUsuarioDA>().LoginUser(mail, password);
             if (user == null)
-                throw new ExceptionBusiness(2, "No existe usuario");
+                throw new ExceptionBusiness(2, "Usuario/Contraseña no encontrado");
             var userReturn = FillViewModel.FillUsuarioViewModel(user);
             user.UltimoLogin = DateTime.Now;
             DependencyFactory.Resolve<IUsuarioDA>().Save(user);
@@ -25,7 +25,7 @@
         {
             var user = DependencyFactory.Resolve<IUsuarioDA>().LoginUser(mail, aplicacion, token);
             if(user==null)
-                throw new ExceptionBusiness(2, "No existe usuario");
+                throw new ExceptionBusiness(2, "Usuario/Contraseña no encontrado");
             var userReturn = FillViewModel.FillUsuarioViewModel(user);
             user.UltimoLogin = DateTime.Now;
             DependencyFactory.Resolve<IUsuarioDA>().Save(user);

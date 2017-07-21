@@ -3,8 +3,10 @@
     Layout = null;
 }
 
-<div class="main-container" ng-controller="privateProfileController">
+<div class="main-container" >
+
     <div class="container">
+
         <div class="row">
 
             @Html.Partial("_Profile_Sidebar")
@@ -64,7 +66,7 @@
 
                     <div class="welcome-msg">
                         <h3 class="page-sub-header2 clearfix no-padding">Hola, {{datosPersonales.Nombre}} </h3>
-                        <span class="page-sub-header-sub small">Tu ultimo acceso a la página: Lunes 23 de julio del 2014 a las 14:23 hrs  [AR time (GMT + 6:00hrs)]</span>
+                        <span class="page-sub-header-sub small">Tu ultimo acceso a la página: Lunes 23 de julio del 2014 a las 14:23 hrs
                     </div>
 
                     <div id="accordion" class="panel-group">
@@ -79,7 +81,8 @@
 
                             <div class="panel-collapse collapse in" id="collapseB1">
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form">
+
+                                    <form class="form-horizontal" role="form" ng-submit="UpdateProfile()" promise-btn>
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Nombre</label>
@@ -105,7 +108,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Fecha de nacimiento</label>
                                             <div class="col-sm-9">
-                                                <input datetimepicker type="text" class="form-control" 
+                                                <input datetimepicker type="text" class="form-control"
                                                        placeholder="¿Cuando naciste?" ng-model="datosPersonales.FechaNacimiento">
                                             </div>
                                         </div>
@@ -190,7 +193,7 @@
 
                                         <div class="content-subheading" style="font-size:14px;">
                                             <i class="fa-thumbs-up fa"></i> <strong>
-                                               Cuentanos un poco mas sobre ti
+                                                Cuentanos un poco mas sobre ti
                                             </strong>
                                         </div>
 
@@ -232,11 +235,12 @@
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-3 col-sm-9">
-                                                <button type="submit" class="btn btn-default page-action" ng-click="UpdateProfile()">Actualizar</button>
+                                                <button type="submit" class="btn btn-default page-action">Actualizar</button>
                                             </div>
                                         </div>
 
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -253,14 +257,14 @@
                                 <div class="panel-body">
 
                                     <div class="alert alert-{{messageType}} pgray  alert-lg" role="alert" ng-show="passwordChangeSuccess">
-          
+
                                         <p>
                                             <i class="fa {{messageIcon}}" style="margin-right: 15px; font-size: 20px;"></i> {{message}}
                                         </p>
 
                                     </div>
 
-                                    <form class="form-horizontal" role="form" name="passwordForm" ng-submit="passwordUpdate()" novalidate="">
+                                    <form class="form-horizontal" role="form" name="passwordForm" ng-submit="passwordUpdate()" novalidate="" promise-btn>
 
                                         <div class="form-group">
                                             <div class="col-sm-12">
@@ -301,21 +305,6 @@
 
                                         </div>
 
-                                        @*<div class="form-group" ng-class="{ 'has-error': (passwordForm.passwordRepeat.$touched && passwordForm.passwordRepeat.$invalid) || (passwordForm.$submitted && passwordForm.passwordRepeat.$invalid)}">
-
-                                            <label class="col-sm-3 control-label">Repetir Contraseña</label>
-
-                                            <div class="col-sm-9">
-                                                <input name="passwordRepeat" type="password" class="form-control" placeholder="Repite tu nueva contraseña"
-                                                        ng-minlength="6">
-                                            </div>
-
-                                            <div class="help-block col-sm-9" ng-messages="passwordForm.passwordRepeat.$error" ng-if="passwordForm.passwordRepeat.$touched || passwordForm.$submitted">
-                                                <p ng-message="required">La repetición de la contraseña es necesaria.</p>
-                                            </div>
-
-                                        </div>*@
-
                                         <div class="form-group">
                                             <div class="col-sm-offset-3 col-sm-9">
                                                 <button type="submit" class="btn btn-default page-action">Actualizar</button>
@@ -327,36 +316,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        @*<div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapseB3" data-toggle="collapse">
-                                        Preferencias
-                                    </a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse collapse in" id="collapseB3">
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Quiero que mi perfil sea privado
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    No quiero recibir mensajes de otros perfiles
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*@
 
                     </div>
 

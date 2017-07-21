@@ -1,8 +1,6 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'authService', '$http','$rootScope',
-    function ($scope, privateProfileService, authService, $http, $rootScope) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', '$http', '$rootScope', 'toastr',
+function ($scope, privateProfileService, $http, $rootScope, toastr) {
 
-    $scope.savedSuccessfully = false;
-    $scope.message = "";
 
     $scope.Mail = $rootScope.user.UserName;
 
@@ -18,7 +16,7 @@
     };
 
     angular.element(function () {
-    
+
         privateProfileService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
@@ -27,39 +25,50 @@
 
             $scope.datosPersonales = response.data;
 
-        },
-        function (err) {
+            if (response.data.FechaNacimiento != null) {
+
+                var date = moment(response.data.FechaNacimiento).format("YYYY/MM/DD");
+
+                $scope.datosPersonales.FechaNacimiento = date;
+
+            }
+
+        }).catch(function (err) {
+
+            toastr.error('¡Ha ocurrido un error cargando el perfil!', 'Error');
 
         });
 
-    
     });
 
 
     $scope.passwordUpdate = function () {
 
-        $scope.loginData.NewPassword = window.btoa($scope.loginData.NewPassword);
-
-        $scope.loginData.OldPassword = window.btoa($scope.loginData.OldPassword);
+        var loginDataPost = {
+            Id: $scope.loginData.Id,
+            Mail: $scope.loginData.Mail,
+            OldPassword: window.btoa($scope.loginData.OldPassword),
+            NewPassword: window.btoa($scope.loginData.NewPassword)
+        };
 
         if ($scope.passwordForm.$valid) {
 
-            privateProfileService.passwordUpdate($scope.loginData).then(function (response) {
+            return privateProfileService.passwordUpdate(loginDataPost).then(function (response) {
 
-                $scope.passwordChangeSuccess = true;
-                $scope.messageType = "success";
-                $scope.message = "¡Has actualizado tu contraseña con éxito!";
-                $scope.messageIcon = "fa-check";
+                toastr.success('¡Contraseña actualizada con éxito!', '¡Perfecto!');
 
                 $scope.loginData.NewPassword = "";
                 $scope.loginData.OldPassword = "";
 
-            }).catch(function(err) {
-                
-                $scope.passwordChangeSuccess = true;
-                $scope.messageType = "danger";
-                $scope.message = "¡Contraseña actual inválida!";
-                $scope.messageIcon = "fa-exclamation-triangle";
+                clearErrors();
+
+            }).catch(function (err) {
+
+                if (err.status == "404") {
+                    toastr.error('¡La contraseña actual es incorrecta!', 'Error');
+                } else {
+                    toastr.error('¡Error desconocido!', 'Error');
+                }
 
             });
 
@@ -69,15 +78,22 @@
 
     $scope.UpdateProfile = function () {
 
-        privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
+        return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 
-            alert('Datos salvados con exito');
+            toastr.success('¡Perfil actualizado con éxito!', '¡Perfecto!');
 
-        },
-         function (err) {
+        }).catch(function (err) {
 
-         });
+            toastr.error('¡Error desconocido!', 'Error');
+
+        });
 
     };
+
+    function clearErrors() {
+        $scope.passwordForm.$setPristine();
+        $scope.passwordForm.$setValidity();
+        $scope.passwordForm.$setUntouched();
+    }
 
 }]);

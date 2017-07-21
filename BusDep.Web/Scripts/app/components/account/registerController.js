@@ -1,8 +1,8 @@
 ﻿'use strict';
-app.controller('registerController', ['$scope', '$location', '$timeout', 'authService', function ($scope, $location, $timeout, authService) {
+app.controller('registerController', ['$scope', '$location', '$timeout', 'authService', 'toastr',
+    function ($scope, $location, $timeout, authService, toastr) {
 
     $scope.savedSuccessfully = false;
-    $scope.buttonDisabled = false;
 
     $scope.fixedWidth = window.innerHeight - 220;
 
@@ -18,24 +18,20 @@ app.controller('registerController', ['$scope', '$location', '$timeout', 'authSe
 
         if ($scope.userForm.$valid) {
 
-            $scope.buttonDisabled = true;
-
-            authService.saveRegistration($scope.registration).then(function (response) {
+           return authService.saveRegistration($scope.registration).then(function (response) {
 
                 $scope.savedSuccessfully = true;
                 startTimer();
 
-            },
-             function (response) {
-                 var errors = [];
-                 for (var key in response.data.modelState) {
-                     for (var i = 0; i < response.data.modelState[key].length; i++) {
-                         errors.push(response.data.modelState[key][i]);
-                     }
-                 }
-                 $scope.buttonDisabled = false;
-                 $scope.message = "Failed to register user due to:" + errors.join(' ');
-             });
+           }).catch(function (err) {
+
+               if (err.status == "422") {
+                   toastr.error('¡El email ya se encuentra registrado!', 'Error');
+               } else {
+                   toastr.error('¡Error desconocido!', 'Error');
+               }
+
+           });
 
         }
 
@@ -43,25 +39,15 @@ app.controller('registerController', ['$scope', '$location', '$timeout', 'authSe
 
     var startTimer = function () {
 
-        $scope.loginData = {
+        var loginData = {
             mail: $scope.registration.Mail,
-            password: $scope.registration.Password
+            password: window.btoa($scope.registration.Password)
         };
 
         var timer = $timeout(function () {
 
-            $timeout.cancel(timer);
+            $location.path('/Account/Login');
 
-            authService.login($scope.loginData).then(function (response) {
-
-                $location.path('/Profile/PrivateProfile');
-
-            },
-            function (err) {
-
-            });
-
- 
         }, 3000);
     }
 
