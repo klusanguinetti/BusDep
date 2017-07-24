@@ -17,13 +17,13 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Init()
         {
             ConfigAll.Instance.Init();
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void Dispose()
         {
             ConfigAll.Instance.Dispose();
@@ -520,12 +520,12 @@ namespace BusDep.Testing
         [Test]
         public void BusquedaJugador2()
         {
-            //for (int w = 0; w < 15; w++)
-            //{
+            for (int w = 0; w < 5; w++)
+            {
                 var list = busqueda.BuscarJugador(new[] { listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion }, null, null,
-                    new[] { "Libre" },null, new[] { "Derecho", "Ambidiestro" }, null, 1 , 4);
+                    new[] { "Libre" },null, new[] { "Derecho", "Ambidiestro" }, null, 1, 4);
                 Console.WriteLine(list.SerializarToJson());
-           //}
+           }
         }
         [Test]
         public void LeerJson()

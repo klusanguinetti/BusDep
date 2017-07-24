@@ -47,23 +47,15 @@ namespace BusDep.Business
                 .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre)
                     select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
         }
-        [AuditMethod]
-        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje,
-            string[] perfil, string[] pie, string nombre)
-        {
-            return (from o in DependencyFactory.Resolve<IJugadorDA>()
-                .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre)
-                    select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
-        }
 
 
         [AuditMethod]
-        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje,
-           string[] perfil, string[] pie, string nombre, int pagina, int cantidad)
+        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil, string[] pie, string nombre,
+            int? pagina = null, int? cantidad = null)
         {
 
             return (from o in DependencyFactory.Resolve<IJugadorDA>()
-               .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina,cantidad)
+               .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina.GetValueOrDefault(), cantidad.GetValueOrDefault())
              select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
 
             //if (pagina < 1 || cantidad < 1)

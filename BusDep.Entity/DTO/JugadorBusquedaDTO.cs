@@ -29,13 +29,19 @@ namespace BusDep.Entity.DTO
 
         public string Perfil { get; set; }
 
-        public string Pie { get; set; }
-
         public string Fichaje { get; set; }
         
         public string Pais { get; set; }
         
         public string PaisIso { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
+        public string Informacion { get; set; }
+
+        #region datos fisico
+        public virtual decimal? Altura { get; set; }
+        public virtual decimal? Peso { get; set; }
+        public string Pie { get; set; }
+        #endregion
 
     }
 }

@@ -39,5 +39,23 @@ namespace BusDep.ViewModel
         public string Pais { get; set; }
         [DataMember]
         public string PaisIso { get; set; }
+        [DataMember]
+        public decimal? Altura { get; set; }
+        [DataMember]
+        public decimal? Peso { get; set; }
+        [DataMember]
+        public DateTime? FechaNacimiento { get; set; }
+
+        [DataMember]
+        public long? Edad {
+            get
+            {
+                if(!FechaNacimiento.HasValue)
+                    return null;
+                return DateTime.Today.AddTicks(-FechaNacimiento.Value.Ticks).Year - 1;
+                
+            }
+            set { }
+        }
     }
 }
