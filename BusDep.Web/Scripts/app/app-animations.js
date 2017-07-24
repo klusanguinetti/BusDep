@@ -8,7 +8,7 @@
             }
         },
         leave: function (element, done) {
-            element.fadeOut(500, done)
+            element.fadeOut(500, done);
             return function () {
                 element.stop();
             }

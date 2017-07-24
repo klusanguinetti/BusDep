@@ -10,9 +10,9 @@
 
     <title>Busqueda deportiva | Busqueda de jugadores profesionales</title>
 
-    <link rel="icon" href="images/favicon.png">
-
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <link rel="icon" href="~/Content/img/icon.png">
+    @Styles.Render("~/Content/css")
+    @*<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="~/Content/owl.theme.css">
     <link rel="stylesheet" type="text/css" href="~/Content/owl.carousel.css">
@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/ngDialog/ngDialog.css">
     <link rel="stylesheet" type="text/css" href="~/Content/ngDialog/ngDialog-theme-default.min.css">
 
-    <link rel="stylesheet" type="text/css" href="~/Content/angular-toast/angular-toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/angular-toast/angular-toastr.min.css">*@
 
 </head>
 
@@ -39,14 +39,17 @@
 
         @Html.Partial("_Header")
 
-
+        @Scripts.Render("~/bundles/jquery")
+       
         <div ng-view class="reveal-animation" autoscroll="true">
           
         </div>
 
         @Html.Partial("_Footer")
-
-        <script src="~/Scripts/vendor/jquery/jquery-1.10.2.min.js"></script>
+        
+        @Scripts.Render("~/bundles/bootstrap")
+        
+        @*<script src="~/Scripts/vendor/jquery/jquery-1.10.2.min.js"></script>
 
         <script src="~/Scripts/vendor/boostrap/bootstrap.js"></script>
 
@@ -58,9 +61,11 @@
         <script src="~/Scripts/vendor/boostrap/bootstrap-datetimepicker.min.js"></script>
 
         <script src="~/Scripts/vendor/jquery/jquery.matchHeight-min.js"></script>
-        <script src="~/Scripts/vendor/jquery/jquery.fs.scroller.js"></script>
+        <script src="~/Scripts/vendor/jquery/jquery.fs.scroller.js"></script>*@
 
+        @Scripts.Render("~/bundles/angular")
 
+        @Scripts.Render("~/bundles/app/main")
         <script type="text/javascript">
             var loading_screen = pleaseWait({
 
@@ -74,8 +79,8 @@
         </script>
 
         <!-- Angular vendors -->
-
-        <script src="~/Scripts/vendor/angular/angular.min.js"></script>
+        
+        @*<script src="~/Scripts/vendor/angular/angular.min.js"></script>
         <script src="~/Scripts/vendor/angular/angular-route.js"></script>
         <script src="~/Scripts/vendor/angular/angular-messages.js"></script>
         <script src="~/Scripts/vendor/angular/angular-animate.min.js"></script>
@@ -86,14 +91,14 @@
 
         <script src="~/Scripts/vendor/custom/loading-bar.min.js"></script>
         <script src="~/Scripts/vendor/custom/ui-carousel.min.js"></script>
-        <script src="~/Scripts/vendor/custom/ngDialog.min.js"></script>
+        <script src="~/Scripts/vendor/custom/ngDialog.min.js"></script>*@
 
         
         <!-- Fin Angular vendors -->
 
         <!-- Angular app -->
-
-        <script src="~/Scripts/app/app.js"></script>
+        
+        @*<script src="~/Scripts/app/app.js"></script>
         <script src="~/Scripts/app/app-routes.js"></script>
         <script src="~/Scripts/app/app-animations.js"></script>
 
@@ -114,7 +119,7 @@
 
         <script src="~/Scripts/app/shared/factories/authInterceptorService.js"></script>
 
-        <script src="~/Scripts/app/shared/factories/authService.js"></script>
+        <script src="~/Scripts/app/shared/factories/authService.js"></script>*@
 
         <!-- Fin Angular app -->
 
