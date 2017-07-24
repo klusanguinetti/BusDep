@@ -71,17 +71,16 @@ namespace BusDep.Web
                 .Include("~/Scripts/app/app.js",
                     "~/Scripts/app/app-routes.js",
                     "~/Scripts/app/app-animations.js",
-                    "~/Scripts/app/components/account/loginController.js",
-                    "~/Scripts/app/components/account/registerController.js",
-                    "~/Scripts/app/components/index/indexController.js",
-                    "~/Scripts/app/components/privateProfile/privateProfileController.js",
-                    "~/Scripts/app/components/privateProfile/privateProfileService.js",
-                    "~/Scripts/app/components/publicProfile/publicProfileController.js",
-                    "~/Scripts/app/components/search/searchController.js",
                     "~/Scripts/app/shared/directives/datetimepicker.js",
                     "~/Scripts/app/shared/factories/authInterceptorService.js",
                     "~/Scripts/app/shared/factories/authService.js"
-                    ));
+                    ).IncludeDirectory("~/Scripts/app/components/account", "*.js")
+                    .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js")
+                    .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js")
+                    .IncludeDirectory("~/Scripts/app/components/search", "*.js")
+                    .IncludeDirectory("~/Scripts/app/components/index", "*.js")
+
+                    );
 
         }
     }

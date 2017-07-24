@@ -11,7 +11,7 @@
 
     public abstract class ExceptionBase : Exception, IExceptionCode
     {
-        public ExceptionBase(long codigo, string message, string messageMechnical = null, Exception ex = null) :base(message)
+        public ExceptionBase(long codigo, string message, string messageMechnical = null, Exception ex = null) :base(message, ex)
         {
             this.Codigo = codigo;
             if (!string.IsNullOrWhiteSpace(messageMechnical))
