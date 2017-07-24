@@ -15,7 +15,12 @@
         })
         .when('/Search', {
             templateUrl: '/Search/Search',
-            controller: 'searchController'
+            controller: 'searchController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
         })
         .when('/Profile/:type/:id', {
             templateUrl: '/Profile/Index',

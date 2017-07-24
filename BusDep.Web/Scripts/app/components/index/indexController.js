@@ -7,6 +7,15 @@ app.controller('indexController', ['$scope', '$location', 'authService', 'Carous
       'http://lorempixel.com/1600/400/sports/3',
     ]
 
+    $(function () {
+        $('.row-featured .f-category').matchHeight();
+        $.fn.matchHeight._apply('.row-featured .f-category');
+    });
+
+    $scope.authentication = authService.authentication;
+
+    /*Declaración de funciones*/
+
     $scope.logOut = function () {
 
         authService.logOut().then(function (response) {
@@ -21,17 +30,14 @@ app.controller('indexController', ['$scope', '$location', 'authService', 'Carous
 
     }
 
-    $scope.authentication = authService.authentication;
-
     $scope.search = function () {
 
-        $location.path("/Search");
+        /*Sanitaze this input*/
+
+        $location.path("/Search").search({ b: $scope.searchValue});;
 
     }
 
-    $(function () {
-        $('.row-featured .f-category').matchHeight();
-        $.fn.matchHeight._apply('.row-featured .f-category');
-    });
+
 
 }]);

@@ -51,7 +51,7 @@
                     <li data-ng-hide="user.authenticated"><a href="#!/Account/Login">Iniciar sesión</a></li>
                     <li data-ng-hide="user.authenticated"><a href="#!/Account/Register">Registrarme</a></li>
 
-                    <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="#!">Buscar</a></li>
+                    <li class="postadd" data-ng-hide="!user.authenticated"><a class="btn btn-block   btn-border btn-post btn-danger" href="#!">Buscar</a></li>
 
 
                 </ul>

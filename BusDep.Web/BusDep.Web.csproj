@@ -555,6 +555,8 @@
     <Content Include="Content\img\country\zz.png" />
     <Content Include="Content\img\icon.png" />
     <Content Include="Content\img\info.png" />
+    <Content Include="Content\img\jugadores-fotos\2.jpg" />
+    <Content Include="Content\img\jugadores-fotos\532516.jpg" />
     <Content Include="Content\img\jugadores-fotos\angel_di_maria.jpg" />
     <Content Include="Content\img\jugadores-fotos\carlos_teves.jpg" />
     <Content Include="Content\img\jugadores-fotos\ezequiel.jpg" />
@@ -597,6 +599,7 @@
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
+    <Content Include="Scripts\app\components\search\searchService.js" />
     <Content Include="Scripts\app\shared\directives\datetimepicker.js" />
     <Content Include="Scripts\app\shared\factories\authInterceptorService.js" />
     <Content Include="Scripts\app\shared\factories\authService.js" />

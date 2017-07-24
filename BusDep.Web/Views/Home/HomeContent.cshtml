@@ -17,18 +17,23 @@
 
                         <div class="row search-row animated fadeInUp">
 
+                            <form ng-submit="search();">
+
                             <div class="col-lg-9 col-sm-9 search-col relative">
                                 <i class="icon-user icon-append"></i>
-                                <input type="text" name="player_search" class="form-control has-icon" placeholder="jugador, intermediario o clubes" value="">
+                                <input type="text" name="player_search" class="form-control has-icon" ng-model="searchValue"
+                                       placeholder="Escribe lo que quieras sobre el jugador que quieres encontrar" value="">
                             </div>
 
                             <div class="col-lg-3 col-sm-3 search-col">
-                                <button class="btn btn-primary btn-search btn-block" ng-click="search();">
+                                <button class="btn btn-primary btn-search btn-block" type="submit">
                                     <i class="icon-search"></i><strong>
                                         Encontrar
                                     </strong>
                                 </button>
                             </div>
+
+                            </form>
 
                         </div>
 

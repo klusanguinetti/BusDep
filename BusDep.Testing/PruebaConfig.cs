@@ -17,13 +17,13 @@ namespace BusDep.Testing
     public class InicioPruebas
     {
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Init()
         {
             ConfigAll.Instance.Init();
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Dispose()
         {
             ConfigAll.Instance.Dispose();
@@ -56,7 +56,7 @@ namespace BusDep.Testing
             Detele(DependencyFactory.Resolve<IUsuarioDA>());
             Detele(DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>());
             Detele(DependencyFactory.Resolve<IBaseDA<TipoUsuario>>());
-            Detele(DependencyFactory.Resolve<IBaseDA<ClubDetalle>>());
+            //Detele(DependencyFactory.Resolve<IBaseDA<ClubDetalle>>());
             var DAti = DependencyFactory.Resolve<IBaseDA<TipoEvaluacion>>();
             foreach (var d in DAti.GetAll())
             {
