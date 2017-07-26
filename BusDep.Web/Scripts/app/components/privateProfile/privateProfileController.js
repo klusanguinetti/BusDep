@@ -77,7 +77,26 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
     };
 
     $scope.UpdateProfile = function () {
+        if ($scope.datosPersonales.PaisIso != '') {
 
+            angular.forEach($scope.paises, function (value, key) {
+                if (value.CodigoIso == $scope.datosPersonales.PaisIso) {
+                    $scope.datosPersonales.Pais = value.Nombre;
+                }
+            });
+
+            
+        }
+        if ($scope.datosPersonales.NacionalidadIso != '') {
+
+            angular.forEach($scope.paises, function (value, key) {
+                if (value.CodigoIso == $scope.datosPersonales.NacionalidadIso) {
+                    $scope.datosPersonales.Nacionalidad = value.Nombre;
+                }
+            });
+
+            
+        }
         return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 
             toastr.success('¡Perfil actualizado con éxito!', '¡Perfecto!');
