@@ -29,7 +29,11 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
-
+        public ActionResult PrivateJugardor()
+        {
+            return View();
+        }
+        
         #endregion
 
         #region Post Functions
@@ -99,7 +103,6 @@ namespace BusDep.Web.Controllers
             var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
 
             UsuarioViewModel LoggedUser = new UsuarioViewModel();
-
             try
             {
 
@@ -117,7 +120,89 @@ namespace BusDep.Web.Controllers
             }
 
         }
+        [HttpGet]
+        public JsonResult GetJugador()
+        {
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+            try
+            {
+                var user = business.ObtenerJugador(authHelper.GetAuthData());
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
 
+        [HttpGet]
+        public JsonResult GetFichajes()
+        {
+            var business = DependencyFactory.Resolve<ICommonBusiness>();
+            try
+            {
+                var user = business.ObtenerComboFichajes();
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+        [HttpGet]
+        public JsonResult GetPerfiles()
+        {
+            var business = DependencyFactory.Resolve<ICommonBusiness>();
+            try
+            {
+                var user = business.ObtenerComboPerfiles();
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+        [HttpGet]
+        public JsonResult GetPuestos()
+        {
+            var business = DependencyFactory.Resolve<ICommonBusiness>();
+            try
+            {
+                
+                var user = business.ObtenerComboPuestosEspecifico(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
+        public JsonResult SaveJugador(JugadorViewModel jugadorViewModel)
+        {
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+            try
+            {
+                business.ActualizarDatosJugador(jugadorViewModel);
+                Response.StatusCode = 200;
+                return new JsonResult { Data = "OK", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+        
         #endregion
 
 

@@ -8,6 +8,12 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
 
     $scope.datosPersonales = {};
 
+    $scope.jugador = {};
+
+    $scope.fichajes = {};
+    $scope.perfiles = {};
+    $scope.puestos = {};
+
     $scope.loginData = {
         Id: "",
         Mail: "",
@@ -38,6 +44,27 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
             toastr.error('¡Ha ocurrido un error cargando el perfil!', 'Error');
 
         });
+
+        privateProfileService.getJugador().then(function (response) {
+            $scope.jugador = response.data;
+         }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+         });
+        privateProfileService.getFichajes().then(function (response) {
+            $scope.fichajes = response.data;
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+        privateProfileService.getPerfiles().then(function (response) {
+            $scope.perfiles = response.data;
+            }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+        privateProfileService.getPuestos().then(function(response) {
+            $scope.puestos = response.data;
+            }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
 
     });
 
@@ -76,6 +103,22 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
 
     };
 
+    $scope.jugadorUpdate = function() {
+
+
+        return privateProfileService.jugadorUpdate($scope.jugador).then(function(response) {
+
+            toastr.success('¡Informacion guardada con éxito!', '¡Perfecto!');
+
+            clearErrors();
+
+        }).catch(function(err) {
+
+                toastr.error('¡Error desconocido!', 'Error');
+        });
+
+
+    };
     $scope.UpdateProfile = function () {
         if ($scope.datosPersonales.PaisIso != '') {
 

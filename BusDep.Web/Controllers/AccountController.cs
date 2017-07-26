@@ -6,6 +6,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Mvc;
 using System.Web.Security;
+using BusDep.Common;
+using BusDep.Web.Class;
 
 namespace BusDep.Web.Controllers
 {
@@ -32,20 +34,14 @@ namespace BusDep.Web.Controllers
         [HttpPost]
         public ActionResult LoginPost(UsuarioViewModel loginModel)
         {
-
             ILoginBusiness login = DependencyFactory.Resolve<ILoginBusiness>();
-
             try
             {
-
                 var user = login.LoginUser(loginModel.Mail, loginModel.Password);
-
-                FormsAuthentication.SetAuthCookie(user.Mail + "|" + user.Id, true);
-
+                var keyToken = StringCompressor.CompressString(user.SerializarToJson());
+                FormsAuthentication.SetAuthCookie(keyToken, true);
                 Response.StatusCode = 200;
-
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-
             }
             catch (ExceptionBusiness ex)
             {

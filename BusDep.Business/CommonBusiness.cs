@@ -24,17 +24,10 @@ namespace BusDep.Business
         public virtual IEnumerable<ComboAgrupadoViewModel> ObtenerComboPuestosEspecifico(long deporteId)
         {
             var deporte = DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(deporteId);
-            var ilOrigen = deporte.Puestos.Select(o => o.Descripcion).Distinct().Select(o => new ComboAgrupadoViewModel { Id = null, Agrupador = o });
-            List<ComboAgrupadoViewModel> ilResult = new List<ComboAgrupadoViewModel>();
-            foreach (var item in ilOrigen)
+            return deporte.Puestos.Select(item => new ComboAgrupadoViewModel
             {
-                ilResult.Add(item);
-                ilResult.AddRange(deporte.Puestos.Where(o => o.Descripcion.Equals(item.Agrupador)).Select(o => new ComboAgrupadoViewModel
-                {
-                    Id = o.Id, Agrupador = o.Descripcion, Descripcion = o.PuestoEspecifico
-                }));
-            }
-            return ilResult;
+                Id = item.Id, Agrupador = item.Descripcion, Descripcion = item.PuestoEspecifico
+            }).ToList();
         }
 
         public IEnumerable<ComboViewModel> ObtenerComboPuestos(long deporteId)

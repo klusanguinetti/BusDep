@@ -78,8 +78,7 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js")
                     .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js")
                     .IncludeDirectory("~/Scripts/app/components/search", "*.js")
-                    .IncludeDirectory("~/Scripts/app/components/index", "*.js")
-
+                    .IncludeDirectory("~/Scripts/app/components/index", "*.js").WithLastModifiedToken()
                     );
 
         }
