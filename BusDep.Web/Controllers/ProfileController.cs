@@ -33,7 +33,12 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
+        public ActionResult SportsHistory()
+        {
+            return View();
+        }
         
+
         #endregion
 
         #region Post Functions

@@ -35,6 +35,16 @@
                 }
             }
         })
+        .when('/Profile/SportsHistory', {
+            templateUrl: '/Profile/SportsHistory',
+            controller: 'sportsHistoryController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+    
         .otherwise({
             redirectTo: '/'
         });
