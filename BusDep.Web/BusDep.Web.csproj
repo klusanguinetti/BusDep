@@ -136,6 +136,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\AuthHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-busy\angular-busy.min.css" />
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layout-attributes.css" />
     <Content Include="Content\angular-material.layout-attributes.min.css" />
@@ -576,6 +578,7 @@
     <Content Include="Content\loading-bar.min.css" />
     <Content Include="Content\longshadow.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\ngAnimate\ngAnimation.css" />
     <Content Include="Content\ngDialog\ngDialog-theme-default.min.css" />
     <Content Include="Content\ngDialog\ngDialog.css" />
     <Content Include="Content\owl.carousel.css" />
@@ -593,7 +596,6 @@
     <Content Include="Content\img\Logo_1.png" />
     <Content Include="Content\img\Logo195.png" />
     <Content Include="Content\img\Logo250.png" />
-    <Content Include="Scripts\app\app-animations.js" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
     <Content Include="Scripts\app\components\privateProfile\sportsHistoryController.js" />
@@ -1380,6 +1382,7 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\vendor\custom\angular-busy.min.js" />
     <Content Include="Scripts\vendor\custom\hideMaxListItem.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.min.js" />
@@ -1419,6 +1422,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

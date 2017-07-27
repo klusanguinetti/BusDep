@@ -5,42 +5,49 @@
 <div>
 
     <div class="search-row-wrapper" style="background-image: url(../../Content/img/1.jpg); background-size: cover; background-position: center center;">
-        <div class="container text-center">
-            <div class="col-sm-3">
-                <input class="form-control keyword" type="text" placeholder="¿Que buscas?">
+
+        <form role="form" novalidate="" name="advancedSearchForm" ng-submit="search()">
+
+            <div class="container text-center">
+
+                <div class="col-sm-9">
+                    <input class="form-control keyword" type="text" placeholder="¿Describe que buscas?" ng-model="searchProfile.Nombre">
+                </div>
+
+                @*<div class="col-sm-3">
+
+                    <select class="form-control" name="category" id="search-category">
+                        <option selected="selected" value="">Todas las posiciones</option>
+                        <option value="111">Jugadores</option>
+                        <option value="112">Clubes</option>
+                        <option value="113">Intermediarios</option>
+                        <option value="114">Entrenadores</option>
+                    </select>
+                </div>*@
+
+                @*<div class="col-sm-3">
+
+                    <select ng-model="searchProfile.PaisIso" class="form-control"
+                            name="category" id="search-category" tabindex="-1"
+                            ng-options="item.CodigoIso as item.Nombre for item in paises">
+
+                        <option value="" class="selecter-placeholder" selected="">Seleccione un pais</option>
+
+                        <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                            - Paises disponibles -
+                        </option>
+
+                    </select>
+
+                </div>*@
+
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-block btn-primary"> Encontrar <i class="fa fa-search"></i></button>
+                </div>
+
             </div>
-            <div class="col-sm-3">
 
-                <select class="form-control" name="category" id="search-category">
-                    <option selected="selected" value="">Todas las posiciones</option>
-                    <option value="111">Jugadores</option>
-                    <option value="112">Clubes</option>
-                    <option value="113">Intermediarios</option>
-                    <option value="114">Entrenadores</option>
-                </select>
-            </div>
-
-            <div class="col-sm-3">
-
-                <select ng-model="datosPersonales.PaisIso" class="form-control"
-                        name="category" id="search-category" tabindex="-1"
-                        ng-options="item.CodigoIso as item.Nombre for item in paises">
-
-                    <option value="" class="selecter-placeholder" selected="">Seleccione un pais</option>
-
-                    <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
-                        - Paises disponibles -
-                    </option>
-
-                </select>
-
-            </div>
-
-            <div class="col-sm-3">
-                <button class="btn btn-block btn-primary"> Encontrar <i class="fa fa-search"></i></button>
-            </div>
-
-        </div>
+        </form>
 
     </div>
 
@@ -49,124 +56,121 @@
             <div class="row">
 
                 <div class="col-sm-3 page-sidebar mobile-filter-sidebar">
+
                     <aside>
+
                         <div class="inner-box">
-                            <div class="list-filter">
-                                <h5 class="list-title"><strong><a href="#"> Edad </a></strong></h5>
-                                <div class="filter-date filter-content">
+
+                            <form  role="form" novalidate="" name="advancedSearchForm" ng-submit="searchFilters()">
+
+                                <div class="list-filter">
+
+                                    <h5 class="list-title"><strong><a href="#"> Edad </a></strong></h5>
+
+                                    <div class="filter-date filter-content">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" value=18 id="posted_1" name="posted" ng-model=searchProfile.Edad>
+                                                <label for="posted_1">Hasta 18</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" value=25 id="posted_3" name="posted" ng-model=searchProfile.Edad>
+                                                <label for="posted_3">Hasta 25</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" value=35 id="posted_7" name="posted" ng-model=searchProfile.Edad>
+                                                <label for="posted_7">Hasta 35</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" value=100 id="posted_30" name="posted" ng-model=searchProfile.Edad>
+                                                <label for="posted_30">Mayor de 35</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="list-filter">
+                                    <h5 class="list-title"><strong><a href="#">Habilidades</a></strong></h5>
+                                    <div class="filter-content filter-employment-type">
+                                        <ul class="browse-list list-unstyled">
+                                            <li>
+                                                <input type="checkbox" id="employment_all" value="all" class="emp" checked="checked">
+                                                <label for="employment_all">Todas</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="employment_jtft" value="jtft" class="emp emp-type">
+                                                <label for="employment_jtft">Conducción</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="employment_jtpt" value="jtpt" class="emp emp-type">
+                                                <label for="employment_jtpt">Finta</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="employment_jtct" value="jtct" class="emp emp-type">
+                                                <label for="employment_jtct">Control orientado</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="employment_jtin" value="jtin" class="emp emp-type">
+                                                <label for="employment_jtin">Pase</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="employment_jtse" value="jtse" class="emp emp-type">
+                                                <label for="employment_jtse">Dribleo</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="list-filter">
+                                    <h5 class="list-title"><strong><a href="#">Tipo de Perfil</a></strong></h5>
+                                    <div class="filter-date filter-content">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" value="Libre" id="tipo_fichaje_1" name="tipo_fichaje" ng-model=searchProfile.Perfil>
+                                                <label for="tipo_fichaje_1">Libre</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" value="Amateur" id="tipo_fichaje_2" name="tipo_fichaje" ng-model=searchProfile.Perfil>
+                                                <label for="tipo_fichaje_2">Amateur</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" value="Profesional" id="tipo_fichaje_3" name="tipo_fichaje" ng-model=searchProfile.Perfil>
+                                                <label for="tipo_fichaje_3">Profesional</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+
+                                <div class="locations-list  list-filter">
+                                    <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
                                     <ul>
+
                                         <li>
-                                            <input type="radio" value="1" id="posted_1" name="posted">
-                                            <label for="posted_1">Hasta 18</label>
+                                            <input type="radio" value="Libre" id="pie_1" name="pie" ng-model=searchProfile.Fichaje>
+                                            <label for="pie_1">Libre</label>
                                         </li>
+
                                         <li>
-                                            <input type="radio" value="3" id="posted_3" name="posted">
-                                            <label for="posted_3">Hasta 25</label>
+                                            <input type="radio" value="Contratado" id="pie_2" name="pie" ng-model=searchProfile.Fichaje>
+                                            <label for="pie_2">Contratado</label>
                                         </li>
-                                        <li>
-                                            <input type="radio" value="7" id="posted_7" name="posted">
-                                            <label for="posted_7">Hasta 35</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" value="30" id="posted_30" name="posted">
-                                            <label for="posted_30">Mayor de 35</label>
-                                        </li>
+
                                     </ul>
                                 </div>
-                            </div>
 
-                            <div class="list-filter">
-                                <h5 class="list-title"><strong><a href="#">Habilidades</a></strong></h5>
-                                <div class="filter-content filter-employment-type">
-                                    <ul class="browse-list list-unstyled">
-                                        <li>
-                                            <input type="checkbox" id="employment_all" value="all" class="emp" checked="checked">
-                                            <label for="employment_all">Todas</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="employment_jtft" value="jtft" class="emp emp-type">
-                                            <label for="employment_jtft">Conducción</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="employment_jtpt" value="jtpt" class="emp emp-type">
-                                            <label for="employment_jtpt">Finta</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="employment_jtct" value="jtct" class="emp emp-type">
-                                            <label for="employment_jtct">Control orientado</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="employment_jtin" value="jtin" class="emp emp-type">
-                                            <label for="employment_jtin">Pase</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="employment_jtse" value="jtse" class="emp emp-type">
-                                            <label for="employment_jtse">Dribleo</label>
-                                        </li>
-                                    </ul>
+                                <div class="list-title">
+
                                 </div>
-                            </div>
-
-                            <div class="list-filter">
-                                <h5 class="list-title"><strong><a href="#">Tipo de fichaje</a></strong></h5>
-                                <div class="filter-date filter-content">
-                                    <ul>
-                                        <li>
-                                            <input type="radio" value="1" id="tipo_fichaje_1" name="tipo_fichaje">
-                                            <label for="tipo_fichaje_1">Libre</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" value="2" id="tipo_fichaje_2" name="tipo_fichaje">
-                                            <label for="tipo_fichaje_2">Amateur</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" value="3" id="tipo_fichaje_3" name="tipo_fichaje">
-                                            <label for="tipo_fichaje_3">Profesional</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div style="clear:both"></div>
-                            </div>
-
-                            <div class="locations-list  list-filter">
-                                <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
-                                <ul>
-
-                                    <li>
-                                        <input type="radio" value="1" id="pie_1" name="pie">
-                                        <label for="pie_1">Derecho</label>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" value="2" id="pie_2" name="pie">
-                                        <label for="pie_2">Izquierdo</label>
-                                    </li>
-
-                                </ul>
-                            </div>
-
-                            <div class="list-title">
-                            </div>
-
 
                                 <div class="col-sm-9">
                                     <button type="submit" class="btn btn-default page-action">Aplicar filtros</button>
                                 </div>
-   
 
-                            @*<div class="locations-list  list-filter">
-                                    <h5 class="list-title"><strong><a href="#">Ubicación</a></strong></h5>
-                                    <ul class="browse-list list-unstyled long-list">
-                                        <li><a href="job-list.html">Capital Federal</a></li>
-                                        <li><a href="job-list.html">Buenos Aires</a></li>
-                                        <li><a href="job-list.html">Santa Fe</a></li>
-                                        <li><a href="job-list.html">Cordoba</a></li>
-                                        <li><a href="job-list.html">Mendoza</a></li>
-                                        <li><a href="job-list.html">La Pampa</a></li>
-                                    </ul>
-                                </div>*@
+                            </form>
 
                             <div style="clear:both"></div>
+
                         </div>
 
                     </aside>
@@ -210,7 +214,7 @@
                             </div>
                             <div class="menu-overly-mask"></div>
 
-                            <div class="tab-filter hide-xs">
+                            @*<div class="tab-filter hide-xs">
                                 <div class="selecter select-short-by closed" tabindex="0">
                                     <select class="selectpicker selecter-element" data-style="btn-select" data-width="auto" tabindex="-1">
                                         <option value="Short by">Ordenar por</option>
@@ -218,7 +222,7 @@
                                         <option value="Company">Company</option>
                                     </select><span class="selecter-selected">Ordenar por</span><div class="selecter-options scroller"><div class="scroller-bar" style="height: 100px;"><div class="scroller-track" style="height: 100px; margin-bottom: 0px; margin-top: 0px;"><div class="scroller-handle"></div></div></div><div class="scroller-content"><span class="selecter-item selected" data-value="Short by">Short by</span><span class="selecter-item" data-value="Relevance">Relevance</span><span class="selecter-item" data-value="Company">Company</span></div></div>
                                 </div>
-                            </div>
+                            </div>*@
 
                         </div>
 
@@ -241,7 +245,7 @@
 
                         </div>
 
-                        <div class="adds-wrapper jobs-list">
+                        <div class="adds-wrapper jobs-list" cg-busy="{promise:myPromise,message:'Buscando perfiles...'}">
 
                             <div class="item-list" ng-repeat="r in searchResult">
 
@@ -264,11 +268,12 @@
                                             </a>
                                         </h5>
 
-                                        <span class="info-row"> <span class="item-location"> {{r.PuestoDescripcion}}, Brooklyn, NY 11211 | <a><i class="fa fa-map-marker"></i> Map</a> </span> </span>
+                                        <span class="info-row"> <span class="item-location"> {{r.PuestoDescripcion}}, Pie: {{r.Pie}} </span> </span>
 
-                                        <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> Argentina </span> <span class="date"><i class=" icon-clock"> </i>25 años / 192 cm</span><span class="salary ng-binding"> <i class=" icon-money"> </i> Fichaje: Libre</span></span>
+                                        <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{r.Pais}} </span> <span class="date"><i class="icon-clock"> </i> 25 años / 192 cm </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{r.Perfil}}</span></span>
 
                                         <div class="prop-info-box">
+
                                             <div class="prop-info">
 
                                                 <div class="clearfix prop-info-block">
@@ -284,10 +289,11 @@
 
                                                 </div>
 
-                                                <div class="clearfix prop-info-block">
+                                                @*<div class="clearfix prop-info-block">
                                                     <span class="title prop-room">4</span>
                                                     <span class="text">room </span>
-                                                </div>
+                                                </div>*@
+
                                             </div>
                                         </div>
 
@@ -305,7 +311,7 @@
                                         <i class="icon icon-export" title="Compartir perfil"></i>
                                     </a>
 
-                                    <h4 class="" style="margin-top:10px;"> <strong> Fichaje: {{r.Perfil}}</strong></h4>
+                                    <h4 class="" style="margin-top:10px;"> <strong> Fichaje: {{r.Fichaje}}</strong></h4>
 
                                     <div style="clear: both"></div>
 
