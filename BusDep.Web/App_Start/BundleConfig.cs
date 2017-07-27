@@ -40,6 +40,7 @@ namespace BusDep.Web
                 "~/Content/ngDialog/ngDialog.css",
                 "~/Content/ngDialog/ngDialog-theme-default.min.css",
                 "~/Content/angular-toast/angular-toastr.min.css",
+                "~/Content/angular-busy/angular-busy.min.css",
                 "~/Content/style.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
@@ -53,7 +54,8 @@ namespace BusDep.Web
                 "~/Scripts/vendor/angular/angular-toastr.tpls.min.js",
                 "~/Scripts/vendor/custom/loading-bar.min.js",
                 "~/Scripts/vendor/custom/ui-carousel.min.js",
-                "~/Scripts/vendor/custom/ngDialog.min.js"));
+                "~/Scripts/vendor/custom/ngDialog.min.js",
+                "~/Scripts/vendor/custom/angular-busy.min.js"));
 
             // Angular Bundle
 
@@ -70,11 +72,10 @@ namespace BusDep.Web
             bundles.Add(new ScriptBundle("~/bundles/app/main")
                 .Include("~/Scripts/app/app.js",
                     "~/Scripts/app/app-routes.js",
-                    "~/Scripts/app/app-animations.js",
                     "~/Scripts/app/shared/directives/datetimepicker.js",
                     "~/Scripts/app/shared/factories/authInterceptorService.js",
-                    "~/Scripts/app/shared/factories/authService.js"
-                    ).IncludeDirectory("~/Scripts/app/components/account", "*.js")
+                    "~/Scripts/app/shared/factories/authService.js")
+                    .IncludeDirectory("~/Scripts/app/components/account", "*.js")
                     .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js")
                     .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js")
                     .IncludeDirectory("~/Scripts/app/components/search", "*.js")

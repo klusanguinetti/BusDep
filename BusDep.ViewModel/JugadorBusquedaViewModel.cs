@@ -47,7 +47,7 @@ namespace BusDep.ViewModel
         public DateTime? FechaNacimiento { get; set; }
 
         [DataMember]
-        public long? Edad {
+        public int? Edad {
             get
             {
                 if(!FechaNacimiento.HasValue)
