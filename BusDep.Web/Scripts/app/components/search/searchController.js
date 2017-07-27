@@ -1,5 +1,5 @@
-﻿app.controller('searchController', ['$scope', '$routeParams', 'searchService', '$http', 'toastr', '$location',
-    function ($scope, $routeParams, searchService, $http, toastr, $location) {
+﻿app.controller('searchController', ['$scope', '$routeParams', 'searchService', 'privateProfileService', '$http', 'toastr', '$location',
+    function ($scope, $routeParams, searchService, privateProfileService, $http, toastr, $location) {
 
         /*Declaración de variables*/
 
@@ -13,6 +13,10 @@
             Fichaje: "",
             Edad: 0
         };
+        $scope.Busqueda = null;
+        $scope.fichajes = {};
+        $scope.perfiles = {};
+        $scope.puestos = {};
 
         /*Declaración de funciones*/
 
@@ -22,7 +26,31 @@
 
             $scope.searchProfile.Nombre = $scope.searchValue;
 
+            privateProfileService.getFichajes().then(function (response) {
+                $scope.fichajes = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+            privateProfileService.getPerfiles().then(function (response) {
+                $scope.perfiles = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+            privateProfileService.getPuestosBasicos().then(function (response) {
+                $scope.puestos = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+            searchService.getPuestosBasicos().then(function (response) {
+                $scope.Busqueda = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+            
+
             searchPlayer();
+
+
 
         });
 
@@ -59,14 +87,28 @@
             });
 
         }
+        function getFields(input, field) {
+            var output = [];
+            for (var i = 0; i < input.length; ++i) {
+                if (input[i].Selected)
+                    output.push(input[i][field]);
+            }
+            return output;
+        }
 
         $scope.searchFilters = (function () {
 
-            $scope.searchProfile.Edad = parseInt($scope.searchProfile.Edad, 10);
+            //$scope.searchProfile.Edad = parseInt($scope.searchProfile.Edad, 10);
+            $scope.Busqueda.EdadDesde = parseInt($scope.searchProfile.Edad, 10);
+            $scope.Busqueda.Fichaje = getFields($scope.fichajes, 'Descripcion');
+            $scope.Busqueda.Perfil = getFields($scope.perfiles, 'Descripcion');
+            $scope.Busqueda.Puesto = getFields($scope.puestos, 'Descripcion');
+            
+            //$scope.fichajes
 
-            console.log($scope.searchProfile);
+            console.log($scope.Busqueda);
 
-            $scope.myPromise = searchService.SearchFiltersPlayer($scope.searchProfile).then(function (response) {
+            $scope.myPromise = searchService.SearchFiltersPlayer($scope.Busqueda).then(function (response) {
 
                 console.log(response.data);
                 $scope.searchResult = response.data;
@@ -78,6 +120,7 @@
             });
 
         });
-
+       
+       
 
     }]);

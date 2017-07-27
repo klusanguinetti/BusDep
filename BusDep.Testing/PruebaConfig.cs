@@ -520,12 +520,21 @@ namespace BusDep.Testing
         [Test]
         public void BusquedaJugador2()
         {
-            for (int w = 0; w < 5; w++)
-            {
-                var list = busqueda.BuscarJugador(new[] { listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion }, null, null,
-                    new[] { "Libre" },null, new[] { "Derecho", "Ambidiestro" }, null, 1, 4);
+            //for (int w = 0; w < 5; w++)
+            //{
+                var oo = new BuscarJugadorViewModel
+                {
+                    Puesto = new[] {listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion},
+                    Fichaje = new[] {"Libre"},
+                    Perfil = new[] {Perfiles[rnd.Next(0, 2)]},
+                    Pie = new[] {"Derecho", "Ambidiestro"},
+                    Pagina = 0,
+                    Cantidad = 2
+                };
+                //Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)]
+                var list = busqueda.BuscarJugador(oo);
                 Console.WriteLine(list.SerializarToJson());
-           }
+           //}
         }
         [Test]
         public void LeerJson()

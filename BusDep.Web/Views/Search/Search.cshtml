@@ -121,41 +121,40 @@
                                     </div>
                                 </div>
 
+
+
+                                <div class="locations-list  list-filter">
+                                    <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
+                                    <ul>
+                                        <li ng-repeat="item in puestos">
+                                            <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
+                                            <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
+                                        </li>
+                                    </ul>
+                                </div>
+
                                 <div class="list-filter">
                                     <h5 class="list-title"><strong><a href="#">Tipo de Perfil</a></strong></h5>
-                                    <div class="filter-date filter-content">
+                                    
+
+                                    <div class="filter-date filter-content" >
                                         <ul>
-                                            <li>
-                                                <input type="radio" value="Libre" id="tipo_fichaje_1" name="tipo_fichaje" ng-model=searchProfile.Perfil>
-                                                <label for="tipo_fichaje_1">Libre</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" value="Amateur" id="tipo_fichaje_2" name="tipo_fichaje" ng-model=searchProfile.Perfil>
-                                                <label for="tipo_fichaje_2">Amateur</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" value="Profesional" id="tipo_fichaje_3" name="tipo_fichaje" ng-model=searchProfile.Perfil>
-                                                <label for="tipo_fichaje_3">Profesional</label>
+                                            <li ng-repeat="item in perfiles">
+                                                <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
+                                                <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
                                             </li>
                                         </ul>
                                     </div>
-                                    <div style="clear:both"></div>
+                                    <div style="clear: both"></div>
                                 </div>
 
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
                                     <ul>
-
-                                        <li>
-                                            <input type="radio" value="Libre" id="pie_1" name="pie" ng-model=searchProfile.Fichaje>
-                                            <label for="pie_1">Libre</label>
+                                        <li ng-repeat="item in fichajes">
+                                            <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
+                                            <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
                                         </li>
-
-                                        <li>
-                                            <input type="radio" value="Contratado" id="pie_2" name="pie" ng-model=searchProfile.Fichaje>
-                                            <label for="pie_2">Contratado</label>
-                                        </li>
-
                                     </ul>
                                 </div>
 

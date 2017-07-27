@@ -13,6 +13,7 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
     $scope.fichajes = {};
     $scope.perfiles = {};
     $scope.puestos = {};
+    $scope.pies = { };
 
     $scope.loginData = {
         Id: "",
@@ -65,6 +66,12 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
             }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
             });
+        privateProfileService.getPies().then(function(response) {
+            $scope.pies = response.data;
+            }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+        
 
     });
 

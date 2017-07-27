@@ -124,6 +124,35 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
 
     };
+    this.getPies = function () {
 
+        var deferred = $q.defer();
+
+        $http.get(serviceBase + 'GetPies').then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+
+    };
+    this.getPuestosBasicos = function () {
+
+        var deferred = $q.defer();
+
+        $http.get(serviceBase + 'GetPuestosBasicos').then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+
+    };
 
 }]);

@@ -23,7 +23,7 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'SearchFiltersPost', searchValue).then(function (response) {
+        $http.post(serviceBase + 'SearchFiltersPostNew', searchValue).then(function (response) {
 
             deferred.resolve(response);
 
@@ -34,6 +34,20 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
 
     };
+    this.getPuestosBasicos = function () {
 
+        var deferred = $q.defer();
+
+        $http.get(serviceBase + 'GetBuscarJugadorViewModel').then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+
+    };
 
 }]);
