@@ -24,6 +24,8 @@ namespace BusDep.Entity.DTO
 
         public string PuestoDescripcion { get; set; }
 
+        public string Puesto { get; set; }
+
         public string ClubActual { get; set; }
         public string LogClubActual { get; set; }
 

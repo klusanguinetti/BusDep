@@ -501,23 +501,6 @@ namespace BusDep.Testing
         }
 
         [Test]
-        public void BusquedaJugador()
-        {
-            var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Id, null, null, null, "Libre", "Amateur", null);
-            Console.WriteLine(list.SerializarToJson());
-        }
-        [Test]
-        public void BusquedaJugador1()
-        {
-            for (int i = 0; i < 150; i++)
-            {
-                var list = busqueda.BuscarJugador(listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion, null, null, Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)], null, null);
-                Console.WriteLine(list.SerializarToJson());
-            }
-
-
-        }
-        [Test]
         public void BusquedaJugador2()
         {
             //for (int w = 0; w < 5; w++)

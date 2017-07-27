@@ -11,35 +11,8 @@
             <div class="container text-center">
 
                 <div class="col-sm-9">
-                    <input class="form-control keyword" type="text" placeholder="¿Describe que buscas?" ng-model="searchProfile.Nombre">
+                    <input class="form-control keyword" type="text" placeholder="¿Describe que buscas?" ng-model="principalSearch">
                 </div>
-
-                @*<div class="col-sm-3">
-
-                    <select class="form-control" name="category" id="search-category">
-                        <option selected="selected" value="">Todas las posiciones</option>
-                        <option value="111">Jugadores</option>
-                        <option value="112">Clubes</option>
-                        <option value="113">Intermediarios</option>
-                        <option value="114">Entrenadores</option>
-                    </select>
-                </div>*@
-
-                @*<div class="col-sm-3">
-
-                    <select ng-model="searchProfile.PaisIso" class="form-control"
-                            name="category" id="search-category" tabindex="-1"
-                            ng-options="item.CodigoIso as item.Nombre for item in paises">
-
-                        <option value="" class="selecter-placeholder" selected="">Seleccione un pais</option>
-
-                        <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
-                            - Paises disponibles -
-                        </option>
-
-                    </select>
-
-                </div>*@
 
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-block btn-primary"> Encontrar <i class="fa fa-search"></i></button>
@@ -70,19 +43,19 @@
                                     <div class="filter-date filter-content">
                                         <ul>
                                             <li>
-                                                <input type="radio" value=18 id="posted_1" name="posted" ng-model=searchProfile.Edad>
+                                                <input type="radio" value=18 id="posted_1" name="posted" ng-model="Busqueda.EdadDesde">
                                                 <label for="posted_1">Hasta 18</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=25 id="posted_3" name="posted" ng-model=searchProfile.Edad>
+                                                <input type="radio" value=25 id="posted_3" name="posted" ng-model="Busqueda.EdadDesde">
                                                 <label for="posted_3">Hasta 25</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=35 id="posted_7" name="posted" ng-model=searchProfile.Edad>
+                                                <input type="radio" value=35 id="posted_7" name="posted" ng-model="Busqueda.EdadDesde">
                                                 <label for="posted_7">Hasta 35</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=100 id="posted_30" name="posted" ng-model=searchProfile.Edad>
+                                                <input type="radio" value=100 id="posted_30" name="posted" ng-model="Busqueda.EdadDesde">
                                                 <label for="posted_30">Mayor de 35</label>
                                             </li>
                                         </ul>
@@ -121,7 +94,15 @@
                                     </div>
                                 </div>
 
-
+                                <div class="locations-list  list-filter">
+                                    <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
+                                    <ul>
+                                        <li ng-repeat="item in pies">
+                                            <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
+                                            <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
+                                        </li>
+                                    </ul>
+                                </div>
 
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
@@ -182,8 +163,8 @@
                             <div class="col-lg-12  box-title no-border">
                                 <div class="inner">
                                     <h2>
-                                        <span> 	Busqueda:  </span> {{searchValue}}
-                                        <small> {{searchResult.length}} perfiles encontrados</small>
+                                        <span> 	Busqueda:  </span> {{Busqueda.Nomre}}
+                                        <small> {{searchResultCount}} perfiles encontrados</small>
                                     </h2>
                                 </div>
                             </div>
@@ -213,31 +194,17 @@
                             </div>
                             <div class="menu-overly-mask"></div>
 
-                            @*<div class="tab-filter hide-xs">
-                                <div class="selecter select-short-by closed" tabindex="0">
-                                    <select class="selectpicker selecter-element" data-style="btn-select" data-width="auto" tabindex="-1">
-                                        <option value="Short by">Ordenar por</option>
-                                        <option value="Relevance">Relevance</option>
-                                        <option value="Company">Company</option>
-                                    </select><span class="selecter-selected">Ordenar por</span><div class="selecter-options scroller"><div class="scroller-bar" style="height: 100px;"><div class="scroller-track" style="height: 100px; margin-bottom: 0px; margin-top: 0px;"><div class="scroller-handle"></div></div></div><div class="scroller-content"><span class="selecter-item selected" data-value="Short by">Short by</span><span class="selecter-item" data-value="Relevance">Relevance</span><span class="selecter-item" data-value="Company">Company</span></div></div>
-                                </div>
-                            </div>*@
+                           
 
                         </div>
 
                         <div class="listing-filter hidden-xs">
 
                             <div class="pull-left col-sm-6 col-xs-12">
-                                @*<div class="breadcrumb-list text-center-xs">
-                                        <a class="jobs-s-tag" rel="nofollow" title="Software Architect">
-                                            MEDIOCAMPISTA DEFENSIVO
-                                        </a>
-                                        en <a rel="nofollow" class="jobs-s-tag"> Capital federal</a>
-                                    </div>*@
                             </div>
 
                             <div class="pull-right col-sm-6 col-xs-12 text-right text-center-xs listing-view-action">
-                                <a class="clear-all-button text-muted">Limpiar filtros</a>
+                                <a class="clear-all-button text-muted" ng-click="clearFilter()" >Limpiar filtros</a>
                             </div>
 
                             <div style="clear:both"></div>
@@ -269,7 +236,7 @@
 
                                         <span class="info-row"> <span class="item-location"> {{r.PuestoDescripcion}}, Pie: {{r.Pie}} </span> </span>
 
-                                        <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{r.Pais}} </span> <span class="date"><i class="icon-clock"> </i> 25 años / 192 cm </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{r.Perfil}}</span></span>
+                                        <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{r.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{r.Edad}} años / 192 cm </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{r.Perfil}}</span></span>
 
                                         <div class="prop-info-box">
 

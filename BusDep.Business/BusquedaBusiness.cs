@@ -40,25 +40,6 @@ namespace BusDep.Business
         }
 
         [AuditMethod]
-        public virtual List<JugadorBusquedaViewModel> BuscarJugador(long? puestoId, string pais, int? edadDesde,
-            int? edadHasta, string fichaje, string perfil, string nombre)
-        {
-            return (from o in DependencyFactory.Resolve<IJugadorDA>()
-                .BuscarJugador(puestoId, pais, edadDesde, edadHasta, fichaje, perfil, nombre)
-                select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
-
-        }
-
-        [AuditMethod]
-        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string puesto, int? edadDesde, int? edadHasta,
-            string fichaje, string perfil, string pie, string nombre)
-        {
-            return (from o in DependencyFactory.Resolve<IJugadorDA>()
-                .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre)
-                select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
-        }
-
-        [AuditMethod]
         public virtual List<JugadorBusquedaViewModel> BuscarJugador(BuscarJugadorViewModel buscar)
         {
             return (from o in DependencyFactory.Resolve<IJugadorDA>()
@@ -67,44 +48,12 @@ namespace BusDep.Business
                     select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
         }
 
+       
         [AuditMethod]
-        public virtual List<JugadorBusquedaViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta,
-            string[] fichaje, string[] perfil, string[] pie, string nombre,
-            int? pagina = null, int? cantidad = null)
+        public virtual long BuscarJugadorCount(BuscarJugadorViewModel buscar)
         {
-
-            return (from o in DependencyFactory.Resolve<IJugadorDA>()
-                .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina.GetValueOrDefault(),
-                    cantidad.GetValueOrDefault())
-                select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
-
-            //if (pagina < 1 || cantidad < 1)
-            //{
-            //    return BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre);
-            //}
-            //var liPre = DependencyFactory.Resolve<IJugadorDA>()
-            //    .BuscarJugador(puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina, cantidad);
-
-            //var inicio = pagina.Equals(1) ? 0 : ((pagina - 1) * cantidad);
-            //var fin = inicio + cantidad;
-            //var listR = new List<JugadorBusquedaViewModel>();
-            //while (inicio < fin)
-            //{
-            //    if (liPre.Count >= inicio)
-            //    {
-            //        listR.Add(liPre[inicio].MapperClass<JugadorBusquedaViewModel>());
-            //        inicio++;
-            //    }
-            //    else
-            //    {
-            //        return listR;
-            //    }
-
-            //}
-
-
-            // return listR;
+            return DependencyFactory.Resolve<IJugadorDA>()
+                .BuscarJugadorCount(buscar.Puesto, buscar.EdadDesde, buscar.EdadHasta, buscar.Fichaje, buscar.Perfil, buscar.Pie, buscar.Nombre);
         }
-
     }
 }

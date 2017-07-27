@@ -5,21 +5,32 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
 
     this.searchPlayer = function (searchValue) {
         console.log(searchValue);
-        var deferred = $q.defer();
-
-        $http.post(serviceBase + 'SearchPost', searchValue).then(function (response) {
-
-            deferred.resolve(response);
-
-        }).catch(function (err) {
-            deferred.reject(err);
+        var data = $http({
+            url: serviceBase + 'SearchPost',
+            method: 'get',
+            params: {
+                searchValues: searchValue.Nombre,
+                pagina: searchValue.pagina,
+                cantidad: searchValue.cantidad
+            }
         });
 
-        return deferred.promise;
-
+        return $q.when(data);
     };
 
-    this.SearchFiltersPlayer = function (searchValue) {
+    this.searchPlayerCount = function (searchValue) {
+        console.log(searchValue);
+        var data = $http({
+            url: serviceBase + 'SearchPostCount',
+            method: 'get',
+            params: { searchValues: searchValue.Nombre }
+        });
+
+        return $q.when(data);
+    };
+
+
+    this.searchFiltersPlayer = function (searchValue) {
 
         var deferred = $q.defer();
 
@@ -34,7 +45,7 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
 
     };
-    this.getPuestosBasicos = function () {
+    this.getBuscarJugadorViewModel = function () {
 
         var deferred = $q.defer();
 

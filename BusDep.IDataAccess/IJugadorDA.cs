@@ -8,13 +8,15 @@ namespace BusDep.IDataAccess
     {
         Puesto ObtenerPuesto(long puestoId);
 
-        List<JugadorBusquedaDTO> BuscarJugador(long? puestoId, string pais, int? edadDesde, int? edadHasta, string fichaje, string perfil, string nombre);
 
         List<Antecedente> ObtenerAntecedentes(long usuarioId);
 
-        List<JugadorBusquedaDTO> BuscarJugador(string puesto, int? edadDesde, int? edadHasta, string fichaje, string perfil, string pie, string nombre);
 
         List<JugadorBusquedaDTO> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil, string[] pie, string nombre,
+            int? pagina = null, int? cantidad = null);
+
+        long BuscarJugadorCount(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil,
+            string[] pie, string nombre,
             int? pagina = null, int? cantidad = null);
     }
 }

@@ -23,16 +23,14 @@ namespace BusDep.Web.Controllers
         #endregion
 
         #region Post functions 
-
-        public JsonResult SearchPost(JugadorBusquedaViewModel searchValues)
+        [HttpGet]
+        public JsonResult SearchPost(string searchValues, int pagina, int cantidad)
         {
-
+            BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues, Pagina = pagina, Cantidad = cantidad};
             var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
-
             try
             {
-
-                var userView = busqueda.BuscarJugador(null,"",null,null,"","", searchValues.Nombre);
+                var userView = busqueda.BuscarJugador(buscar);
 
                 Response.StatusCode = 200;
                 return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -51,20 +49,14 @@ namespace BusDep.Web.Controllers
 
         }
 
-        public JsonResult SearchFiltersPost(JugadorBusquedaViewModel searchValues)
+        [HttpGet]
+        public JsonResult SearchPostCount(string searchValues)
         {
-
+            BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues };
             var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
-
-            int edad = 0;
-
-            if (searchValues.Edad != null) {
-                edad = Convert.ToInt32(searchValues.Edad);
-            }
-
-            try { 
-            
-                var userView = busqueda.BuscarJugador(searchValues.PuestoDescripcion,0, searchValues.Edad, searchValues.Fichaje, searchValues.Perfil, searchValues.Pie, searchValues.Nombre);
+            try
+            {
+                var userView = busqueda.BuscarJugadorCount(buscar);
 
                 Response.StatusCode = 200;
                 return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -78,8 +70,7 @@ namespace BusDep.Web.Controllers
             catch (Exception ex)
             {
                 Response.StatusCode = 500;
-
-                return new JsonResult { Data = "Error del servidor: " + ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
 
         }
@@ -98,7 +89,6 @@ namespace BusDep.Web.Controllers
 
             try
             {
-
                 var userView = busqueda.BuscarJugador(searchValues);
 
                 Response.StatusCode = 200;
