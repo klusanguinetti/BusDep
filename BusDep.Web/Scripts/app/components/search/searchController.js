@@ -66,9 +66,7 @@
             searchPlayer();
 
         });
-
-
-        function clearFilter() {
+        $scope.clearFilter = (function() {
             for (var i = 0; i < $scope.fichajes.length; ++i) {
                 $scope.fichajes[i].Selected = false;
             }
@@ -81,7 +79,8 @@
             for (var i = 0; i < $scope.pies.length; ++i) {
                 $scope.pies[i].Selected = false;
             }
-        }
+
+        });
 
         function searchPlayer() {
             //clearFilter();
@@ -170,16 +169,15 @@
                 if (pag > 0) {
                     var cantrest = ((pagNew - 1) * $scope.cantidad);
                     if (($scope.searchResultCount - cantrest) < 0) {
+                        toastr.info('No hay mas registro', 'Info');
                         return;
                     }
 
                 }
                 $scope.Busqueda.Pagina = pagNew;
                 getSearchFilters();
+            } else {
+                toastr.info('estas en la primera pagina', 'Info');
             }
         });
-
-
-
-
     }]);
