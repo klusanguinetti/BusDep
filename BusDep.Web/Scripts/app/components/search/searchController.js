@@ -3,14 +3,14 @@
 
         /*Declaración de variables*/
 
-       
+
         $scope.pagina = 1;
-        $scope.cantidad = 25;
+        $scope.cantidad = 15;
 
         $scope.searchProfile = {
             Nombre: "",
             pagina: 1,
-            cantidad: 25
+            cantidad: 15
         };
         //$scope.searchProfile = {
         //    Id: "",
@@ -48,7 +48,7 @@
             });
             searchService.getBuscarJugadorViewModel().then(function (response) {
                 $scope.Busqueda = response.data;
-               
+
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
@@ -57,7 +57,7 @@
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
-             $scope.principalSearch = $routeParams.b;
+            $scope.principalSearch = $routeParams.b;
 
             searchPlayer();
         });
@@ -87,8 +87,8 @@
             //clearFilter();
             $scope.searchProfile.Nombre = $scope.principalSearch;
 
-            $scope.myPromise = searchService.searchPlayer($scope.searchProfile).then(function(response) {
-                
+            $scope.myPromise = searchService.searchPlayer($scope.searchProfile).then(function (response) {
+
                 $scope.searchResult = response.data;
 
             }).catch(function (err) {
@@ -127,31 +127,59 @@
         }
 
         $scope.searchFilters = (function () {
+            getSearchFilters();
+
+        });
+
+        function getSearchFilters() {
             $scope.Busqueda.Nombre = $scope.principalSearch;
-            //$scope.Busqueda.EdadDesde = parseInt($scope.searchProfile.Edad, 10);
             $scope.Busqueda.Fichaje = getFields($scope.fichajes, 'Descripcion');
             $scope.Busqueda.Perfil = getFields($scope.perfiles, 'Descripcion');
             $scope.Busqueda.Puesto = getFields($scope.puestos, 'Descripcion');
             $scope.Busqueda.Pie = getFields($scope.pies, 'Descripcion');
-            $scope.Busqueda.Pagina = $scope.pagina;
+            //$scope.Busqueda.Pagina = $scope.pagina;
             $scope.Busqueda.Cantidad = $scope.cantidad;
-            //$scope.fichajes
-
             console.log($scope.Busqueda);
 
             $scope.myPromise = searchService.searchFiltersPlayer($scope.Busqueda).then(function (response) {
-
                 console.log(response.data);
                 $scope.searchResult = response.data;
-
             }).catch(function (err) {
 
                 toastr.error('¡Ha ocurrido un error en la busqueda del perfil! ' + err, 'Error');
 
             });
+            searchService.searchFiltersPlayerCount($scope.Busqueda).then(function (response) {
+                console.log(response.data);
+                $scope.searchResultCount = response.data;
 
+            }).catch(function (err) {
+
+                toastr.error('¡Ha ocurrido un error en la busqueda!', 'Error');
+
+            });
+        }
+
+        $scope.paginacion = (function (pag) {
+            if ($scope.Busqueda.Pagina == undefined)
+                $scope.Busqueda.Pagina = 1;
+            var pagNew = $scope.Busqueda.Pagina + pag;
+
+
+            if (pagNew != 0) {
+                if (pag > 0) {
+                    var cantrest = ((pagNew - 1) * $scope.cantidad);
+                    if (($scope.searchResultCount - cantrest) < 0) {
+                        return;
+                    }
+
+                }
+                $scope.Busqueda.Pagina = pagNew;
+                getSearchFilters();
+            }
         });
-       
-       
+
+
+
 
     }]);

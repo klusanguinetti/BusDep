@@ -82,6 +82,31 @@ namespace BusDep.Web.Controllers
             return new JsonResult {Data = new BuscarJugadorViewModel(), JsonRequestBehavior = JsonRequestBehavior.AllowGet};
         }
 
+
+        public JsonResult SearchFiltersPostNewCount(BuscarJugadorViewModel buscar)
+        {
+            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
+            try
+            {
+                var userView = busqueda.BuscarJugadorCount(buscar);
+
+                Response.StatusCode = 200;
+                return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 422; //Unprocessable entity
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
         public JsonResult SearchFiltersPostNew(BuscarJugadorViewModel searchValues)
         {
 

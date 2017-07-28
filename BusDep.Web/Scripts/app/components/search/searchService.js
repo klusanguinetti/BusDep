@@ -28,7 +28,20 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
 
         return $q.when(data);
     };
+    this.searchFiltersPlayerCount = function (searchValue) {
+        var deferred = $q.defer();
 
+        $http.post(serviceBase + 'SearchFiltersPostNewCount', searchValue).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+    };
+    
 
     this.searchFiltersPlayer = function (searchValue) {
 
