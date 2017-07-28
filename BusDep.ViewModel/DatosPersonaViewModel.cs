@@ -43,5 +43,17 @@
         public string TipoDocumento { get; set; }
         [DataMember]
         public string Informacion { get; set; }
+
+        [DataMember]
+        public DateTime? UltimoLogin { get; set; }
+        [DataMember]
+        public string UltimoLoginText
+        {
+            get
+            {
+                return UltimoLogin.HasValue ? UltimoLogin.Value.ToLongDateString() : string.Empty;
+            }
+
+        }
     }
 }

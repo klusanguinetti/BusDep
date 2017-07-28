@@ -7,7 +7,6 @@ namespace BusDep.IBusiness
     {
         EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView);
         void GuardarEvalucacion(EvaluacionViewModel evaluacion);
-
         void ActualizarDatosJugador(JugadorViewModel jugadorView);
         JugadorViewModel ObtenerJugador(UsuarioViewModel userView);
         List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView);

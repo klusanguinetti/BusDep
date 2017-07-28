@@ -390,6 +390,12 @@ namespace BusDep.Testing
 
             var user1 = login.LoginUser("klusanguinetti@gmail.com", "Facebook", "asdfg");
         }
+        [Test]
+        public void Desencript()
+        {
+            Console.Write(BusDep.Common.Encrypt.DecryptFromString64( "w5ZSeZOJ62qVnhlwLut4oA=="));
+        }
+        //w5ZSeZOJ62qVnhlwLut4oA==
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
@@ -409,6 +415,12 @@ namespace BusDep.Testing
             }
         }
 
+        [Test]
+        public void GetPerfil()
+        {
+            var per = busqueda.ObtenerPerfil(714);
+            Console.WriteLine(per.SerializarToJson());
+        }
 
         Random rnd = new Random();
         public void Registracion(int i)

@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 col-xxs-12">
+                        <div class="adds-wrapper inner-box">
+
+                            <div class="col-sm-3  photobox">
+                                <div class="add-image">
+                                    <img class="userImg" src="~/Content/img/user.jpg" alt="user">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-9 add-desc-box">
+
+                                <div class="add-details">
+
+                                    <h5 class="add-title">
+                                        <a href="">
+                                            {{jugador.Nombre}} {{jugador.Apellido}}
+                                        </a>
+                                    </h5>
+
+                                    <span class="info-row"> <span class="item-location"> {{jugador.PuestoDescripcion}}, Pie: {{jugador.Pie}} </span> </span>
+
+                                    <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{jugador.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{jugador.Edad}} años / {{jugador.Altura}} metros </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{jugador.Perfil}}</span></span>
+
+                                    <div class="prop-info-box">
+
+                                        <div class="prop-info">
+
+                                            <div class="clearfix prop-info-block">
+                                                <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
+                                                <i class="flagicon flag-{{jugador.NacionalidadIso}} icon-th-thumb" title={{jugador.Nacionalidad}}></i>
+                                            </div>
+
+                                            <div class="clearfix prop-info-block middle">
+
+                                                <span class="info-row">Club actual</span>
+                                                <i class="flagclubicon flag-{{jugador.LogClubActual}} icon-th-thumb" title={{jugador.ClubActual}}></i>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

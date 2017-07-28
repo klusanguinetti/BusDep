@@ -48,7 +48,6 @@
     <Compile Include="DatosPersonaViewModel.cs" />
     <Compile Include="DeporteViewModel.cs" />
     <Compile Include="EvaluacionViewModel.cs" />
-    <Compile Include="JugadorBusquedaViewModel.cs" />
     <Compile Include="JugadorViewModel.cs" />
     <Compile Include="PaisViewModel.cs" />
     <Compile Include="PerfilJugadorViewModel.cs" />

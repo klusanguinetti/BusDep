@@ -19,8 +19,11 @@ namespace BusDep.Web
             {
                 foreach (var file in response.Files)
                 {
-                    var lastWrite = File.GetLastWriteTime(HostingEnvironment.MapPath(file.IncludedVirtualPath)).Ticks.ToString();
-                    file.IncludedVirtualPath = string.Concat(file.IncludedVirtualPath, "?v=", lastWrite);
+                    if (!string.IsNullOrWhiteSpace(file.IncludedVirtualPath) && !file.IncludedVirtualPath.Contains("?v="))
+                    {
+                        var lastWrite = File.GetLastWriteTime(HostingEnvironment.MapPath(file.IncludedVirtualPath)).Ticks.ToString();
+                        file.IncludedVirtualPath = string.Concat(file.IncludedVirtualPath, "?v=", lastWrite);
+                    }
                 }
             }
         }

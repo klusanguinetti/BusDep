@@ -9,7 +9,7 @@ namespace BusDep.IBusiness
         
         PerfilJugadorViewModel ObtenerPerfil(long jugadorId);
 
-        List<JugadorBusquedaViewModel> BuscarJugador(BuscarJugadorViewModel buscar);
+        List<JugadorViewModel> BuscarJugador(BuscarJugadorViewModel buscar);
 
         long BuscarJugadorCount(BuscarJugadorViewModel buscar);
     }

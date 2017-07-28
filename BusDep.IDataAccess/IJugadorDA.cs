@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using BusDep.Entity;
-using BusDep.Entity.DTO;
+using BusDep.ViewModel;
 
 namespace BusDep.IDataAccess
 {
@@ -12,11 +12,13 @@ namespace BusDep.IDataAccess
         List<Antecedente> ObtenerAntecedentes(long usuarioId);
 
 
-        List<JugadorBusquedaDTO> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil, string[] pie, string nombre,
+        List<JugadorViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil, string[] pie, string nombre,
             int? pagina = null, int? cantidad = null);
 
         long BuscarJugadorCount(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil,
             string[] pie, string nombre,
             int? pagina = null, int? cantidad = null);
+
+        JugadorViewModel ObtenerJugador(long id);
     }
 }

@@ -40,12 +40,11 @@ namespace BusDep.Business
         }
 
         [AuditMethod]
-        public virtual List<JugadorBusquedaViewModel> BuscarJugador(BuscarJugadorViewModel buscar)
+        public virtual List<JugadorViewModel> BuscarJugador(BuscarJugadorViewModel buscar)
         {
-            return (from o in DependencyFactory.Resolve<IJugadorDA>()
-                .BuscarJugador(buscar.Puesto, buscar.EdadDesde, buscar.EdadHasta, buscar.Fichaje, buscar.Perfil, buscar.Pie, buscar.Nombre, buscar.Pagina.GetValueOrDefault(),
-                    buscar.Cantidad.GetValueOrDefault())
-                    select o.MapperClass<JugadorBusquedaViewModel>()).ToList();
+            return DependencyFactory.Resolve<IJugadorDA>()
+                .BuscarJugador(buscar.Puesto, buscar.EdadDesde, buscar.EdadHasta, buscar.Fichaje, buscar.Perfil, buscar.Pie, buscar.Nombre, 
+                buscar.Pagina.GetValueOrDefault(),buscar.Cantidad.GetValueOrDefault());
         }
 
        

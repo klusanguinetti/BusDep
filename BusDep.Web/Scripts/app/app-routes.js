@@ -35,8 +35,8 @@
                 }
             }
         })
-        .when('/Profile/SportsHistory', {
-            templateUrl: '/Profile/SportsHistory',
+        .when('/History/SportsHistory', {
+            templateUrl: '/History/SportsHistory',
             controller: 'sportsHistoryController',
             resolve: {
                 permission: function (authService) {

@@ -112,7 +112,7 @@ namespace BusDep.Web.Controllers
             {
 
                 var user = usuario.ObtenerDatosPersonales(authHelper.GetAuthData());
-
+                user.UltimoLogin = authHelper.GetAuthData().UltimoLogin;
                 Response.StatusCode = 200;
 
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };

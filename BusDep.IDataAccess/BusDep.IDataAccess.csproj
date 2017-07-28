@@ -50,6 +50,10 @@
       <Project>{08443261-9031-4f38-8492-cb151303b280}</Project>
       <Name>BusDep.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusDep.ViewModel\BusDep.ViewModel.csproj">
+      <Project>{6b2017de-59c4-4213-966a-c58dd1f56052}</Project>
+      <Name>BusDep.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

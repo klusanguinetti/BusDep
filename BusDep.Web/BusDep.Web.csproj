@@ -138,6 +138,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -598,9 +599,9 @@
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
-    <Content Include="Scripts\app\components\privateProfile\sportsHistoryController.js" />
+    <Content Include="Scripts\app\components\history\sportsHistoryController.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
-    <Content Include="Scripts\app\components\privateProfile\sportsHistoryService.js" />
+    <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
@@ -1417,7 +1418,7 @@
     <Content Include="Views\Profile\PrivateProfile.cshtml" />
     <Content Include="Views\Shared\_Profile_Sidebar.cshtml" />
     <Content Include="Views\Home\HomeContent.cshtml" />
-    <Content Include="Views\Profile\SportsHistory.cshtml" />
+    <Content Include="Views\History\SportsHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

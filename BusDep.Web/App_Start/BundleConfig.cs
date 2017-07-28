@@ -71,14 +71,14 @@ namespace BusDep.Web
 
             bundles.Add(new ScriptBundle("~/bundles/app/main")
                 .Include("~/Scripts/app/app.js",
-                    "~/Scripts/app/app-routes.js",
-                    "~/Scripts/app/shared/directives/datetimepicker.js",
-                    "~/Scripts/app/shared/factories/authInterceptorService.js",
-                    "~/Scripts/app/shared/factories/authService.js")
-                    .IncludeDirectory("~/Scripts/app/components/account", "*.js")
-                    .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js")
-                    .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js")
-                    .IncludeDirectory("~/Scripts/app/components/search", "*.js")
+                    "~/Scripts/app/app-routes.js")
+                    .IncludeDirectory("~/Scripts/app/shared/directives", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/shared/factories", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/account", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/history", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/search", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/index", "*.js").WithLastModifiedToken()
                     );
 
