@@ -38,21 +38,7 @@ namespace BusDep.Business
             return null;
         }
 
-        public static DatosPersonaViewModel FillDatosPersonaViewModel(DatosPersona datosPersona)
-        {
-            if (datosPersona != null)
-            {
-                var dato = datosPersona.MapperClass<DatosPersonaViewModel>();
-                dato.UsuarioId = datosPersona.Usuario.Id;
-                return dato;
-            }
-            return null;
-        }
-
-        public static DeporteViewModel FillDeporteViewModel(Deporte deporte)
-        {
-            return deporte?.MapperClass<DeporteViewModel>();
-        }
+       
         public static AntecedenteViewModel FillAntecedenteViewModel(Antecedente antecedente)
         {
             var ante = antecedente?.MapperClass<AntecedenteViewModel>();
@@ -63,21 +49,7 @@ namespace BusDep.Business
             return ante;
         }
 
-        public static JugadorViewModel FillJugadorBusquedaViewModel(Jugador jugador)
-        {
-            if (jugador != null)
-            {
-                var jugadorView = jugador.MapperClass<JugadorViewModel>(TypeMapper.IgnoreCaseSensitive);
-                jugadorView.Id = jugador.Id;
-                jugadorView.PuestoDescripcion = jugador.Puesto?.Descripcion;
-                jugador.MapperClass(jugador.Usuario.DatosPersona, TypeMapper.IgnoreCaseSensitive);
-                jugadorView.PuestoDescripcion = jugador.Puesto?.Descripcion;
-                jugadorView.Pais = jugador.Usuario.DatosPersona.Pais;
-                jugadorView.PaisIso = jugador.Usuario.DatosPersona.PaisIso;
-                return jugadorView;
-            }
-            return null;
-        }
+       
 
 
     }

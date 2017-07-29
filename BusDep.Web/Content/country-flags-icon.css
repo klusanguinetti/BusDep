@@ -1,6 +1,6 @@
 .flagicon
 {
-    display: inline-block;
+    display: inline-flex;
 
     width: 40px;
     height: 30px;
@@ -10,6 +10,15 @@
     background-size: cover;
     
 }
+   .flagicon.xl {
+        width: 100px;
+        height: 100px;
+    }
+
+    .flagicon.xs {
+        width: 20px;
+        height: 20px;
+    }
 .flagicon.flag-ad
 {
     background-image: url('../Content/img/country/ad.png');

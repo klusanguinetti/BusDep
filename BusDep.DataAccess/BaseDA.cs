@@ -7,7 +7,7 @@ using BusDep.IDataAccess;
 
 namespace BusDep.DataAccess
 {
-    public class CommonDA<T> : BaseDataAccess<T>, IBaseDA<T>
+    public class BaseDA<T> : BaseDataAccess<T>, IBaseDA<T>
     {
 
     }

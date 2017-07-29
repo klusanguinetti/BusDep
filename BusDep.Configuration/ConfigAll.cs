@@ -52,153 +52,153 @@
              );
 
             #region genericos
-            DependencyFactory.RegisterType<IBaseDA<Antecedente>, CommonDA<Antecedente>>(
+            DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, CommonDA<DatosPersona>>(
+            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, BaseDA<DatosPersona>>(
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                 }
                 );
-            DependencyFactory.RegisterType<IBaseDA<Deporte>, CommonDA<Deporte>>(
+            DependencyFactory.RegisterType<IBaseDA<Deporte>, BaseDA<Deporte>>(
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                 }
                 );
-            DependencyFactory.RegisterType<IBaseDA<Evaluacion>, CommonDA<Evaluacion>>(
+            DependencyFactory.RegisterType<IBaseDA<Evaluacion>, BaseDA<Evaluacion>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<EvaluacionCabecera>, CommonDA<EvaluacionCabecera>>(
+            DependencyFactory.RegisterType<IBaseDA<EvaluacionCabecera>, BaseDA<EvaluacionCabecera>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<EvaluacionDetalle>, CommonDA<EvaluacionDetalle>>(
+            DependencyFactory.RegisterType<IBaseDA<EvaluacionDetalle>, BaseDA<EvaluacionDetalle>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Jugador>, CommonDA<Jugador>>(
+            DependencyFactory.RegisterType<IBaseDA<Jugador>, BaseDA<Jugador>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Puesto>, CommonDA<Puesto>>(
+            DependencyFactory.RegisterType<IBaseDA<Puesto>, BaseDA<Puesto>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, CommonDA<TemplateEvaluacion>>(
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, BaseDA<TemplateEvaluacion>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacionDetalle>, CommonDA<TemplateEvaluacionDetalle>>(
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacionDetalle>, BaseDA<TemplateEvaluacionDetalle>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TipoUsuario>, CommonDA<TipoUsuario>>(
+            DependencyFactory.RegisterType<IBaseDA<TipoUsuario>, BaseDA<TipoUsuario>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TipoVideo>, CommonDA<TipoVideo>>(
+            DependencyFactory.RegisterType<IBaseDA<TipoVideo>, BaseDA<TipoVideo>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Usuario>, CommonDA<Usuario>>(
+            DependencyFactory.RegisterType<IBaseDA<Usuario>, BaseDA<Usuario>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<UsuarioAplicativo>, CommonDA<UsuarioAplicativo>>(
+            DependencyFactory.RegisterType<IBaseDA<UsuarioAplicativo>, BaseDA<UsuarioAplicativo>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Video>, CommonDA<Video>>(
+            DependencyFactory.RegisterType<IBaseDA<Video>, BaseDA<Video>>(
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TipoEvaluacion>, CommonDA<TipoEvaluacion>>(
+            DependencyFactory.RegisterType<IBaseDA<TipoEvaluacion>, BaseDA<TipoEvaluacion>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<Entrenador>, CommonDA<Entrenador>>(
+            DependencyFactory.RegisterType<IBaseDA<Entrenador>, BaseDA<Entrenador>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<Intermediario>, CommonDA<Intermediario>>(
+            DependencyFactory.RegisterType<IBaseDA<Intermediario>, BaseDA<Intermediario>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<Club>, CommonDA<Club>>(
+            DependencyFactory.RegisterType<IBaseDA<Club>, BaseDA<Club>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<ClubDetalle>, CommonDA<ClubDetalle>>(
+            DependencyFactory.RegisterType<IBaseDA<ClubDetalle>, BaseDA<ClubDetalle>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<LogActividad>, CommonDA<LogActividad>>(
+            DependencyFactory.RegisterType<IBaseDA<LogActividad>, BaseDA<LogActividad>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<LogError>, CommonDA<LogError>>(
+            DependencyFactory.RegisterType<IBaseDA<LogError>, BaseDA<LogError>>(
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),

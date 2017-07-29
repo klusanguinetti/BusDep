@@ -66,8 +66,7 @@ namespace BusDep.Business
         {
             if (userView.DatosPersonaId.HasValue)
             {
-                return FillViewModel.FillDatosPersonaViewModel(
-                    DependencyFactory.Resolve<IBaseDA<DatosPersona>>().GetById(userView.DatosPersonaId));
+                return  DependencyFactory.Resolve<IUsuarioDA>().ObtenerDatosPersonales(userView.DatosPersonaId.Value);
             }
             return null;
 

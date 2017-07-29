@@ -3,6 +3,8 @@
 namespace BusDep.IDataAccess
 {
     using BusDep.Entity;
+    using ViewModel;
+
     public interface IUsuarioDA : IBaseDA<Usuario>
     {
         Usuario LoginUser(string mail, string password);
@@ -15,6 +17,8 @@ namespace BusDep.IDataAccess
         List<Antecedente> ObtenerAntecedentes(long usuarioId);
 
         Usuario ActualizarPassword(Usuario usuario);
+
+        DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId);
 
         bool ExisteUsuario(string mail);
     }

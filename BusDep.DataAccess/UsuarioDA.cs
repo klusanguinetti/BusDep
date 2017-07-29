@@ -8,6 +8,7 @@
     using NHibernate.Linq;
     using BusDep.Entity;
     using BusDep.IDataAccess;
+    using ViewModel;
 
     public class UsuarioDA : BaseDataAccess<Usuario>, IUsuarioDA
     {
@@ -88,6 +89,35 @@
         public bool ExisteUsuario(string mail)
         {
             return !Session.Query<Usuario>().Count(o => o.Mail.ToUpper().Equals(mail.ToUpper().Trim())).Equals(0);
+        }
+
+        public DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId)
+        {
+            return( from o in Session.Query<DatosPersona>()
+                      where o.Id.Equals(datosPersonalesId)
+                      select new DatosPersonaViewModel
+                      {
+                          Id = o.Id,
+                          UsuarioId = o.Usuario.Id,
+                          Apellido = o.Apellido,
+                          Direccion = o.Direccion,
+                          Ciudad = o.Ciudad,
+                          CodigoPostal = o.CodigoPostal,
+                          FechaNacimiento = o.FechaNacimiento,
+                          Nacionalidad = o.Nacionalidad,
+                          Nacionalidad1 = o.Nacionalidad1,
+                          NacionalidadIso = o.NacionalidadIso,
+                          NacionalidadIso1 = o.NacionalidadIso1,
+                          Nombre = o.Nombre,
+                          NumeroDocumento = o.NumeroDocumento,
+                          Pais = o.Pais,
+                          PaisIso = o.PaisIso,
+                          Provincia = o.Provincia,
+                          Telefono = o.Telefono,
+                          TipoDocumento = o.TipoDocumento,
+                          Informacion = o.Informacion,
+                          UltimoLogin = o.Usuario.UltimoLogin,
+                      }).FirstOrDefault();
         }
     }
 }

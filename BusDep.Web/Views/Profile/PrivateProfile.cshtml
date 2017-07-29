@@ -121,12 +121,12 @@
 
                                         <div class="form-group">
 
-                                            <label class="col-sm-3 control-label">Pais de nacimiento</label>
-
-                                            <div class="col-sm-9">
-
+                                            <label class="col-sm-3 control-label">Pais de residencia</label>
+                                            <div class="col-sm-1">
+                                                <i class="flagicon flag-{{datosPersonales.PaisIso}} icon-th-thumb" title="Pais"></i>
+                                            </div>
+                                            <div class="col-sm-8">
                                                 <div class="" tabindex="0">
-
                                                     <select ng-model="datosPersonales.PaisIso" class="form-control"
                                                             name="category" id="search-category" tabindex="-1"
                                                             ng-options="item.CodigoIso as item.Nombre for item in paises">
@@ -138,9 +138,9 @@
                                                         </option>
 
                                                     </select>
-
                                                 </div>
                                             </div>
+                                            
                                         </div>
 
                                         <div class="form-group">
@@ -199,9 +199,11 @@
 
                                         <div class="form-group">
 
-                                            <label class="col-sm-3 control-label">¿Posees otra nacionalidad?</label>
-
-                                            <div class="col-sm-9">
+                                            <label class="col-sm-3 control-label">¿Cual es tu nacionalidad?</label>
+                                            <div class="col-sm-1">
+                                                <i class="flagicon flag-{{datosPersonales.NacionalidadIso}} icon-th-thumb" title="Pais"></i>
+                                            </div>
+                                            <div class="col-sm-8">
 
                                                 <div class="" tabindex="0">
 
