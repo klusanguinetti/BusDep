@@ -23,7 +23,7 @@ namespace BusDep.Web.Controllers
         #endregion
 
         #region Post functions 
-        [HttpGet]
+        
         public JsonResult SearchPost(string searchValues, int pagina, int cantidad)
         {
             BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues, Pagina = pagina, Cantidad = cantidad};
@@ -41,7 +41,7 @@ namespace BusDep.Web.Controllers
                 Response.StatusCode = 422; //Unprocessable entity
                 return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
-            catch (Exception ex)
+            catch 
             {
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -49,7 +49,6 @@ namespace BusDep.Web.Controllers
 
         }
 
-        [HttpGet]
         public JsonResult SearchPostCount(string searchValues)
         {
             BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues };
@@ -67,7 +66,7 @@ namespace BusDep.Web.Controllers
                 Response.StatusCode = 422; //Unprocessable entity
                 return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
-            catch (Exception ex)
+            catch 
             {
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -99,7 +98,7 @@ namespace BusDep.Web.Controllers
                 Response.StatusCode = 422; //Unprocessable entity
                 return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
-            catch (Exception ex)
+            catch 
             {
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };

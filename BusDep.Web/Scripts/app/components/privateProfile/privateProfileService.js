@@ -67,7 +67,7 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'GetJugador').then(function (response) {
+        $http.post(serviceBase + 'GetJugador').then(function (response) {
 
             deferred.resolve(response);
 
@@ -113,7 +113,7 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'GetPuestos').then(function (response) {
+        $http.post(serviceBase + 'GetPuestos').then(function (response) {
 
             deferred.resolve(response);
 
@@ -143,7 +143,7 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'GetPuestosBasicos').then(function (response) {
+        $http.post(serviceBase + 'GetPuestosBasicos').then(function (response) {
 
             deferred.resolve(response);
 

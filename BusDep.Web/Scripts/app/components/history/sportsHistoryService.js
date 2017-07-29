@@ -7,7 +7,7 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'GetJugador').then(function (response) {
+        $http.post(serviceBase + 'GetJugador').then(function (response) {
 
             deferred.resolve(response);
 
@@ -23,7 +23,7 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'GetAntecedentes').then(function (response) {
+        $http.post(serviceBase + 'GetAntecedentes').then(function (response) {
 
             deferred.resolve(response);
 
@@ -51,7 +51,7 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'GetClubes').then(function (response) {
+        $http.post(serviceBase + 'GetClubes').then(function (response) {
 
             deferred.resolve(response);
 

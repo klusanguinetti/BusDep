@@ -43,20 +43,20 @@
                                     <div class="filter-date filter-content">
                                         <ul>
                                             <li>
-                                                <input type="radio" value=18 id="posted_1" name="posted" ng-model="Busqueda.EdadDesde">
+                                                <input type="radio" value='' id="posted_1" name="posted" ng-model="Busqueda.EdadHasta">
+                                                <label for="posted_1">Todos</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" value=18 id="posted_1" name="posted" ng-model="Busqueda.EdadHasta">
                                                 <label for="posted_1">Hasta 18</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=25 id="posted_3" name="posted" ng-model="Busqueda.EdadDesde">
+                                                <input type="radio" value=25 id="posted_3" name="posted" ng-model="Busqueda.EdadHasta">
                                                 <label for="posted_3">Hasta 25</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=35 id="posted_7" name="posted" ng-model="Busqueda.EdadDesde">
+                                                <input type="radio" value=35 id="posted_7" name="posted" ng-model="Busqueda.EdadHasta">
                                                 <label for="posted_7">Hasta 35</label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" value=100 id="posted_30" name="posted" ng-model="Busqueda.EdadDesde">
-                                                <label for="posted_30">Mayor de 35</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -141,7 +141,7 @@
                                 <ul class="list-unstyled list-inline no-margin no-padding">
                                     <li class="filter-toggle">
                                         <a class="">
-                                            <i class=" icon-th-list"></i>
+                                            <i class="icon-th-list"></i>
                                             Filtros
                                         </a>
                                     </li>

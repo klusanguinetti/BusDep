@@ -7,7 +7,7 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
         console.log(searchValue);
         var data = $http({
             url: serviceBase + 'SearchPost',
-            method: 'get',
+            method: 'post',
             params: {
                 searchValues: searchValue.Nombre,
                 pagina: searchValue.pagina,
@@ -22,7 +22,7 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
         console.log(searchValue);
         var data = $http({
             url: serviceBase + 'SearchPostCount',
-            method: 'get',
+            method: 'post',
             params: { searchValues: searchValue.Nombre }
         });
 
