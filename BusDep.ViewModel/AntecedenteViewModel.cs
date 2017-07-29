@@ -30,6 +30,17 @@
         public int? Partidos { get; set; }
         [DataMember]
         public int? Asistencias { get; set; }
+
+        [DataMember]
+        public string FechaInicioText
+        {
+            get { return FechaInicio.ToString("dd/MM/yyyy"); }
+        }
+        [DataMember]
+        public string FechaFinText
+        {
+            get { return FechaFin?.ToString("dd/MM/yyyy"); }
+        }
         #endregion 
     }
 }

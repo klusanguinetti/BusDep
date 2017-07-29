@@ -59,7 +59,52 @@
                             </div>
                         </div>
                     </div>
-                   
+
+
+                    <div class="col-md-12 col-xs-12 col-xxs-12">
+                        <div class="adds-wrapper inner-box">
+
+                            <div class="item-list" ng-repeat="r in antecedentes">
+
+
+                                <div class="col-sm-12 add-desc-box">
+
+                                    <div class="add-details">
+
+                                        <div class="col-sm-4 add-desc-box center-side">
+
+                                            <h4>
+                                                <span> 	{{r.ClubDescripcion}} </span>
+                                                
+                                            </h4>
+                                            <i class="flagclubicon flag-{{r.ClubLogo}} xl icon-th-thumb" title={{r.ClubDescripcion}}></i>
+                                        </div>
+                                        <div class="col-sm-6 add-desc-box">
+                                            <span class="info-row"> <span class="item-location"> Desde: {{r.FechaInicioText}} </span> </span>
+                                            <span class="info-row"> <span class="item-location"> Hasta: {{r.FechaFinText}} </span> </span>
+                                            <span class="info-row"> <span class="item-location"> Partidos: {{r.Partidos}} </span> </span>
+                                            <span class="info-row"> <span class="item-location"> Asistencias: {{r.Asistencias}} </span> </span>
+                                            <span class="info-row"> <span class="item-location"> Goles: {{r.Goles}} </span> </span>
+                                        </div>
+                                        <div class="col-sm-2 text-right  price-box">
+
+                                            <a class="btn btn-border-thin  btn-save" title="Editar">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                            </a>
+
+                                            @*<a class="btn btn-border-thin  btn-share ">
+                                                <i class="icon icon-export" title="Compartir perfil"></i>
+                                            </a>*@
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
