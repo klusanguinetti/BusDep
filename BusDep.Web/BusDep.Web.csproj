@@ -176,6 +176,7 @@
     <Content Include="Content\img\Clubes\aa.png" />
     <Content Include="Content\img\Clubes\ab.png" />
     <Content Include="Content\img\Clubes\ac.png" />
+    <Content Include="Content\img\Clubes\afa.png" />
     <Content Include="Content\img\Clubes\ai.png" />
     <Content Include="Content\img\Clubes\aj.png" />
     <Content Include="Content\img\Clubes\am.png" />
@@ -364,6 +365,8 @@
     <Content Include="Content\img\country\cy.png" />
     <Content Include="Content\img\country\cz.png" />
     <Content Include="Content\img\country\de.png" />
+    <Content Include="Content\img\country\.jpg" />
+    <Content Include="Content\img\country\default.png" />
     <Content Include="Content\img\country\dj.png" />
     <Content Include="Content\img\country\dk.png" />
     <Content Include="Content\img\country\dm.png" />
