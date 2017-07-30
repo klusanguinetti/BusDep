@@ -30,12 +30,8 @@ namespace BusDep.Business
             jugador.Usuario.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             jugador.Usuario.DatosPersona.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             perfil.PuestoDescripcion = jugador.Puesto.Descripcion;
-            foreach (var item in DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(jugador.Usuario.Id))
-            {
-                perfil.Antecedentes.Add(FillViewModel.FillAntecedenteViewModel(item));
-            }
-            perfil.AutoEvaluacion =
-                DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(usuario);
+            perfil.Antecedentes = DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(jugador.Usuario.Id);
+            perfil.AutoEvaluacion = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(usuario);
             return perfil;
         }
 

@@ -50,7 +50,13 @@
                     new InterceptionBehavior<InterceptorDataAccess>()
              }
              );
-
+            DependencyFactory.RegisterType<ICommnDA, CommnDA>(
+            new InjectionMember[]
+            {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorDataAccess>()
+            }
+            );
             #region genericos
             DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(
                new InjectionMember[]

@@ -34,7 +34,7 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
 
             if (response.data.FechaNacimiento != null) {
 
-                var date = moment(response.data.FechaNacimiento).format("YYYY/MM/DD");
+                var date = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
 
                 $scope.datosPersonales.FechaNacimiento = date;
 

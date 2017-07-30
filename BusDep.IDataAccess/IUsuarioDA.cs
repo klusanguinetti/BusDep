@@ -11,11 +11,9 @@ namespace BusDep.IDataAccess
         Usuario LoginUser(string mail, string aplicacion, string token);
         Usuario Registracion(Usuario usuario);
         Evaluacion ObtenerEvaluacionDefault(long usuarioId, long deporteId);
-
         TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario);
-
-        List<Antecedente> ObtenerAntecedentes(long usuarioId);
-
+        List<AntecedenteViewModel> ObtenerAntecedentes(long usuarioId);
+        AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId);
         Usuario ActualizarPassword(Usuario usuario);
 
         DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId);

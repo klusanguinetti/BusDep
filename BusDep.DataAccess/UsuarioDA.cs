@@ -71,12 +71,46 @@
             && o.TipoUsuario.Descripcion.Equals(tipoUsuario));
         }
 
-        public virtual List<Antecedente> ObtenerAntecedentes(long usuarioId)
+        public virtual List<AntecedenteViewModel> ObtenerAntecedentes(long usuarioId)
         {
             return (from ant in Session.Query<Antecedente>()
-                     where ant.Usuario.Id.Equals(usuarioId)
-                     orderby ant.FechaInicio descending
-                     select ant).ToList();
+                    where ant.Usuario.Id.Equals(usuarioId)
+                    orderby ant.FechaInicio descending
+                    select
+                    new AntecedenteViewModel
+                    {
+                        Asistencias = ant.Asistencias,
+                        ClubDescripcion = ant.ClubDescripcion,
+                        ClubLogo = ant.ClubLogo,
+                        FechaFin = ant.FechaFin,
+                        FechaInicio = ant.FechaInicio,
+                        Goles = ant.Goles,
+                        Id = ant.Id,
+                        InformacionAdicional = ant.InformacionAdicional,
+                        Partidos = ant.Partidos,
+                        UsuarioId = ant.Usuario.Id,
+                        Video = ant.Video
+                    }).ToList();
+        }
+
+        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId)
+        {
+            return (from ant in Session.Query<Antecedente>()
+                    where ant.Id.Equals(antecedenteId)
+                    select new AntecedenteViewModel
+                    {
+                        Asistencias = ant.Asistencias,
+                        ClubDescripcion = ant.ClubDescripcion,
+                        ClubLogo = ant.ClubLogo,
+                        FechaFin = ant.FechaFin,
+                        FechaInicio = ant.FechaInicio,
+                        Goles = ant.Goles,
+                        Id = ant.Id,
+                        InformacionAdicional = ant.InformacionAdicional,
+                        Partidos = ant.Partidos,
+                        UsuarioId = ant.Usuario.Id,
+                        Video = ant.Video
+                    }).FirstOrDefault();
         }
 
         public virtual Usuario ActualizarPassword(Usuario usuario)
@@ -93,31 +127,31 @@
 
         public DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId)
         {
-            return( from o in Session.Query<DatosPersona>()
-                      where o.Id.Equals(datosPersonalesId)
-                      select new DatosPersonaViewModel
-                      {
-                          Id = o.Id,
-                          UsuarioId = o.Usuario.Id,
-                          Apellido = o.Apellido,
-                          Direccion = o.Direccion,
-                          Ciudad = o.Ciudad,
-                          CodigoPostal = o.CodigoPostal,
-                          FechaNacimiento = o.FechaNacimiento,
-                          Nacionalidad = o.Nacionalidad,
-                          Nacionalidad1 = o.Nacionalidad1,
-                          NacionalidadIso = o.NacionalidadIso,
-                          NacionalidadIso1 = o.NacionalidadIso1,
-                          Nombre = o.Nombre,
-                          NumeroDocumento = o.NumeroDocumento,
-                          Pais = o.Pais,
-                          PaisIso = o.PaisIso,
-                          Provincia = o.Provincia,
-                          Telefono = o.Telefono,
-                          TipoDocumento = o.TipoDocumento,
-                          Informacion = o.Informacion,
-                          UltimoLogin = o.Usuario.UltimoLogin,
-                      }).FirstOrDefault();
+            return (from o in Session.Query<DatosPersona>()
+                    where o.Id.Equals(datosPersonalesId)
+                    select new DatosPersonaViewModel
+                    {
+                        Id = o.Id,
+                        UsuarioId = o.Usuario.Id,
+                        Apellido = o.Apellido,
+                        Direccion = o.Direccion,
+                        Ciudad = o.Ciudad,
+                        CodigoPostal = o.CodigoPostal,
+                        FechaNacimiento = o.FechaNacimiento,
+                        Nacionalidad = o.Nacionalidad,
+                        Nacionalidad1 = o.Nacionalidad1,
+                        NacionalidadIso = o.NacionalidadIso,
+                        NacionalidadIso1 = o.NacionalidadIso1,
+                        Nombre = o.Nombre,
+                        NumeroDocumento = o.NumeroDocumento,
+                        Pais = o.Pais,
+                        PaisIso = o.PaisIso,
+                        Provincia = o.Provincia,
+                        Telefono = o.Telefono,
+                        TipoDocumento = o.TipoDocumento,
+                        Informacion = o.Informacion,
+                        UltimoLogin = o.Usuario.UltimoLogin,
+                    }).FirstOrDefault();
         }
     }
 }

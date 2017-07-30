@@ -24,20 +24,6 @@ namespace BusDep.Business
             }
             return null;
         }
-
-        
-
-        public static PuestoViewModel FillPuestoViewModel(Puesto puesto)
-        {
-            if (puesto != null)
-            {
-                var puestoViewModel = puesto.MapperClass<PuestoViewModel>();
-                puestoViewModel.DeporteId = puesto.Deporte.Id;
-                return puestoViewModel;
-            }
-            return null;
-        }
-
        
         public static AntecedenteViewModel FillAntecedenteViewModel(Antecedente antecedente)
         {

@@ -383,6 +383,12 @@ namespace BusDep.Testing
         #endregion
 
         [Test]
+        public void ComboPuestos()
+        {
+           Console.WriteLine(common.ObtenerComboPuestos(deporte.Id).SerializarToJson());
+        }
+
+        [Test]
         public void PruebaLogin()
         {
             var login = DependencyFactory.Resolve<ILoginBusiness>();

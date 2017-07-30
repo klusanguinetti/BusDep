@@ -14,11 +14,8 @@ namespace BusDep.Business
     {
         public virtual EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView)
         {
-            var evaluacion =
-                DependencyFactory.Resolve<IUsuarioDA>()
-                    .ObtenerEvaluacionDefault(userView.Id,
-                        userView.DeporteId.GetValueOrDefault()) ??
-                this.GenerarEvaluacion(userView);
+            var evaluacion = DependencyFactory.Resolve<IUsuarioDA>().ObtenerEvaluacionDefault(userView.Id, userView.DeporteId.GetValueOrDefault()) 
+                ?? this.GenerarEvaluacion(userView);
             var eva = new EvaluacionViewModel
             {
                 Id = evaluacion.Id,
@@ -48,7 +45,6 @@ namespace BusDep.Business
                     cabecera.Detalles.Where(o => o.Puntuacion.HasValue).Sum(i => i.Puntuacion.GetValueOrDefault());
                 if (canResp > 0 && puntos > 0)
                     cab.Promedio = puntos / canResp;
-
                 eva.Cabeceras.Add(cab);
             }
             return eva;
@@ -116,15 +112,12 @@ namespace BusDep.Business
 
         public virtual List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView)
         {
-            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(userView.Id).Select(item => FillViewModel.FillAntecedenteViewModel(item)).ToList();
+            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(userView.Id);
         }
 
         public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId)
         {
-            return
-                FillViewModel.FillAntecedenteViewModel(
-                    DependencyFactory.Resolve<IBaseDA<Antecedente>>().GetById(antecedenteId));
-
+            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedenteViewModel(antecedenteId);
         }
 
         public virtual AntecedenteViewModel NuevoAntecedenteViewModel(UsuarioViewModel userView)
@@ -169,7 +162,10 @@ namespace BusDep.Business
                 }
             }
             DependencyFactory.Resolve<IJugadorDA>().Save(jugador);
-            return FillViewModel.FillAntecedenteViewModel(ante);
+            var ret = ante?.MapperClass<AntecedenteViewModel>();
+            if(ret!=null)
+                ret.UsuarioId= ante.Usuario.Id;
+            return ret;
         }
         public virtual void ActualizarDatosJugador(JugadorViewModel jugadorView)
         {

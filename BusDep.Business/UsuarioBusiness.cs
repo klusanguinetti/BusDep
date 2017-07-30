@@ -52,8 +52,6 @@ namespace BusDep.Business
                     ? DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(userView.DeporteId)
                     : DependencyFactory.Resolve<IBaseDA<Deporte>>().GetAll().First();
                 DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-                //DependencyFactory.Resolve<IBaseDA<DatosPersona>>().Save(user.DatosPersona);
-                //DependencyFactory.Resolve<IBaseDA<Jugador>>().Save(user.Jugador);
                 return FillViewModel.FillUsuarioViewModel(user);
             }
             else

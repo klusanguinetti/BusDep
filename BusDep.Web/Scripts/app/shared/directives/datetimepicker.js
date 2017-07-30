@@ -8,7 +8,8 @@
         link: function (scope, element, attrs, ngModelCtrl) {
             element.datetimepicker({
                 viewMode: 'days',
-                format: 'YYYY/MM/DD'
+                format: 'DD/MM/YYYY'
+                
             }).on('dp.change', function (e) {
                 ngModelCtrl.$setViewValue(e.target.value);
             });

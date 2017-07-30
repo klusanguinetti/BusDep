@@ -8,18 +8,14 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr) {
     $scope.currentantecedente = null;
 
     $scope.jugador = {};
-    $scope.popuphide = function () {
-        return $scope.currentantecedente == null;
-    };
-    
-   
+    $scope.popuphide = false;
 
     angular.element(function () {
         sportsHistoryService.getJugador().then(function (response) {
             $scope.jugador = response.data;
-         }).catch(function (err) {
+        }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
-         });
+        });
         sportsHistoryService.getAntecedentes().then(function (response) {
             $scope.antecedentes = response.data;
         }).catch(function (err) {
@@ -34,7 +30,7 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr) {
     });
 
     $scope.newAntecedente = function () {
-        
+
         return sportsHistoryService.getNewAntecedente().then(function (response) {
             $scope.currentantecedente = response.data;
         }).catch(function (err) {
@@ -45,25 +41,22 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr) {
 
     };
 
-    $scope.modifAntecedente = function (id) {
-        
-        if ($scope.currentantecedente != null) {
-            
-        }
-        var select = antecedentes.filter(function (item) {
-            return item.id === id;
-        })[0];
+    $scope.modifAntecedente = function (item) {
 
-        if (select != null && select != undefined) {
-            $scope.currentantecedente = select;
+
+        $scope.currentantecedente = angular.copy(item);
+
+        $scope.currentantecedente.FechaInicio = moment($scope.currentantecedente.FechaInicio).format("DD/MM/YYYY");
+
+        
+        if (item.FechaFin != null) {
+            $scope.currentantecedente.FechaFin = moment($scope.currentantecedente.FechaFin).format("DD/MM/YYYY");
         }
     };
 
-    $scope.saveAntecedente = function (item) {
-
-        return sportsHistoryService.saveAntecedente(item).then(function (response) {
+    $scope.saveAntecedente = function () {
+        return sportsHistoryService.saveAntecedente($scope.currentantecedente).then(function (response) {
             $scope.antecedentes = response.data;
-            $scope.currentantecedente = null;
             toastr.success('Se guardo correctamente', 'Ok');
         }).catch(function (err) {
 

@@ -57,6 +57,12 @@
                                 </div>
 
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-9 col-sm-3">
+                                    <button type="button" class="btn btn-default page-action" ng-click="newAntecedente()" data-toggle="modal" data-target="#myModal">Agregar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -75,29 +81,22 @@
 
                                             <h4>
                                                 <span> 	{{r.ClubDescripcion}} </span>
-                                                
+
                                             </h4>
                                             <i class="flagclubicon flag-{{r.ClubLogo}} xl icon-th-thumb" title={{r.ClubDescripcion}}></i>
                                         </div>
                                         <div class="col-sm-6 add-desc-box">
-                                            <span class="info-row"> <span class="item-location"> Desde: {{r.FechaInicioText}} </span> </span>
-                                            <span class="info-row"> <span class="item-location"> Hasta: {{r.FechaFinText}} </span> </span>
+                                            <span class="info-row"> <span class="item-location"> Desde: {{r.FechaInicioText}}  Hasta: {{r.FechaFinText}}</span> </span>
                                             <span class="info-row"> <span class="item-location"> Partidos: {{r.Partidos}} </span> </span>
                                             <span class="info-row"> <span class="item-location"> Asistencias: {{r.Asistencias}} </span> </span>
                                             <span class="info-row"> <span class="item-location"> Goles: {{r.Goles}} </span> </span>
+                                            <span class="info-row"> <span class="item-location"> Información adicional: {{r.InformacionAdicional}} </span> </span>
                                         </div>
                                         <div class="col-sm-2 text-right  price-box">
-
-                                            <a class="btn btn-border-thin  btn-save" title="Editar">
+                                            <a class="btn btn-border-thin  btn-save" data-toggle="modal" data-target="#myModal" title="Editar" ng-click="modifAntecedente(r)">
                                                 <i class="glyphicon glyphicon-edit"></i>
                                             </a>
-
-                                            @*<a class="btn btn-border-thin  btn-share ">
-                                                <i class="icon icon-export" title="Compartir perfil"></i>
-                                            </a>*@
-
                                         </div>
-
                                     </div>
 
                                 </div>
@@ -112,3 +111,84 @@
         </div>
 
     </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+            <form class="form-horizontal" role="form" ng-submit="saveAntecedente()" promise-btn>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Cargar Información</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Periodo</label>
+                                <div class="col-sm-9 input-group input-daterange">
+                                    <div class="input-group ">
+                                        <input datetimepicker type="text" class="form-control" ng-model="currentantecedente.FechaInicio">
+                                        <div class="input-group-addon"> - </div>
+                                        <input datetimepicker type="text" class="form-control" ng-model="currentantecedente.FechaFin">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-sm-3 control-label">Club</label>
+                                <div class="col-sm-1">
+                                    <i class="flagclubicon flag-{{currentantecedente.ClubLogo}} icon-th-thumb" title="Pais"></i>
+                                </div>
+                                <div class="col-sm-8">
+
+                                    <div class="" tabindex="0">
+
+                                        <select ng-model="currentantecedente.ClubLogo" class="form-control"
+                                                name="category" id="search-category" tabindex="-1"
+                                                ng-options="item.Code as item.Nombre for item in clubes">
+
+                                            <option value="" class="selecter-placeholder" selected="">Seleccione Club</option>
+
+                                            <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                - Club -
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Partidos</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="" ng-model="currentantecedente.Partidos">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Goles</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="" ng-model="currentantecedente.Goles">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Asistencias</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" placeholder="" ng-model="currentantecedente.Asistencias">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-6 col-sm-6">
+                                    <button type="submit" class="btn btn-default page-action">Actualizar</button>
+                                    <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -365,7 +365,6 @@
     <Content Include="Content\img\country\cy.png" />
     <Content Include="Content\img\country\cz.png" />
     <Content Include="Content\img\country\de.png" />
-    <Content Include="Content\img\country\.jpg" />
     <Content Include="Content\img\country\default.png" />
     <Content Include="Content\img\country\dj.png" />
     <Content Include="Content\img\country\dk.png" />
