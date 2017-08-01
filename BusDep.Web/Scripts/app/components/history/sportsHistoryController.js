@@ -60,7 +60,7 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr) {
             toastr.success('Se guardo correctamente', 'Ok');
         }).catch(function (err) {
 
-            toastr.error('¡Error desconocido!', 'Error');
+            toastr.error('¡Error desconocido! ', 'Error');
 
         });
 

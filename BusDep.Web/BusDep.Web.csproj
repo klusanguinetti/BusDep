@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\AuthHelper.cs" />
+    <Compile Include="Class\CacheHeler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -172,6 +173,7 @@
     <Content Include="Content\fonts\fontello\fontello03a0.svg" />
     <Content Include="Content\fonts\ui-carousel.svg" />
     <Content Include="Content\img\1.jpg" />
+    <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\cancha-main.jpg" />
     <Content Include="Content\img\Clubes\aa.png" />
     <Content Include="Content\img\Clubes\ab.png" />
@@ -571,6 +573,7 @@
     <Content Include="Content\img\jugadores-fotos\marcos_rojo.jpg" />
     <Content Include="Content\img\jugadores-fotos\paulo_dybala.jpg" />
     <Content Include="Content\img\logos-clubes\PSG.png" />
+    <Content Include="Content\img\misc\298.png" />
     <Content Include="Content\img\property-agency-logo.png" />
     <Content Include="Content\img\slide_1.jpg" />
     <Content Include="Content\img\slide_2.jpg" />

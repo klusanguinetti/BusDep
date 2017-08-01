@@ -50,5 +50,10 @@ namespace BusDep.Business
         {
             return DependencyFactory.Resolve<ICommnDA>().ObtenerClubes();
         }
+
+        public virtual IEnumerable<PuestoViewModel> ObtenerDeportesPuestos()
+        {
+            return DependencyFactory.Resolve<ICommnDA>().ObtenerDeportesPuestos();
+        }
     }
 }

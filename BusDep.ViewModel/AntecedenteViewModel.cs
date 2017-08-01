@@ -11,7 +11,7 @@
         [DataMember]
         public DateTime? FechaFin { get; set; }
         [DataMember]
-        public DateTime FechaInicio { get; set; }
+        public DateTime? FechaInicio { get; set; }
         [DataMember]
         public string InformacionAdicional { get; set; }
         [DataMember]
@@ -33,7 +33,7 @@
         [DataMember]
         public string FechaInicioText
         {
-            get { return FechaInicio.ToString("dd/MM/yyyy"); }
+            get { return FechaInicio.GetValueOrDefault().ToString("dd/MM/yyyy"); }
         }
         [DataMember]
         public string FechaFinText
