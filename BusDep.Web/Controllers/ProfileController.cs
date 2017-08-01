@@ -106,8 +106,6 @@ namespace BusDep.Web.Controllers
         {
 
             var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
-
-            UsuarioViewModel LoggedUser = new UsuarioViewModel();
             try
             {
 
@@ -143,11 +141,9 @@ namespace BusDep.Web.Controllers
 
         public JsonResult GetPuestos()
         {
-            var business = DependencyFactory.Resolve<ICommonBusiness>();
             try
             {
-
-                var user = business.ObtenerComboPuestosEspecifico(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
+                var user = CacheHeler.ObtenerComboPuestosEspecifico(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -183,10 +179,9 @@ namespace BusDep.Web.Controllers
         [HttpGet]
         public JsonResult GetFichajes()
         {
-            var business = DependencyFactory.Resolve<ICommonBusiness>();
             try
             {
-                var user = business.ObtenerComboFichajes();
+                var user = CacheHeler.ObtenerComboFichajes();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -199,10 +194,9 @@ namespace BusDep.Web.Controllers
         [HttpGet]
         public JsonResult GetPerfiles()
         {
-            var business = DependencyFactory.Resolve<ICommonBusiness>();
             try
             {
-                var user = business.ObtenerComboPerfiles();
+                var user = CacheHeler.ObtenerComboPerfiles();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -215,10 +209,9 @@ namespace BusDep.Web.Controllers
         [HttpGet]
         public JsonResult GetPies()
         {
-            var business = DependencyFactory.Resolve<ICommonBusiness>();
             try
             {
-                var user = business.ObtenerComboPie();
+                var user = CacheHeler.ObtenerComboPie();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -231,14 +224,9 @@ namespace BusDep.Web.Controllers
         
         public JsonResult GetPuestosBasicos()
         {
-            var business = DependencyFactory.Resolve<ICommonBusiness>();
             try
             {
-
-                var user = business.ObtenerComboPuestosEspecifico(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
-                //IEnumerable<ComboViewModel>
-                var user1 = user.Select(o => o.Agrupador).Distinct().Select(i => new ComboViewModel { Descripcion = i, Id = i });
-
+                var user1 = CacheHeler.PuestosBasicos(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user1, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

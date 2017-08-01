@@ -11,5 +11,7 @@
         IEnumerable<ComboViewModel> ObtenerComboPuestos(long deporteId);
 
         IEnumerable<ClubDetalleViewModel> ObtenerClubes();
+
+        IEnumerable<PuestoViewModel> ObtenerDeportesPuestos();
     }
 }

@@ -501,7 +501,7 @@ namespace BusDep.Testing
             ante.ClubDescripcion = club.Nombre;
             ante.ClubLogo = club.Code;
             ante.FechaInicio = new DateTime(rnd.Next(2010, 2015), rnd.Next(1, 12), rnd.Next(1, 28));// DateTime.Now.AddYears(-rnd.Next(6, 10));
-            ante.FechaFin = ante.FechaInicio.AddYears(rnd.Next(0, 2));
+            ante.FechaFin = ante.FechaInicio.Value.AddYears(rnd.Next(0, 2));
             ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1} - Hasta: {2}", ante.ClubDescripcion, ante.FechaInicio, ante.FechaFin);
 
             jugador.GuardarAntecedenteViewModel(ante);

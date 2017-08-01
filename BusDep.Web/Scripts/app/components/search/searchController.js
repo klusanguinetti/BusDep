@@ -5,12 +5,12 @@
 
 
         $scope.pagina = 1;
-        $scope.cantidad = 15;
+        $scope.cantidad = 10;
 
         $scope.searchProfile = {
             Nombre: "",
             pagina: 1,
-            cantidad: 15
+            cantidad: 10
         };
         //$scope.searchProfile = {
         //    Id: "",

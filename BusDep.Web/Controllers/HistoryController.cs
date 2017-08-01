@@ -57,30 +57,24 @@ namespace BusDep.Web.Controllers
         {
 
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
-
             try
             {
                 business.GuardarAntecedenteViewModel(antecedenteViewModel);
                 var antecedentes = business.ObtenerAntecedentes(authHelper.GetAuthData());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = antecedentes, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-
-
             }
             catch (Exception)
             {
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
-
-
         }
         public JsonResult GetClubes()
         {
-            var business = DependencyFactory.Resolve<ICommonBusiness>();
             try
             {
-                var user = business.ObtenerClubes();
+                var user = CacheHeler.ObtenerClubes();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

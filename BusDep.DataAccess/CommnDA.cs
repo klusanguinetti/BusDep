@@ -57,5 +57,16 @@ namespace BusDep.DataAccess
                     });
         }
 
+        public virtual IEnumerable<PuestoViewModel> ObtenerDeportesPuestos()
+        {
+            return from o in Session.Query<Puesto>()
+                   select new PuestoViewModel
+                   {
+                       DeporteId = o.Deporte.Id,
+                       Id = o.Id,
+                       Descripcion = o.Descripcion,
+                       PuestoEspecifico = o.PuestoEspecifico
+                   };
+        }
     }
 }

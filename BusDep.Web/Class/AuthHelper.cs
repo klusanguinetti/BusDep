@@ -4,10 +4,11 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Web.Security;
-using BusDep.Common;
+
 
 namespace BusDep.Web.Class
 {
+    using BusDep.Common;
     using BusDep;
     public class AuthHelper
     {
@@ -32,8 +33,8 @@ namespace BusDep.Web.Class
                         return LoggedUser;
                     }
                 }
-                catch {  }
-                
+                catch { }
+
 
                 string[] substrings = id.Name.Split('|');
 
