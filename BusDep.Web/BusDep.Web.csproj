@@ -605,6 +605,7 @@
     <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
+    <Content Include="Scripts\app\components\publicProfile\publicProfileService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
     <Content Include="Scripts\app\components\search\searchService.js" />

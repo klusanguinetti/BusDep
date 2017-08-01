@@ -31,42 +31,53 @@
         /*Declaración de funciones*/
 
         angular.element(function () {
-            privateProfileService.getFichajes().then(function (response) {
-                $scope.fichajes = response.data;
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
-            privateProfileService.getPerfiles().then(function (response) {
-                $scope.perfiles = response.data;
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
-            privateProfileService.getPuestosBasicos().then(function (response) {
-                $scope.puestos = response.data;
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
+
             searchService.getBuscarJugadorViewModel().then(function (response) {
+
                 $scope.Busqueda = response.data;
 
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
+
+            privateProfileService.getFichajes().then(function (response) {
+                $scope.fichajes = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+
+            privateProfileService.getPerfiles().then(function (response) {
+                $scope.perfiles = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+
+            privateProfileService.getPuestosBasicos().then(function (response) {
+                $scope.puestos = response.data;
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
+
             privateProfileService.getPies().then(function (response) {
                 $scope.pies = response.data;
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
+
             $scope.principalSearch = $routeParams.b;
 
             searchPlayer();
+
         });
 
         $scope.search = (function () {
             searchPlayer();
-
         });
-        $scope.clearFilter = (function() {
+
+        $scope.clearFilter = (function () {
+
+            $scope.Busqueda.EdadHasta = null;
+
             for (var i = 0; i < $scope.fichajes.length; ++i) {
                 $scope.fichajes[i].Selected = false;
             }
@@ -83,7 +94,9 @@
         });
 
         function searchPlayer() {
+
             //clearFilter();
+
             $scope.searchProfile.Nombre = $scope.principalSearch;
 
             $scope.myPromise = searchService.searchPlayer($scope.searchProfile).then(function (response) {
@@ -105,6 +118,7 @@
                 toastr.error('¡Ha ocurrido un error en la busqueda!', 'Error');
 
             });
+
             $http.get('json/paises.json').then(function (data) {
 
                 $scope.paises = data.data;

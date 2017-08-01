@@ -24,7 +24,12 @@
         })
         .when('/Profile/:type/:id', {
             templateUrl: '/Profile/Index',
-            controller: 'publicProfileController'
+            controller: 'publicProfileController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
         })
         .when('/Profile/PrivateProfile', {
             templateUrl: '/Profile/PrivateProfile',

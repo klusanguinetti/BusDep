@@ -15,6 +15,7 @@
         public long PerfilId { get; set; }
         [DataMember]
         public string Mail { get; set; }
+
         #region datos personales
         [DataMember]
         public string Nombre { get; set; }
@@ -37,6 +38,7 @@
         [DataMember]
         public virtual string NacionalidadIso1 { get; set; }
         #endregion
+
         #region Datos Jugador
         [DataMember]
         public decimal? Altura { get; set; }
@@ -53,9 +55,11 @@
         [DataMember]
         public string Informacion { get; set; }
         #endregion
+
         #region Antecedentes deportivos
         public List<AntecedenteViewModel> Antecedentes { get; set; }
         #endregion
+
         #region AutoEvaluacion
         public EvaluacionViewModel AutoEvaluacion { get; set; }
         #endregion

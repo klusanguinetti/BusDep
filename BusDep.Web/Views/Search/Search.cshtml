@@ -25,8 +25,10 @@
     </div>
 
     <div class="main-container">
+
         <div class="container">
-            <div class="row">
+
+            <div class="row" cg-busy="{promise:myPromise,message:'Buscando perfiles...'}">
 
                 <div class="col-sm-3 page-sidebar mobile-filter-sidebar">
 
@@ -47,16 +49,16 @@
                                                 <label for="posted_1">Todos</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=18 id="posted_1" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_1">Hasta 18</label>
+                                                <input type="radio" value=18 id="posted_18" name="posted" ng-model="Busqueda.EdadHasta">
+                                                <label for="posted_18">Hasta 18</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=25 id="posted_3" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_3">Hasta 25</label>
+                                                <input type="radio" value=25 id="posted_25" name="posted" ng-model="Busqueda.EdadHasta">
+                                                <label for="posted_25">Hasta 25</label>
                                             </li>
                                             <li>
-                                                <input type="radio" value=35 id="posted_7" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_7">Hasta 35</label>
+                                                <input type="radio" value=35 id="posted_35" name="posted" ng-model="Busqueda.EdadHasta">
+                                                <label for="posted_35">Hasta 35</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -66,8 +68,8 @@
                                     <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
                                     <ul>
                                         <li ng-repeat="item in pies">
-                                            <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
-                                            <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
+                                            <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
+                                            <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
                                 </div>
@@ -76,8 +78,8 @@
                                     <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
                                     <ul>
                                         <li ng-repeat="item in puestos">
-                                            <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
-                                            <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
+                                            <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
+                                            <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
                                 </div>
@@ -89,8 +91,8 @@
                                     <div class="filter-date filter-content" >
                                         <ul>
                                             <li ng-repeat="item in perfiles">
-                                                <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
-                                                <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
+                                                <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
+                                                <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -101,8 +103,8 @@
                                     <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
                                     <ul>
                                         <li ng-repeat="item in fichajes">
-                                            <input type="checkbox" id="tipo_fichaje_2" name="tipo_fichaje" ng-model="item.Selected">
-                                            <label for="tipo_fichaje_2">{{item.Descripcion}}</label>
+                                            <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
+                                            <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
                                 </div>
@@ -159,11 +161,11 @@
                                         </div>
                                     </li>
                                 </ul>
+
                             </div>
+
                             <div class="menu-overly-mask"></div>
-
-                           
-
+                        
                         </div>
 
                         <div class="listing-filter hidden-xs">
@@ -179,7 +181,7 @@
 
                         </div>
 
-                        <div class="adds-wrapper jobs-list" cg-busy="{promise:myPromise,message:'Buscando perfiles...'}">
+                        <div class="adds-wrapper jobs-list">
 
                             <div class="item-list" ng-repeat="r in searchResult">
 

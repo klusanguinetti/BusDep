@@ -125,6 +125,7 @@ namespace BusDep.Web.Controllers
             }
 
         }
+
         public JsonResult GetJugador()
         {
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
@@ -158,7 +159,6 @@ namespace BusDep.Web.Controllers
             }
         }
         
-
         public JsonResult SaveJugador(JugadorViewModel jugadorViewModel)
         {
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
@@ -175,11 +175,37 @@ namespace BusDep.Web.Controllers
             }
         }
 
-        
-
         #endregion
 
         #region HttpGet
+
+        [HttpGet]
+        public JsonResult GetPublicProfile([System.Web.Http.FromUri] int jugadorId)
+        {
+
+            var business = DependencyFactory.Resolve<IBusquedaBusiness>();
+
+            try
+            {
+                var user = business.ObtenerPerfil(jugadorId);
+
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 404;
+                return new JsonResult { Data = "Perfil no encontrado: " + ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor: " + ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
         [HttpGet]
         public JsonResult GetFichajes()
         {
@@ -196,6 +222,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         [HttpGet]
         public JsonResult GetPerfiles()
         {
@@ -212,6 +239,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         [HttpGet]
         public JsonResult GetPies()
         {
@@ -248,6 +276,8 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         #endregion
+
     }
 }
