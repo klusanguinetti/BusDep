@@ -74,7 +74,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerClubes();
+                var user = DependencyFactory.Resolve<ICommonBusiness>().ObtenerClubes();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

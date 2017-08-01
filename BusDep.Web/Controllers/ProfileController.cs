@@ -143,7 +143,13 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboPuestosEspecifico(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
+                var user = DependencyFactory.Resolve<ICommonBusiness>().ObtenerDeportesPuestos().Select(item => new ComboAgrupadoViewModel
+                {
+                    Id = item.Id,
+                    Agrupador = item.Descripcion,
+                    Descripcion = item.PuestoEspecifico
+                }).ToList();
+                
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -221,12 +227,29 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
-        
+        public static IEnumerable<ComboViewModel> PuestosBasicos(long deporteId)
+        {
+            
+
+            return DependencyFactory.Resolve<ICommonBusiness>().ObtenerPuestos(deporteId)
+                .Where(o => o.DeporteId.Equals(deporteId)).Select(u => u.Descripcion).Distinct()
+                    .Select(item => new ComboViewModel
+                    {
+                        Id = item,
+                        Descripcion = item
+                    });
+        }
         public JsonResult GetPuestosBasicos()
         {
             try
             {
-                var user1 = CacheHeler.PuestosBasicos(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
+                var user1 = DependencyFactory.Resolve<ICommonBusiness>().ObtenerPuestos(authHelper.GetAuthData().DeporteId.GetValueOrDefault())
+                    .Select(u => u.Descripcion).Distinct()
+                    .Select(item => new ComboViewModel
+                    {
+                        Id = item,
+                        Descripcion = item
+                    });
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user1, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
