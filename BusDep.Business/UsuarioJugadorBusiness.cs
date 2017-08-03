@@ -14,7 +14,7 @@ namespace BusDep.Business
     {
         public virtual EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView)
         {
-            var evaluacion = DependencyFactory.Resolve<IUsuarioDA>().ObtenerEvaluacionDefault(userView.Id, userView.DeporteId.GetValueOrDefault()) 
+            var evaluacion = DependencyFactory.Resolve<IUsuarioDA>().ObtenerEvaluacionDefault(userView.Id, userView.DeporteId.GetValueOrDefault())
                 ?? this.GenerarEvaluacion(userView);
             var eva = new EvaluacionViewModel
             {
@@ -44,7 +44,7 @@ namespace BusDep.Business
                 decimal puntos =
                     cabecera.Detalles.Where(o => o.Puntuacion.HasValue).Sum(i => i.Puntuacion.GetValueOrDefault());
                 if (canResp > 0 && puntos > 0)
-                    cab.Promedio = puntos / canResp;
+                    cab.Promedio = Decimal.Round(puntos / canResp, 2);
                 eva.Cabeceras.Add(cab);
             }
             return eva;
@@ -133,8 +133,8 @@ namespace BusDep.Business
             DependencyFactory.Resolve<IBaseDA<Antecedente>>().Save(ante);
 
             var listaAntecedentes = DependencyFactory.Resolve<IJugadorDA>().ObtenerAntecedentes(antecedente.UsuarioId).OrderByDescending(o => o.FechaInicio);
-            Jugador jugador = listaAntecedentes.Any()? listaAntecedentes.First().Usuario.Jugador : null;
-            if(jugador==null)
+            Jugador jugador = listaAntecedentes.Any() ? listaAntecedentes.First().Usuario.Jugador : null;
+            if (jugador == null)
                 throw new Exception("No existe Jugador relacionado");
             if (listaAntecedentes.Count().Equals(1))
             {
@@ -163,8 +163,8 @@ namespace BusDep.Business
             }
             DependencyFactory.Resolve<IJugadorDA>().Save(jugador);
             var ret = ante?.MapperClass<AntecedenteViewModel>();
-            if(ret!=null)
-                ret.UsuarioId= ante.Usuario.Id;
+            if (ret != null)
+                ret.UsuarioId = ante.Usuario.Id;
             return ret;
         }
         public virtual void ActualizarDatosJugador(JugadorViewModel jugadorView)
@@ -188,6 +188,6 @@ namespace BusDep.Business
             throw new ExceptionBusiness(1, "No existe Jugador");
         }
 
-       
+
     }
 }

@@ -19,6 +19,7 @@ namespace BusDep.Web
                 "~/Scripts/vendor/custom/please-wait.min.js",
                 "~/Scripts/vendor/custom/owl.carousel.min.js",
                 "~/Scripts/vendor/custom/moment.min.js",
+                "~/Scripts/vendor/custom/Chart.min.js",
                 "~/Scripts/vendor/custom/hideMaxListItem.js",
                 "~/Scripts/vendor/boostrap/bootstrap-datetimepicker.min.js",
                 "~/Scripts/vendor/jquery/jquery.matchHeight-min.js",
@@ -52,10 +53,12 @@ namespace BusDep.Web
                 "~/Scripts/vendor/angular/angular-promise-buttons.min.js",
                 "~/Scripts/vendor/angular/angular-toastr.min.js",
                 "~/Scripts/vendor/angular/angular-toastr.tpls.min.js",
+                "~/Scripts/vendor/angular/angular-chart.min.js",
                 "~/Scripts/vendor/custom/loading-bar.min.js",
                 "~/Scripts/vendor/custom/ui-carousel.min.js",
                 "~/Scripts/vendor/custom/ngDialog.min.js",
                 "~/Scripts/vendor/custom/angular-busy.min.js"));
+            
 
             // Angular Bundle
 
@@ -75,13 +78,14 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/shared/directives", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/factories", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/account", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Evaluation", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/history", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/search", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/index", "*.js").WithLastModifiedToken()
                     );
-
+            //
         }
     }
 }

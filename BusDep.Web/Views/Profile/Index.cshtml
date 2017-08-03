@@ -36,7 +36,7 @@
 
                         <div class="row">
 
-                            <div class="ads-details-info jobs-details-info col-md-8">
+                            <div class="ads-details-info jobs-details-info col-md-12">
 
                                 <p>{{datosPerfil.Informacion}}</p>
 
@@ -118,15 +118,30 @@
 
                                     <div class="item-list job-item" ng-repeat="r in datosPerfil.AutoEvaluacion.Cabeceras">
 
-                                        <div class="col-sm-12  col-xs-12  add-desc-box">
+                                        <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
 
-                                            <div class="add-details jobs-item">
+                                            @*<div class="add-details jobs-item">*@
 
-                                                <h4 class="job-title"><a href="job-details.html"> {{r.Descripcion}} </a></h4>
+                                                <h3 class="job-title"><a> {{r.Descripcion}} </a></h3>
 
-                                                <div class="job-actions">
+                                                <div class="col-md-9 col-sm-9 col-xs-9">
 
-                                                    <ul class="" style="margin-left:0px" ng-repeat="re in r.Detalle">
+                                                    @*<div>*@
+
+                                                        <canvas id="radar{{r.Id}}" class="chart chart-radar"width="370"
+                                                                height="180"
+                                                                chart-data="data[$index].data" chart-labels="data[$index].labels"
+                                                                chart-colours="colours"></canvas>
+                                                        
+                                                        @*<canvas id="radar" class="chart chart-radar" data="data[$index].data"></canvas>*@
+                                                        @*<canvas data-sys-chart-radar
+                                                                data="data[$index]"
+                                                                width="600"
+                                                                height="240"></canvas>*@
+                                                    @*</div>*@
+                                                    
+
+                                                    @*<ul class="" style="margin-left:0px" ng-repeat="re in r.Detalle">
 
                                                         <li style="margin-bottom: 5px;">
                                                             <a href="" class="save-job">
@@ -135,11 +150,15 @@
                                                             </a>
                                                         </li>
 
-                                                    </ul>
+                                                    </ul>*@
 
                                                 </div>
-
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <h1 class="title animated fadeInDown">
+                                                    {{r.Promedio}}
+                                                </h1>
                                             </div>
+                                            @*</div>*@
 
                                         </div>
 
@@ -159,7 +178,7 @@
 
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-12">
 
                                 <aside class="panel panel-body panel-details job-summery">
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BusDep.ViewModel
 {
@@ -39,6 +40,18 @@ namespace BusDep.ViewModel
         public decimal Promedio { get; set; }
         [DataMember]
         public List<EvaluacionDetalleViewModel> Detalle { get; set; }
+
+        [DataMember]
+        public string[] Labels
+        {
+            get { return Detalle.Select(o => o.Descripcion).ToArray(); }
+        }
+
+        [DataMember]
+        public long[] Values
+        {
+            get { return Detalle.Select(o => o.Puntuacion.GetValueOrDefault()).ToArray(); }
+        }
     }
 
     [DataContract]

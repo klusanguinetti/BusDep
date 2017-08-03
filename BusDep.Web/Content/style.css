@@ -4748,3 +4748,12 @@ body.pg-loaded > .inner {
 }
 
 /* End PleaseWait CSS fix */
+
+.tabs .tab-content {
+    border-top: none;
+    background: #ffffff;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}

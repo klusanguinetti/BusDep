@@ -49,7 +49,15 @@
                 }
             }
         })
-    
+     .when('/Evaluation/SelfAppraisal', {
+         templateUrl: '/Evaluation/SelfAppraisal',
+         controller: 'selfAppraisalController',
+         resolve: {
+             permission: function (authService) {
+                 return authService.isLogIn();
+             }
+         }
+     })
         .otherwise({
             redirectTo: '/'
         });

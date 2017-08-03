@@ -138,6 +138,7 @@
     <Compile Include="Class\CacheHeler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
+    <Compile Include="Controllers\EvaluationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -604,6 +605,8 @@
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
+    <Content Include="Scripts\app\components\Evaluation\selfAppraisalController.js" />
+    <Content Include="Scripts\app\components\Evaluation\selfAppraisalService.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryController.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
@@ -617,6 +620,7 @@
     <Content Include="Scripts\app\shared\factories\authService.js" />
     <Content Include="Scripts\vendor\angular\angular-animate.js" />
     <Content Include="Scripts\vendor\angular\angular-animate.min.js" />
+    <Content Include="Scripts\vendor\angular\angular-chart.min.js" />
     <Content Include="Scripts\vendor\angular\angular-local-storage.js" />
     <Content Include="Scripts\vendor\angular\angular-local-storage.min.js" />
     <Content Include="Scripts\vendor\angular\angular-messages.js" />
@@ -1390,6 +1394,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\vendor\custom\angular-busy.min.js" />
+    <Content Include="Scripts\vendor\custom\Chart.min.js" />
     <Content Include="Scripts\vendor\custom\hideMaxListItem.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.min.js" />
@@ -1425,6 +1430,7 @@
     <Content Include="Views\Shared\_Profile_Sidebar.cshtml" />
     <Content Include="Views\Home\HomeContent.cshtml" />
     <Content Include="Views\History\SportsHistory.cshtml" />
+    <Content Include="Views\Evaluation\SelfAppraisal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
