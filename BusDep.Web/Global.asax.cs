@@ -47,8 +47,8 @@ namespace BusDep.Web
         }
         public override void Dispose()
         {
-            ConfigAll.Instance.Dispose();
-            base.Dispose();
+            //ConfigAll.Instance.Dispose();
+            //base.Dispose();
         }
         #endregion
     }

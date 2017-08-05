@@ -2252,17 +2252,17 @@ div.login-box .panel-footer label {
     position: relative;
 }
 
-.input-icon input {
+/*.input-icon input {
     padding-left: 45px;
-}
+}*/
 
-.input-icon i {
+/*.input-icon i {
     font-size: 16px;
     left: 6px;
     line-height: 22px;
     position: absolute;
     top: 9px;
-}
+}*/
 
 .mb10 {
     margin-bottom: 10px;
@@ -4756,4 +4756,19 @@ body.pg-loaded > .inner {
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+h1.titleevaluacion {
+    width: auto;
+    font-size: 39px;
+    overflow: hidden;
+    border: 1px solid #dcd7d7;
+    text-align: center;
+    padding: 16px;
+    padding-top: 0px;
+}
+
+h1.titleevaluacion span {
+    font-size: 12px;
+    display: block;
 }

@@ -27,10 +27,25 @@
             <div class="col-sm-9 page-content col-thin-right">
 
                 <div class="inner inner-box ads-details-wrapper">
+                    <div>
+                        <h2> {{datosPerfil.Nombre}} {{datosPerfil.Apellido}} - {{datosPerfil.PuestoDescripcion}}</h2>
 
-                    <h2> {{datosPerfil.Nombre}} {{datosPerfil.Apellido}} - {{datosPerfil.PuestoDescripcion}}</h2>
+                        <span class="info-row"> <span class="date"><i class="icon-clock"> </i> Miembro desde: Febrero 2016 </span> - <span class="item-Ubicación"><i class="fa fa-map-marker"></i> {{datosPerfil.Pais}}</span> </span>
+                    </div>
+                    <aside class="panel panel-body panel-details job-summery">
 
-                    <span class="info-row"> <span class="date"><i class="icon-clock"> </i> Miembro desde: Febrero 2016 </span> - <span class="item-Ubicación"><i class="fa fa-map-marker"></i> {{datosPerfil.Pais}}</span> </span>
+                        <ul>
+                            <li><p class="no-margin"><strong>Nacionalidad:</strong> {{datosPerfil.Nacionalidad}} </p></li>
+                            <li><p class="no-margin "><strong>Fecha de nacimiento:</strong> {{datosPerfil.FechaNacimiento}} </p></li>
+                            <li>
+                                <p class="no-margin "><strong>Altura:</strong> {{datosPerfil.Altura}} Mts</p>
+                            </li>
+                            <li>
+                                <p class="no-margin"><strong>Peso:</strong> {{datosPerfil.Peso}} Kg</p>
+                            </li>
+                        </ul>
+                        <p>{{datosPerfil.Informacion}}</p>
+                    </aside>
 
                     <div class="Ads-Details ">
 
@@ -38,7 +53,7 @@
 
                             <div class="ads-details-info jobs-details-info col-md-12">
 
-                                <p>{{datosPerfil.Informacion}}</p>
+                                
 
                                 <h4 class="text-uppercase ">Antecedentes deportivos</h4>
 
@@ -129,9 +144,9 @@
                                                     @*<div>*@
 
                                                         <canvas id="radar{{r.Id}}" class="chart chart-radar"width="370"
-                                                                height="180"
-                                                                chart-data="data[$index].data" chart-labels="data[$index].labels"
-                                                                chart-colours="colours"></canvas>
+                                                                height="180" colours="color.colours"
+                                                                chart-data="r.Values"
+                                                                chart-labels="r.Labels"></canvas>
                                                         
                                                         @*<canvas id="radar" class="chart chart-radar" data="data[$index].data"></canvas>*@
                                                         @*<canvas data-sys-chart-radar
@@ -154,7 +169,9 @@
 
                                                 </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <h1 class="title animated fadeInDown">
+
+                                                <h1 class="titleevaluacion">
+                                                    <span class="text-uppercase">Promedio</span>
                                                     {{r.Promedio}}
                                                 </h1>
                                             </div>
@@ -180,26 +197,7 @@
 
                             <div class="col-md-12">
 
-                                <aside class="panel panel-body panel-details job-summery">
-
-                                    <ul>
-                                        <li><p class="no-margin"><strong>Nacionalidad:</strong> {{datosPerfil.Nacionalidad}} </p></li>
-                                        <li><p class="no-margin "><strong>Fecha de nacimiento:</strong> {{datosPerfil.FechaNacimiento}} </p></li>
-                                        <li>
-                                            <p class="no-margin "><strong>Altura:</strong> {{datosPerfil.Altura}} Mts</p>
-                                        </li>
-                                        <li>
-                                            <p class="no-margin"><strong>Peso:</strong> {{datosPerfil.Peso}} Kg</p>
-                                        </li>
-                                        @*<li>
-                                                <p class="no-margin"><strong>Mejor atributo:</strong> Trabajo en equipo</p>
-                                            </li>*@
-                                        @*<li>
-                                                <p class="no-margin"><strong>Ultimo club:</strong><a> <img alt="img" class="img-circle" width="17" height="17" src="~/Content/img/logos-clubes/PSG.png"> </a> PSG </p>
-                                            </li>*@
-                                    </ul>
-
-                                </aside>
+                                
 
                                 <div class="ads-action">
 

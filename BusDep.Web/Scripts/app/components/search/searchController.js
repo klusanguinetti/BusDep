@@ -144,6 +144,18 @@
 
         });
 
+        $scope.clearSelect = (function (input) {
+            for (var i = 0; i < input.length; ++i) {
+                input[i].Selected = false;
+            }
+        });
+
+        $scope.selectItem = (function (input, item) {
+            for (var i = 0; i < input.length; ++i) {
+                input[i].Selected = item.Id == input[i].Id;
+            }
+        });
+
         function getSearchFilters() {
             $scope.Busqueda.Nombre = $scope.principalSearch;
             $scope.Busqueda.Fichaje = getFields($scope.fichajes, 'Descripcion');
