@@ -6,28 +6,41 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
 
     $scope.antecedente = {};
 
+    $scope.outcome = {
+        fechaFinCheck: false
+    };
+
     angular.element(function () {
 
         $http.get('json/Clubes.json').then(function (data) {
             $scope.clubes = data.data;
-            console.log($scope.clubes);
         });
 
     });
 
+    $scope.cleanInput = function () {
+
+        $scope.antecedente.FechaFin = "";
+
+    }
+
     $scope.saveAntecedente = function () {
 
-        $scope.antecedente.ClubDescripcion = $filter('filter')($scope.clubes, { Nombre: $scope.antecedente.ClubLogo })[0].Nombre;
+        if ($scope.antecedenteForm.$valid) {
 
-        return sportsHistoryService.saveAntecedente($scope.antecedente).then(function (response) {
+            $scope.antecedente.ClubDescripcion = $filter('filter')($scope.clubes, { Code: $scope.antecedente.ClubLogo })[0].Nombre;
 
-            $location.path('/History/SportsHistory/List');
+            return sportsHistoryService.saveAntecedente($scope.antecedente).then(function (response) {
 
-        }).catch(function (err) {
+                $location.path('/History/SportsHistory/List');
 
-            toastr.error('¡Error desconocido! ', 'Error');
+            }).catch(function (err) {
 
-        });
+                toastr.error('¡Error desconocido! ', 'Error');
+
+            });
+
+        }
 
     };
 
