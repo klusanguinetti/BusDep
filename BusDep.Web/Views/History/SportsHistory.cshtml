@@ -3,107 +3,134 @@
     Layout = null;
 }
 
+
 <div class="main-container">
 
     <div class="container">
 
         <div class="row">
 
+            @Html.Partial("_Profile_Sidebar")
 
-            <div class="col-sm-10 page-content">
+            <div class="col-sm-9 page-content">
 
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 col-xxs-12">
-                        <div class="adds-wrapper inner-box">
+                <div class="inner-box">
 
-                            <div class="col-sm-3  photobox">
-                                <div class="add-image">
-                                    <img class="userImg" src="~/Content/img/user.jpg" alt="user">
-                                </div>
-                            </div>
-                            <div class="col-sm-9 add-desc-box">
+                    <h2 class="title-2"><i class="fa fa-futbol-o"></i> Antecedentes deportivos </h2>
 
-                                <div class="add-details">
+                    <div class="table-responsive">
 
-                                    <h5 class="add-title">
-                                        <a href="">
-                                            {{jugador.Nombre}} {{jugador.Apellido}}
-                                        </a>
-                                    </h5>
+                        <div class="table-action">
 
-                                    <span class="info-row"> <span class="item-location"> {{jugador.PuestoDescripcion}}, Pie: {{jugador.Pie}} </span> </span>
-
-                                    <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{jugador.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{jugador.Edad}} años / {{jugador.Altura}} metros </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{jugador.Perfil}}</span></span>
-
-                                    <div class="prop-info-box">
-
-                                        <div class="prop-info">
-
-                                            <div class="clearfix prop-info-block">
-                                                <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
-                                                <i class="flagicon flag-{{jugador.NacionalidadIso}} icon-th-thumb" title={{jugador.Nacionalidad}}></i>
-                                            </div>
-
-                                            <div class="clearfix prop-info-block middle">
-
-                                                <span class="info-row">Club actual</span>
-                                                <i class="flagclubicon flag-{{jugador.LogClubActual}} icon-th-thumb" title={{jugador.ClubActual}}></i>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-offset-9 col-sm-3">
-                                    <button type="button" class="btn btn-default page-action" ng-click="newAntecedente()" data-toggle="modal" data-target="#myModal">Agregar</button>
+                            <div class="table-search pull-right">
+                                <div class="form-group">
+                                    <a href="#!History/SportsHistory" class="btn btn-default page-action">Agregar</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        <table id="addManageTable" class="table table-striped table-bordered add-manage-table table demo footable-loaded footable" data-filter="#filter" data-filter-text-only="true">
 
-                    <div class="col-md-12 col-xs-12 col-xxs-12">
-                        <div class="adds-wrapper inner-box">
+                            <thead>
+                                <tr>
 
-                            <div class="item-list" ng-repeat="r in antecedentes">
+                                    <th> Club</th>
+                                    <th data-sort-ignore="true"> Información</th>
+                                    <th> Opciones</th>
+                                </tr>
+                            </thead>
 
+                            <tbody>
 
-                                <div class="col-sm-12 add-desc-box">
+                                <tr ng-repeat="a in antecedentes">
 
-                                    <div class="add-details">
+                                    <td style="width:14%" class="add-img-td">
 
-                                        <div class="col-sm-4 add-desc-box center-side">
-
-                                            <h4>
-                                                <span> 	{{r.ClubDescripcion}} </span>
-
-                                            </h4>
-                                            <i class="flagclubicon flag-{{r.ClubLogo}} xl icon-th-thumb" title={{r.ClubDescripcion}}></i>
-                                        </div>
-                                        <div class="col-sm-6 add-desc-box">
-                                            <span class="info-row"> <span class="item-location"> Desde: {{r.FechaInicioText}}  Hasta: {{r.FechaFinText}}</span> </span>
-                                            <span class="info-row"> <span class="item-location"> Partidos: {{r.Partidos}} </span> </span>
-                                            <span class="info-row"> <span class="item-location"> Asistencias: {{r.Asistencias}} </span> </span>
-                                            <span class="info-row"> <span class="item-location"> Goles: {{r.Goles}} </span> </span>
-                                            <span class="info-row"> <span class="item-location"> Información adicional: {{r.InformacionAdicional}} </span> </span>
-                                        </div>
-                                        <div class="col-sm-2 text-right  price-box">
-                                            <a class="btn btn-border-thin  btn-save" data-toggle="modal" data-target="#myModal" title="Editar" ng-click="modifAntecedente(r)">
-                                                <i class="glyphicon glyphicon-edit"></i>
+                                        <div class="add-image col-sm-12">
+                                            <a href="">
+                                                <i class="flagclubicon flag-{{a.ClubLogo}}" alt="Atlético Rafaela" style="width: 60px; height: 60px"></i>
                                             </a>
                                         </div>
-                                    </div>
 
-                                </div>
+                                    </td>
 
-                            </div>
-                        </div>
+                                    <td style="width:58%" class="ads-details-td">
+
+                                        <div class="add-details jobs-item">
+
+                                            <h4 class="job-title"><a href="job-details.html"> {{a.ClubDescripcion}} </a></h4>
+
+                                            <span class="info-row">
+
+                                                <span class="date"><i class="icon-calendar-1"></i>Desde: {{a.FechaInicioText}} </span>
+
+                                                <span class="date"><i class="icon-calendar-1"></i>Hasta: {{a.FechaFinText ? a.FechaFinText : 'Actual'}} </span>
+
+                                            </span>
+
+                                            <div class="job-actions">
+
+                                                <ul class="" style="margin-left:0px">
+
+                                                    <li style="margin-bottom: 5px;">
+                                                        <a href="" class="save-job">
+                                                            <span class="fa fa-handshake-o"></span>
+                                                            Asistencias: {{a.Asistencias ? a.Asistencias : 0 }}
+                                                        </a>
+                                                    </li>
+
+                                                    <li style="margin-bottom: 5px;">
+                                                        <a class="saved-job" href="">
+                                                            <span class="fa fa-futbol-o"></span>
+                                                            Goles: {{a.Goles ? a.Goles : 0}}
+                                                        </a>
+                                                    </li>
+
+                                                    <li style="margin-bottom: 5px;">
+                                                        <a class="email-job" href="">
+                                                            <i class="fa fa-flag"></i>
+                                                            Partidos: {{a.Partidos ? a.Partidos : 0}}
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
+
+                                            <div class="jobs-desc">
+                                                {{a.InformacionAdicional}}
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </td>
+
+                                    <td style="width:10%" class="action-td">
+
+                                        <div>
+                                            <p>
+                                                <a class="btn btn-info btn-xs">
+                                                    <i class="fa fa-pencil"></i> Editar
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <a class="btn btn-danger btn-xs">
+                                                    <i class="fa fa-trash"></i> Borrar
+                                                </a>
+                                            </p>
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
                     </div>
+
                 </div>
 
             </div>
@@ -112,90 +139,4 @@
 
     </div>
 
-    <div id="myModal" class="modal fade" role="dialog">
-
-        <div class="modal-dialog">
-            <form class="form-horizontal" role="form" ng-submit="saveAntecedente()" promise-btn>
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Cargar Información</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Periodo</label>
-                                <div class="col-sm-9 input-group input-daterange">
-                                    <div class="input-group ">
-                                        <input datetimepicker type="text" class="form-control" ng-model="currentantecedente.FechaInicio">
-                                        <div class="input-group-addon"> - </div>
-                                        <input datetimepicker type="text" class="form-control" ng-model="currentantecedente.FechaFin">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <label class="col-sm-3 control-label">Club</label>
-                                <div class="col-sm-1">
-                                    <i class="flagclubicon flag-{{currentantecedente.ClubLogo}} icon-th-thumb" title="Pais"></i>
-                                </div>
-                                <div class="col-sm-8">
-
-                                    <div class="" tabindex="0">
-
-                                        <select ng-model="currentantecedente.ClubLogo" class="form-control"
-                                                name="category" id="search-category" tabindex="-1"
-                                                ng-options="item.Code as item.Nombre for item in clubes">
-
-                                            <option value="" class="selecter-placeholder" selected="">Seleccione Club</option>
-
-                                            <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
-                                                - Club -
-                                            </option>
-
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Partidos</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" placeholder="" ng-model="currentantecedente.Partidos">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Goles</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" placeholder="" ng-model="currentantecedente.Goles">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Asistencias</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" placeholder="" ng-model="currentantecedente.Asistencias">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Información Adicional</label>
-                                <div class="col-sm-9">
-                                    <textarea class="form-control" rows="3" ng-model="currentantecedente.InformacionAdicional">
-
-                                    </textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-6 col-sm-6">
-                                    <button type="submit" class="btn btn-default page-action">Actualizar</button>
-                                    <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </form>
-        </div>
-    </div>
 </div>

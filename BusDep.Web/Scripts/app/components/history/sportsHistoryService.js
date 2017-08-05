@@ -34,6 +34,7 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
 
     };
+
     this.getNewAntecedente = function () {
 
         var deferred = $q.defer();
@@ -47,6 +48,7 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
         });
         return deferred.promise;
     };
+
     this.getClubes = function () {
 
         var deferred = $q.defer();

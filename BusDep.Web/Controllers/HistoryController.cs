@@ -30,11 +30,15 @@ namespace BusDep.Web.Controllers
             return View();
         }
 
+        public ActionResult Antecedente()
+        {
+            return View();
+        }
 
         #endregion
 
         #region Get Functions
-        
+
         [HttpGet]
         public JsonResult GetNewAntecedente()
         {
@@ -51,11 +55,14 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         #endregion
+
         #region Post Functions
+
         public JsonResult SaveAntecedente(AntecedenteViewModel antecedenteViewModel)
         {
-
+            antecedenteViewModel.UsuarioId = authHelper.GetAuthData().Id;
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
             try
             {
@@ -70,6 +77,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         public JsonResult GetClubes()
         {
             try
@@ -84,6 +92,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         public JsonResult GetJugador()
         {
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
@@ -99,6 +108,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         public JsonResult GetAntecedentes()
         {
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
@@ -114,6 +124,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         #endregion
 
 
