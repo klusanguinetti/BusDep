@@ -3,11 +3,12 @@
     Layout = null;
 }
 
-<div class="main-container">
+
+<div class="main-container" >
     <div class="container">
         <div class="row">
-            <div class="col-sm-10 page-content">
-
+            @Html.Partial("_SelfAppraisal")
+            <div class="col-sm-9 page-content">
                 <div class="row">
                     <div class="col-md-12 col-xs-12 col-xxs-12">
                         <div class="adds-wrapper inner-box">
@@ -54,12 +55,14 @@
                                                     <div class="form-group" ng-repeat="det in cab.Detalle">
                                                         <label class="col-sm-5 control-label">{{det.Descripcion}}</label>
                                                         <div class="col-sm-7">
-                                                            <select ng-model="det.Puntuacion" class="form-control"
+                                                            @*<select ng-model="det.Puntuacion" class="form-control"
                                                             name="category" id="search-category" tabindex="-1"
                                                             ng-options="item.Valor as item.Valor for item in puntuacion">
 
                                                             <option value="" class="selecter-placeholder" selected="">- Seleccione -</option>
-                                                            </select>
+                                                            </select>*@
+                                                            <slider slider-id="slider{{det.Id}}" provide="slider" min="0"
+                                                                    max="5" step="1" ng-model="det.Puntuacion" value="det.Puntuacion"/>
 
                                                         </div>
                                                     </div>

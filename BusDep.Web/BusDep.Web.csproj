@@ -161,6 +161,7 @@
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootsnav.css" />
     <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-slider.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\club-flags-icon.css" />
@@ -619,6 +620,7 @@
     <Content Include="Scripts\app\components\search\searchService.js" />
     <Content Include="Scripts\app\shared\directives\datetimepicker.js" />
     <Content Include="Scripts\app\shared\factories\authInterceptorService.js" />
+    <Content Include="Scripts\app\shared\factories\slider.js" />
     <Content Include="Scripts\app\shared\factories\authService.js" />
     <Content Include="Scripts\vendor\angular\angular-animate.js" />
     <Content Include="Scripts\vendor\angular\angular-animate.min.js" />
@@ -638,6 +640,7 @@
     <Content Include="Scripts\app\components\account\loginController.js" />
     <Content Include="Scripts\app\components\index\indexController.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\vendor\boostrap\bootstrap-slider.min.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -1435,6 +1438,8 @@
     <Content Include="Views\Evaluation\SelfAppraisal.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\History\Antecedente.cshtml" />
+    <Content Include="Views\Shared\_SportsHistory.cshtml" />
+    <Content Include="Views\Shared\_SelfAppraisal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
