@@ -592,6 +592,7 @@
     <Content Include="Content\owl.theme.css" />
     <Content Include="Content\please-wait.css" />
     <Content Include="Content\promise-buttom\promise-buttom.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\ui-carousel.min.css" />
     <Content Include="favicon.ico" />
@@ -608,6 +609,7 @@
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalController.js" />
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalService.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryController.js" />
+    <Content Include="Scripts\app\components\history\sportsHistoryListController.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
@@ -1431,6 +1433,8 @@
     <Content Include="Views\Home\HomeContent.cshtml" />
     <Content Include="Views\History\SportsHistory.cshtml" />
     <Content Include="Views\Evaluation\SelfAppraisal.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\History\Antecedente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

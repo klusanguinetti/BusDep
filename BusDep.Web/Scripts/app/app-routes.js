@@ -40,8 +40,17 @@
                 }
             }
         })
-        .when('/History/SportsHistory', {
+        .when('/History/SportsHistory/List', {
             templateUrl: '/History/SportsHistory',
+            controller: 'sportsHistoryListController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+        .when('/History/SportsHistory', {
+            templateUrl: '/History/Antecedente',
             controller: 'sportsHistoryController',
             resolve: {
                 permission: function (authService) {
