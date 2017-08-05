@@ -149,7 +149,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Provincia</label>
                                             <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon"><i class="fa fa-flag-o s16"></i></span>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-flag-o s16"></i></span>
                                                 <input class="form-control" placeholder="Buenos Aires" ng-model="datosPersonales.Provincia">
                                             </div>
                                         </div>
@@ -157,7 +157,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Ciudad</label>
                                             <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon"><i class="fa fa-flag-o s16"></i></span>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-flag-o s16"></i></span>
                                                 <input class="form-control" placeholder="Capital" ng-model="datosPersonales.Ciudad">
                                             </div>
                                         </div>
@@ -165,7 +165,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Dirección</label>
                                             <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon"><i class="fa fa-home s16"></i></span>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-home s16"></i></span>
                                                 <input type="text" class="form-control" placeholder="Santa Fe 3000" ng-model="datosPersonales.Direccion">
                                             </div>
                                         </div>
@@ -173,7 +173,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Código postal</label>
                                             <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon"><i class="fa fa-barcode s16"></i></span>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-barcode s16"></i></span>
                                                 <input type="text" class="form-control" placeholder="1217" ng-model="datosPersonales.CodigoPostal">
                                             </div>
                                         </div>
@@ -181,7 +181,7 @@
                                         <div class="form-group">
                                             <label for="Phone" class="col-sm-3 control-label">Teléfono</label>
                                             <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon"><i class="fa fa-phone s16"></i></span>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-phone s16"></i></span>
                                                 <input type="text" class="form-control" id="Phone" placeholder="880 124 9820" ng-model="datosPersonales.Telefono">
                                             </div>
                                         </div>
@@ -236,7 +236,7 @@
                                             <label for="Information" class="col-sm-3 control-label">Dinos algo sobre ti</label>
 
                                             <div class="col-sm-offset-3 col-sm-9 input-group input-icon">
-                                                    <span class="input-group-addon"><i class="fa fa-info-circle s16"></i></span>
+                                                    <span class="input-group-addon bgtransparent"><i class="fa fa-info-circle s16"></i></span>
                                                     <textarea ng-model="datosPersonales.Informacion" class="form-control" rows="4"></textarea>
 
                                                 </div>
@@ -415,7 +415,8 @@
 
                                             <label class="col-sm-3 control-label">Contraseña actual</label>
 
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-9 input-group input-icon">
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-lock s16"></i></span>
                                                 <input name="oldPassword" type="password" class="form-control" placeholder="Repite tu contraseña actual"
                                                        ng-model="loginData.OldPassword" ng-minlength="6" required>
                                             </div>
@@ -431,7 +432,8 @@
 
                                             <label class="col-sm-3 control-label">Nueva Contraseña</label>
 
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-9 input-group input-icon">
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-lock s16"></i></span>
                                                 <input name="password" type="password" class="form-control" placeholder="Introduce tu nueva contraseña"
                                                        ng-model="loginData.NewPassword" ng-minlength="6" required>
                                             </div>

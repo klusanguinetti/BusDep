@@ -8,7 +8,7 @@
             <div class="col-sm-5 login-box">
                 <div class="panel panel-default">
                     <div class="panel-intro text-center">
-                        <img alt="img" class="img-responsive" src="~/Content/img/Logo250.png" style="display: inline;"> 
+                        <img alt="img" class="img-responsive" src="~/Content/img/Logo250.png" style="display: inline;">
                     </div>
                     <div class="panel-body">
 
@@ -18,8 +18,9 @@
 
                                 <label for="sender-email" class="control-label">Email:</label>
 
-                                <div class="input-icon">
-                                    <i class="icon-user fa"></i>
+                                <div class="input-group input-icon">
+                                    <span class="input-group-addon bgtransparent"><i class="icon-user fa"></i></span>
+                                    @*<i class="icon-user fa"></i>*@
                                     <input name="email" type="email" placeholder="Email" class="form-control email" data-ng-model="loginData.mail" required autofocus>
                                 </div>
 
@@ -33,9 +34,8 @@
                             <div class="form-group" ng-class="{ 'has-error': (loginForm.password.$touched && loginForm.password.$invalid) || (loginForm.$submitted && loginForm.password.$invalid)}">
 
                                 <label for="user-pass" class="control-label">Contraseña:</label>
-
-                                <div class="input-icon">
-                                    <i class="icon-lock fa"></i>
+                                <div class="input-group input-icon">
+                                    <span class="input-group-addon bgtransparent"><i class="icon-lock fa"></i></span>
                                     <input type="password" class="form-control" placeholder="Contraseña" required name="password" data-ng-model="loginData.password" ng-minlength="6">
                                 </div>
 

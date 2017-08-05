@@ -2248,15 +2248,18 @@ div.login-box .panel-footer label {
     padding-right: 5px;
 }
 
-.input-icon {
+.bgtransparent {
+    background-color: transparent;
+}
+/*.input-icon {
     position: relative;
 }
 
-/*.input-icon input {
+.input-icon input {
     padding-left: 45px;
-}*/
+}
 
-/*.input-icon i {
+.input-icon i {
     font-size: 16px;
     left: 6px;
     line-height: 22px;
