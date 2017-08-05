@@ -67,9 +67,13 @@
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
                                     <ul>
+                                        <li>
+                                            <input type="radio" value='' id="tipo_pie_0" name="tipo_pie" ng-click="clearSelect(pies)" >
+                                            <label for="tipo_pie_0">Todos</label>
+                                        </li>
                                         <li ng-repeat="item in pies">
-                                            <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
-                                            <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
+                                            <input type="radio" id="tipo_pie_{{item.Descripcion}}" name="tipo_pie" ng-click="selectItem(pies,item)">
+                                            <label for="tipo_pie_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
                                 </div>
@@ -77,9 +81,13 @@
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
                                     <ul>
+                                        <li>
+                                            <input type="radio" value='' id="tipo_puesto_0" name="tipo_puesto" ng-click="clearSelect(puestos)" >
+                                            <label for="tipo_puesto_0">Todos</label>
+                                        </li>
                                         <li ng-repeat="item in puestos">
-                                            <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
-                                            <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
+                                            <input type="radio" id="tipo_puesto_{{item.Descripcion}}" name="tipo_puesto" ng-click="selectItem(puestos,item)">
+                                            <label for="tipo_puesto_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
                                 </div>
@@ -87,12 +95,15 @@
                                 <div class="list-filter">
                                     <h5 class="list-title"><strong><a href="#">Tipo de Perfil</a></strong></h5>
                                     
-
                                     <div class="filter-date filter-content" >
                                         <ul>
+                                            <li>
+                                                <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(perfiles)" >
+                                                <label for="tipo_perfil_0">Todos</label>
+                                            </li>
                                             <li ng-repeat="item in perfiles">
-                                                <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
-                                                <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
+                                                <input type="radio" id="tipo_perfil_{{item.Descripcion}}" name="tipo_perfil" ng-click="selectItem(perfiles,item)">
+                                                <label for="tipo_perfil_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -102,8 +113,12 @@
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
                                     <ul>
+                                        <li>
+                                            <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(fichajes)" >
+                                            <label for="tipo_perfil_0">Todos</label>
+                                        </li>
                                         <li ng-repeat="item in fichajes">
-                                            <input type="checkbox" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-model="item.Selected">
+                                            <input type="radio" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-click="selectItem(perfiles,item)">
                                             <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
