@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular-busy\angular-busy.min.css" />
+    <Content Include="Content\angular-flash\angular-flash.min.css" />
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layout-attributes.css" />
     <Content Include="Content\angular-material.layout-attributes.min.css" />
@@ -1399,6 +1400,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\vendor\custom\angular-busy.min.js" />
+    <Content Include="Scripts\vendor\custom\angular-flash.min.js" />
     <Content Include="Scripts\vendor\custom\Chart.min.js" />
     <Content Include="Scripts\vendor\custom\hideMaxListItem.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.js" />

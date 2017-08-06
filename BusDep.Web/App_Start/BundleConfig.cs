@@ -44,6 +44,7 @@ namespace BusDep.Web
                 "~/Content/ngDialog/ngDialog-theme-default.min.css",
                 "~/Content/angular-toast/angular-toastr.min.css",
                 "~/Content/angular-busy/angular-busy.min.css",
+                "~/Content/angular-flash/angular-flash.min.css",
                 "~/Content/style.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
@@ -59,8 +60,9 @@ namespace BusDep.Web
                 "~/Scripts/vendor/custom/loading-bar.min.js",
                 "~/Scripts/vendor/custom/ui-carousel.min.js",
                 "~/Scripts/vendor/custom/ngDialog.min.js",
+                "~/Scripts/vendor/custom/angular-flash.min.js",
                 "~/Scripts/vendor/custom/angular-busy.min.js"));
-            
+
 
             // Angular Bundle
 

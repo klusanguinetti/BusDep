@@ -24,7 +24,7 @@
                             <div class="panel-heading">
 
                                 <h4 class="panel-title">
-                                    <a href="#collapseB1" data-toggle="collapse">
+                                    <a href="" data-toggle="collapse">
                                         Información requerida
                                     </a>
                                 </h4>
@@ -35,9 +35,9 @@
 
                                 <div class="panel-body">
 
-                                    <form class="form-horizontal" role="form" ng-submit="saveAntecedente()" promise-btn name="antecedenteForm">
+                                    <form class="form-horizontal" role="form" ng-submit="saveAntecedente()" promise-btn name="antecedenteForm" novalidate="">
 
-                                        <div class="form-group">
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.club.$touched && antecedenteForm.club.$invalid) || (antecedenteForm.$submitted && antecedenteForm.club.$invalid)}">
 
                                             <label class="col-sm-3 control-label">¿En que club jugaste?</label>
 
@@ -46,8 +46,8 @@
                                                 <div class="" tabindex="0">
 
                                                     <select ng-model="antecedente.ClubLogo" class="form-control"
-                                                            name="category" id="search-category" tabindex="-1"
-                                                            ng-options="item.Code as item.Nombre for item in clubes">
+                                                            name="club" id="search-category" tabindex="-1"
+                                                            ng-options="item.Code as item.Nombre for item in clubes" required>
 
                                                         <option value="" class="selecter-placeholder" selected=""> Seleccione un club</option>
 
@@ -61,60 +61,121 @@
 
                                             </div>
 
+                                            <div class="col-sm-3 input-group date"></div>
+
+                                            <div class="help-block col-sm-9" ng-messages="antecedenteForm.club.$error" ng-if="antecedenteForm.club.$touched || antecedenteForm.$submitted">
+                                                <p ng-message="required">Selecciona el club donde jugaste.</p>
+                                            </div>
+
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.fechaDesde.$touched && antecedenteForm.fechaDesde.$invalid) || (antecedenteForm.$submitted && antecedenteForm.fechaDesde.$invalid)}">
 
                                             <label class="col-sm-3 control-label">Fecha inicio</label>
 
                                             <div class="col-sm-9 input-group date">
-                                                <input datetimepicker type="text" class="form-control"
-                                                       placeholder="¿Cuando comenzaste a jugar?" ng-model="antecedente.FechaInicio">
+
+                                                <input datetimepicker type="text" class="form-control" name="fechaDesde"
+                                                       placeholder="¿Cuando comenzaste a jugar?" ng-model="antecedente.FechaInicio" required>
+
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
+
                                             </div>
+
+                                            <div class="col-sm-3 input-group date">       </div>
+
+                                            <div class="help-block col-sm-9" ng-messages="antecedenteForm.fechaDesde.$error" ng-if="antecedenteForm.fechaDesde.$touched || antecedenteForm.$submitted">
+                                                <p ng-message="required">Introduce la fecha desde que empezaste a jugar.</p>
+                                            </div>
+
                                         </div>
 
                                         <div class="form-group">
+
                                             <label class="col-sm-3 control-label">Fecha fin</label>
-                                            <div class="col-sm-9 input-group date">
+
+                                            <div class="col-sm-7 input-group date">
+
                                                 <input datetimepicker type="text" class="form-control"
-                                                       placeholder="¿Cuando terminaste de jugar?" ng-model="antecedente.FechaFin">
+                                                       placeholder="¿Cuando terminaste de jugar?" ng-model="antecedente.FechaFin" ng-disabled="outcome.fechaFinCheck">
+
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
+
                                             </div>
+
+                                            <div class="col-sm-2 input-group date">
+
+                                                <div class="checkbox">
+                                                    <label for="checkboxes-0">
+                                                        <input name="checkboxe" type="checkbox" ng-model="outcome.fechaFinCheck" ng-change="cleanInput()">
+                                                       Actualidad
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.goles.$touched && antecedenteForm.goles.$invalid) || (antecedenteForm.$submitted && antecedenteForm.goles.$invalid)}">
+
                                             <label class="col-sm-3 control-label">Goles</label>
+
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="¿Cuantos goles anotaste?" ng-model="antecedente.Goles">
+                                                <input type="number" name="goles" class="form-control" placeholder="¿Cuantos goles anotaste?" ng-model="antecedente.Goles" required>
+
+                                                <div class="help-block col-sm-9" ng-messages="antecedenteForm.goles.$error" ng-if="antecedenteForm.goles.$touched || antecedenteForm.$submitted">
+                                                    <p ng-message="required">Indica la cantidad de goles anotados en tu periodo.</p>
+                                                </div>
+
                                             </div>
+
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.partidos.$touched && antecedenteForm.partidos.$invalid) || (antecedenteForm.$submitted && antecedenteForm.partidos.$invalid)}">
+
                                             <label for="Phone" class="col-sm-3 control-label">Partidos</label>
+
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="Phone" placeholder="¿Cuantos partidos jugaste?" ng-model="antecedente.Partidos">
+
+                                                <input type="number" name="partidos" class="form-control" id="Phone" placeholder="¿Cuantos partidos jugaste?" ng-model="antecedente.Partidos" required>
+
+                                                <div class="help-block col-sm-9" ng-messages="antecedenteForm.partidos.$error" ng-if="antecedenteForm.partidos.$touched || antecedenteForm.$submitted">
+                                                    <p ng-message="required">Indica la cantidad de partidos jugados en tu periodo.</p>
+                                                </div>
+
                                             </div>
+
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.asistencias.$touched && antecedenteForm.asistencias.$invalid) || (antecedenteForm.$submitted && antecedenteForm.asistencias.$invalid)}">
+
                                             <label class="col-sm-3 control-label">Asistencias</label>
+
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="¿Cuantas asistencias hiciste?" ng-model="antecedente.Asistencias">
+
+                                                <input type="number" name="asistencias" class="form-control" placeholder="¿Cuantas asistencias hiciste?" ng-model="antecedente.Asistencias" required>
+
+                                                <div class="help-block col-sm-9" ng-messages="antecedenteForm.asistencias.$error" ng-if="antecedenteForm.asistencias.$touched || antecedenteForm.$submitted">
+                                                    <p ng-message="required">Indica la cantidad de asistencias realizadas en tu periodo.</p>
+                                                </div>
+
                                             </div>
+
                                         </div>
 
                                         <div class="form-group">
+
                                             <label class="col-sm-3 control-label">Información</label>
+
                                             <div class="col-sm-9">
                                                 <textarea ng-model="antecedente.Informacion" placeholder="Coloca cualquier información relevante de tu periodo." class="form-control" rows="4"></textarea>
                                             </div>
-                                        </div>
 
+                                        </div>
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-3 col-sm-9"></div>
@@ -123,8 +184,11 @@
                                         <div class="form-group">
 
                                             <div class="col-sm-offset-3 col-sm-9">
+
                                                 <a href="#!History/SportsHistory/List" class="btn btn-default">Volver</a>
+
                                                 <button type="submit" class="btn btn-default page-action">Agregar</button>
+
                                             </div>
 
                                         </div>
