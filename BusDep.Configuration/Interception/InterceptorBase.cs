@@ -72,7 +72,7 @@ namespace BusDep.Configuration.Interception
         {
             if (result.Exception != null && !(result.Exception is IExceptionCode))
             {
-                LogError logError = new LogError { Modulo = input.Target.GetType().Name, Descripcion = result.Exception.SerializarToJson() };
+                LogError logError = new LogError { Modulo = input.Target.GetType().Name, Descripcion = result.Exception.ToString() };
                 DependencyFactory.Resolve<IBaseDA<LogError>>().Save(logError);
                 result.Exception = new ExceptionBusiness(-99, "A ocurrido un error por favor intente más tarde",
                     this.GenerarInformacionTecnica(result, input), result.Exception);
