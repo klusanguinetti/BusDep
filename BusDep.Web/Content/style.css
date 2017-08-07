@@ -4794,3 +4794,11 @@ h1.titleevaluacion span {
     box-sizing: border-box;
     border-radius: 4px;*/
 }
+
+.alert.ng-leave {
+  opacity: 1;
+  transition: opacity 1.5s ease-out;
+}
+.alert.ng-leave-active {
+  opacity: 0;
+}

@@ -40,7 +40,7 @@
                 }
             }
         })
-        .when('/History/SportsHistory/List', {
+        .when('/History/SportsHistory/List/:result?', {
             templateUrl: '/History/SportsHistory',
             controller: 'sportsHistoryListController',
             resolve: {
@@ -49,7 +49,7 @@
                 }
             }
         })
-        .when('/History/SportsHistory', {
+        .when('/History/SportsHistory/:id?', {
             templateUrl: '/History/Antecedente',
             controller: 'sportsHistoryController',
             resolve: {

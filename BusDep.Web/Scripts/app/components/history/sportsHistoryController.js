@@ -1,5 +1,5 @@
-﻿app.controller('sportsHistoryController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr','$filter','$location',
-function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $location) {
+﻿app.controller('sportsHistoryController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr','$filter','$location','$routeParams',
+function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $location, $routeParams) {
 
 
     $scope.clubes = {};
@@ -11,6 +11,22 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
     };
 
     angular.element(function () {
+
+        var antecedenteId = $routeParams.id;
+
+        if (antecedenteId != null) {
+
+            return sportsHistoryService.getAntecedenteById(antecedenteId).then(function (response) {
+
+              
+
+            }).catch(function (err) {
+
+                toastr.error('¡Error desconocido! ', 'Error');
+
+            });
+
+        } 
 
         $http.get('json/Clubes.json').then(function (data) {
             $scope.clubes = data.data;
@@ -32,7 +48,7 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
 
             return sportsHistoryService.saveAntecedente($scope.antecedente).then(function (response) {
 
-                $location.path('/History/SportsHistory/List');
+                $location.path('/History/SportsHistory/List').search({result: 'success'});
 
             }).catch(function (err) {
 

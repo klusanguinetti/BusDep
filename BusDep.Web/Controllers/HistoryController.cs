@@ -125,6 +125,23 @@ namespace BusDep.Web.Controllers
             }
         }
 
+
+        public JsonResult GetAntecedentesById(long Id)
+        {
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+            try
+            {
+                var antecedentes = business.ObtenerAntecedenteViewModel(Id);
+                Response.StatusCode = 200;
+                return new JsonResult { Data = antecedentes, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
         #endregion
 
 

@@ -35,6 +35,22 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
     };
 
+    this.getAntecedenteById = function (antecedenteId) {
+
+        var deferred = $q.defer();
+
+        $http.post(serviceBase + 'GetAntecedentes?Id=' + antecedenteId).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+
+    };
+
     this.getNewAntecedente = function () {
 
         var deferred = $q.defer();
