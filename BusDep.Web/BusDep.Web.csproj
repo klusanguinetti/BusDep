@@ -1405,6 +1405,7 @@
     <Content Include="Scripts\vendor\custom\angular-flash.min.js" />
     <Content Include="Scripts\vendor\custom\Chart.min.js" />
     <Content Include="Scripts\vendor\custom\hideMaxListItem.js" />
+    <Content Include="Scripts\vendor\custom\moment-with-locales.min.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.min.js" />
     <Content Include="Scripts\vendor\jquery\jquery.fs.scroller.js" />

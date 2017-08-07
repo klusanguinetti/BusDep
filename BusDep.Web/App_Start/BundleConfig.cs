@@ -19,7 +19,7 @@ namespace BusDep.Web
                 "~/Scripts/vendor/boostrap/bootstrap-slider.min.js",
                 "~/Scripts/vendor/custom/please-wait.min.js",
                 "~/Scripts/vendor/custom/owl.carousel.min.js",
-                "~/Scripts/vendor/custom/moment.min.js",
+                "~/Scripts/vendor/custom/moment-with-locales.min.js",
                 "~/Scripts/vendor/custom/Chart.min.js",
                 "~/Scripts/vendor/custom/hideMaxListItem.js",
                 "~/Scripts/vendor/boostrap/bootstrap-datetimepicker.min.js",
