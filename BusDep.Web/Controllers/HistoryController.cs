@@ -131,7 +131,7 @@ namespace BusDep.Web.Controllers
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
             try
             {
-                var antecedentes = business.ObtenerAntecedenteViewModel(Id);
+                var antecedentes = business.ObtenerAntecedenteViewModel(Id, authHelper.GetAuthData().Id);
                 Response.StatusCode = 200;
                 return new JsonResult { Data = antecedentes, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

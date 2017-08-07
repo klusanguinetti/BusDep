@@ -93,10 +93,10 @@
                     }).ToList();
         }
 
-        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId)
+        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long userId)
         {
             return (from ant in Session.Query<Antecedente>()
-                    where ant.Id.Equals(antecedenteId)
+                    where ant.Id.Equals(antecedenteId) && ant.Usuario.Id.Equals(userId)
                     select new AntecedenteViewModel
                     {
                         Asistencias = ant.Asistencias,

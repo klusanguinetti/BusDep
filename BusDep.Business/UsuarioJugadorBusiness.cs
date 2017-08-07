@@ -115,9 +115,9 @@ namespace BusDep.Business
             return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(userView.Id);
         }
 
-        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId)
+        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long userId)
         {
-            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedenteViewModel(antecedenteId);
+            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedenteViewModel(antecedenteId, userId);
         }
 
         public virtual AntecedenteViewModel NuevoAntecedenteViewModel(UsuarioViewModel userView)

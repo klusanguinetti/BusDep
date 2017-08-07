@@ -10,7 +10,7 @@ namespace BusDep.IBusiness
         void ActualizarDatosJugador(JugadorViewModel jugadorView);
         JugadorViewModel ObtenerJugador(UsuarioViewModel userView);
         List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView);
-        AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId);
+        AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long userId);
         AntecedenteViewModel NuevoAntecedenteViewModel(UsuarioViewModel userView);
         AntecedenteViewModel GuardarAntecedenteViewModel(AntecedenteViewModel antecedente);
     }

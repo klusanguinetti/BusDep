@@ -49,7 +49,7 @@
                 }
             }
         })
-        .when('/History/SportsHistory/List/:result?', {
+        .when('/History/SportsHistory/List/:action?/:result?', {
             templateUrl: '/History/SportsHistory',
             controller: 'sportsHistoryListController',
             resolve: {

@@ -1,4 +1,4 @@
-﻿app.controller('sportsHistoryController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr','$filter','$location','$routeParams',
+﻿app.controller('sportsHistoryController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr', '$filter', '$location', '$routeParams',
 function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $location, $routeParams) {
 
 
@@ -6,19 +6,51 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
 
     $scope.antecedente = {};
 
+    $scope.titulo = "";
+
     $scope.outcome = {
         fechaFinCheck: false
     };
 
+    var action = "add";
+
     angular.element(function () {
+
+        $http.get('json/Clubes.json').then(function (data) {
+            $scope.clubes = data.data;
+        });
 
         var antecedenteId = $routeParams.id;
 
+        $scope.titulo = "Agregar nuevo antecedente deportivo";
+
         if (antecedenteId != null) {
+
+            $scope.titulo = "Editar antecedente deportivo";
+
+            action = "edit";
 
             return sportsHistoryService.getAntecedenteById(antecedenteId).then(function (response) {
 
-              
+                if (response.data == "") {
+                    $location.path('/History/SportsHistory/List').search({ action: action, result: 'notFound' });
+                }
+
+                $scope.antecedente = response.data;
+
+                var FechaInicio = moment(response.data.FechaInicio).format("DD/MM/YYYY");
+
+                $scope.antecedente.FechaInicio = FechaInicio;
+
+                if (response.data.FechaFin != null) {
+
+                    var FechaFin = moment(response.data.FechaFin).format("DD/MM/YYYY");
+
+                    $scope.antecedente.FechaFin = FechaFin;
+
+                } else {
+                    $scope.outcome.fechaFinCheck = true;
+                }
 
             }).catch(function (err) {
 
@@ -26,11 +58,8 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
 
             });
 
-        } 
+        }
 
-        $http.get('json/Clubes.json').then(function (data) {
-            $scope.clubes = data.data;
-        });
 
     });
 
@@ -48,7 +77,7 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
 
             return sportsHistoryService.saveAntecedente($scope.antecedente).then(function (response) {
 
-                $location.path('/History/SportsHistory/List').search({result: 'success'});
+                $location.path('/History/SportsHistory/List').search({ action: action, result: 'success' });
 
             }).catch(function (err) {
 

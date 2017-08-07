@@ -39,7 +39,7 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'GetAntecedentes?Id=' + antecedenteId).then(function (response) {
+        $http.post(serviceBase + 'GetAntecedentesById?Id=' + antecedenteId).then(function (response) {
 
             deferred.resolve(response);
 
