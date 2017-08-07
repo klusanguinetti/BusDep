@@ -19,6 +19,8 @@ namespace BusDep.ViewModel
         [DataMember]
         public long? PuestoId { get; set; }
         [DataMember]
+        public string PuestoCodigo { get; set; }
+        [DataMember]
         public long UsuarioId { get; set; }
         [DataMember]
         public string Nacionalidad { get; set; }

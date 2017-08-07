@@ -10,3 +10,39 @@ NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusD
    en JugadorProxy.get_Usuario()
    en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Users\luisb\Desktop\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 23
    en DynamicModule.ns.Wrapped_BusquedaBusiness_fe796070a1d943758f2567a3580f133e.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 10 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70
+Metodo: ObtenerPerfil
+Parametros: [14]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#14]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.DefaultLazyInitializer.Intercept(InvocationInfo info)
+   en JugadorProxy.get_Usuario()
+   en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 23
+   en DynamicModule.ns.Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 10 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70
+Metodo: ObtenerPerfil
+Parametros: [14]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#14]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.DefaultLazyInitializer.Intercept(InvocationInfo info)
+   en JugadorProxy.get_Usuario()
+   en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 23
+   en DynamicModule.ns.Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 15 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70
+Metodo: ObtenerPerfil
+Parametros: [14]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#14]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.DefaultLazyInitializer.Intercept(InvocationInfo info)
+   en JugadorProxy.get_Usuario()
+   en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 23
+   en DynamicModule.ns.Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

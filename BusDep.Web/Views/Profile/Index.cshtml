@@ -26,26 +26,45 @@
 
             <div class="col-sm-9 page-content col-thin-right">
 
+
                 <div class="inner inner-box ads-details-wrapper">
+
                     <div>
                         <h2> {{datosPerfil.Nombre}} {{datosPerfil.Apellido}} - {{datosPerfil.PuestoDescripcion}}</h2>
 
                         <span class="info-row"> <span class="date"><i class="icon-clock"> </i> Miembro desde: Febrero 2016 </span> - <span class="item-Ubicación"><i class="fa fa-map-marker"></i> {{datosPerfil.Pais}}</span> </span>
                     </div>
-                    <aside class="panel panel-body panel-details job-summery">
-
+                <aside class="panel panel-body panel-details job-summery">
+                    <div class="col-md-9 col-sm-9">
                         <ul>
-                            <li><p class="no-margin"><strong>Nacionalidad:</strong> {{datosPerfil.Nacionalidad}} </p></li>
-                            <li><p class="no-margin "><strong>Fecha de nacimiento:</strong> {{datosPerfil.FechaNacimiento}} </p></li>
                             <li>
-                                <p class="no-margin "><strong>Altura:</strong> {{datosPerfil.Altura}} Mts</p>
+                                <p class="no-margin">
+                                    <strong>Nacionalidad:</strong> {{datosPerfil.Nacionalidad}}
+                                </p>
                             </li>
                             <li>
-                                <p class="no-margin"><strong>Peso:</strong> {{datosPerfil.Peso}} Kg</p>
+                                <p class="no-margin ">
+                                    <strong>Fecha de nacimiento:</strong> {{datosPerfil.FechaNacimiento}}
+                                </p>
+                            </li>
+                            <li>
+                                <p class="no-margin ">
+                                    <strong>Altura:</strong> {{datosPerfil.Altura}} Mts
+                                </p>
+                            </li>
+                            <li>
+                                <p class="no-margin">
+                                    <strong>Peso:</strong> {{datosPerfil.Peso}} Kg
+                                </p>
                             </li>
                         </ul>
                         <p>{{datosPerfil.Informacion}}</p>
-                    </aside>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <span><i class="flagpuestoicon flag-{{datosPerfil.PuestoCodigo}}"> </i> </span>
+                    </div>
+                </aside>
+
 
                     <div class="Ads-Details ">
 
@@ -53,7 +72,7 @@
 
                             <div class="ads-details-info jobs-details-info col-md-12">
 
-                                
+
 
                                 <h4 class="text-uppercase ">Antecedentes deportivos</h4>
 
@@ -85,23 +104,23 @@
 
                                                 <div class="job-actions">
 
-                                                    <ul class="" style="margin-left:0px">
+                                                    <ul class="" style="margin-left: 0px">
 
-                                                        <li  style="margin-bottom: 5px;">
+                                                        <li style="margin-bottom: 5px;">
                                                             <a href="" class="save-job">
                                                                 <span class="fa fa-handshake-o"></span>
                                                                 Asistencias: {{r.Asistencias ? r.Asistencias : 0 }}
                                                             </a>
                                                         </li>
 
-                                                        <li  style="margin-bottom: 5px;">
+                                                        <li style="margin-bottom: 5px;">
                                                             <a class="saved-job" href="">
                                                                 <span class="fa fa-futbol-o"></span>
                                                                 Goles: {{r.Goles ? r.Goles : 0}}
                                                             </a>
                                                         </li>
 
-                                                        <li  style="margin-bottom: 5px;">
+                                                        <li style="margin-bottom: 5px;">
                                                             <a class="email-job" href="">
                                                                 <i class="fa fa-flag"></i>
                                                                 Partidos: {{r.Partidos ? r.Partidos : 0}}
@@ -137,26 +156,28 @@
 
                                             @*<div class="add-details jobs-item">*@
 
-                                                <h3 class="job-title"><a> {{r.Descripcion}} </a></h3>
+                                            <h3 class="job-title">
+                                                <a> {{r.Descripcion}} </a>
+                                            </h3>
 
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                            <div class="col-md-9 col-sm-9 col-xs-9">
 
-                                                    @*<div>*@
+                                                @*<div>*@
 
-                                                        <canvas id="radar{{r.Id}}" class="chart chart-radar"width="370"
-                                                                height="180" colours="color.colours"
-                                                                chart-data="r.Values"
-                                                                chart-labels="r.Labels"></canvas>
-                                                        
-                                                        @*<canvas id="radar" class="chart chart-radar" data="data[$index].data"></canvas>*@
-                                                        @*<canvas data-sys-chart-radar
-                                                                data="data[$index]"
-                                                                width="600"
-                                                                height="240"></canvas>*@
-                                                    @*</div>*@
-                                                    
+                                                <canvas id="radar{{r.Id}}" class="chart chart-radar" width="370"
+                                                        height="180" colours="color.colours"
+                                                        chart-data="r.Values"
+                                                        chart-labels="r.Labels"></canvas>
 
-                                                    @*<ul class="" style="margin-left:0px" ng-repeat="re in r.Detalle">
+                                                @*<canvas id="radar" class="chart chart-radar" data="data[$index].data"></canvas>*@
+                                                @*<canvas data-sys-chart-radar
+                                                    data="data[$index]"
+                                                    width="600"
+                                                    height="240"></canvas>*@
+                                                @*</div>*@
+
+
+                                                @*<ul class="" style="margin-left:0px" ng-repeat="re in r.Detalle">
 
                                                         <li style="margin-bottom: 5px;">
                                                             <a href="" class="save-job">
@@ -167,7 +188,7 @@
 
                                                     </ul>*@
 
-                                                </div>
+                                            </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
 
                                                 <h1 class="titleevaluacion">
@@ -197,7 +218,7 @@
 
                             <div class="col-md-12">
 
-                                
+
 
                                 <div class="ads-action">
 
@@ -248,7 +269,7 @@
 
                         <div class="user-ads-action">
                             <a href="" data-toggle="modal" class="btn  btn-primary btn-block"> <i class="icon-mail-2"></i> Contactar este perfil </a>
-                           
+
                         </div>
 
                     </div>

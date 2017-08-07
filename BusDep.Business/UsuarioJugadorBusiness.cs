@@ -188,6 +188,11 @@ namespace BusDep.Business
             throw new ExceptionBusiness(1, "No existe Jugador");
         }
 
+        public virtual void BorrarAntecedentes(AntecedenteViewModel antecedenteViewModel)
+        {
+            var antecedente = DependencyFactory.Resolve<IBaseDA<Antecedente>>().GetById(antecedenteViewModel.Id);
+            DependencyFactory.Resolve<IBaseDA<Antecedente>>().Delete(antecedente);
+        }
 
     }
 }

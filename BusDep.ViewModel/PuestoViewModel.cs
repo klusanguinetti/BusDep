@@ -15,5 +15,7 @@ namespace BusDep.ViewModel
         public string Descripcion { get; set; }
         [DataMember]
         public string PuestoEspecifico { get; set; }
+        [DataMember]
+        public string Codigo { get; set; }
     }
 }

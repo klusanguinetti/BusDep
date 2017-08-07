@@ -40,6 +40,7 @@ namespace BusDep.Web
                 "~/Content/bootstrap-datetimepicker.css",
                 "~/Content/club-flags-icon.css",
                 "~/Content/ui-carousel.min.css",
+                "~/Content/puestos-flags-icon.css",
                 "~/Content/ngDialog/ngDialog.css",
                 "~/Content/ngDialog/ngDialog-theme-default.min.css",
                 "~/Content/angular-toast/angular-toastr.min.css",

@@ -1,0 +1,61 @@
+.flagpuestoicon {
+    display: inline-block;
+    width: 140px;
+    height: 189px;
+    text-align: left;
+    text-indent: -999em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+    .flagpuestoicon.xl {
+        width: 200px;
+        height: 270px;
+    }
+
+    .flagpuestoicon.xs {
+        width: 50px;
+        height: 68px;
+    }
+    .flagpuestoicon.flag- {
+        background-image: url('../Content/img/Puestos/Cancha.png');
+    }
+    .flagpuestoicon.flag-ar {
+        background-image: url('../Content/img/Puestos/ar.png');
+    }
+
+    .flagpuestoicon.flag-dc {
+        background-image: url('../Content/img/Puestos/dc.png');
+    }
+
+    .flagpuestoicon.flag-dd {
+        background-image: url('../Content/img/Puestos/dd.png');
+    }
+
+    .flagpuestoicon.flag-di {
+        background-image: url('../Content/img/Puestos/di.png');
+    }
+
+    .flagpuestoicon.flag-ec {
+        background-image: url('../Content/img/Puestos/ec.png');
+    }
+
+    .flagpuestoicon.flag-ed {
+        background-image: url('../Content/img/Puestos/ed.png');
+    }
+
+    .flagpuestoicon.flag-ei {
+        background-image: url('../Content/img/Puestos/ei.png');
+    }
+
+    .flagpuestoicon.flag-mc {
+        background-image: url('../Content/img/Puestos/mc.png');
+    }
+
+    .flagpuestoicon.flag-md {
+        background-image: url('../Content/img/Puestos/md.png');
+    }
+
+    .flagpuestoicon.flag-mi {
+        background-image: url('../Content/img/Puestos/mi.png');
+    }

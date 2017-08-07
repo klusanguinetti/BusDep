@@ -21,7 +21,8 @@ namespace BusDep.DataAccess
                        DeporteId = o.Deporte.Id,
                        Id = o.Id,
                        Descripcion = o.Descripcion,
-                       PuestoEspecifico = o.PuestoEspecifico
+                       PuestoEspecifico = o.PuestoEspecifico,
+                       Codigo = o.Codigo
                    };
         }
         public virtual IEnumerable<DeporteViewModel> ObtenerDeportes()
@@ -65,7 +66,8 @@ namespace BusDep.DataAccess
                        DeporteId = o.Deporte.Id,
                        Id = o.Id,
                        Descripcion = o.Descripcion,
-                       PuestoEspecifico = o.PuestoEspecifico
+                       PuestoEspecifico = o.PuestoEspecifico,
+                       Codigo = o.Codigo
                    };
         }
     }

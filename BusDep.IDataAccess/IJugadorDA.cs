@@ -20,5 +20,7 @@ namespace BusDep.IDataAccess
             int? pagina = null, int? cantidad = null);
 
         JugadorViewModel ObtenerJugador(long id);
+
+        bool ExisteJugador(long id);
     }
 }

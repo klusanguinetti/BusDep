@@ -53,6 +53,8 @@
         [DataMember]
         public string PuestoDescripcion { get; set; }
         [DataMember]
+        public string PuestoCodigo { get; set; }
+        [DataMember]
         public string Informacion { get; set; }
         #endregion
 
