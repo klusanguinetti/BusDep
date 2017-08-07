@@ -69,17 +69,17 @@
                         <span class="page-sub-header-sub small">Tu ultimo acceso a la página: {{datosPersonales.UltimoLoginText}} </span>
                     </div>
 
-                    <div id="accordion" class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapseB1" data-toggle="collapse">
+
+                    <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
+                        <div class="panel panel-default card">
+                            <div class="panel-heading content-in card-header">
+                                <h5 class="panel-title">
+                                    <a data-toggle="collapse" data-target="#collapseB1" aria-expanded="true" aria-controls="collapseOne">
                                         Mis detalles
                                     </a>
-                                </h4>
+                                </h5>
                             </div>
-
-                            <div class="panel-collapse collapse in" id="collapseB1">
+                            <div class="panel-collapse collapse in" id="collapseB1" class="panel-collapse collapse">
                                 <div class="panel-body">
 
                                     <form class="form-horizontal" role="form" ng-submit="UpdateProfile()" promise-btn>
@@ -143,7 +143,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                         <div class="form-group">
@@ -240,10 +240,10 @@
                                             <label for="Information" class="col-sm-3 control-label">Dinos algo sobre ti</label>
 
                                             <div class="col-sm-offset-3 col-sm-9 input-group input-icon">
-                                                    <span class="input-group-addon bgtransparent"><i class="fa fa-info-circle s16"></i></span>
-                                                    <textarea ng-model="datosPersonales.Informacion" class="form-control" rows="4"></textarea>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-info-circle s16"></i></span>
+                                                <textarea ng-model="datosPersonales.Informacion" class="form-control" rows="4"></textarea>
 
-                                                </div>
+                                            </div>
 
                                         </div>
 
@@ -259,15 +259,17 @@
                             </div>
                         </div>
 
+                    </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapseB2" data-target="collapse"> Información deportiva </a>
-                                </h4>
+
+                    <div class="panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true">
+                        <div class="panel panel-default card">
+                            <div class="panel-heading content-in card-header">
+                                <h5 class="panel-title">
+                                    <a data-toggle="collapse" data-target="#collapseB2"> Información deportiva </a>
+                                </h5>
                             </div>
-
-                            <div class="panel-collapse collapse in" id="collapseB2">
+                            <div class="panel-collapse collapse in" id="collapseB2" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <form class="form-horizontal" role="form" name="passwordForm" ng-submit="jugadorUpdate()" novalidate="" promise-btn>
 
@@ -388,88 +390,13 @@
 
                             </div>
                         </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapseB3" data-target="collapse"> Configuración de acceso </a>
-                                </h4>
-                            </div>
-
-                            <div class="panel-collapse collapse in" id="collapseB3">
-
-                                <div class="panel-body">
-
-                                    <div class="alert alert-{{messageType}} pgray  alert-lg" role="alert" ng-show="passwordChangeSuccess">
-
-                                        <p>
-                                            <i class="fa {{messageIcon}}" style="margin-right: 15px; font-size: 20px;"></i> {{message}}
-                                        </p>
-
-                                    </div>
-
-                                    <form class="form-horizontal" role="form" name="passwordForm" ng-submit="passwordUpdate()" novalidate="" promise-btn>
-
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group" ng-class="{ 'has-error': (passwordForm.oldPassword.$touched && passwordForm.oldPassword.$invalid) || (passwordForm.$submitted && passwordForm.oldPassword.$invalid)}">
-
-                                            <label class="col-sm-3 control-label">Contraseña actual</label>
-
-                                            <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon bgtransparent"><i class="fa fa-lock s16"></i></span>
-                                                <input name="oldPassword" type="password" class="form-control" placeholder="Repite tu contraseña actual"
-                                                       ng-model="loginData.OldPassword" ng-minlength="6" required>
-                                            </div>
-
-                                            <div class="help-block col-sm-9" ng-messages="passwordForm.oldPassword.$error" ng-if="passwordForm.oldPassword.$touched || passwordForm.$submitted">
-                                                <p ng-message="required">La contraseña actual es necesaria.</p>
-                                                <p ng-message="minlength">Tu contraseña es muy corta.</p>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group" ng-class="{ 'has-error': (passwordForm.password.$touched && passwordForm.password.$invalid) || (passwordForm.$submitted && passwordForm.password.$invalid)}">
-
-                                            <label class="col-sm-3 control-label">Nueva Contraseña</label>
-
-                                            <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon bgtransparent"><i class="fa fa-lock s16"></i></span>
-                                                <input name="password" type="password" class="form-control" placeholder="Introduce tu nueva contraseña"
-                                                       ng-model="loginData.NewPassword" ng-minlength="6" required>
-                                            </div>
-
-                                            <div class="help-block col-sm-9" ng-messages="passwordForm.password.$error" ng-if="passwordForm.password.$touched || passwordForm.$submitted">
-                                                <p ng-message="required">Tu contraseña es necesaria.</p>
-                                                <p ng-message="minlength">Tu contraseña es muy corta.</p>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-3 col-sm-9">
-                                                <button type="submit" class="btn btn-default page-action">Actualizar</button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
-            </div>
-
         </div>
 
     </div>
+
+</div>
 
 </div>

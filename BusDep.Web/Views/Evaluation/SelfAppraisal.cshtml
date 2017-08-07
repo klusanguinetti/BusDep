@@ -38,16 +38,18 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    AutoEvaluación
+                                    <i class="fa fa-star"></i> AutoEvaluación
                                 </h4>
                             </div>
                             <form class="form-horizontal" role="form" ng-submit="save()">
                                 <div class="panel-body">
-                                    <div class="panel-group accordion collapse in" id="accordion" aria-expanded="true">
-                                        <div class="panel panel-default" ng-repeat="cab in autoEvaluacion.Cabeceras" id="{{cab.Id}}">
-                                            <div class="panel-heading content-in">
+                                    <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
+                                        <div class="panel panel-default card" ng-repeat="cab in autoEvaluacion.Cabeceras" id="{{cab.Id}}">
+                                            <div class="panel-heading content-in card-header">
                                                 <h5 class="panel-title">
-                                                    <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse{{cab.Id}}">{{cab.Descripcion}}<i class="l-arrows-plus s16"></i></a>
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse{{cab.Id}}" aria-expanded="true" aria-controls="collapseOne">
+                                                        <span><i class="icon-star-circled s16"></i>{{cab.Descripcion}}</span>
+                                                    </a>
                                                 </h5>
                                             </div>
                                             <div id="collapse{{cab.Id}}" class="panel-collapse collapse">
@@ -55,12 +57,6 @@
                                                     <div class="form-group" ng-repeat="det in cab.Detalle">
                                                         <label class="col-sm-5 control-label">{{det.Descripcion}}</label>
                                                         <div class="col-sm-7">
-                                                            @*<select ng-model="det.Puntuacion" class="form-control"
-                                                            name="category" id="search-category" tabindex="-1"
-                                                            ng-options="item.Valor as item.Valor for item in puntuacion">
-
-                                                            <option value="" class="selecter-placeholder" selected="">- Seleccione -</option>
-                                                            </select>*@
                                                             <slider slider-id="slider{{det.Id}}" provide="slider" min="0"
                                                                     max="5" step="1" ng-model="det.Puntuacion" value="det.Puntuacion"/>
 

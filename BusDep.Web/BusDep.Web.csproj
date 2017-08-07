@@ -607,6 +607,8 @@
     <Content Include="Content\img\Logo195.png" />
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Scripts\app\app-routes.js" />
+    <Content Include="Scripts\app\components\account\passwordChangeController.js" />
+    <Content Include="Scripts\app\components\account\passwordChangeService.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalController.js" />
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalService.js" />
@@ -1442,6 +1444,8 @@
     <Content Include="Views\History\Antecedente.cshtml" />
     <Content Include="Views\Shared\_SportsHistory.cshtml" />
     <Content Include="Views\Shared\_SelfAppraisal.cshtml" />
+    <Content Include="Views\Account\PasswordChange.cshtml" />
+    <Content Include="Views\Shared\_PasswordChange.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
