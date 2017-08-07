@@ -13,6 +13,15 @@
             templateUrl: '/Account/Register',
             controller: 'registerController'
         })
+        .when('/Account/PasswordChange', {
+            templateUrl: '/Account/PasswordChange',
+            controller: 'passwordChangeController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
         .when('/Search', {
             templateUrl: '/Search/Search',
             controller: 'searchController',
