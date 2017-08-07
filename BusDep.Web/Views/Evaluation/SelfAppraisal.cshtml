@@ -5,79 +5,81 @@
 
 
 <div class="main-container" >
+
     <div class="container">
+
         <div class="row">
+
             @Html.Partial("_SelfAppraisal")
+
             <div class="col-sm-9 page-content">
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 col-xxs-12">
-                        <div class="adds-wrapper inner-box">
 
-                            <div class="col-sm-3  photobox">
-                                <div class="add-image">
-                                    <img class="userImg" src="~/Content/img/user.jpg" alt="user">
-                                </div>
-                            </div>
-                            <div class="col-sm-9 add-desc-box">
+                <div class="inner-box">
 
-                                <div class="add-details">
+                    <h2 class="title-2"><i class="fa fa-star"></i> AutoEvaluación</h2>
 
-                                    <h5 class="add-title">
-                                        <a href="">
-                                            {{jugador.Nombre}} {{jugador.Apellido}}
-                                        </a>
-                                    </h5>
+                    <div class="panel-group" cg-busy="{promise:myPromise,message:'Cargando evaluaciones...'}">
 
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="panel-group">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <i class="fa fa-star"></i> AutoEvaluación
-                                </h4>
-                            </div>
+
                             <form class="form-horizontal" role="form" ng-submit="save()">
+
                                 <div class="panel-body">
+
                                     <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
+
                                         <div class="panel panel-default card" ng-repeat="cab in autoEvaluacion.Cabeceras" id="{{cab.Id}}">
+
                                             <div class="panel-heading content-in card-header">
+
                                                 <h5 class="panel-title">
+
                                                     <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse{{cab.Id}}" aria-expanded="true" aria-controls="collapseOne">
                                                         <span><i class="icon-star-circled s16"></i>{{cab.Descripcion}}</span>
                                                     </a>
+
                                                 </h5>
+
                                             </div>
+
                                             <div id="collapse{{cab.Id}}" class="panel-collapse collapse">
+
                                                 <div class="panel-body">
+
                                                     <div class="form-group" ng-repeat="det in cab.Detalle">
+
                                                         <label class="col-sm-5 control-label">{{det.Descripcion}}</label>
+
                                                         <div class="col-sm-7">
                                                             <slider slider-id="slider{{det.Id}}" provide="slider" min="0"
-                                                                    max="5" step="1" ng-model="det.Puntuacion" value="det.Puntuacion"/>
+                                                                    max="5" step="1" ng-model="det.Puntuacion" value="det.Puntuacion" />
 
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
+
                                         </div>
 
                                     </div>
+
                                 </div>
+
                                 <div class="form-group">
-                                    <div class="col-sm-offset-7 col-sm-5">
+
+                                    <div class="col-sm-offset-7 col-sm-12">
                                         <button type="submit" class="btn btn-default page-action">Actualizar</button>
                                     </div>
+
                                 </div>
 
                             </form>
 
                         </div>
+
                     </div>
+
                 </div>
 
             </div>

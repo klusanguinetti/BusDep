@@ -31,7 +31,7 @@
             $scope.myPromise = publicProfileService.getPublicProfile(idJugador).then(function (response) {
 
                 $scope.datosPerfil = response.data;
-                console.log($scope.datosPerfil);
+
                 if (response.data.FechaNacimiento != null) {
 
                     var date = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");

@@ -1,0 +1,12 @@
+ERROR 50 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BusquedaBusiness_fe796070a1d943758f2567a3580f133e
+Metodo: ObtenerPerfil
+Parametros: [350]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#350]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.DefaultLazyInitializer.Intercept(InvocationInfo info)
+   en JugadorProxy.get_Usuario()
+   en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Users\luisb\Desktop\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 23
+   en DynamicModule.ns.Wrapped_BusquedaBusiness_fe796070a1d943758f2567a3580f133e.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
