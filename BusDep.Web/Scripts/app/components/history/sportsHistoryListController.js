@@ -1,4 +1,4 @@
-﻿app.controller('sportsHistoryListController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr','$routeParams','Flash',
+﻿app.controller('sportsHistoryListController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr', '$routeParams', 'Flash',
 function ($scope, sportsHistoryService, $http, $rootScope, toastr, $routeParams, Flash) {
 
     $scope.antecedentes = {};
@@ -26,6 +26,16 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $routeParams,
             message('warning', '<strong>¡Hey!</strong> El antecente que buscas no esta disponible.');
         }
 
+        getAntecedentes();
+
+    });
+
+    function message(type, message) {
+        Flash.create(type, message, 5000);
+    };
+
+    function getAntecedentes() {
+   
         sportsHistoryService.getAntecedentes().then(function (response) {
 
             $scope.antecedentes = response.data;
@@ -34,10 +44,24 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $routeParams,
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
 
-    });
+    };
 
-    function message(type, message) {
-        Flash.create(type, message, 5000);
+    $scope.DeleteAntecedente = function (antecedenteId) {
+
+        return sportsHistoryService.deleteAntecedente(antecedenteId).then(function (response) {
+
+            messageToDisplay = "<strong>¡Éxito!</strong> Has eliminado un antecedente de tu perfil.";
+
+            message('success', messageToDisplay);
+
+            getAntecedentes();
+
+        }).catch(function (err) {
+
+            toastr.error('¡Error desconocido! ', 'Error');
+
+        });
+
     };
 
 }]);
