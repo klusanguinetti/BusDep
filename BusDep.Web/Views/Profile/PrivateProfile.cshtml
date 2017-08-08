@@ -76,6 +76,7 @@
                             <div class="panel-heading content-in card-header">
                                 <h5 class="panel-title">
                                     <a data-toggle="collapse" data-target="#collapseB1" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fa fa-info-circle"></i>
                                         Mis detalles
                                     </a>
                                 </h5>
@@ -150,7 +151,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Provincia</label>
                                             <div class="col-sm-9 input-group input-icon">
-                                                <span class="input-group-addon bgtransparent"><i class="fa fa-flag-o s16"></i></span>
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-globe s16"></i></span>
                                                 <input class="form-control" placeholder="Buenos Aires" ng-model="datosPersonales.Provincia">
                                             </div>
                                         </div>
@@ -267,7 +268,7 @@
                         <div class="panel panel-default card">
                             <div class="panel-heading content-in card-header">
                                 <h5 class="panel-title">
-                                    <a data-toggle="collapse" data-target="#collapseB2"> Información deportiva </a>
+                                    <a data-toggle="collapse" data-target="#collapseB2"><i class="fa fa-futbol-o"></i> Información deportiva </a>
                                 </h5>
                             </div>
                             <div class="panel-collapse collapse in" id="collapseB2" class="panel-collapse collapse">
@@ -368,14 +369,16 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Altura</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="" ng-model="jugador.Altura">
+                                            <div class="col-sm-9 input-group input-icon">
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-arrow-up s16"></i></span>
+                                                <input type="number" class="form-control" placeholder="1.99" ng-model="jugador.Altura">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Peso</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="" ng-model="jugador.Peso">
+                                            <div class="col-sm-9 input-group input-icon">
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-plus-square s16"></i></span>
+                                                <input type="number" class="form-control" placeholder="99.9" ng-model="jugador.Peso">
                                             </div>
                                         </div>
 

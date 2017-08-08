@@ -14,8 +14,11 @@ namespace BusDep.Business
     {
         public virtual EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView)
         {
-            var evaluacion = DependencyFactory.Resolve<IUsuarioDA>().ObtenerEvaluacionDefault(userView.Id, userView.DeporteId.GetValueOrDefault())
-                ?? this.GenerarEvaluacion(userView);
+            var evo = DependencyFactory.Resolve<IUsuarioDA>()
+                .ObtenerEvaluacionViewModelDefault(userView.Id, userView.DeporteId.GetValueOrDefault());
+            if (evo != null)
+                return evo;
+            Evaluacion evaluacion =  this.GenerarEvaluacion(userView);
             var eva = new EvaluacionViewModel
             {
                 Id = evaluacion.Id,

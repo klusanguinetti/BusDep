@@ -57,14 +57,52 @@
             }
             return usuario;
         }
-
-        public virtual Evaluacion ObtenerEvaluacionDefault(long usuarioId, long deporteId)
+        public virtual EvaluacionViewModel ObtenerEvaluacionViewModelDefault(long usuarioId, long deporteId)
         {
-            return Session.Query<Evaluacion>().FirstOrDefault(o => o.Usuario.Id.Equals(usuarioId)
-            && o.TipoEvaluacion.Deporte.Id.Equals(deporteId) && o.TipoEvaluacion.EsDefault.Equals("S")
-            && o.TipoEvaluacion.TipoUsuario == o.Usuario.TipoUsuario);
-        }
 
+            var list = (from det in Session.Query<EvaluacionDetalle>()
+                       where det.EvaluacionCabecera.Evaluacion.Usuario.Id.Equals(usuarioId)
+                      && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Deporte.Id.Equals(deporteId)
+                      && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.EsDefault.Equals("S")
+                      && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.TipoUsuario == det.EvaluacionCabecera.Evaluacion.Usuario.TipoUsuario
+                       select new
+                       {
+                           Id = det.EvaluacionCabecera.Evaluacion.Id,
+                           JugadorId = det.EvaluacionCabecera.Evaluacion.Usuario.Id,
+                           TipoEvaluacionId = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Id,
+                           Descripcion = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Descripcion,
+                           CabeceraId = det.EvaluacionCabecera.Id,
+                           CabeceraDescripcion = det.EvaluacionCabecera.TemplateEvaluacion.Descripcion,
+                           DetalleId = det.Id,
+                           DetalleDescripcion = det.TemplateEvaluacionDetalle.Descripcion,
+                           DetallePuntuacion = det.Puntuacion
+                       }).ToList();
+            List<EvaluacionViewModel> listEvo = list.Select(o => new {o.Id, o.JugadorId, o.TipoEvaluacionId, o.Descripcion}).Distinct().Select(i => new EvaluacionViewModel
+            {
+                Id = i.Id, JugadorId = i.JugadorId, TipoEvaluacionId = i.TipoEvaluacionId, Descripcion = i.Descripcion, Cabeceras = (from cab in list.Select(c => new {c.Id, c.CabeceraId, c.CabeceraDescripcion}).Distinct()
+                    where cab.Id.Equals(i.Id)
+                    select new EvaluacionCabeceraViewModel
+                    {
+                        Id = cab.CabeceraId, Descripcion = cab.CabeceraDescripcion, Detalle = (from det in list.Where(r => r.Id.Equals(i.Id) && r.CabeceraId.Equals(cab.CabeceraId))
+                            select new EvaluacionDetalleViewModel
+                            {
+                                Id = det.DetalleId, Descripcion = det.DetalleDescripcion, Puntuacion = det.DetallePuntuacion
+                            }).ToList()
+                    }).ToList()
+            }).ToList();
+
+            foreach (var evalu in listEvo)
+            {
+                foreach (var cab in evalu.Cabeceras)
+                {
+                    decimal canResp = cab.Detalle.Count(o => o.Puntuacion.HasValue);
+                    decimal puntos = cab.Detalle.Where(o => o.Puntuacion.HasValue).Sum(i => i.Puntuacion.GetValueOrDefault());
+                    if (canResp > 0 && puntos > 0)
+                        cab.Promedio = Decimal.Round(puntos / canResp, 2);
+                }
+            }
+            return listEvo.FirstOrDefault();
+        }
         public virtual TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario)
         {
             return Session.Query<TipoEvaluacion>().FirstOrDefault(o => o.Deporte.Id.Equals(deporteId) && o.EsDefault.Equals("S")

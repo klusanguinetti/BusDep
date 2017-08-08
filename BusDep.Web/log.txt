@@ -46,3 +46,24 @@ NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusD
    en JugadorProxy.get_Usuario()
    en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 23
    en DynamicModule.ns.Wrapped_BusquedaBusiness_1f601c03e7534603830b329a3e26cd70.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 6 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_2715f91652c44524a35ae5b781d6099b
+Metodo: ObtenerEvaluacionViewModelDefault
+Parametros: [914,30]
+
+System.NotSupportedException: El método especificado no es compatible.
+   en NHibernate.Hql.Ast.ANTLR.PolymorphicQuerySourceDetector.GetClassName(IASTNode querySource)
+   en NHibernate.Hql.Ast.ANTLR.PolymorphicQuerySourceDetector.Process(IASTNode tree)
+   en NHibernate.Hql.Ast.ANTLR.AstPolymorphicProcessor.Process()
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IASTNode ast, String queryIdentifier, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.UsuarioDA.ObtenerEvaluacionViewModelDefault(Int64 usuarioId, Int64 deporteId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 94
+   en DynamicModule.ns.Wrapped_UsuarioDA_2715f91652c44524a35ae5b781d6099b.<ObtenerEvaluacionViewModelDefault_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
