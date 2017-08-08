@@ -22,7 +22,7 @@
                 }
             }
         })
-        .when('/Search', {
+        .when('/Search/:b?/:message?', {
             templateUrl: '/Search/Search',
             controller: 'searchController',
             resolve: {

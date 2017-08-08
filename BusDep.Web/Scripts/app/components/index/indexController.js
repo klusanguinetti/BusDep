@@ -34,7 +34,7 @@ app.controller('indexController', ['$scope', '$location', 'authService', 'Carous
 
         /*Sanitaze this input*/
 
-        $location.path("/Search").search({ b: $scope.searchValue});;
+        $location.path("/Search").search({ b: $scope.searchValue});
 
     }
 

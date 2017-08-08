@@ -1,15 +1,8 @@
-﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'publicProfileService', 'toastr',
-    function ($scope, $routeParams, publicProfileService, toastr) {
+﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'publicProfileService', 'toastr', '$location',
+    function ($scope, $routeParams, publicProfileService, toastr, $location) {
+
         $scope.data = [];
 
-        //$scope.colours = [
-        //    {
-        //        fillColor: 'rgba(47, 132, 71, 0.8)',
-        //        strokeColor: 'rgba(47, 132, 71, 0.8)',
-        //        highlightFill: 'rgba(47, 132, 71, 0.8)',
-        //        highlightStroke: 'rgba(47, 132, 71, 0.8)'
-        //    }
-        //];
         $scope.color = {
             "colours": [{ // default
                 "fillColor": "rgba(224, 108, 112, 1)",
@@ -20,6 +13,7 @@
                 "pointHighlightStroke": "rgba(151,187,205,0.8)"
             }]
         };
+
         angular.element(function () {
 
             var idJugador = $routeParams.id;
@@ -57,9 +51,12 @@
                 }
 
             }).catch(function (err) {
-
-                console.log(err);
-                toastr.error('¡Ha ocurrido un error cargando el perfil!', 'Error');
+                 
+                if (err.status == "404") {
+                    $location.path("/Home/Index");
+                } else {
+                    toastr.error('¡Error desconocido!', 'Error');
+                }
 
             });
 
