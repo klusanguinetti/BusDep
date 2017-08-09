@@ -18,7 +18,7 @@ namespace BusDep.Web.Class
         {
             return fichajes.Select(o => new ComboViewModel { Id = o, Descripcion = o, Selected = false });
         }
-        private static string[] perfiles = new[] { "Amateur", "Profecional" };
+        private static string[] perfiles = new[] { "Amateur", "Profesional" };
         public static IEnumerable<ComboViewModel> ObtenerComboPerfiles()
         {
             return perfiles.Select(o => new ComboViewModel { Id = o, Descripcion = o, Selected = false });

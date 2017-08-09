@@ -162,31 +162,13 @@
 
                                             <div class="col-md-9 col-sm-9 col-xs-9">
 
-                                                @*<div>*@
 
-                                                <canvas id="radar{{r.Id}}" class="chart chart-radar" width="370"
-                                                        height="180" colours="color.colours"
+                                                <canvas id="radar{{r.Id}}" class="chart-base" chart-type="r.Chart" width="370"
+                                                        height="250" chart-options="options"
                                                         chart-data="r.Values"
                                                         chart-labels="r.Labels"></canvas>
 
-                                                @*<canvas id="radar" class="chart chart-radar" data="data[$index].data"></canvas>*@
-                                                @*<canvas data-sys-chart-radar
-                                                    data="data[$index]"
-                                                    width="600"
-                                                    height="240"></canvas>*@
-                                                @*</div>*@
-
-
-                                                @*<ul class="" style="margin-left:0px" ng-repeat="re in r.Detalle">
-
-                                                        <li style="margin-bottom: 5px;">
-                                                            <a href="" class="save-job">
-                                                                <span class="fa fa-star-o"></span>
-                                                                {{re.Descripcion}}: {{re.Puntuacion ? re.Puntuacion : 0 }}
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>*@
+                                               
 
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
@@ -205,35 +187,11 @@
 
                                 </div>
 
-                                @*<h4 class="text-uppercase">Experiencia en juego:</h4>
-
-                                    <ul>
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                    </ul>*@
 
                                 <p class="text-muted">Búsqueda deportiva no certifica directamente la información presentada anteriormente.</p>
 
                             </div>
 
-                            <div class="col-md-12">
-
-
-
-                                <div class="ads-action">
-
-                                    @*<ul class="list-border">
-                                            <li><a href="#"> <i class=" fa icon-mail"></i> Enviar email</a></li>
-                                            <li>
-                                                <a href="#" data-toggle="modal"> <i class="fa icon-print"></i> Imprimir perfil</a>
-                                            </li>
-                                            <li><a href="#"> <i class=" fa fa-heart"></i> Salvar perfil</a></li>
-                                            <li><a href="#"> <i class="fa fa-share-alt"></i> Compartir perfil</a></li>
-                                        </ul>*@
-
-                                </div>
-
-                            </div>
 
                         </div>
 

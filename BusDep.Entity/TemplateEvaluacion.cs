@@ -12,6 +12,7 @@ namespace BusDep.Entity
         #region Atributos
         public virtual long Id { get; set; }
         public virtual string Descripcion { get; set; }
+        public virtual string Chart { get; set; }
         public virtual TipoEvaluacion TipoEvaluacion { get; set; }
         public virtual IList<TemplateEvaluacionDetalle> Detalles { get; set; }
         #endregion 

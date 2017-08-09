@@ -35,6 +35,8 @@ namespace BusDep.ViewModel
         public long Id { get; set; }
         [DataMember]
         public string Descripcion { get; set; }
+        [DataMember]
+        public string Chart { get; set; }
 
         [DataMember]
         public decimal Promedio { get; set; }

@@ -71,19 +71,21 @@
                            JugadorId = det.EvaluacionCabecera.Evaluacion.Usuario.Id,
                            TipoEvaluacionId = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Id,
                            Descripcion = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Descripcion,
+                           Chart = det.EvaluacionCabecera.TemplateEvaluacion.Chart,
                            CabeceraId = det.EvaluacionCabecera.Id,
                            CabeceraDescripcion = det.EvaluacionCabecera.TemplateEvaluacion.Descripcion,
                            DetalleId = det.Id,
                            DetalleDescripcion = det.TemplateEvaluacionDetalle.Descripcion,
                            DetallePuntuacion = det.Puntuacion
                        }).ToList();
-            List<EvaluacionViewModel> listEvo = list.Select(o => new {o.Id, o.JugadorId, o.TipoEvaluacionId, o.Descripcion}).Distinct().Select(i => new EvaluacionViewModel
+            List<EvaluacionViewModel> listEvo = list.Select(o => new {o.Id, o.JugadorId, o.TipoEvaluacionId, o.Descripcion,}).Distinct().Select(i => new EvaluacionViewModel
             {
-                Id = i.Id, JugadorId = i.JugadorId, TipoEvaluacionId = i.TipoEvaluacionId, Descripcion = i.Descripcion, Cabeceras = (from cab in list.Select(c => new {c.Id, c.CabeceraId, c.CabeceraDescripcion}).Distinct()
+                Id = i.Id, JugadorId = i.JugadorId, TipoEvaluacionId = i.TipoEvaluacionId, Descripcion = i.Descripcion, Cabeceras = (from cab in list.Select(c => new {c.Id, c.CabeceraId, c.CabeceraDescripcion, c.Chart}).Distinct()
                     where cab.Id.Equals(i.Id)
                     select new EvaluacionCabeceraViewModel
                     {
-                        Id = cab.CabeceraId, Descripcion = cab.CabeceraDescripcion, Detalle = (from det in list.Where(r => r.Id.Equals(i.Id) && r.CabeceraId.Equals(cab.CabeceraId))
+                        Id = cab.CabeceraId, Descripcion = cab.CabeceraDescripcion, Chart = cab.Chart,
+                        Detalle = (from det in list.Where(r => r.Id.Equals(i.Id) && r.CabeceraId.Equals(cab.CabeceraId))
                             select new EvaluacionDetalleViewModel
                             {
                                 Id = det.DetalleId, Descripcion = det.DetalleDescripcion, Puntuacion = det.DetallePuntuacion
