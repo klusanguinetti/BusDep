@@ -78,6 +78,33 @@ namespace BusDep.Web.Controllers
             }
         }
 
+        public JsonResult DeleteAntecedente(long Id)
+        {
+
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            try
+            {
+
+                AntecedenteViewModel antecedentes = business.ObtenerAntecedenteViewModel(Id, authHelper.GetAuthData().Id);
+
+                if (antecedentes != null)
+                {
+                    business.BorrarAntecedentes(antecedentes);
+                }
+
+                Response.StatusCode = 200;
+
+                return new JsonResult { Data = antecedentes, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
         public JsonResult GetClubes()
         {
             try

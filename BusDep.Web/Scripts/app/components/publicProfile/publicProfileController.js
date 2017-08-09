@@ -1,15 +1,8 @@
-﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'publicProfileService', 'toastr',
-    function ($scope, $routeParams, publicProfileService, toastr) {
+﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'publicProfileService', 'toastr', '$location',
+    function ($scope, $routeParams, publicProfileService, toastr, $location) {
+
         $scope.data = [];
 
-        //$scope.colours = [
-        //    {
-        //        fillColor: 'rgba(47, 132, 71, 0.8)',
-        //        strokeColor: 'rgba(47, 132, 71, 0.8)',
-        //        highlightFill: 'rgba(47, 132, 71, 0.8)',
-        //        highlightStroke: 'rgba(47, 132, 71, 0.8)'
-        //    }
-        //];
         $scope.options = {
             legend: {
                 position: 'bottom',
@@ -40,27 +33,13 @@
                     $scope.datosPerfil.FechaNacimiento = date;
 
                 }
-
-                //for (var i = 0; i < $scope.datosPerfil.AutoEvaluacion.Cabeceras.length; i++) {
-                //    $scope.data.push({
-                //        labels: $scope.datosPerfil.AutoEvaluacion.Cabeceras[i].Labels, /*["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],*/
-                //        datasets: [
-                //            {
-                //                fillColor: ["rgba(220,220,220,0.5)", "navy", "red", "orange"],
-                //                strokeColor: "rgba(220,220,220,0.8)",
-                //                highlightFill: "rgba(220,220,220,0.75)",
-                //                highlightStroke: "rgba(220,220,220,1)",
-                //                data: $scope.datosPerfil.AutoEvaluacion.Cabeceras[i].Values /* [65, 59, 90, 81, 56, 55, 40]*/
-                //            }
-                //        ]
-                //        //data: $scope.datosPerfil.AutoEvaluacion.Cabeceras[i].Values
-                //    });
-                //}
-
             }).catch(function (err) {
-
-                console.log(err);
-                toastr.error('¡Ha ocurrido un error cargando el perfil!', 'Error');
+                 
+                if (err.status == "404") {
+                    $location.path("/Home/Index");
+                } else {
+                    toastr.error('¡Error desconocido!', 'Error');
+                }
 
             });
 
