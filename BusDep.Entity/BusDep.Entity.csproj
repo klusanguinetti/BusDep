@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Antecedente.cs" />
+    <Compile Include="ClubDetalle.cs" />
     <Compile Include="DatosPersona.cs" />
     <Compile Include="Deporte.cs" />
     <Compile Include="Evaluacion.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="LogError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Puesto.cs" />
+    <Compile Include="RecuperoUsuario.cs" />
     <Compile Include="TemplateEvaluacion.cs" />
     <Compile Include="TemplateEvaluacionDetalle.cs" />
     <Compile Include="TipoEvaluacion.cs" />
@@ -103,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\RecuperoUsuario.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

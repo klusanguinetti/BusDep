@@ -17,12 +17,4 @@ namespace BusDep.Entity
         public virtual int? Asistencias { get; set; }
         #endregion 
     }
-
-    public class ClubDetalle
-    {
-        public virtual long Id { get; set; }
-        public virtual string Division { get; set; }
-        public virtual string Nombre { get; set; }
-        public virtual string Code { get; set; }
-    }
 }

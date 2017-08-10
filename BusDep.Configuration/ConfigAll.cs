@@ -210,6 +210,12 @@
                     new Interceptor<VirtualMethodInterceptor>(),
               }
               );
+            DependencyFactory.RegisterType<IBaseDA<RecuperoUsuario>, BaseDA<RecuperoUsuario>>(
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+              }
+              ); 
             #endregion
             #endregion
 

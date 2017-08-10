@@ -20,5 +20,6 @@ namespace BusDep.IDataAccess
         DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId);
 
         bool ExisteUsuario(string mail);
+        Usuario ObtenerUsuarioPorMail(string mail);
     }
 }

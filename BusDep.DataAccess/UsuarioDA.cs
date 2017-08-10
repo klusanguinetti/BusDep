@@ -160,12 +160,12 @@
             return usuario;
         }
 
-        public bool ExisteUsuario(string mail)
+        public virtual bool ExisteUsuario(string mail)
         {
             return !Session.Query<Usuario>().Count(o => o.Mail.ToUpper().Equals(mail.ToUpper().Trim())).Equals(0);
         }
 
-        public DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId)
+        public virtual DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId)
         {
             return (from o in Session.Query<DatosPersona>()
                     where o.Id.Equals(datosPersonalesId)
@@ -192,6 +192,11 @@
                         Informacion = o.Informacion,
                         UltimoLogin = o.Usuario.UltimoLogin,
                     }).FirstOrDefault();
+        }
+
+        public virtual Usuario ObtenerUsuarioPorMail(string mail)
+        {
+            return Session.Query<Usuario>().FirstOrDefault(o => o.Mail.ToUpper().Equals(mail.ToUpper().Trim()));
         }
     }
 }

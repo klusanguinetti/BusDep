@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace BusDep.ViewModel
+﻿namespace BusDep.ViewModel
 {
+    using System;
     using System.Runtime.Serialization;
 
     [DataContract]
@@ -32,6 +31,4 @@ namespace BusDep.ViewModel
         [DataMember]
         public DateTime? UltimoLogin { get; set; }
     }
-
-
 }

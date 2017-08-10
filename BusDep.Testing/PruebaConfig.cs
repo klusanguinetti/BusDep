@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using BusDep.Common;
 using BusDep.Configuration;
 using BusDep.Entity;
@@ -770,7 +771,24 @@ namespace BusDep.Testing
             }
         }
 
+        [Test]
+        public void RecuperoPassword()
+        {
+            //registracion
+            var solicitud = new SolicitudRecuperoUsuarioViewModel {Mail = "klusanguinetti@gmail.com"};
+            var respuestaSolicitud = registracion.SolicitudRecuperoUsuario(solicitud);
+            string newPassword = Base64Encode("123456");
+            var recuperar = new RecuperarUsuarioViewModel
+            {
+                Codigo = respuestaSolicitud.Codigo,
+                Mail = solicitud.Mail,
+                Password = newPassword,
+                VerificacionPassword = newPassword
+            };
+            var usuarioViewModel = registracion.RecuperarUsuario(recuperar);
+            Console.WriteLine(usuarioViewModel.SerializarToJson());
 
+        }
     }
 
 }
