@@ -111,4 +111,14 @@ app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
     };
 
+    this.getPuestosCode = function () {
+        var deferred = $q.defer();
+        $http.post(serviceBase + 'GetPuestosCode').then(function (response) {
+            deferred.resolve(response);
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+        return deferred.promise;
+    };
+
 }]);

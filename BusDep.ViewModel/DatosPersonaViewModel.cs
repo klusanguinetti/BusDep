@@ -47,6 +47,13 @@
         [DataMember]
         public DateTime? UltimoLogin { get; set; }
         [DataMember]
+        public virtual string ContactoNombre { get; set; }
+        [DataMember]
+        public virtual string ContactoTelefono { get; set; }
+        [DataMember]
+        public virtual string ContactoMail { get; set; }
+
+        [DataMember]
         public string UltimoLoginText
         {
             get

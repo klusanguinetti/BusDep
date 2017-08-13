@@ -67,3 +67,153 @@ System.NotSupportedException: El método especificado no es compatible.
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    en BusDep.DataAccess.UsuarioDA.ObtenerEvaluacionViewModelDefault(Int64 usuarioId, Int64 deporteId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 94
    en DynamicModule.ns.Wrapped_UsuarioDA_2715f91652c44524a35ae5b781d6099b.<ObtenerEvaluacionViewModelDefault_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 8 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6
+Metodo: ObtenerAntecedentes
+Parametros: [914]
+
+System.NotSupportedException: PartialEvalException (InvalidOperationException ("El objeto que acepta valores Null debe tener un valor."), Convert(null))
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.Visit(Expression expression)
+   en NHibernate.Linq.Functions.EqualsGenerator.BuildHql(MethodInfo method, Expression targetObject, ReadOnlyCollection`1 arguments, HqlTreeBuilder treeBuilder, IHqlExpressionVisitor visitor)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitConditionalExpression(ConditionalExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentesViewModel(Int64 usuarioId, Nullable`1 antecedenteId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 178
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentes(Int64 usuarioId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 117
+   en DynamicModule.ns.Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6.<ObtenerAntecedentes_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6
+Metodo: ObtenerAntecedentes
+Parametros: [914]
+
+System.NotSupportedException: PartialEvalException (InvalidOperationException ("El objeto que acepta valores Null debe tener un valor."), Convert(null))
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.Visit(Expression expression)
+   en NHibernate.Linq.Functions.EqualsGenerator.BuildHql(MethodInfo method, Expression targetObject, ReadOnlyCollection`1 arguments, HqlTreeBuilder treeBuilder, IHqlExpressionVisitor visitor)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitConditionalExpression(ConditionalExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentesViewModel(Int64 usuarioId, Nullable`1 antecedenteId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 178
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentes(Int64 usuarioId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 117
+   en DynamicModule.ns.Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6.<ObtenerAntecedentes_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 5 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6
+Metodo: ObtenerAntecedentes
+Parametros: [914]
+
+System.NotSupportedException: PartialEvalException (InvalidOperationException ("El objeto que acepta valores Null debe tener un valor."), Convert(null))
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.Visit(Expression expression)
+   en NHibernate.Linq.Functions.EqualsGenerator.BuildHql(MethodInfo method, Expression targetObject, ReadOnlyCollection`1 arguments, HqlTreeBuilder treeBuilder, IHqlExpressionVisitor visitor)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitConditionalExpression(ConditionalExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentesViewModel(Int64 usuarioId, Nullable`1 antecedenteId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 178
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentes(Int64 usuarioId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 117
+   en DynamicModule.ns.Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6.<ObtenerAntecedentes_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 15 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6
+Metodo: ObtenerAntecedentes
+Parametros: [914]
+
+System.NotSupportedException: PartialEvalException (InvalidOperationException ("El objeto que acepta valores Null debe tener un valor."), Convert(null))
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.Visit(Expression expression)
+   en NHibernate.Linq.Functions.EqualsGenerator.BuildHql(MethodInfo method, Expression targetObject, ReadOnlyCollection`1 arguments, HqlTreeBuilder treeBuilder, IHqlExpressionVisitor visitor)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitConditionalExpression(ConditionalExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentesViewModel(Int64 usuarioId, Nullable`1 antecedenteId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 178
+   en BusDep.DataAccess.UsuarioDA.ObtenerAntecedentes(Int64 usuarioId) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 117
+   en DynamicModule.ns.Wrapped_UsuarioDA_ef449db2b07a42b78142bfbf766a3dd6.<ObtenerAntecedentes_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_ae565708b8c14c73ab090a249d0dc58d
+Metodo: GetPerfilJugadorShort
+Parametros: [914]
+
+System.NotSupportedException: PartialEvalException (NullReferenceException ("Referencia a objeto no establecida como instancia de un objeto."), null.jugadorId)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.Visit(Expression expression)
+   en NHibernate.Linq.Functions.EqualsGenerator.BuildHql(MethodInfo method, Expression targetObject, ReadOnlyCollection`1 arguments, HqlTreeBuilder treeBuilder, IHqlExpressionVisitor visitor)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   en BusDep.DataAccess.JugadorDA.GetPerfilJugadorShort(Int64 jugadorId)
+   en DynamicModule.ns.Wrapped_JugadorDA_ae565708b8c14c73ab090a249d0dc58d.<GetPerfilJugadorShort_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

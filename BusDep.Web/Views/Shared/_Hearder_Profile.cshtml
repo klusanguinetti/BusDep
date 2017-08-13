@@ -1,0 +1,41 @@
+﻿
+<div class="row">
+    <div class="col-md-2 col-xs-2 col-xxs-12" style="text-align: center">
+        <img class="userImg" src="~/Content/img/user.jpg" alt="user">
+    </div>
+    <div class="col-md-10 col-xs-10 col-xxs-12">
+        <div class="col-md-8 col-xs-8 col-xxs-12">
+            <div class="col-md-7 col-xs-7 col-xxs-8 pl05">
+                <label class="perfilNombre">
+                    {{perfilShort.Nombre}} {{perfilShort.Apellido}}
+                </label>
+                <span class="col-md-12 pl0 perfilpuesto">{{perfilShort.Puesto}}</span>
+                <label class="col-md-12 pl0 perfilpuesto">{{perfilShort.Perfil}}</label>
+
+            </div>
+            <div class="col-md-2 col-xs-2 col-xxs-2" style="text-align: center;">
+                <i class="flagicon flag-{{perfilShort.NacionalidadIso}} md" title="{{perfilShort.Nacionalidad}}"></i>
+            </div>
+            
+            <div class="col-md-offset-1 col-xs-offset-1 col-md-2 col-xs-2 col-xxs-2" style="text-align: center;">
+                <i class="flagicon flag-{{perfilShort.NacionalidadIso1}} md" title="{{perfilShort.Nacionalidad1}}" ng-show="perfilShort.NacionalidadIso1!=null">></i>
+            </div>
+            @*<div class="col-md-3 col-xs-3 col-xxs-3">
+
+                </div>*@
+            <span class="info-row">
+                <span class="date"><i class="fa fa-map-marker"> </i>  {{perfilShort.Provincia}} - {{perfilShort.Ciudad}}</span> - <span class="item-Ubicación">
+                    <i class="fa fa-clock-o"></i> {{perfilShort.Edad}} / {{perfilShort.Peso}}kg / {{perfilShort.Altura}}mts
+                </span>
+            </span>
+        </div>
+        <div class="col-md-2 col-xs-2 col-xxs-12 center" style="text-align: center">
+            <i class="flagclubicon flag-{{perfilShort.ClubCode}} md" title="{{perfilShort.ClubActual}}"></i>
+            <label class="info-row">{{perfilShort.ClubActual}}</label>
+        </div>
+        <div class="col-md-2 col-xs-2 col-xxs-12" style="text-align: center">
+            <i class="flagpuestoicon flag-{{perfilShort.PuestoCode}} xs" title="{{perfilShort.Puesto}}"></i>
+        </div>
+
+    </div>
+</div>

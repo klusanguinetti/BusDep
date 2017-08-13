@@ -12,6 +12,7 @@
 
     public class UsuarioDA : BaseDataAccess<Usuario>, IUsuarioDA
     {
+        #region metodos publicos
         public new virtual void Save(Usuario user)
         {
             if (user.Id.Equals(0) && !string.IsNullOrWhiteSpace(user.Password))
@@ -113,45 +114,14 @@
 
         public virtual List<AntecedenteViewModel> ObtenerAntecedentes(long usuarioId)
         {
-            return (from ant in Session.Query<Antecedente>()
-                    where ant.Usuario.Id.Equals(usuarioId)
-                    orderby ant.FechaInicio descending
-                    select
-                    new AntecedenteViewModel
-                    {
-                        Asistencias = ant.Asistencias,
-                        ClubDescripcion = ant.ClubDescripcion,
-                        ClubLogo = ant.ClubLogo,
-                        FechaFin = ant.FechaFin,
-                        FechaInicio = ant.FechaInicio,
-                        Goles = ant.Goles,
-                        Id = ant.Id,
-                        InformacionAdicional = ant.InformacionAdicional,
-                        Partidos = ant.Partidos,
-                        UsuarioId = ant.Usuario.Id,
-                        Video = ant.Video
-                    }).ToList();
+            return ObtenerAntecedentesViewModel(usuarioId, null);
         }
-
-        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long userId)
+        
+        public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long usuarioId)
         {
-            return (from ant in Session.Query<Antecedente>()
-                    where ant.Id.Equals(antecedenteId) && ant.Usuario.Id.Equals(userId)
-                    select new AntecedenteViewModel
-                    {
-                        Asistencias = ant.Asistencias,
-                        ClubDescripcion = ant.ClubDescripcion,
-                        ClubLogo = ant.ClubLogo,
-                        FechaFin = ant.FechaFin,
-                        FechaInicio = ant.FechaInicio,
-                        Goles = ant.Goles,
-                        Id = ant.Id,
-                        InformacionAdicional = ant.InformacionAdicional,
-                        Partidos = ant.Partidos,
-                        UsuarioId = ant.Usuario.Id,
-                        Video = ant.Video
-                    }).FirstOrDefault();
+            return ObtenerAntecedentesViewModel(usuarioId, antecedenteId).FirstOrDefault();
         }
+        
 
         public virtual Usuario ActualizarPassword(Usuario usuario)
         {
@@ -191,6 +161,9 @@
                         TipoDocumento = o.TipoDocumento,
                         Informacion = o.Informacion,
                         UltimoLogin = o.Usuario.UltimoLogin,
+                        ContactoMail = o.ContactoMail,
+                        ContactoNombre = o.ContactoNombre,
+                        ContactoTelefono = o.ContactoTelefono,
                     }).FirstOrDefault();
         }
 
@@ -198,5 +171,36 @@
         {
             return Session.Query<Usuario>().FirstOrDefault(o => o.Mail.ToUpper().Equals(mail.ToUpper().Trim()));
         }
+        #endregion
+        #region metodos privados
+        private List<AntecedenteViewModel> ObtenerAntecedentesViewModel(long usuarioId, long? antecedenteId)
+        {
+            return (from ant in Session.Query<Antecedente>()
+                    where ant.Usuario.Id.Equals(usuarioId)
+                    && (antecedenteId!=null? ant.Id.Equals(antecedenteId.Value) : 1.Equals(1)) 
+                    orderby ant.FechaInicio descending
+                    select
+                    new AntecedenteViewModel
+                    {
+                        Asistencias = ant.Asistencias,
+                        ClubDescripcion = ant.ClubDescripcion,
+                        ClubLogo = ant.ClubLogo,
+                        FechaFin = ant.FechaFin,
+                        FechaInicio = ant.FechaInicio,
+                        Goles = ant.Goles,
+                        Id = ant.Id,
+                        InformacionAdicional = ant.InformacionAdicional,
+                        Partidos = ant.Partidos,
+                        UsuarioId = ant.Usuario.Id,
+                        Video = ant.Video,
+                        Puesto = ant.Puesto,
+                        PuestoAlt = ant.PuestoAlt,
+                        TecnicoMail = ant.TecnicoMail,
+                        TecnicoNombre = ant.TecnicoNombre,
+                        TextoLibre = ant.TextoLibre
+
+                    }).ToList();
+        }
+        #endregion
     }
 }

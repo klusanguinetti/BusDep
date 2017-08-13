@@ -11,9 +11,9 @@ using BusDep.Web.Class;
 
 namespace BusDep.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
-        private AuthHelper authHelper = new AuthHelper();
+       
         #region Get functions 
 
         public ActionResult Login()
@@ -112,8 +112,8 @@ namespace BusDep.Web.Controllers
             try
             {
 
-                var user = usuario.ObtenerDatosPersonales(authHelper.GetAuthData());
-                user.UltimoLogin = authHelper.GetAuthData().UltimoLogin;
+                var user = usuario.ObtenerDatosPersonales(GetAuthData());
+                user.UltimoLogin = GetAuthData().UltimoLogin;
                 Response.StatusCode = 200;
 
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -134,7 +134,7 @@ namespace BusDep.Web.Controllers
             try
             {
 
-                var authInfo = authHelper.GetAuthData();
+                var authInfo = GetAuthData();
 
                 password.Id = authInfo.Id;
 

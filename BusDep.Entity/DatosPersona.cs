@@ -22,6 +22,9 @@ namespace BusDep.Entity
         public virtual string Telefono { get; set; }
         public virtual string TipoDocumento { get; set; }
         public virtual string Informacion { get; set; }
+        public virtual string ContactoNombre { get; set; }
+        public virtual string ContactoTelefono { get; set; }
+        public virtual string ContactoMail { get; set; }
 
     }
 }

@@ -29,6 +29,16 @@
         public int? Partidos { get; set; }
         [DataMember]
         public int? Asistencias { get; set; }
+        [DataMember]
+        public string Puesto { get; set; }
+        [DataMember]
+        public string PuestoAlt { get; set; }
+        [DataMember]
+        public string TecnicoNombre { get; set; }
+        [DataMember]
+        public string TecnicoMail { get; set; }
+        [DataMember]
+        public string TextoLibre { get; set; }
 
         [DataMember]
         public string FechaInicioText

@@ -8,12 +8,13 @@ namespace BusDep.IBusiness
         IEnumerable<PuestoViewModel> ObtenerPuestos(long deporteId);
         IEnumerable<DeporteViewModel> ObtenerDeportes();
         IEnumerable<ComboAgrupadoViewModel> ObtenerComboPuestosEspecifico(long deporteId);
+        IEnumerable<ComboAgrupadoViewModel> ObtenerComboPuestosEspecificoCode(long deporteId);
         IEnumerable<ComboViewModel> ObtenerComboPuestos(long deporteId);
         IEnumerable<ComboViewModel> ObtenerComboPie();
         IEnumerable<ComboViewModel> ObtenerComboFichajes();
         IEnumerable<ComboViewModel> ObtenerComboPerfiles();
         IEnumerable<ClubDetalleViewModel> ObtenerClubes();
-
+        
         IEnumerable<PuestoViewModel> ObtenerDeportesPuestos();
 
     }

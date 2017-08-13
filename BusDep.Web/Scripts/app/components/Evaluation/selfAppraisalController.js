@@ -1,7 +1,7 @@
-﻿app.controller('selfAppraisalController', ['$scope', 'selfAppraisalService', '$http', '$rootScope', 'toastr',
-    function ($scope, selfAppraisalService, $http, $rootScope, toastr) {
+﻿app.controller('selfAppraisalController', ['$scope', 'selfAppraisalService', 'commonService', '$http', '$rootScope', 'toastr',
+    function ($scope, selfAppraisalService, commonService, $http, $rootScope, toastr) {
 
-
+        $scope.perfilShort = {};
         $scope.autoEvaluacion = {};
 
         $scope.jugador = {};
@@ -9,6 +9,14 @@
         $scope.puntuacion = [{ "Valor": 1 }, { "Valor": 2 }, { "Valor": 3 }, { "Valor": 4 }, { "Valor": 5 }];
 
         angular.element(function () {
+
+            commonService.getPerfilJugadorShort().then(function (response) {
+
+                $scope.perfilShort = response.data;
+
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
 
             selfAppraisalService.getJugador().then(function (response) {
 

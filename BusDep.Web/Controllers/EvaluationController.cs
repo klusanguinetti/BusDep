@@ -9,10 +9,8 @@ namespace BusDep.Web.Controllers
     using BusDep.ViewModel;
     using BusDep.Web.Class;
     [Authorize]
-    public class EvaluationController : Controller
+    public class EvaluationController : BaseController
     {
-
-        private AuthHelper authHelper => new AuthHelper();
 
         #region Get functions 
 
@@ -52,7 +50,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(authHelper.GetAuthData());
+                var user = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(GetAuthData());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -67,7 +65,7 @@ namespace BusDep.Web.Controllers
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
             try
             {
-                var user = business.ObtenerJugador(authHelper.GetAuthData());
+                var user = business.ObtenerJugador(GetAuthData());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

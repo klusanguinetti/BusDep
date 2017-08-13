@@ -28,7 +28,16 @@ namespace BusDep.Business
                 Id = item.Id, Agrupador = item.Descripcion, Descripcion = item.PuestoEspecifico
             }).ToList();
         }
-
+        public virtual IEnumerable<ComboAgrupadoViewModel> ObtenerComboPuestosEspecificoCode(long deporteId)
+        {
+            var deporte = DependencyFactory.Resolve<IBaseDA<Deporte>>().GetById(deporteId);
+            return deporte.Puestos.Select(item => new ComboAgrupadoViewModel
+            {
+                Id = item.Codigo,
+                Agrupador = item.Descripcion,
+                Descripcion = item.PuestoEspecifico
+            }).ToList();
+        }
         public virtual IEnumerable<ComboViewModel> ObtenerComboPuestos(long deporteId)
         {
             return DependencyFactory.Resolve<ICommnDA>().ObtenerComboPuestos(deporteId);
@@ -51,6 +60,7 @@ namespace BusDep.Business
             return DependencyFactory.Resolve<ICommnDA>().ObtenerClubes();
         }
 
+        
         public virtual IEnumerable<PuestoViewModel> ObtenerDeportesPuestos()
         {
             return DependencyFactory.Resolve<ICommnDA>().ObtenerDeportesPuestos();

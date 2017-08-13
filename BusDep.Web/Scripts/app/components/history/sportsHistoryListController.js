@@ -1,7 +1,8 @@
-﻿app.controller('sportsHistoryListController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr', '$routeParams', 'Flash',
-function ($scope, sportsHistoryService, $http, $rootScope, toastr, $routeParams, Flash) {
+﻿app.controller('sportsHistoryListController', ['$scope', 'sportsHistoryService', 'commonService', '$http', '$rootScope', 'toastr', '$routeParams', 'Flash',
+function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr, $routeParams, Flash) {
 
     $scope.antecedentes = {};
+    $scope.perfilShort = {};
 
     angular.element(function () {
 
@@ -25,7 +26,13 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $routeParams,
         if (result == "notFound") {
             message('warning', '<strong>¡Hey!</strong> El antecente que buscas no esta disponible.');
         }
+        commonService.getPerfilJugadorShort().then(function (response) {
 
+            $scope.perfilShort = response.data;
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
         getAntecedentes();
 
     });

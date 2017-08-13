@@ -1,10 +1,13 @@
-﻿app.controller('sportsHistoryController', ['$scope', 'sportsHistoryService', '$http', '$rootScope', 'toastr', '$filter', '$location', '$routeParams',
-function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $location, $routeParams) {
+﻿app.controller('sportsHistoryController', ['$scope', 'sportsHistoryService', 'commonService', '$http', '$rootScope', 'toastr', '$filter', '$location', '$routeParams',
+function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr, $filter, $location, $routeParams) {
 
 
     $scope.clubes = {};
-
+    $scope.perfilShort = {};
     $scope.antecedente = {};
+
+    $scope.puestos = {};
+    $scope.puestos1 = {};
 
     $scope.titulo = "";
 
@@ -20,9 +23,25 @@ function ($scope, sportsHistoryService, $http, $rootScope, toastr, $filter, $loc
             $scope.clubes = data.data;
         });
 
+        commonService.getPerfilJugadorShort().then(function (response) {
+
+            $scope.perfilShort = response.data;
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+
         var antecedenteId = $routeParams.id;
 
         $scope.titulo = "Agregar nuevo antecedente deportivo";
+
+        sportsHistoryService.getPuestosCode().then(function (response) {
+            $scope.puestos = response.data;
+            $scope.puestos1 = response.data;
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+
 
         if (antecedenteId != null) {
 

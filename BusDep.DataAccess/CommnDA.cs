@@ -12,18 +12,10 @@ namespace BusDep.DataAccess
 {
     public class CommnDA : BaseDataAccess<Puesto>, ICommnDA
     {
+        #region metodos publicos
         public virtual IEnumerable<PuestoViewModel> ObtenerPuestos(long deporteId)
         {
-            return from o in Session.Query<Puesto>()
-                   where o.Deporte.Id.Equals(deporteId)
-                   select new PuestoViewModel
-                   {
-                       DeporteId = o.Deporte.Id,
-                       Id = o.Id,
-                       Descripcion = o.Descripcion,
-                       PuestoEspecifico = o.PuestoEspecifico,
-                       Codigo = o.Codigo
-                   };
+            return ObtenerPuestosViewModel(deporteId);
         }
         public virtual IEnumerable<DeporteViewModel> ObtenerDeportes()
         {
@@ -57,10 +49,18 @@ namespace BusDep.DataAccess
                         Nombre = o.Nombre
                     });
         }
-
+        
         public virtual IEnumerable<PuestoViewModel> ObtenerDeportesPuestos()
         {
+            return ObtenerPuestosViewModel(null);
+        }
+        #endregion
+
+        #region metodos privados
+        private IEnumerable<PuestoViewModel> ObtenerPuestosViewModel(long? deporteId)
+        {
             return from o in Session.Query<Puesto>()
+                   where deporteId.HasValue? o.Deporte.Id.Equals(deporteId.Value): 1.Equals(1)
                    select new PuestoViewModel
                    {
                        DeporteId = o.Deporte.Id,
@@ -70,5 +70,6 @@ namespace BusDep.DataAccess
                        Codigo = o.Codigo
                    };
         }
+        #endregion
     }
 }

@@ -22,5 +22,8 @@ namespace BusDep.IDataAccess
         JugadorViewModel ObtenerJugador(long id);
 
         bool ExisteJugador(long id);
+
+
+        PerfilJugadorShortViewModel GetPerfilJugadorShort(long jugadorId);
     }
 }

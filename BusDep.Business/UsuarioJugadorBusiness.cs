@@ -12,47 +12,16 @@ namespace BusDep.Business
 {
     public class UsuarioJugadorBusiness : IUsuarioJugadorBusiness
     {
+        #region metodos publicos
         public virtual EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView)
         {
             var evo = DependencyFactory.Resolve<IUsuarioDA>()
                 .ObtenerEvaluacionViewModelDefault(userView.Id, userView.DeporteId.GetValueOrDefault());
             if (evo != null)
                 return evo;
-            Evaluacion evaluacion =  this.GenerarEvaluacion(userView);
-            var eva = new EvaluacionViewModel
-            {
-                Id = evaluacion.Id,
-                Descripcion = evaluacion.TipoEvaluacion.Descripcion,
-                JugadorId = userView.JugadorId.GetValueOrDefault(),
-                TipoEvaluacionId = evaluacion.TipoEvaluacion.Id
-            };
-            foreach (var cabecera in evaluacion.Cabeceras)
-            {
-                var cab = new EvaluacionCabeceraViewModel
-                {
-                    Id = cabecera.Id,
-                    Descripcion = cabecera.TemplateEvaluacion.Descripcion
-                };
-                foreach (var detalle in cabecera.Detalles)
-                {
-                    var det = new EvaluacionDetalleViewModel
-                    {
-                        Id = detalle.Id,
-                        Descripcion = detalle.TemplateEvaluacionDetalle.Descripcion,
-                        Puntuacion = detalle.Puntuacion
-                    };
-                    cab.Detalle.Add(det);
-                }
-                decimal canResp = cabecera.Detalles.Count(o => o.Puntuacion.HasValue);
-                decimal puntos =
-                    cabecera.Detalles.Where(o => o.Puntuacion.HasValue).Sum(i => i.Puntuacion.GetValueOrDefault());
-                if (canResp > 0 && puntos > 0)
-                    cab.Promedio = Decimal.Round(puntos / canResp, 2);
-                eva.Cabeceras.Add(cab);
-            }
-            return eva;
+            this.GenerarEvaluacion(userView);
+            return DependencyFactory.Resolve<IUsuarioDA>().ObtenerEvaluacionViewModelDefault(userView.Id, userView.DeporteId.GetValueOrDefault());
         }
-
         public virtual void GuardarEvalucacion(EvaluacionViewModel evaluacion)
         {
             var eva = DependencyFactory.Resolve<IBaseDA<Evaluacion>>().GetById(evaluacion.Id);
@@ -73,61 +42,18 @@ namespace BusDep.Business
             }
             DependencyFactory.Resolve<IBaseDA<Evaluacion>>().Save(eva);
         }
-
-        private Evaluacion GenerarEvaluacion(UsuarioViewModel userView)
-        {
-            var tipoEvaluacion =
-                DependencyFactory.Resolve<IUsuarioDA>()
-                    .ObtenerTipoEvaluacionDefault(userView.DeporteId.GetValueOrDefault(), userView.TipoUsuario);
-            if (tipoEvaluacion == null)
-            {
-                throw new ExceptionBusiness(6, "No existe tipo de evaluación default");
-            }
-            else
-            {
-                var evaluacion = new Evaluacion
-                {
-                    TipoEvaluacion = tipoEvaluacion,
-                    Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(userView.Id)
-                };
-                foreach (var templateEvaluacion in tipoEvaluacion.Templates)
-                {
-                    EvaluacionCabecera cabecera = new EvaluacionCabecera
-                    {
-                        Evaluacion = evaluacion,
-                        TemplateEvaluacion = templateEvaluacion
-                    };
-                    foreach (var det in templateEvaluacion.Detalles)
-                    {
-                        EvaluacionDetalle detalle = new EvaluacionDetalle
-                        {
-                            TemplateEvaluacionDetalle = det,
-                            EvaluacionCabecera = cabecera
-                        };
-                        cabecera.Detalles.Add(detalle);
-                    }
-                    evaluacion.Cabeceras.Add(cabecera);
-                }
-                DependencyFactory.Resolve<IBaseDA<Evaluacion>>().Save(evaluacion);
-                return evaluacion;
-            }
-        }
-
         public virtual List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView)
         {
             return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(userView.Id);
         }
-
         public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long userId)
         {
             return DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedenteViewModel(antecedenteId, userId);
         }
-
         public virtual AntecedenteViewModel NuevoAntecedenteViewModel(UsuarioViewModel userView)
         {
             return new AntecedenteViewModel { UsuarioId = userView.Id };
         }
-
         public virtual AntecedenteViewModel GuardarAntecedenteViewModel(AntecedenteViewModel antecedente)
         {
             Antecedente ante = null;
@@ -196,6 +122,46 @@ namespace BusDep.Business
             var antecedente = DependencyFactory.Resolve<IBaseDA<Antecedente>>().GetById(antecedenteViewModel.Id);
             DependencyFactory.Resolve<IBaseDA<Antecedente>>().Delete(antecedente);
         }
+        #endregion
 
+        #region metodos privados
+        private void GenerarEvaluacion(UsuarioViewModel userView)
+        {
+            var tipoEvaluacion =
+                DependencyFactory.Resolve<IUsuarioDA>()
+                    .ObtenerTipoEvaluacionDefault(userView.DeporteId.GetValueOrDefault(), userView.TipoUsuario);
+            if (tipoEvaluacion == null)
+            {
+                throw new ExceptionBusiness(6, "No existe tipo de evaluación default");
+            }
+            else
+            {
+                var evaluacion = new Evaluacion
+                {
+                    TipoEvaluacion = tipoEvaluacion,
+                    Usuario = DependencyFactory.Resolve<IUsuarioDA>().GetById(userView.Id)
+                };
+                foreach (var templateEvaluacion in tipoEvaluacion.Templates)
+                {
+                    EvaluacionCabecera cabecera = new EvaluacionCabecera
+                    {
+                        Evaluacion = evaluacion,
+                        TemplateEvaluacion = templateEvaluacion
+                    };
+                    foreach (var det in templateEvaluacion.Detalles)
+                    {
+                        EvaluacionDetalle detalle = new EvaluacionDetalle
+                        {
+                            TemplateEvaluacionDetalle = det,
+                            EvaluacionCabecera = cabecera
+                        };
+                        cabecera.Detalles.Add(detalle);
+                    }
+                    evaluacion.Cabeceras.Add(cabecera);
+                }
+                DependencyFactory.Resolve<IBaseDA<Evaluacion>>().Save(evaluacion);
+            }
+        }
+        #endregion
     }
 }

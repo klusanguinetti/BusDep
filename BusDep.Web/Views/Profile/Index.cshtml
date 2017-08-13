@@ -164,7 +164,7 @@
 
 
                                                 <canvas id="radar{{r.Id}}" class="chart-base" chart-type="r.Chart" width="370"
-                                                        height="250" chart-options="options"
+                                                        height="250" chart-options="r.Chart=='bar'||r.Chart=='horizontalBar'? optionsBar : options"
                                                         chart-data="r.Values"
                                                         chart-labels="r.Labels"></canvas>
 

@@ -14,7 +14,7 @@ namespace BusDep.IDataAccess
         EvaluacionViewModel ObtenerEvaluacionViewModelDefault(long usuarioId, long deporteId);
         TipoEvaluacion ObtenerTipoEvaluacionDefault(long deporteId, string tipoUsuario);
         List<AntecedenteViewModel> ObtenerAntecedentes(long usuarioId);
-        AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long userId);
+        AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long usuarioId);
         Usuario ActualizarPassword(Usuario usuario);
 
         DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId);

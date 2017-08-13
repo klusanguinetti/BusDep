@@ -53,5 +53,10 @@ namespace BusDep.Business
             return DependencyFactory.Resolve<IJugadorDA>()
                 .BuscarJugadorCount(buscar.Puesto, buscar.EdadDesde, buscar.EdadHasta, buscar.Fichaje, buscar.Perfil, buscar.Pie, buscar.Nombre);
         }
+
+        public virtual PerfilJugadorShortViewModel GetPerfilJugadorShort(UsuarioViewModel usuario)
+        {
+            return DependencyFactory.Resolve<IJugadorDA>().GetPerfilJugadorShort(usuario.JugadorId.Value);
+        }
     }
 }
