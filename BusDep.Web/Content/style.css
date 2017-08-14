@@ -9,6 +9,18 @@
 @import url("promise-buttom/promise-buttom.css");
 @import url("ngAnimate/ngAnimation.css");
 
+/* PleaseWait CSS fix */
+
+body > .inner {
+  display: none;
+}
+
+body.pg-loaded > .inner {
+  display: block;
+}
+
+/* End PleaseWait CSS fix */
+
 @media (min-width: 1024px) {
     .container {
         max-width: 1024px;
@@ -4739,18 +4751,6 @@ ul.list-number {
   top: 0;
   left: 0;
 }
-
-/* PleaseWait CSS fix */
-
-body > .inner {
-  display: none;
-}
-
-body.pg-loaded > .inner {
-  display: block;
-}
-
-/* End PleaseWait CSS fix */
 
 .tabs .tab-content {
     border-top: none;

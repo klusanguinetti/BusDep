@@ -49,6 +49,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Bin\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -136,6 +140,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\AuthHelper.cs" />
     <Compile Include="Class\CacheHeler.cs" />
+    <Compile Include="Class\MailHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
@@ -629,6 +634,8 @@
     <Content Include="Content\img\Logo195.png" />
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Scripts\app\app-routes.js" />
+    <Content Include="Scripts\app\components\account\passwordRecoveryUpdateController.js" />
+    <Content Include="Scripts\app\components\account\passwordRecoveryController.js" />
     <Content Include="Scripts\app\components\account\passwordChangeController.js" />
     <Content Include="Scripts\app\components\account\passwordChangeService.js" />
     <Content Include="Scripts\app\components\account\registerController.js" />
@@ -1469,6 +1476,8 @@
     <Content Include="Views\Shared\_SelfAppraisal.cshtml" />
     <Content Include="Views\Account\PasswordChange.cshtml" />
     <Content Include="Views\Shared\_PasswordChange.cshtml" />
+    <Content Include="Views\Account\PasswordRecovery.cshtml" />
+    <Content Include="Views\Account\UpdatePasswordRecovery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

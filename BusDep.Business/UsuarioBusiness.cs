@@ -136,7 +136,7 @@ namespace BusDep.Business
             }
             else
             {
-                throw new ExceptionBusiness(100, "Usuario no tiene soliciado recupero de usuario.");
+                throw new ExceptionBusiness(100, "El N° de recuperación es invalido.");
             }
         }
 

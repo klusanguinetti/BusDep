@@ -1,38 +1,52 @@
 ﻿'use strict';
-app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', 'authInterceptorService','toastr',
-    function ($scope, $location, authService, $timeout, authInterceptorService,toastr) {
+app.controller('loginController', ['$scope', '$location', 'authService', '$timeout', 'authInterceptorService', 'Flash', '$routeParams',
+function ($scope, $location, authService, $timeout, authInterceptorService, Flash, $routeParams) {
 
-        /*Declaración de variables*/
+    /*Carga de interfaz*/
 
-        $scope.loginData = {
-            mail: "",
-            password: ""
-        };
+    var lastAction = $routeParams.lastAction;
 
-        $scope.message = "";
+    console.log(lastAction);
 
-        /*Declaración de funciones*/
+    if (lastAction == "passwordChanged") {
+        message('success', 'Tu contraseña fue actualizada con éxito, prueba iniciando sesión de nuevo.');
+    }
 
-        $scope.login = function () {
+    /*Declaración de variables*/
 
-            if ($scope.loginForm.$valid) {
+    $scope.loginData = {
+        mail: "",
+        password: ""
+    };
 
-               return authService.login($scope.loginData).then(function (response) {
+    $scope.message = "";
 
-                    $location.path('/Home/Index');
+    /*Declaración de funciones*/
 
-                }).catch(function (err) {
+    $scope.login = function () {
 
-                    if (err.status == "404") {
-                        toastr.error('¡Usuario/Contraseña invalidos!', 'Error');
-                    } else {
-                        toastr.error('¡Error desconocido!', 'Error');
-                    }
+        if ($scope.loginForm.$valid) {
 
-                });
+            return authService.login($scope.loginData).then(function (response) {
 
-            }
+                $location.path('/Home/Index');
 
-        };
+            }).catch(function (err) {
 
-    }]);
+                if (err.status == "404") {
+                    message('danger', '¡Usuario/Contraseña invalidos!');
+                } else {
+                    message('danger', '¡Error desconocido!');
+                }
+
+            });
+
+        }
+
+    };
+
+    function message(type, message) {
+        Flash.create(type, message, 5000, { container: 'login' });
+    };
+
+}]);

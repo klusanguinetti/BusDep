@@ -5,13 +5,21 @@
             templateUrl: '/Home/HomeContent',
             controller: 'indexController',
         })
-        .when('/Account/Login', {
+        .when('/Account/Login/:lastAction?', {
             templateUrl: '/Account/Login',
             controller: 'loginController'
         })
         .when('/Account/Register', {
             templateUrl: '/Account/Register',
             controller: 'registerController'
+        })
+        .when('/Account/PasswordRecovery', {
+            templateUrl: '/Account/PasswordRecovery',
+            controller: 'passwordRecoveryController'
+        })
+        .when('/Account/PasswordRecoveryChange/:token?', {
+            templateUrl: '/Account/UpdatePasswordRecovery',
+            controller: 'passwordRecoveryController'
         })
         .when('/Account/PasswordChange', {
             templateUrl: '/Account/PasswordChange',

@@ -2,15 +2,23 @@
     Layout = null;
 }
 
-<div class="main-container" ng-controller="loginController">
+<div class="main-container">
+
     <div class="container">
+
         <div class="row">
+
             <div class="col-sm-5 login-box">
+
                 <div class="panel panel-default">
+
                     <div class="panel-intro text-center">
                         <img alt="img" class="img-responsive" src="~/Content/img/Logo250.png" style="display: inline;">
                     </div>
+
                     <div class="panel-body">
+
+                        <flash-message name="login"></flash-message>
 
                         <form role="form" novalidate="" name="loginForm" ng-submit="login()" promise-btn>
 
@@ -52,10 +60,6 @@
 
                         </form>
 
-                        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
-                            {{message}}
-                        </div>
-
                     </div>
 
                     <div class="panel-footer">
@@ -67,7 +71,7 @@
                         </div>
 
                         <p class="text-center pull-right">
-                            <a href=""> ¿Olvidaste tu contraseña? </a>
+                            <a href="#!Account/PasswordRecovery"> ¿Olvidaste tu contraseña? </a>
                         </p>
                         <div style="clear:both"></div>
                     </div>

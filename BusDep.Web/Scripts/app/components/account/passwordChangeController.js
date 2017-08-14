@@ -60,8 +60,6 @@ function ($scope, passwordChangeService, $http, $rootScope, toastr) {
 
     };
 
-    
-
     function clearErrors() {
         $scope.passwordForm.$setPristine();
         $scope.passwordForm.$setValidity();

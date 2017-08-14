@@ -14,6 +14,7 @@ namespace BusDep.Web.Controllers
     public class AccountController : Controller
     {
         private AuthHelper authHelper = new AuthHelper();
+
         #region Get functions 
 
         public ActionResult Login()
@@ -25,13 +26,22 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
+
         public ActionResult PasswordChange()
         {
             return View();
         }
-        
-        #endregion
 
+        public ActionResult PasswordRecovery()
+        {
+            return View();
+        }
+        public ActionResult UpdatePasswordRecovery()
+        {
+            return View();
+        }
+
+        #endregion
 
         #region Post Functions
 
@@ -89,6 +99,66 @@ namespace BusDep.Web.Controllers
 
         }
 
+        public JsonResult PasswordRecoveryPost(SolicitudRecuperoUsuarioViewModel recuperarUsuario)
+        {
+            var passwordRecovery = DependencyFactory.Resolve<IUsuarioBusiness>();
+
+            try
+            {
+
+                var userView = passwordRecovery.SolicitudRecuperoUsuario(recuperarUsuario);
+
+                MailHelper.RecuperarUsuarioEmail(userView);
+
+                Response.StatusCode = 200;
+                return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 422; //Unprocessable entity
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
+        public JsonResult UpdatePasswordRecoveryPost(RecuperarUsuarioViewModel recuperarUsuario)
+        {
+            var passwordRecovery = DependencyFactory.Resolve<IUsuarioBusiness>();
+
+            try
+            {
+
+                if(recuperarUsuario.Password != recuperarUsuario.VerificacionPassword)
+                {
+                    Response.StatusCode = 422;
+                    return new JsonResult { Data = "Las contraseñas no coinciden", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+
+                var userView = passwordRecovery.RecuperarUsuario(recuperarUsuario);
+
+                Response.StatusCode = 200;
+                return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 422; //Unprocessable entity
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
         public JsonResult SignOut()
         {
             try
@@ -126,6 +196,7 @@ namespace BusDep.Web.Controllers
             }
 
         }
+
         public JsonResult PasswordSave(UsuarioCambioPasswordViewModel password)
         {
 
@@ -160,6 +231,7 @@ namespace BusDep.Web.Controllers
 
 
         }
+
         #endregion
 
     }
