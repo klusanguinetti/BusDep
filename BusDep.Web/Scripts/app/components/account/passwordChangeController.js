@@ -1,9 +1,9 @@
-﻿app.controller('passwordChangeController', ['$scope', 'passwordChangeService', '$http', '$rootScope', 'toastr',
-function ($scope, passwordChangeService, $http, $rootScope, toastr) {
+﻿app.controller('passwordChangeController', ['$scope', 'passwordChangeService', 'commonService', '$http', '$rootScope', 'toastr',
+function ($scope, passwordChangeService, commonService, $http, $rootScope, toastr) {
 
 
     $scope.Mail = $rootScope.user.UserName;
-
+    $scope.perfilShort = {};
     $scope.datosPersonales = {};
 
     
@@ -22,6 +22,13 @@ function ($scope, passwordChangeService, $http, $rootScope, toastr) {
 
             toastr.error('¡Ha ocurrido un error cargando de la información!', 'Error');
 
+        });
+        commonService.getPerfilJugadorShort().then(function (response) {
+
+            $scope.perfilShort = response.data;
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
         });
     });
 

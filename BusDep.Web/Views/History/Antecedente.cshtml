@@ -12,7 +12,9 @@
             @Html.Partial("_SportsHistory")
 
             <div class="col-sm-9 page-content">
-
+                <div class="inner-box">
+                    @Html.Partial("_Hearder_Profile")
+                </div>
                 <div class="inner-box">
 
                     <h2 class="title-2"><i class="flagclubicon flag-{{antecedente.ClubLogo}} icon-th-thumb" title="Pais"></i> {{titulo}} </h2>
@@ -69,6 +71,16 @@
 
                                         </div>
 
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Información</label>
+
+                                            <div class="col-sm-9">
+                                                <textarea ng-model="antecedente.TextoLibre" placeholder="Información sobre tu paso por el club" class="form-control" rows="4"></textarea>
+                                            </div>
+
+                                        </div>
+
                                         <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.fechaDesde.$touched && antecedenteForm.fechaDesde.$invalid) || (antecedenteForm.$submitted && antecedenteForm.fechaDesde.$invalid)}">
 
                                             <label class="col-sm-3 control-label">Fecha inicio</label>
@@ -112,14 +124,51 @@
                                                 <div class="checkbox">
                                                     <label for="checkboxes-0">
                                                         <input name="checkboxe" type="checkbox" ng-model="outcome.fechaFinCheck" ng-change="cleanInput()">
-                                                       Actualidad
+                                                        Actualidad
                                                     </label>
                                                 </div>
 
                                             </div>
 
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">
+                                                Puesto
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <div class="" tabindex="0">
+                                                    <select ng-model="antecedente.Puesto" class="form-control"
+                                                            name="category" id="search-category" tabindex="-1"
+                                                            ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos">
+                                                        <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
 
+                                                        <option value="Puestos" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                            - Puesto -
+                                                        </option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">
+                                                Puesto Alternativo
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <div class="" tabindex="0">
+                                                    <select ng-model="antecedente.PuestoAlt" class="form-control"
+                                                            name="category" id="search-category" tabindex="-1"
+                                                            ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos1">
+                                                        <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
+
+                                                        <option value="Puestos" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                            - Puesto -
+                                                        </option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.goles.$touched && antecedenteForm.goles.$invalid) || (antecedenteForm.$submitted && antecedenteForm.goles.$invalid)}">
 
                                             <label class="col-sm-3 control-label">Goles</label>
@@ -163,6 +212,25 @@
                                                     <p ng-message="required">Indica la cantidad de asistencias realizadas en tu periodo.</p>
                                                 </div>
 
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Técnico Nombre</label>
+
+                                            <div class="col-sm-9">
+                                                <input type="text" name="nombre" class="form-control" id="tecnom" placeholder="Nombre y Apellido" ng-model="antecedente.TecnicoNombre">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Técnico Email</label>
+
+                                            <div class="col-sm-9">
+                                                <input type="email" name="nombre" class="form-control" id="tecmail" placeholder="allwiners@allwiners.com" ng-model="antecedente.TecnicoMail">
                                             </div>
 
                                         </div>

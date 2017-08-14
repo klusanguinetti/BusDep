@@ -12,5 +12,7 @@ namespace BusDep.IBusiness
         List<JugadorViewModel> BuscarJugador(BuscarJugadorViewModel buscar);
 
         long BuscarJugadorCount(BuscarJugadorViewModel buscar);
+
+        PerfilJugadorShortViewModel GetPerfilJugadorShort(UsuarioViewModel usuario);
     }
 }

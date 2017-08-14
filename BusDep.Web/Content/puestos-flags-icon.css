@@ -8,6 +8,11 @@
     background-size: 100%;
 }
 
+    .flagpuestoicon.md {
+        width: 100px;
+        height: 149px;
+    }
+
     .flagpuestoicon.xl {
         width: 200px;
         height: 270px;
@@ -17,9 +22,11 @@
         width: 50px;
         height: 68px;
     }
+
     .flagpuestoicon.flag- {
         background-image: url('../Content/img/Puestos/Cancha.png');
     }
+
     .flagpuestoicon.flag-ar {
         background-image: url('../Content/img/Puestos/ar.png');
     }
@@ -58,4 +65,47 @@
 
     .flagpuestoicon.flag-mi {
         background-image: url('../Content/img/Puestos/mi.png');
+    }
+
+
+.flagcancha {
+    /*display: inline-block;*/
+    width: 140px;
+    height: 189px;
+    text-align: left;
+    text-indent: -999em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url('../Content/img/Puestos/cancha_limpia.png');
+}
+
+    .flagcancha.xl {
+        width: 200px;
+        height: 270px;
+    }
+
+    .flagcancha.xs {
+        width: 50px;
+        height: 68px;
+    }
+
+.flagpasto {
+    display: inline-block;
+    width: 140px;
+    height: 189px;
+    text-align: left;
+    text-indent: -999em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url('../Content/img/Puestos/pasto.png');
+}
+
+    .flagpasto.xl {
+        width: 200px;
+        height: 270px;
+    }
+
+    .flagpasto.xs {
+        width: 50px;
+        height: 68px;
     }

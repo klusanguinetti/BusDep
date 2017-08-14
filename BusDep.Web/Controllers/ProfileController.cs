@@ -12,10 +12,10 @@ using System.Web.Security;
 namespace BusDep.Web.Controllers
 {
     [Authorize]
-    public class ProfileController : Controller
+    public class ProfileController : BaseController
     {
 
-        private AuthHelper authHelper = new AuthHelper();
+        
 
         #region Get functions 
 
@@ -75,7 +75,7 @@ namespace BusDep.Web.Controllers
             try
             {
 
-                var authInfo = authHelper.GetAuthData();
+                var authInfo = GetAuthData();
 
                 password.Id = authInfo.Id;
 
@@ -109,8 +109,8 @@ namespace BusDep.Web.Controllers
             try
             {
 
-                var user = usuario.ObtenerDatosPersonales(authHelper.GetAuthData());
-                user.UltimoLogin = authHelper.GetAuthData().UltimoLogin;
+                var user = usuario.ObtenerDatosPersonales(GetAuthData());
+                user.UltimoLogin = GetAuthData().UltimoLogin;
                 Response.StatusCode = 200;
 
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -129,7 +129,7 @@ namespace BusDep.Web.Controllers
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
             try
             {
-                var user = business.ObtenerJugador(authHelper.GetAuthData());
+                var user = business.ObtenerJugador(GetAuthData());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -144,12 +144,9 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = DependencyFactory.Resolve<ICommonBusiness>().ObtenerDeportesPuestos().Select(item => new ComboAgrupadoViewModel
-                {
-                    Id = item.Id,
-                    Agrupador = item.Descripcion,
-                    Descripcion = item.PuestoEspecifico
-                }).ToList();
+                var user =
+                    DependencyFactory.Resolve<ICommonBusiness>()
+                        .ObtenerComboPuestosEspecifico(GetAuthData().DeporteId.GetValueOrDefault());
                 
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -271,7 +268,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user1 = DependencyFactory.Resolve<ICommonBusiness>().ObtenerPuestos(authHelper.GetAuthData().DeporteId.GetValueOrDefault())
+                var user1 = DependencyFactory.Resolve<ICommonBusiness>().ObtenerPuestos(GetAuthData().DeporteId.GetValueOrDefault())
                     .Select(u => u.Descripcion).Distinct()
                     .Select(item => new ComboViewModel
                     {

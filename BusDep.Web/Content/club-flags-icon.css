@@ -13,12 +13,17 @@
         height: 100px;
     }
 
+     .flagclubicon.md {
+        width: 60px;
+        height: 60px;
+    }
+
     .flagclubicon.xs {
         width: 20px;
         height: 20px;
     }
     .flagclubicon.flag- {
-        background-image: url('../Content/img/Clubes/afa.png');
+        background-image: url('../Content/img/Allwiners/logo_short.png');
     }
     .flagclubicon.flag-al {
         background-image: url('../Content/img/Clubes/al.png');

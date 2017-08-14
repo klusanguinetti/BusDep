@@ -20,6 +20,9 @@
     <property name="Telefono" column="Telefono" type="System.String" length="20" />
     <property name="TipoDocumento" column="TipoDocumento" type="System.String" length="100" />
     <property name="Informacion" column="Informacion" type="System.String" length="4000" />
+    <property name="ContactoNombre" column="ContactoNombre" type="System.String" length="200" />
+    <property name="ContactoTelefono" column="ContactoTelefono" type="System.String" length="20" />
+    <property name="ContactoMail" column="ContactoMail" type="System.String" length="200" />
     <many-to-one name="Usuario" unique="true" column="UsuarioId" class="BusDep.Entity.Usuario, BusDep.Entity"/>
   </class>
 </hibernate-mapping>

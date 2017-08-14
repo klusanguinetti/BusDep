@@ -12,12 +12,15 @@
 }
    .flagicon.xl {
         width: 100px;
-        height: 100px;
+        height: 75px;
     }
-
+   .flagicon.md {
+        width: 60px;
+        height: 45px;
+    }
     .flagicon.xs {
         width: 20px;
-        height: 20px;
+        height: 15px;
     }
     .flagicon.flag-{
     background-image: url('../Content/img/country/default.png');

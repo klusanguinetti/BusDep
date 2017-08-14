@@ -13,127 +13,129 @@
             @Html.Partial("_SportsHistory")
 
             <div class="col-sm-9 page-content">
-
                 <div class="inner-box">
+                    @Html.Partial("_Hearder_Profile")
+                </div>
+                    <div class="inner-box">
 
-                    <h2 class="title-2"><i class="fa fa-futbol-o"></i> Antecedentes deportivos </h2>
+                        <h2 class="title-2"><i class="fa fa-futbol-o"></i> Antecedentes deportivos </h2>
 
-                    <div class="table-responsive">
+                        <div class="table-responsive">
 
-                        <div class="table-action">
-                            <flash-message></flash-message>
-                            <div class="table-search pull-right">
-                                <div class="form-group">
-                                    <a href="#!History/SportsHistory" class="btn btn-default page-action">Agregar</a>
+                            <div class="table-action">
+                                <flash-message></flash-message>
+                                <div class="table-search pull-right">
+                                    <div class="form-group">
+                                        <a href="#!History/SportsHistory" class="btn btn-default page-action">Agregar</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <table id="addManageTable" class="table table-striped table-bordered add-manage-table table demo footable-loaded footable" data-filter="#filter" data-filter-text-only="true">
+                            <table id="addManageTable" class="table table-striped table-bordered add-manage-table table demo footable-loaded footable" data-filter="#filter" data-filter-text-only="true">
 
-                            <thead>
-                                <tr>
+                                <thead>
+                                    <tr>
 
-                                    <th> Club</th>
-                                    <th data-sort-ignore="true"> Información</th>
-                                    <th> Opciones</th>
-                                </tr>
-                            </thead>
+                                        <th> Club</th>
+                                        <th data-sort-ignore="true"> Información</th>
+                                        <th> Opciones</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
+                                <tbody>
 
-                                <tr ng-repeat="a in antecedentes">
+                                    <tr ng-repeat="a in antecedentes">
 
-                                    <td style="width:14%" class="add-img-td">
+                                        <td style="width:14%" class="add-img-td">
 
-                                        <div class="add-image col-sm-12">
-                                            <a href="">
-                                                <i class="flagclubicon flag-{{a.ClubLogo}}" alt="Atlético Rafaela" style="width: 60px; height: 60px"></i>
-                                            </a>
-                                        </div>
-
-                                    </td>
-
-                                    <td style="width:58%" class="ads-details-td">
-
-                                        <div class="add-details jobs-item">
-
-                                            <h4 class="job-title"><a ng-href="#!History/SportsHistory/{{a.Id}}"> {{a.ClubDescripcion}} </a></h4>
-
-                                            <span class="info-row">
-
-                                                <span class="date"><i class="icon-calendar-1"></i>Desde: {{a.FechaInicioText}} </span>
-
-                                                <span class="date"><i class="icon-calendar-1"></i>Hasta: {{a.FechaFinText ? a.FechaFinText : 'Actual'}} </span>
-
-                                            </span>
-
-                                            <div class="job-actions">
-
-                                                <ul class="" style="margin-left:0px">
-
-                                                    <li style="margin-bottom: 5px;">
-                                                        <a href="" class="save-job">
-                                                            <span class="fa fa-handshake-o"></span>
-                                                            Asistencias: {{a.Asistencias ? a.Asistencias : 0 }}
-                                                        </a>
-                                                    </li>
-
-                                                    <li style="margin-bottom: 5px;">
-                                                        <a class="saved-job" href="">
-                                                            <span class="fa fa-futbol-o"></span>
-                                                            Goles: {{a.Goles ? a.Goles : 0}}
-                                                        </a>
-                                                    </li>
-
-                                                    <li style="margin-bottom: 5px;">
-                                                        <a class="email-job" href="">
-                                                            <i class="fa fa-flag"></i>
-                                                            Partidos: {{a.Partidos ? a.Partidos : 0}}
-                                                        </a>
-                                                    </li>
-
-                                                </ul>
-
-                                            </div>
-
-                                            <div class="jobs-desc">
-                                                {{a.InformacionAdicional}}
-                                            </div>
-
-
-
-                                        </div>
-
-                                    </td>
-
-                                    <td style="width:10%" class="action-td">
-
-                                        <div>
-                                            <p>
-                                                <a class="btn btn-info btn-xs" ng-href="#!History/SportsHistory/{{a.Id}}">
-                                                    <i class="fa fa-pencil"></i> Editar
+                                            <div class="add-image col-sm-12">
+                                                <a href="">
+                                                    <i class="flagclubicon flag-{{a.ClubLogo}}" alt="Atlético Rafaela" style="width: 60px; height: 60px"></i>
                                                 </a>
-                                            </p>
-                                            <p>
-                                                <button class="btn btn-danger btn-xs" ng-click="DeleteAntecedente(a.Id)" promise-btn>
-                                                    <i class="fa fa-trash"></i> Borrar
-                                                </button>
-                                            </p>
-                                        </div>
+                                            </div>
 
-                                    </td>
+                                        </td>
 
-                                </tr>
+                                        <td style="width:58%" class="ads-details-td">
 
-                            </tbody>
-                        </table>
+                                            <div class="add-details jobs-item">
+
+                                                <h4 class="job-title"><a ng-href="#!History/SportsHistory/{{a.Id}}"> {{a.ClubDescripcion}} </a></h4>
+
+                                                <span class="info-row">
+
+                                                    <span class="date"><i class="icon-calendar-1"></i>Desde: {{a.FechaInicioText}} </span>
+
+                                                    <span class="date"><i class="icon-calendar-1"></i>Hasta: {{a.FechaFinText ? a.FechaFinText : 'Actual'}} </span>
+
+                                                </span>
+
+                                                <div class="job-actions">
+
+                                                    <ul class="" style="margin-left:0px">
+
+                                                        <li style="margin-bottom: 5px;">
+                                                            <a href="" class="save-job">
+                                                                <span class="fa fa-handshake-o"></span>
+                                                                Asistencias: {{a.Asistencias ? a.Asistencias : 0 }}
+                                                            </a>
+                                                        </li>
+
+                                                        <li style="margin-bottom: 5px;">
+                                                            <a class="saved-job" href="">
+                                                                <span class="fa fa-futbol-o"></span>
+                                                                Goles: {{a.Goles ? a.Goles : 0}}
+                                                            </a>
+                                                        </li>
+
+                                                        <li style="margin-bottom: 5px;">
+                                                            <a class="email-job" href="">
+                                                                <i class="fa fa-flag"></i>
+                                                                Partidos: {{a.Partidos ? a.Partidos : 0}}
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+
+                                                </div>
+
+                                                <div class="jobs-desc">
+                                                    {{a.InformacionAdicional}}
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </td>
+
+                                        <td style="width:10%" class="action-td">
+
+                                            <div>
+                                                <p>
+                                                    <a class="btn btn-info btn-xs" ng-href="#!History/SportsHistory/{{a.Id}}">
+                                                        <i class="fa fa-pencil"></i> Editar
+                                                    </a>
+                                                </p>
+                                                <p>
+                                                    <button class="btn btn-danger btn-xs" ng-click="DeleteAntecedente(a.Id)" promise-btn>
+                                                        <i class="fa fa-trash"></i> Borrar
+                                                    </button>
+                                                </p>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
 
                     </div>
 
                 </div>
-
-            </div>
 
         </div>
 

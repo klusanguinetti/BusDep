@@ -15,6 +15,12 @@ namespace BusDep.Entity
         public virtual int? Goles { get; set; }
         public virtual int? Partidos { get; set; }
         public virtual int? Asistencias { get; set; }
+        public virtual string Puesto { get; set; }
+        public virtual string PuestoAlt { get; set; }
+        public virtual string TecnicoNombre { get; set; }
+        public virtual string TecnicoMail { get; set; }
+        public virtual string TextoLibre { get; set; }
+        
         #endregion 
     }
 }

@@ -13,7 +13,32 @@
                 }
             }
         };
-       
+
+        $scope.optionsBar = {
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    ticks: {
+                        beginAtZero: true,
+                        max: 10
+                        }
+                }],
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        beginAtZero: true,
+                        max: 10
+                    },
+                    gridLines: {
+                        offsetGridLines: true
+                    }
+                }]
+            }
+        };
+
         angular.element(function () {
 
             var idJugador = $routeParams.id;
@@ -34,7 +59,7 @@
 
                 }
             }).catch(function (err) {
-                 
+
                 if (err.status == "404") {
                     $location.path("/Home/Index");
                 } else {

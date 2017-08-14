@@ -142,6 +142,7 @@
     <Compile Include="Class\CacheHeler.cs" />
     <Compile Include="Class\MailHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -171,7 +172,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\Allwiners\baner_agente.jpg" />
+    <Content Include="Content\img\Allwiners\baner_agente.png" />
     <Content Include="Content\img\Allwiners\baner_jugador.jpg" />
+    <Content Include="Content\img\Allwiners\baner_jugador.png" />
+    <Content Include="Content\img\Allwiners\banner_club.jpg" />
+    <Content Include="Content\img\Allwiners\banner_club.png" />
+    <Content Include="Content\img\Allwiners\banner_intemediarios.jpg" />
+    <Content Include="Content\img\Allwiners\banner_intemediarios.png" />
     <Content Include="Content\img\Allwiners\logo.png" />
     <Content Include="Content\img\Allwiners\logo_bg_gold.png" />
     <Content Include="Content\img\Allwiners\logo_bg_gold_white.png" />
@@ -180,8 +187,11 @@
     <Content Include="Content\img\Allwiners\logo_bg_negativo.png" />
     <Content Include="Content\img\Allwiners\logo_bg_white.png" />
     <Content Include="Content\img\Allwiners\logo_gold.png" />
+    <Content Include="Content\img\Allwiners\logo_header.png" />
+    <Content Include="Content\img\Allwiners\logo_short.png" />
     <Content Include="Content\img\Puestos\ar.png" />
     <Content Include="Content\img\Puestos\Cancha.png" />
+    <Content Include="Content\img\Puestos\cancha_limpia.png" />
     <Content Include="Content\img\Puestos\dc.png" />
     <Content Include="Content\img\Puestos\dd.png" />
     <Content Include="Content\img\Puestos\di.png" />
@@ -191,6 +201,7 @@
     <Content Include="Content\img\Puestos\mc.png" />
     <Content Include="Content\img\Puestos\md.png" />
     <Content Include="Content\img\Puestos\mi.png" />
+    <Content Include="Content\img\Puestos\pasto.png" />
     <Content Include="Content\puestos-flags-icon.css" />
     <Content Include="Content\club-flags-icon.css" />
     <Content Include="Content\country-flags-icon.css" />
@@ -643,6 +654,7 @@
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalService.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryController.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryListController.js" />
+    <Content Include="Scripts\app\components\commonService.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
@@ -1476,8 +1488,7 @@
     <Content Include="Views\Shared\_SelfAppraisal.cshtml" />
     <Content Include="Views\Account\PasswordChange.cshtml" />
     <Content Include="Views\Shared\_PasswordChange.cshtml" />
-    <Content Include="Views\Account\PasswordRecovery.cshtml" />
-    <Content Include="Views\Account\UpdatePasswordRecovery.cshtml" />
+    <Content Include="Views\Shared\_Hearder_Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

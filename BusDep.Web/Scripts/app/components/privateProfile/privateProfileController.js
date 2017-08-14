@@ -1,9 +1,9 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', '$http', '$rootScope', 'toastr',
-function ($scope, privateProfileService, $http, $rootScope, toastr) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr',
+function ($scope, privateProfileService, commonService, $http, $rootScope, toastr) {
 
 
     $scope.Mail = $rootScope.user.UserName;
-
+    $scope.autoEvaluacion = {};
     $scope.paises = {};
 
     $scope.datosPersonales = {};
@@ -39,6 +39,13 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
                 $scope.datosPersonales.FechaNacimiento = date;
 
             }
+            commonService.getPerfilJugadorShort().then(function (response) {
+
+                $scope.perfilShort = response.data;
+
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
 
         }).catch(function (err) {
 
@@ -134,8 +141,6 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
                     $scope.datosPersonales.Pais = value.Nombre;
                 }
             });
-
-            
         }
         if ($scope.datosPersonales.NacionalidadIso != '') {
 
@@ -144,8 +149,14 @@ function ($scope, privateProfileService, $http, $rootScope, toastr) {
                     $scope.datosPersonales.Nacionalidad = value.Nombre;
                 }
             });
+        }
+        if ($scope.datosPersonales.NacionalidadIso1 != '') {
 
-            
+            angular.forEach($scope.paises, function (value, key) {
+                if (value.CodigoIso == $scope.datosPersonales.NacionalidadIso1) {
+                    $scope.datosPersonales.Nacionalidad1 = value.Nombre;
+                }
+            });
         }
         return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 

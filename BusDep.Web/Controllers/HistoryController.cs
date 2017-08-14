@@ -12,7 +12,7 @@ using System.Web.Security;
 namespace BusDep.Web.Controllers
 {
     [Authorize]
-    public class HistoryController : Controller
+    public class HistoryController : BaseController
     {
 
         private AuthHelper authHelper = new AuthHelper();
@@ -70,6 +70,22 @@ namespace BusDep.Web.Controllers
                 var antecedentes = business.ObtenerAntecedentes(authHelper.GetAuthData());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = antecedentes, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
+        public JsonResult GetPuestosCode()
+        {
+            try
+            {
+                var user = DependencyFactory.Resolve<ICommonBusiness>().ObtenerComboPuestosEspecificoCode(authHelper.GetAuthData().DeporteId.GetValueOrDefault());
+
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             catch (Exception)
             {

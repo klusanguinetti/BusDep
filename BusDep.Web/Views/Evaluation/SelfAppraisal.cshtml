@@ -4,7 +4,7 @@
 }
 
 
-<div class="main-container" >
+<div class="main-container">
 
     <div class="container">
 
@@ -13,7 +13,9 @@
             @Html.Partial("_SelfAppraisal")
 
             <div class="col-sm-9 page-content">
-
+                <div class="inner-box">
+                    @Html.Partial("_Hearder_Profile")
+                </div>
                 <div class="inner-box">
 
                     <h2 class="title-2"><i class="fa fa-star"></i> AutoEvaluación</h2>
@@ -29,26 +31,21 @@
                                     <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
 
                                         <div class="panel panel-default card" ng-repeat="cab in autoEvaluacion.Cabeceras" id="{{cab.Id}}">
-
                                             <div class="panel-heading content-in card-header">
-
                                                 <h5 class="panel-title">
-
                                                     <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse{{cab.Id}}" aria-expanded="true" aria-controls="collapseOne">
                                                         <span><i class="icon-star-circled s16"></i>{{cab.Descripcion}}</span>
                                                     </a>
-
                                                 </h5>
-
                                             </div>
 
                                             <div id="collapse{{cab.Id}}" class="panel-collapse collapse">
 
-                                                <div class="panel-body">
+                                                <div class="col-sm-7 col-md-7 col-xs-12 panel-body">
 
                                                     <div class="form-group" ng-repeat="det in cab.Detalle">
 
-                                                        <label class="col-sm-5 control-label">{{det.Descripcion}}</label>
+                                                        <label class="col-sm-5 control-label font11">{{det.Descripcion}}</label>
 
                                                         <div class="col-sm-7">
                                                             <slider slider-id="slider{{det.Id}}" provide="slider" min="0"
@@ -56,7 +53,141 @@
 
                                                         </div>
                                                     </div>
+
                                                 </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-5 panel-body panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true">
+                                                    <div class="panel panel-default card">
+                                                        <div class="panel-heading content-in card-header">
+                                                            <h5 class="panel-title">
+                                                                <a class="accordion-toggle" data-toggle="collapse" data-target="#info1{{cab.Id}}" aria-expanded="true" aria-controls="collapseOne">
+                                                                    <span ng-show="cab.Descripcion=='Técnica'">
+                                                                        <i class="icon-lamp"></i>Evaluar tu Técnica
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Condición Fisica'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos Físico
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Táctica (cualidades cognoscitivas)'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de la Táctica
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Cualidades mentales'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos Mentales
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Coordinación'">
+                                                                        <i class="icon-lamp"></i>Evaluar tu Coordinación
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Entorno social'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Entorno Social
+                                                                    </span>
+                                                                </a>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="info1{{cab.Id}}" class="panel-collapse collapse">
+                                                            <div class="panel-content">
+                                                                <div class="panel-body text-left">
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Técnica'">
+                                                                        <li>Ejecutar el pase con distintas partes del pie.</li>
+                                                                        <li>Correcto apoyo de la otra pierna.</li>
+                                                                        <li>Dar el pase facilitando la acción del compañero.</li>
+                                                                        <li>Utilizar pases por el suelo o aéreos según la disposición de los adversarios.</li>
+                                                                        <li>Colocarse entre el contrario y la pelota.</li>
+                                                                        <li>Orientar el balón preferiblemente con la pierna más alejada de nuestro defensor.</li>
+                                                                        <li>Cambiar la dirección de la pelota.</li>
+                                                                        <li>Cambiar de ritmo.</li>
+                                                                        <li>Dar continuidad a la acción después del regate.</li>
+                                                                        <li>Mantener un control visual con la cabeza alzada del espacio cercano a la conducción.</li>
+                                                                        <li>Conducir el balón con la pierna más alejada del adversario.</li>
+                                                                        <li>Atacar el balón para el Cabezazo con determinación. </li>
+                                                                        <li>Mover la cabeza en dirección al objetivo que queremos.</li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Condición Fisica'">
+                                                                        <li>Soportas todo el partido con intensidad.</li>
+                                                                        <li>Tiene fuerza de reacción.</li>
+                                                                        <li>Eres rápido.</li>
+                                                                        <li>Mantienes el nivel conforme pasan los minutos.</li>
+                                                                        <li>Eres ágil.</li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Táctica (cualidades cognoscitivas)'">
+                                                                        <li> Manejas los conceptos del juego.</li>
+                                                                        <li>Conocer los distintos sistemas.</li>
+                                                                        <li>Conocer el espacio débil de nuestra zona.</li>
+                                                                        <li>
+                                                                            Fijar a un adversario para crear un espacio.
+                                                                        </li>
+                                                                        <li>
+                                                                            Abrir un línea de pase al poseedor del balón.
+                                                                        </li>
+                                                                        <li>
+                                                                            Permuta: intercambiar la posición con el compañero que nos ayuda se somos desbordados.
+                                                                        </li>
+                                                                        <li>
+                                                                            Reducir o ampliar la amplitud en función de la fase de juego.
+                                                                        </li>
+                                                                        <li>
+                                                                            Conocer el concepto de desmarque y Desdoblamiento.
+                                                                        </li>
+                                                                        <li>Orientar el balón hacia los espacios libres.</li>
+
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Cualidades mentales'">
+                                                                        <li>
+                                                                            Sentido de la voluntad
+                                                                        </li>
+                                                                        <li>
+                                                                            Mantienes la concentración
+                                                                        </li>
+                                                                        <li>
+                                                                            Manejo del Estrés
+                                                                        </li>
+                                                                        <li>
+                                                                            Confianza en vos mismo
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes vos de mando o alientas a tus compañeros
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes Liderazgo
+                                                                        </li>
+                                                                        <li>
+                                                                            No bajar los brazos
+                                                                        </li>
+                                                                        <li>
+                                                                            Das todo
+                                                                        </li>
+                                                                        <li>
+                                                                            Priorizas el equipo
+                                                                        </li>
+                                                                        <li>
+                                                                            Buscar variantes, ser creativo
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Coordinación'"></ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Entorno social'">
+                                                                        <li>
+                                                                            Tienes buena comunicación con tus pares y Técnico
+                                                                        </li>
+                                                                        <li>
+                                                                            Hablas con el técnico sobre tu rendimiento y el juego
+                                                                        </li>
+                                                                        <li>
+                                                                            Eres positivo y optimista
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes respeto por los otros
+                                                                        </li>
+                                                                        <li>
+                                                                            Mantienes las reglas de convivencia
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes Entusiasmo
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
 
                                             </div>
 

@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="BusDep.Entity.Antecedente, BusDep.Entity" table="Antecedente" lazy="true">
-    <id name="Id" column="AntecedenteId" type="System.Int64" unsaved-value="0" >
+  <class name="BusDep.Entity.RecuperoUsuario, BusDep.Entity" table="RecuperoUsuario" lazy="true">
+    <id name="Id" column="RecuperoUsuarioId" type="System.Int64" unsaved-value="0" >
       <generator class="native" />
     </id>
-    <property name="FechaFin" column="FechaFin" type="System.DateTime"  />
-    <property name="FechaInicio" column="FechaInicio" type="System.DateTime"  />
-    <property name="InformacionAdicional" column="InformacionAdicional" type="System.String" length="4000" />
-    <property name="ClubDescripcion" column="ClubDescripcion" type="System.String" length="400" />
-    <property name="ClubLogo" column="ClubLogo" type="System.String" length="200" />
-    <property name="Video" column="Video" type="System.String" length="800" />
-    <property name="Goles" column="Goles" type="System.Int32" />
-    <property name="Partidos" column="Partidos" type="System.Int32" />
-    <property name="Asistencias" column="Asistencias" type="System.Int32" />
-    <many-to-one name="Usuario" column="UsuarioId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
+    <property name="Mail" column="Mail" type="System.String" length="200" />
+    <property name="Codigo" column="Codigo" type="System.Int64" />
+    <property name="Fecha" column="Fecha" type="System.DateTime"  />
   </class>
 </hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->
