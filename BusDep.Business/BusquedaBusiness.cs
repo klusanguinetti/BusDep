@@ -46,7 +46,12 @@ namespace BusDep.Business
                 buscar.Pagina.GetValueOrDefault(),buscar.Cantidad.GetValueOrDefault());
         }
 
-       
+
+        public virtual List<JugadorViewModel> TopJugador()
+        {
+            return DependencyFactory.Resolve<IJugadorDA>().TopJugador();
+        }
+
         [AuditMethod]
         public virtual long BuscarJugadorCount(BuscarJugadorViewModel buscar)
         {

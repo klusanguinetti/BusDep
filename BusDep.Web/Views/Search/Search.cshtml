@@ -197,83 +197,9 @@
                         </div>
 
                         <div class="adds-wrapper jobs-list">
-
-                            <div class="item-list" ng-repeat="r in searchResult">
-
-                                <div class="col-sm-3  photobox">
-                                    <div class="add-image">
-                                        @*<span class="photo-count"><i class="fa fa-camera"></i> 2 </span>*@
-                                        <a href="#!/Profile/player/{{r.Id}}">
-                                            <img class="thumbnail no-margin" src="~/Content/img/jugadores-fotos/532516.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 add-desc-box">
-
-                                    <div class="add-details">
-
-                                        <h5 class="add-title">
-                                            <a href="#!/Profile/player/{{r.Id}}">
-                                                {{r.Nombre}} {{r.Apellido}}
-                                            </a>
-                                        </h5>
-
-                                        <span class="info-row"> <span class="item-location"> {{r.PuestoDescripcion}}, Pie: {{r.Pie}} </span> </span>
-
-                                        <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{r.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{r.Edad}} años / {{r.Altura}} metros </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{r.Perfil}}</span></span>
-
-                                        <div class="prop-info-box">
-
-                                            <div class="prop-info">
-
-                                                <div class="clearfix prop-info-block">
-                                                    <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
-                                                    <i class="flagicon flag-{{r.NacionalidadIso}} icon-th-thumb" title={{r.Nacionalidad}}></i>
-                                                </div>
-
-                                                <div class="clearfix prop-info-block middle">
-
-                                                    <span class="info-row">Club actual</span>
-                                                    <i class="flagclubicon flag-{{r.LogClubActual}} icon-th-thumb" title={{r.ClubActual}}></i>
-
-
-                                                </div>
-
-                                                @*<div class="clearfix prop-info-block">
-                                                    <span class="title prop-room">4</span>
-                                                    <span class="text">room </span>
-                                                </div>*@
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="col-sm-3 text-right  price-box">
-
-                                    <a class="btn btn-border-thin  btn-save" title="Agregar a favoritos">
-                                        <i class="icon icon-heart"></i>
-                                    </a>
-
-                                    <a class="btn btn-border-thin  btn-share ">
-                                        <i class="icon icon-export" title="Compartir perfil"></i>
-                                    </a>
-
-                                    <h4 class="" style="margin-top:10px;"> <strong> Fichaje: {{r.Fichaje}}</strong></h4>
-
-                                    <div style="clear: both"></div>
-
-                                    <a class="btn btn-success btn-sm bold" href="#!/Profile/player/{{r.Id}}">
-                                        Ver perfil
-                                    </a>
-
-                                </div>
-
+                            <div class="item-list" ng-repeat="item in searchResult">
+                                @Html.Partial("_Jugador_Item")
                             </div>
-
                         </div>
 
                         <div class="tab-box  save-search-bar text-center">

@@ -1,11 +1,28 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope', '$location', 'authService', 'Carousel', '$rootScope', function ($scope, $location, authService, Carousel, $rootScope) {
+app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', 'Carousel', '$rootScope', function ($scope, $location, commonService, authService, Carousel, $rootScope) {
 
     $scope.slides = [
-        '/Content/img/Allwiners/baner_jugador.png',
-        '/Content/img/Allwiners/banner_club.png',
-        '/Content/img/Allwiners/banner_intemediarios.png',
+        '/Content/img/Allwiners/jugador.png',
+        '/Content/img/Allwiners/entrenadores.png',
+        '/Content/img/Allwiners/agentes.png',
+        '/Content/img/Allwiners/clubes.png'
     ]
+    $scope.searchResult = {};
+
+
+    angular.element(function () {
+
+        commonService.getTopJugador().then(function (response) {
+
+            $scope.searchResult = response.data;
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+
+        
+
+    });
 
     $(function () {
         $('.row-featured .f-category').matchHeight();

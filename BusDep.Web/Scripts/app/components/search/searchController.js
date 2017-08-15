@@ -2,8 +2,6 @@
     function ($scope, $routeParams, searchService, privateProfileService, $http, toastr, $location) {
 
         /*Declaración de variables*/
-
-
         $scope.pagina = 1;
         $scope.cantidad = 10;
 
@@ -12,14 +10,6 @@
             pagina: 1,
             cantidad: 10
         };
-        //$scope.searchProfile = {
-        //    Id: "",
-        //    Nombre: "",
-        //    PaisIso: "",
-        //    Perfil: "",
-        //    Fichaje: "",
-        //    Edad: 0
-        //};
         $scope.principalSearch = "";
         $scope.fichajes = {};
         $scope.perfiles = {};

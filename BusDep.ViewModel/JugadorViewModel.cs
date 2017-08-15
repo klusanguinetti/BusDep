@@ -35,7 +35,7 @@ namespace BusDep.ViewModel
         [DataMember]
         public string ClubActual { get; set; }
         [DataMember]
-        public string LogClubActual { get; set; }
+        public string ClubCode { get; set; }
         [DataMember]
         public string Perfil { get; set; }
         [DataMember]
@@ -66,9 +66,5 @@ namespace BusDep.ViewModel
             }
             set { }
         }
-
-        
-        
-        
     }
 }

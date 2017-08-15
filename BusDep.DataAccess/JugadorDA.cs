@@ -44,7 +44,7 @@ namespace BusDep.DataAccess
                         {
                             Apellido = item.Usuario.DatosPersona.Apellido,
                             ClubActual = item.ClubDescripcion,
-                            LogClubActual = item.ClubLogo,
+                            ClubCode = item.ClubLogo,
                             Fichaje = item.Fichaje,
                             FotoRostro = item.FotoRostro,
                             Id = item.Id,
@@ -84,7 +84,7 @@ namespace BusDep.DataAccess
                         {
                             Apellido = item.Usuario.DatosPersona.Apellido,
                             ClubActual = item.ClubDescripcion,
-                            LogClubActual = item.ClubLogo,
+                            ClubCode = item.ClubLogo,
                             Fichaje = item.Fichaje,
                             FotoRostro = item.FotoRostro,
                             Id = item.Id,
@@ -129,7 +129,7 @@ namespace BusDep.DataAccess
                         {
                             Apellido = item.Usuario.DatosPersona.Apellido,
                             ClubActual = item.ClubDescripcion,
-                            LogClubActual = item.ClubLogo,
+                            ClubCode = item.ClubLogo,
                             Fichaje = item.Fichaje,
                             FotoRostro = item.FotoRostro,
                             Id = item.Id,
@@ -171,7 +171,7 @@ namespace BusDep.DataAccess
                         {
                             Apellido = item.Usuario.DatosPersona.Apellido,
                             ClubActual = item.ClubDescripcion,
-                            LogClubActual = item.ClubLogo,
+                            ClubCode = item.ClubLogo,
                             Fichaje = item.Fichaje,
                             FotoRostro = item.FotoRostro,
                             Id = item.Id,
@@ -211,7 +211,7 @@ namespace BusDep.DataAccess
                         {
                             Apellido = item.Usuario.DatosPersona.Apellido,
                             ClubActual = item.ClubDescripcion,
-                            LogClubActual = item.ClubLogo,
+                            ClubCode = item.ClubLogo,
                             Fichaje = item.Fichaje,
                             FotoRostro = item.FotoRostro,
                             Id = item.Id,
@@ -294,5 +294,40 @@ namespace BusDep.DataAccess
                         PuestoCode = item.Puesto.Codigo
                     }).FirstOrDefault();
         }
+
+        public virtual List<JugadorViewModel> TopJugador()
+        {
+
+            return (from item in Session.Query<Jugador>()
+                    orderby item.Id descending 
+                    select new JugadorViewModel
+                    {
+                        Apellido = item.Usuario.DatosPersona.Apellido,
+                        ClubActual = item.ClubDescripcion,
+                        ClubCode = item.ClubLogo,
+                        Fichaje = item.Fichaje,
+                        FotoRostro = item.FotoRostro,
+                        Id = item.Id,
+                        Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
+                        Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
+                        NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
+                        NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
+                        FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
+                        Informacion = item.Usuario.DatosPersona.Informacion,
+                        Pais = item.Usuario.DatosPersona.Pais,
+                        PaisIso = item.Usuario.DatosPersona.PaisIso,
+                        Nombre = item.Usuario.DatosPersona.Nombre,
+                        Perfil = item.Perfil,
+                        Pie = item.Pie,
+                        PuestoDescripcion = item.Puesto.PuestoEspecifico,
+                        Altura = item.Altura,
+                        Peso = item.Peso,
+                        FotoCuertoEntero = item.FotoCuertoEntero,
+                        PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
+                        PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                        UsuarioId = item.Usuario.Id
+                    }).Take(10).ToList();
+        }
+
     }
 }

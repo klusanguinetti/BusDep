@@ -10,4 +10,12 @@ app.service('commonService', ['$http', '$q', function ($http, $q) {
         });
 
     };
+    this.getTopJugador = function () {
+
+        return $http.post(serviceBase + 'TopJugador').then(function (response) {
+            return response;
+        });
+
+    };
+
 }]);

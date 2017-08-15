@@ -171,6 +171,8 @@
     <Content Include="Content\bootstrap-slider.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\Allwiners\agentes 2.png" />
+    <Content Include="Content\img\Allwiners\agentes.png" />
     <Content Include="Content\img\Allwiners\baner_agente.jpg" />
     <Content Include="Content\img\Allwiners\baner_agente.png" />
     <Content Include="Content\img\Allwiners\baner_jugador.jpg" />
@@ -179,6 +181,11 @@
     <Content Include="Content\img\Allwiners\banner_club.png" />
     <Content Include="Content\img\Allwiners\banner_intemediarios.jpg" />
     <Content Include="Content\img\Allwiners\banner_intemediarios.png" />
+    <Content Include="Content\img\Allwiners\clubes 2.png" />
+    <Content Include="Content\img\Allwiners\clubes.png" />
+    <Content Include="Content\img\Allwiners\entrenadores 2.png" />
+    <Content Include="Content\img\Allwiners\entrenadores.png" />
+    <Content Include="Content\img\Allwiners\jugador.png" />
     <Content Include="Content\img\Allwiners\logo.png" />
     <Content Include="Content\img\Allwiners\logo_bg_gold.png" />
     <Content Include="Content\img\Allwiners\logo_bg_gold_white.png" />
@@ -1489,6 +1496,10 @@
     <Content Include="Views\Account\PasswordChange.cshtml" />
     <Content Include="Views\Shared\_PasswordChange.cshtml" />
     <Content Include="Views\Shared\_Hearder_Profile.cshtml" />
+    <Content Include="Views\Account\PasswordRecovery.cshtml" />
+    <Content Include="Views\Account\UpdatePasswordRecovery.cshtml" />
+    <Content Include="Views\Shared\_Jugador_Item.cshtml" />
+    <Content Include="Views\Shared\_Jugador_Item_v2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

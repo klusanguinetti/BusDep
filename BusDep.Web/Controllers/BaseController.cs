@@ -57,7 +57,7 @@ namespace BusDep.Web.Controllers
             {
                 if (perfil.JugadorId.HasValue)
                 {
-                    IBusquedaBusiness business = DependencyFactory.Resolve<IBusquedaBusiness>(); 
+                    IBusquedaBusiness business = DependencyFactory.Resolve<IBusquedaBusiness>();
                     var result = business.GetPerfilJugadorShort(perfil);
                     Response.StatusCode = 200;
                     return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
@@ -67,6 +67,23 @@ namespace BusDep.Web.Controllers
                     Response.StatusCode = 404;
                     return new JsonResult { Data = "Perfil no encontrado", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
+        public JsonResult TopJugador()
+        {
+
+            try
+            {
+                IBusquedaBusiness business = DependencyFactory.Resolve<IBusquedaBusiness>();
+                var result = business.TopJugador();
+                Response.StatusCode = 200;
+                return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             catch (Exception)
             {
