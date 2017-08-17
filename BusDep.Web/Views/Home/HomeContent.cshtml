@@ -70,7 +70,7 @@
 
     <div class="main-container">
         <div class="container">
-           
+
             <div style="clear: both"></div>
             <div class="row">
                 <div class="col-sm-9 page-content col-thin-right">
@@ -80,19 +80,16 @@
                                 <div class="inner">
                                     <h2>
                                         <span>Ultimos perfiles</span>
-                                        Registrados <a  ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}" class="sell-your-item"> {{user.authenticated?'Ver todos los perfiles':'Registrarse'}} <i class="icon-th-list"></i> </a>
+                                        Registrados <a ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}" class="sell-your-item"> {{user.authenticated?'Ver todos los perfiles':'QUIERO DARME DE ALTA'}} <i class="icon-th-list"></i> </a>
                                     </h2>
                                 </div>
                             </div>
                             <div class="adds-wrapper jobs-list">
-
                                 <div class="item-list" ng-repeat="item in searchResult">
                                     @Html.Partial("_Jugador_Item")
                                 </div>
-
-
-                                </div>
-                            <div class="tab-box  save-search-bar text-center"><a class="text-uppercase" href="job-list.html"> <i class="icon-briefcase "></i> Ver todos los perfiles </a></div>
+                            </div>
+                            <div class="tab-box  save-search-bar text-center"><a class="text-uppercase" ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}"> <i class="icon-briefcase "></i> Ver todos los perfiles </a></div>
                         </div>
                     </div>
                 </div>

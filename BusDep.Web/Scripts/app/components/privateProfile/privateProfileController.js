@@ -82,6 +82,8 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
     });
 
+    
+
 
     $scope.passwordUpdate = function () {
 

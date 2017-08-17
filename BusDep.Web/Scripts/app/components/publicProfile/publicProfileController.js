@@ -13,7 +13,14 @@
                 }
             }
         };
-
+        $scope.optionsradar = {
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }
+        }
         $scope.optionsBar = {
             legend: {
                 display: false
@@ -24,7 +31,7 @@
                     ticks: {
                         beginAtZero: true,
                         max: 10
-                        }
+                    }
                 }],
                 yAxes: [{
                     stacked: true,
@@ -38,6 +45,15 @@
                 }]
             }
         };
+
+
+        $scope.graficaTecnica = {};
+        $scope.graficaCondicion = {};
+        $scope.graficaTactica = {};
+        $scope.graficaCualidades = {};
+        $scope.graficaCoordinacion = {};
+        $scope.graficaEntorno = {};
+
 
         angular.element(function () {
 
@@ -58,6 +74,27 @@
                     $scope.datosPerfil.FechaNacimiento = date;
 
                 }
+                angular.forEach($scope.datosPerfil.AutoEvaluacion.Cabeceras, function (value, key) {
+                    if (value.Descripcion == 'Técnica') {
+                        $scope.graficaTecnica = value;
+                    }
+                    else if (value.Descripcion == 'Condición Fisica') {
+                        $scope.graficaCondicion = value;
+                    }
+                    else if (value.Descripcion == 'Táctica (cualidades cognoscitivas)') {
+                        $scope.graficaTactica = value;
+                    }
+                    else if (value.Descripcion == 'Cualidades mentales') {
+                        $scope.graficaCualidades = value;
+                    }
+                    else if (value.Descripcion == 'Coordinación') {
+                        $scope.graficaCoordinacion = value;
+                    }
+                    else if (value.Descripcion == 'Entorno social') {
+                        $scope.graficaEntorno = value;
+                    }
+                });
+
             }).catch(function (err) {
 
                 if (err.status == "404") {
@@ -69,4 +106,51 @@
             });
 
         });
+
+        $scope.options = function (evaluacion) {
+
+            if (evaluacion == 'Coordinación' || evaluacion == 'Cualidades mentales') {
+                return {
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        xAxes: [
+                            {
+                                stacked: true,
+                                ticks: {
+                                    beginAtZero: true,
+                                    max: 10
+                                }
+                            }
+                        ],
+                        yAxes: [
+                            {
+                                stacked: true,
+                                ticks: {
+                                    beginAtZero: true,
+                                    max: 10
+                                },
+                                gridLines: {
+                                    offsetGridLines: true
+                                }
+                            }
+                        ]
+                    }
+                };
+            }
+            else {
+                return {
+                    legend: {
+                        position: 'bottom',
+                        display: true,
+                        labels: {
+                            fontColor: 'rgb(206, 78, 39)',
+                            fontSize: 10
+                        }
+                    }
+                };
+            }
+        };
+
     }])

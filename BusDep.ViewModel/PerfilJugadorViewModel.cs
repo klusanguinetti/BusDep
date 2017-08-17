@@ -30,13 +30,11 @@
         [DataMember]
         public string Nacionalidad { get; set; }
         [DataMember]
-        public string Nacionalidades1 { get; set; }
+        public string Nacionalidad1 { get; set; }
         [DataMember]
-        public string Nacionalidades2 { get; set; }
+        public string NacionalidadIso { get; set; }
         [DataMember]
-        public virtual string NacionalidadIso { get; set; }
-        [DataMember]
-        public virtual string NacionalidadIso1 { get; set; }
+        public string NacionalidadIso1 { get; set; }
         #endregion
 
         #region Datos Jugador
@@ -53,9 +51,25 @@
         [DataMember]
         public string PuestoDescripcion { get; set; }
         [DataMember]
+        public string PuestoEspecifico { get; set; }
+        [DataMember]
         public string PuestoCodigo { get; set; }
         [DataMember]
         public string Informacion { get; set; }
+        [DataMember]
+        public string Pie { get; set; }
+        [DataMember]
+        public int? Edad
+        {
+            get
+            {
+                if (!FechaNacimiento.HasValue)
+                    return null;
+                return DateTime.Today.AddTicks(-FechaNacimiento.Value.Ticks).Year - 1;
+
+            }
+            set { }
+        }
         #endregion
 
         #region Antecedentes deportivos

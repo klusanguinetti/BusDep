@@ -2,10 +2,10 @@
 app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', 'Carousel', '$rootScope', function ($scope, $location, commonService, authService, Carousel, $rootScope) {
 
     $scope.slides = [
-        '/Content/img/Allwiners/jugador.png',
-        '/Content/img/Allwiners/entrenadores.png',
-        '/Content/img/Allwiners/agentes.png',
-        '/Content/img/Allwiners/clubes.png'
+        '/Content/img/Allwiners/jugador.jpg',
+        '/Content/img/Allwiners/entrenadores.jpg',
+        '/Content/img/Allwiners/agentes.jpg',
+        '/Content/img/Allwiners/clubes.jpg'
     ]
     $scope.searchResult = {};
 

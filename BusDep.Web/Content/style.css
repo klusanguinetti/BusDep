@@ -12,11 +12,11 @@
 /* PleaseWait CSS fix */
 
 body > .inner {
-  display: none;
+    display: none;
 }
 
 body.pg-loaded > .inner {
-  display: block;
+    display: block;
 }
 
 /* End PleaseWait CSS fix */
@@ -2269,7 +2269,7 @@ div.login-box {
 }
 
 .panel-intro {
-    padding: 40px 0 25px;
+    padding: 0px 0px;
 }
 
     .panel-intro h2 {
@@ -4975,9 +4975,8 @@ h1.titleevaluacion {
     width: auto;
     height: auto;
     max-width: 100%;
-    min-width: 60%;
+    min-width: 100%;
     max-height: 100%;
-    min-height: 60%;
     margin-right: auto;
     margin-bottom: 12px;
     margin-left: auto;
@@ -5049,4 +5048,9 @@ h1.titleevaluacion {
 
 .font14 {
     font-size: 14px !important;
+}
+
+.img-logo-register {
+    max-width: 60% !important;
+    max-height: 60% !important;
 }

@@ -172,6 +172,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\Allwiners\agentes 2.png" />
+    <Content Include="Content\img\Allwiners\agentes.jpg" />
     <Content Include="Content\img\Allwiners\agentes.png" />
     <Content Include="Content\img\Allwiners\baner_agente.jpg" />
     <Content Include="Content\img\Allwiners\baner_agente.png" />
@@ -182,9 +183,12 @@
     <Content Include="Content\img\Allwiners\banner_intemediarios.jpg" />
     <Content Include="Content\img\Allwiners\banner_intemediarios.png" />
     <Content Include="Content\img\Allwiners\clubes 2.png" />
+    <Content Include="Content\img\Allwiners\clubes.jpg" />
     <Content Include="Content\img\Allwiners\clubes.png" />
     <Content Include="Content\img\Allwiners\entrenadores 2.png" />
+    <Content Include="Content\img\Allwiners\entrenadores.jpg" />
     <Content Include="Content\img\Allwiners\entrenadores.png" />
+    <Content Include="Content\img\Allwiners\jugador.jpg" />
     <Content Include="Content\img\Allwiners\jugador.png" />
     <Content Include="Content\img\Allwiners\logo.png" />
     <Content Include="Content\img\Allwiners\logo_bg_gold.png" />

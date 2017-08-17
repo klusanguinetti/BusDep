@@ -1,7 +1,7 @@
 ﻿
 <div class="col-sm-3  photobox">
     <div class="add-image">
-        <a href="#!/Profile/player/{{item.Id}}">
+        <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}" >
             <img class="thumbnail no-margin" src="~/Content/img/jugadores-fotos/532516.jpg" alt="img">
         </a>
     </div>
@@ -9,7 +9,7 @@
 <div class="col-sm-6 add-desc-box">
     <div class="add-details">
         <h5 class="add-title">
-            <a href="#!/Profile/player/{{item.Id}}">
+            <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}" >
                 {{item.Nombre}} {{item.Apellido}}
             </a>
         </h5>
@@ -20,8 +20,12 @@
         <div class="prop-info-box">
             <div class="prop-info">
                 <div class="clearfix prop-info-block">
-                    <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
+                    <span class="info-row" style="margin-bottom: 5px;">Nacionalidad</span>
                     <i class="flagicon flag-{{item.NacionalidadIso}} icon-th-thumb" title={{item.Nacionalidad}}></i>
+                </div>
+                <div class="clearfix prop-info-block" ng-show="{{item.NacionalidadIso1!=null}}" >
+                    <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
+                    <i class="flagicon flag-{{item.NacionalidadIso1}} icon-th-thumb" title={{item.Nacionalidad1}}></i>
                 </div>
                 <div class="clearfix prop-info-block middle">
                     <span class="info-row">Club actual</span>
@@ -31,13 +35,7 @@
         </div>
     </div>
 </div>
-<div class="col-sm-3 text-right  price-box">
-    @*<a class="btn btn-border-thin  btn-save" title="Agregar a favoritos">
-        <i class="icon icon-heart"></i>
-    </a>
-    <a class="btn btn-border-thin  btn-share ">
-        <i class="icon icon-export" title="Compartir perfil"></i>
-    </a>*@
+<div class="col-sm-3 text-right  price-box" ng-show="{{user.authenticated}}" >
     <h4 class="" style="margin-top:10px;"> <strong> Fichaje: {{item.Fichaje}}</strong></h4>
     <div style="clear: both"></div>
     <a class="btn btn-success btn-sm bold" href="#!/Profile/player/{{item.Id}}">

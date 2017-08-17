@@ -32,6 +32,7 @@ namespace BusDep.Business
             jugador.Usuario.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             jugador.Usuario.DatosPersona.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             perfil.PuestoDescripcion = jugador.Puesto.Descripcion;
+            perfil.PuestoEspecifico = jugador.Puesto.PuestoEspecifico;
             perfil.PuestoCodigo = jugador.Puesto.Codigo;
             perfil.Antecedentes = DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(jugador.Usuario.Id);
             perfil.AutoEvaluacion = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(usuario);
