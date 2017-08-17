@@ -3,11 +3,7 @@
 }
 
 <div class="main-container">
-
-
-
     <div class="container">
-
         <div class="row" cg-busy="{promise:myPromise,message:'Cargando perfil...'}">
             <div class="col-sm-12 page-content col-thin-right">
 
@@ -63,16 +59,153 @@
 
                     <div class="tabs mb20">
                         <ul id="myTab" class="nav nav-tabs">
+
                             <li class="active">
-                                <a data-target="#home1" data-toggle="tab" aria-expanded="true">Antecedentes deportivos</a>
+                                <a data-target="#profile1" data-toggle="tab" aria-expanded="true">Autoevaluación deportiva</a>
                             </li>
                             <li class="">
-                                <a data-target="#profile1" data-toggle="tab">Autoevaluación deportiva</a>
+                                <a data-target="#home1" data-toggle="tab" >Antecedentes deportivos</a>
                             </li>
 
                         </ul>
                         <div id="myTabContent2" class="tab-content">
-                            <div class="tab-pane fade active in" id="home1">
+                            <div class="tab-pane fade active in" id="profile1">
+                                <div class="ads-details-info jobs-details-info col-md-12">
+                                    <div class="adds-wrapper jobs-list">
+
+                                        <div class="item-list job-item">
+                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
+                                                <h3 class="job-title">
+                                                    <a> {{graficaTecnica.Descripcion}} </a>
+                                                </h3>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <canvas id="radar{{graficaTecnica.Id}}" class="chart-base" chart-type="graficaTecnica.Chart"
+                                                            chart-options="optionsradar"
+                                                            chart-data="graficaTecnica.Values"
+                                                            chart-labels="graficaTecnica.Labels"></canvas>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 hidden-xs">
+                                                    <h1 class="titleevaluacion">
+                                                        <span class="text-uppercase">Promedio</span>
+                                                        {{graficaTecnica.Promedio}}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="adds-wrapper jobs-list">
+
+                                        <div class="item-list job-item">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 add-desc-box">
+                                                <h3 class="job-title">
+                                                    <a> {{graficaCondicion.Descripcion}} </a>
+                                                </h3>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <canvas id="radar{{graficaCondicion.Id}}" class="chart-base" chart-type="graficaCondicion.Chart"
+                                                            chart-options="optionsradar" chart-data="graficaCondicion.Values" chart-labels="graficaCondicion.Labels"></canvas>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 hidden-xs">
+                                                    <h1 class="titleevaluacion">
+                                                        <span class="text-uppercase">Promedio</span>
+                                                        {{graficaCondicion.Promedio}}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="adds-wrapper jobs-list">
+
+                                        <div class="item-list job-item">
+                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
+                                                <h3 class="job-title">
+                                                    <a> {{graficaTactica.Descripcion}} </a>
+                                                </h3>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <canvas id="radar{{graficaTactica.Id}}" class="chart-base" chart-type="graficaTactica.Chart"
+                                                            chart-options="optionsradar"
+                                                            chart-data="graficaTactica.Values"
+                                                            chart-labels="graficaTactica.Labels"></canvas>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 hidden-xs">
+                                                    <h1 class="titleevaluacion">
+                                                        <span class="text-uppercase">Promedio</span>
+                                                        {{graficaTactica.Promedio}}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="adds-wrapper jobs-list">
+
+                                        <div class="item-list job-item">
+                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
+                                                <h3 class="job-title">
+                                                    <a> {{graficaCualidades.Descripcion}} </a>
+                                                </h3>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <canvas id="radar{{graficaCualidades.Id}}" class="chart-base" chart-type="graficaCualidades.Chart"
+                                                            chart-options="graficaCualidades.Chart=='bar'||graficaCualidades.Chart=='horizontalBar'? optionsBar : options"
+                                                            chart-data="graficaCualidades.Values"
+                                                            chart-labels="graficaCualidades.Labels"></canvas>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 hidden-xs">
+                                                    <h1 class="titleevaluacion">
+                                                        <span class="text-uppercase">Promedio</span>
+                                                        {{graficaCualidades.Promedio}}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="adds-wrapper jobs-list">
+                                        <div class="item-list job-item">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 add-desc-box">
+                                                <h3 class="job-title">
+                                                    <a> {{graficaCoordinacion.Descripcion}} </a>
+                                                </h3>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <canvas id="radar{{graficaCoordinacion.Id}}" class="chart-base" chart-type="graficaCoordinacion.Chart"
+                                                            chart-options="graficaCoordinacion.Chart=='bar'||graficaCoordinacion.Chart=='horizontalBar'? optionsBar : options"
+                                                            chart-data="graficaCoordinacion.Values"
+                                                            chart-labels="graficaCoordinacion.Labels"></canvas>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 hidden-xs">
+
+                                                    <h1 class="titleevaluacion">
+                                                        <span class="text-uppercase">Promedio</span>
+                                                        {{graficaCoordinacion.Promedio}}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="adds-wrapper jobs-list">
+
+                                        <div class="item-list job-item">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 add-desc-box">
+                                                <h3 class="job-title">
+                                                    <a> {{graficaEntorno.Descripcion}} </a>
+                                                </h3>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <canvas id="radar{{graficaEntorno.Id}}" class="chart-base" chart-type="graficaEntorno.Chart"
+                                                            chart-options="options"
+                                                            chart-data="graficaEntorno.Values"
+                                                            chart-labels="graficaEntorno.Labels"></canvas>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 hidden-xs">
+                                                    <h1 class="titleevaluacion">
+                                                        <span class="text-uppercase">Promedio</span>
+                                                        {{graficaEntorno.Promedio}}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted">All Winers no certifica directamente la información presentada anteriormente.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade " id="home1">
                                 <div class="ads-details-info jobs-details-info col-md-12">
                                     <div class="adds-wrapper jobs-list">
 
@@ -128,172 +261,18 @@
                                                         </ul>
 
                                                     </div>
-
                                                     <div class="jobs-desc">
                                                         {{r.InformacionAdicional}}
                                                     </div>
-
-
-
                                                 </div>
-
                                             </div>
-
-
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="profile1">
-                                <div class="ads-details-info jobs-details-info col-md-12">
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaTecnica.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
-                                                    <canvas id="radar{{graficaTecnica.Id}}" class="chart-base" chart-type="graficaTecnica.Chart" width="370"
-                                                            height="250" chart-options="optionsradar"
-                                                            chart-data="graficaTecnica.Values"
-                                                            chart-labels="graficaTecnica.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaTecnica.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaCondicion.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
-                                                    <canvas id="radar{{graficaCondicion.Id}}" class="chart-base" chart-type="graficaCondicion.Chart" width="370"
-                                                            height="250" chart-options="optionsradar"
-                                                            chart-data="graficaCondicion.Values"
-                                                            chart-labels="graficaCondicion.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaCondicion.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaTactica.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
-                                                    <canvas id="radar{{graficaTactica.Id}}" class="chart-base" chart-type="graficaTactica.Chart" width="370"
-                                                            height="250" chart-options="optionsradar"
-                                                            chart-data="graficaTactica.Values"
-                                                            chart-labels="graficaTactica.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaTactica.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaCualidades.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
-                                                    <canvas id="radar{{graficaCualidades.Id}}" class="chart-base" chart-type="graficaCualidades.Chart" width="370"
-                                                            height="250" chart-options="graficaCualidades.Chart=='bar'||graficaCualidades.Chart=='horizontalBar'? optionsBar : options"
-                                                            chart-data="graficaCualidades.Values"
-                                                            chart-labels="graficaCualidades.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaCualidades.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaCoordinacion.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
-                                                    <canvas id="radar{{graficaCoordinacion.Id}}" class="chart-base" chart-type="graficaCoordinacion.Chart" width="370"
-                                                            height="250" chart-options="graficaCoordinacion.Chart=='bar'||graficaCoordinacion.Chart=='horizontalBar'? optionsBar : options"
-                                                            chart-data="graficaCoordinacion.Values"
-                                                            chart-labels="graficaCoordinacion.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaCoordinacion.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaEntorno.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-9">
-                                                    <canvas id="radar{{graficaEntorno.Id}}" class="chart-base" chart-type="graficaEntorno.Chart" width="370"
-                                                            height="250" chart-options="options"
-                                                            chart-data="graficaEntorno.Values"
-                                                            chart-labels="graficaEntorno.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaEntorno.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="text-muted">All Winers no certifica directamente la información presentada anteriormente.</p>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
