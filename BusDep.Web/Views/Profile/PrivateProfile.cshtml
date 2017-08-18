@@ -367,6 +367,25 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-sm-3 control-label">
+                                                Puesto Alternativo
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <div class="" tabindex="0">
+                                                    <select ng-model="jugador.PuestoAltId" class="form-control"
+                                                            name="category" id="search-category" tabindex="-1"
+                                                            ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos">
+                                                        <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
+
+                                                        <option value="Puestos" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                            - Puesto -
+                                                        </option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-sm-3 control-label">Altura</label>
                                             <div class="col-sm-9 input-group input-icon">
                                                 <span class="input-group-addon bgtransparent"><i class="fa fa-arrow-up s16"></i></span>

@@ -25,6 +25,10 @@ namespace BusDep.ViewModel
         [DataMember]
         public string PuestoCode { get; set; }
         [DataMember]
+        public string PuestoAlt { get; set; }
+        [DataMember]
+        public string PuestoAltCode { get; set; }
+        [DataMember]
         public string Perfil { get; set; }
         [DataMember]
         public string Provincia { get; set; }

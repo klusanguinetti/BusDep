@@ -105,6 +105,20 @@ namespace BusDep.Business
                 if (jugador.Puesto == null || !jugador.Puesto.Id.Equals(jugadorView.PuestoId.Value))
                     jugador.Puesto = DependencyFactory.Resolve<IJugadorDA>().ObtenerPuesto(jugadorView.PuestoId.Value);
             }
+            else
+            {
+                jugador.Puesto = null;
+            }
+            if (jugadorView.PuestoAltId.HasValue)
+            {
+                if (jugador.PuestoAlternativo == null || !jugador.PuestoAlternativo.Id.Equals(jugadorView.PuestoAltId.Value))
+                    jugador.PuestoAlternativo = DependencyFactory.Resolve<IJugadorDA>().ObtenerPuesto(jugadorView.PuestoAltId.Value);
+            }
+            else
+            {
+                jugador.PuestoAlternativo = null;
+            }
+
             DependencyFactory.Resolve<IJugadorDA>().Save(jugador);
         }
 

@@ -10,6 +10,7 @@ namespace BusDep.Entity
         public virtual string Perfil { get; set; }
         public virtual decimal? Peso { get; set; }
         public virtual Puesto Puesto { get; set; }
+        public virtual Puesto PuestoAlternativo { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual string Pie { get; set; }
         public virtual string Fichaje { get; set; }

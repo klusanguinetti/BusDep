@@ -21,6 +21,16 @@ namespace BusDep.ViewModel
         [DataMember]
         public string PuestoCodigo { get; set; }
         [DataMember]
+        public string PuestoDescripcion { get; set; }
+
+        [DataMember]
+        public long? PuestoAltId { get; set; }
+        [DataMember]
+        public string PuestoAltCodigo { get; set; }
+        [DataMember]
+        public string PuestoAltDescripcion { get; set; }
+
+        [DataMember]
         public long UsuarioId { get; set; }
         [DataMember]
         public string Nacionalidad { get; set; }
@@ -30,8 +40,6 @@ namespace BusDep.ViewModel
         public string NacionalidadIso { get; set; }
         [DataMember]
         public string NacionalidadIso1 { get; set; }
-        [DataMember]
-        public string PuestoDescripcion { get; set; }
         [DataMember]
         public string ClubActual { get; set; }
         [DataMember]

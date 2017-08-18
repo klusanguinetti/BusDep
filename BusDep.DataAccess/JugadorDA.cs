@@ -59,12 +59,15 @@ namespace BusDep.DataAccess
                             Nombre = item.Usuario.DatosPersona.Nombre,
                             Perfil = item.Perfil,
                             Pie = item.Pie,
-                            PuestoDescripcion = item.Puesto.PuestoEspecifico,
                             Altura = item.Altura,
                             Peso = item.Peso,
                             FotoCuertoEntero = item.FotoCuertoEntero,
                             PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
                             PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
                             UsuarioId = item.Usuario.Id
                         }).Skip(inicio.GetValueOrDefault()).Take(cantidad.GetValueOrDefault()).ToList();
             }
@@ -99,12 +102,15 @@ namespace BusDep.DataAccess
                             Nombre = item.Usuario.DatosPersona.Nombre,
                             Perfil = item.Perfil,
                             Pie = item.Pie,
-                            PuestoDescripcion = item.Puesto.PuestoEspecifico,
                             Altura = item.Altura,
                             Peso = item.Peso,
                             FotoCuertoEntero = item.FotoCuertoEntero,
                             PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
                             PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
                             UsuarioId = item.Usuario.Id
                         }).ToList();
 
@@ -144,12 +150,15 @@ namespace BusDep.DataAccess
                             Nombre = item.Usuario.DatosPersona.Nombre,
                             Perfil = item.Perfil,
                             Pie = item.Pie,
-                            PuestoDescripcion = item.Puesto.PuestoEspecifico,
                             Altura = item.Altura,
                             Peso = item.Peso,
                             FotoCuertoEntero = item.FotoCuertoEntero,
                             PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
                             PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
                             UsuarioId = item.Usuario.Id
                         }).ToList();
             }
@@ -186,12 +195,15 @@ namespace BusDep.DataAccess
                             Nombre = item.Usuario.DatosPersona.Nombre,
                             Perfil = item.Perfil,
                             Pie = item.Pie,
-                            PuestoDescripcion = item.Puesto.PuestoEspecifico,
                             Altura = item.Altura,
                             Peso = item.Peso,
                             FotoCuertoEntero = item.FotoCuertoEntero,
                             PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
                             PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
                             UsuarioId = item.Usuario.Id
                         }).Skip(inicio.GetValueOrDefault()).Take(cantidad.GetValueOrDefault()).ToList();
             }
@@ -226,12 +238,15 @@ namespace BusDep.DataAccess
                             Nombre = item.Usuario.DatosPersona.Nombre,
                             Perfil = item.Perfil,
                             Pie = item.Pie,
-                            PuestoDescripcion = item.Puesto.PuestoEspecifico,
                             Altura = item.Altura,
                             Peso = item.Peso,
                             FotoCuertoEntero = item.FotoCuertoEntero,
                             PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
                             PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
                             UsuarioId = item.Usuario.Id
                         }).ToList();
 
@@ -279,7 +294,6 @@ namespace BusDep.DataAccess
                         Altura = item.Altura,
                         Apellido = item.Usuario.DatosPersona.Apellido,
                         ClubActual = item.ClubDescripcion,
-                        Puesto = item.Puesto.PuestoEspecifico,
                         FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
                         Peso = item.Peso,
                         Nombre = item.Usuario.DatosPersona.Nombre,
@@ -291,7 +305,10 @@ namespace BusDep.DataAccess
                         ClubCode = item.ClubLogo,
                         Provincia = item.Usuario.DatosPersona.Provincia,
                         Ciudad = item.Usuario.DatosPersona.Ciudad,
-                        PuestoCode = item.Puesto.Codigo
+                        Puesto = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                        PuestoCode = item.Puesto != null ? item.Puesto.Codigo : null,
+                        PuestoAlt = item.Puesto != null ? item.PuestoAlternativo.PuestoEspecifico : null,
+                        PuestoAltCode = item.Puesto != null ? item.PuestoAlternativo.Codigo : null
                     }).FirstOrDefault();
         }
 
@@ -299,7 +316,7 @@ namespace BusDep.DataAccess
         {
 
             return (from item in Session.Query<Jugador>()
-                    orderby item.Id descending 
+                    orderby item.Id descending
                     select new JugadorViewModel
                     {
                         Apellido = item.Usuario.DatosPersona.Apellido,
@@ -319,12 +336,15 @@ namespace BusDep.DataAccess
                         Nombre = item.Usuario.DatosPersona.Nombre,
                         Perfil = item.Perfil,
                         Pie = item.Pie,
-                        PuestoDescripcion = item.Puesto.PuestoEspecifico,
                         Altura = item.Altura,
                         Peso = item.Peso,
                         FotoCuertoEntero = item.FotoCuertoEntero,
                         PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
                         PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
+                        PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
+                        PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
+                        PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
+                        PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
                         UsuarioId = item.Usuario.Id
                     }).Take(10).ToList();
         }

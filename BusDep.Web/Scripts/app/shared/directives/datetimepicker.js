@@ -9,7 +9,11 @@
             element.datetimepicker({
                 viewMode: 'days',
                 format: 'DD/MM/YYYY',
-                locale: 'es'
+                locale: 'es',
+                widgetPositioning: {
+                    horizontal: 'auto',
+                    vertical: 'bottom'
+                    }
             }).on('dp.change', function (e) {
                 ngModelCtrl.$setViewValue(e.target.value);
             });

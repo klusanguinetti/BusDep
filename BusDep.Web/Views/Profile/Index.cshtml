@@ -54,177 +54,146 @@
                         </p>
                     </div>
                     <div class="col-xs-12 col-md-3">
-                        <i class="flagpuestoicon flag-{{datosPerfil.PuestoCodigo}}"></i>
+                        <i class="flagpuestoicon flag-{{datosPerfil.PuestoCodigo}}"/>
                     </div>
 
                     <div class="tabs mb20">
                         <ul id="myTab" class="nav nav-tabs">
-
                             <li class="active">
                                 <a data-target="#profile1" data-toggle="tab" aria-expanded="true">Autoevaluación deportiva</a>
                             </li>
                             <li class="">
-                                <a data-target="#home1" data-toggle="tab" >Antecedentes deportivos</a>
+                                <a data-target="#home1" data-toggle="tab">Antecedentes deportivos</a>
                             </li>
 
                         </ul>
                         <div id="myTabContent2" class="tab-content">
                             <div class="tab-pane fade active in" id="profile1">
-                                <div class="ads-details-info jobs-details-info col-md-12">
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaTecnica.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <canvas id="radar{{graficaTecnica.Id}}" class="chart-base" chart-type="graficaTecnica.Chart"
-                                                            chart-options="optionsradar"
-                                                            chart-data="graficaTecnica.Values"
-                                                            chart-labels="graficaTecnica.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 hidden-xs">
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaTecnica.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
+                                <div class="inner inner-box">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                            <a> {{graficaTecnica.Descripcion}} </a>
+                                        </h3>
+                                        <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                            <h1 class="titleevaluacion">
+                                                <span class="text-uppercase">Promedio</span>
+                                                {{graficaTecnica.Promedio}}
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <canvas id="radar{{graficaTecnica.Id}}" class="chart-base" chart-type="graficaTecnica.Chart"
+                                                    chart-options="optionsradar"
+                                                    chart-data="graficaTecnica.Values"
+                                                    chart-labels="graficaTecnica.Labels"></canvas>
                                         </div>
                                     </div>
 
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12 add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaCondicion.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <canvas id="radar{{graficaCondicion.Id}}" class="chart-base" chart-type="graficaCondicion.Chart"
-                                                            chart-options="optionsradar" chart-data="graficaCondicion.Values" chart-labels="graficaCondicion.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 hidden-xs">
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaCondicion.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                            <a> {{graficaCondicion.Descripcion}} </a>
+                                        </h3>
+                                        <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                            <h1 class="titleevaluacion">
+                                                <span class="text-uppercase">Promedio</span>
+                                                {{graficaCondicion.Promedio}}
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <canvas id="radar{{graficaCondicion.Id}}" class="chart-base" chart-type="graficaCondicion.Chart"
+                                                    chart-options="optionsradar" chart-data="graficaCondicion.Values" chart-labels="graficaCondicion.Labels"></canvas>
                                         </div>
                                     </div>
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaTactica.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <canvas id="radar{{graficaTactica.Id}}" class="chart-base" chart-type="graficaTactica.Chart"
-                                                            chart-options="optionsradar"
-                                                            chart-data="graficaTactica.Values"
-                                                            chart-labels="graficaTactica.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 hidden-xs">
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaTactica.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12  add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaCualidades.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <canvas id="radar{{graficaCualidades.Id}}" class="chart-base" chart-type="graficaCualidades.Chart"
-                                                            chart-options="graficaCualidades.Chart=='bar'||graficaCualidades.Chart=='horizontalBar'? optionsBar : options"
-                                                            chart-data="graficaCualidades.Values"
-                                                            chart-labels="graficaCualidades.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 hidden-xs">
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaCualidades.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="adds-wrapper jobs-list">
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12 add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaCoordinacion.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <canvas id="radar{{graficaCoordinacion.Id}}" class="chart-base" chart-type="graficaCoordinacion.Chart"
-                                                            chart-options="graficaCoordinacion.Chart=='bar'||graficaCoordinacion.Chart=='horizontalBar'? optionsBar : options"
-                                                            chart-data="graficaCoordinacion.Values"
-                                                            chart-labels="graficaCoordinacion.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 hidden-xs">
-
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaCoordinacion.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="adds-wrapper jobs-list">
-
-                                        <div class="item-list job-item">
-                                            <div class="col-md-12 col-sm-12 col-xs-12 add-desc-box">
-                                                <h3 class="job-title">
-                                                    <a> {{graficaEntorno.Descripcion}} </a>
-                                                </h3>
-                                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                                    <canvas id="radar{{graficaEntorno.Id}}" class="chart-base" chart-type="graficaEntorno.Chart"
-                                                            chart-options="options"
-                                                            chart-data="graficaEntorno.Values"
-                                                            chart-labels="graficaEntorno.Labels"></canvas>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 hidden-xs">
-                                                    <h1 class="titleevaluacion">
-                                                        <span class="text-uppercase">Promedio</span>
-                                                        {{graficaEntorno.Promedio}}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="text-muted">All Winers no certifica directamente la información presentada anteriormente.</p>
                                 </div>
+
+                                <div class="inner inner-box">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                            <a> {{graficaTactica.Descripcion}} </a>
+                                        </h3>
+                                        <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                            <h1 class="titleevaluacion">
+                                                <span class="text-uppercase">Promedio</span>
+                                                {{graficaTactica.Promedio}}
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <canvas id="radar{{graficaTactica.Id}}" class="chart-base" chart-type="graficaTactica.Chart"
+                                                    chart-options="optionsradar"
+                                                    chart-data="graficaTactica.Values"
+                                                    chart-labels="graficaTactica.Labels"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                            <a> {{graficaEntorno.Descripcion}} </a>
+                                        </h3>
+                                        <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                            <h1 class="titleevaluacion">
+                                                <span class="text-uppercase">Promedio</span>
+                                                {{graficaEntorno.Promedio}}
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <canvas id="radar{{graficaEntorno.Id}}" class="chart-base" chart-type="graficaEntorno.Chart"
+                                                    chart-options="graficaEntorno.Chart=='bar'||graficaEntorno.Chart=='horizontalBar'? optionsBar : options"
+                                                    chart-data="graficaEntorno.Values" chart-labels="graficaEntorno.Labels"></canvas>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="inner inner-box">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                            <a> {{graficaCoordinacion.Descripcion}} </a>
+                                        </h3>
+                                        <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                            <h1 class="titleevaluacion">
+                                                <span class="text-uppercase">Promedio</span>
+                                                {{graficaCoordinacion.Promedio}}
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <canvas id="radar{{graficaCoordinacion.Id}}" class="chart-base" chart-type="graficaCoordinacion.Chart"
+                                                    chart-options="graficaCoordinacion.Chart=='bar'||graficaCoordinacion.Chart=='horizontalBar'? optionsBar : options"
+                                                    chart-data="graficaCoordinacion.Values"
+                                                    chart-labels="graficaCoordinacion.Labels"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                            <a> {{graficaCualidades.Descripcion}} </a>
+                                        </h3>
+                                        <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                            <h1 class="titleevaluacion">
+                                                <span class="text-uppercase">Promedio</span>
+                                                {{graficaCualidades.Promedio}}
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <canvas id="radar{{graficaCualidades.Id}}" class="chart-base" chart-type="graficaCualidades.Chart"
+                                                    chart-options="graficaCualidades.Chart=='bar'||graficaCualidades.Chart=='horizontalBar'? optionsBar : options"
+                                                    chart-data="graficaCualidades.Values" chart-labels="graficaCualidades.Labels"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="info-row"><i class="fa fa-info-circle"></i> All Winers no certifica directamente la información presentada anteriormente.</span>
                             </div>
-                            <div class="tab-pane fade " id="home1">
+
+                            <div class="tab-pane fade" id="home1">
                                 <div class="ads-details-info jobs-details-info col-md-12">
                                     <div class="adds-wrapper jobs-list">
 
                                         <div class="item-list job-item" ng-repeat="r in datosPerfil.Antecedentes">
 
-                                            <div class="col-sm-2  col-xs-2 no-padding photobox">
-                                                <div class="add-image">
-                                                    <a href="#">
-                                                        <i class="flagclubicon flag-{{r.ClubLogo}}" alt="{{r.ClubDescripcion}}" style="width: 60px; height: 60px"></i>
-                                                    </a>
-                                                </div>
+                                            <div class="col-sm-2 col-md-2 col-xs-2 no-padding photobox">
+                                                <i class="flagclubicon flag-{{r.ClubLogo}} xl" title="{{r.ClubDescripcion}}"/>
                                             </div>
 
-                                            <div class="col-sm-10  col-xs-10  add-desc-box">
-
+                                            <div class="col-sm-5 col-md-5 col-xs-5 add-desc-box">
                                                 <div class="add-details jobs-item">
-
-                                                    <h4 class="job-title"><a href="job-details.html"> {{r.ClubDescripcion}} </a></h4>
-
+                                                    <h4 class="job-title"> {{r.ClubDescripcion}} </h4>
                                                     <span class="info-row">
 
                                                         <span class="date"><i class="icon-calendar-1"></i>Desde: {{r.FechaInicioText}} </span>
@@ -234,43 +203,40 @@
                                                     </span>
 
                                                     <div class="job-actions">
-
                                                         <ul class="" style="margin-left: 0px">
-
                                                             <li style="margin-bottom: 5px;">
                                                                 <a href="" class="save-job">
                                                                     <span class="fa fa-handshake-o"></span>
                                                                     Asistencias: {{r.Asistencias ? r.Asistencias : 0 }}
                                                                 </a>
                                                             </li>
-
                                                             <li style="margin-bottom: 5px;">
                                                                 <a class="saved-job" href="">
                                                                     <span class="fa fa-futbol-o"></span>
                                                                     Goles: {{r.Goles ? r.Goles : 0}}
                                                                 </a>
                                                             </li>
-
                                                             <li style="margin-bottom: 5px;">
                                                                 <a class="email-job" href="">
                                                                     <i class="fa fa-flag"></i>
                                                                     Partidos: {{r.Partidos ? r.Partidos : 0}}
                                                                 </a>
                                                             </li>
-
                                                         </ul>
-
                                                     </div>
                                                     <div class="jobs-desc">
-                                                        {{r.InformacionAdicional}}
+                                                        <span class="info-row">{{r.InformacionAdicional}}</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="col-sm-5 col-md-5 hide-xs add-desc-box">
+                                                <i class="flagpuestoicon flag-{{r.Puesto}}"/> &nbsp;&nbsp;
+                                                <i class="flagpuestoicon flag-{{r.PuestoAlt}}" />
+                                            </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
