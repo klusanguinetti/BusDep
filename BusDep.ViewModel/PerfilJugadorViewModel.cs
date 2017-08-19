@@ -55,6 +55,14 @@
         [DataMember]
         public string PuestoCodigo { get; set; }
         [DataMember]
+        public string PuestoAlterDescripcion { get; set; }
+        [DataMember]
+        public string PuestoAlterEspecifico { get; set; }
+        [DataMember]
+        public string PuestoAlterCodigo { get; set; }
+
+
+        [DataMember]
         public string Informacion { get; set; }
         [DataMember]
         public string Pie { get; set; }

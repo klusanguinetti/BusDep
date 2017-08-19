@@ -50,6 +50,43 @@ alter table Menu
 go
 
 
+/*==============================================================*/
+/* Index: IX_Perfil                                             */
+/*==============================================================*/
+create index IX_Jugador_Perfil on Jugador (Perfil ASC)
+go
+
+/*==============================================================*/
+/* Index: IX_Fichaje                                            */
+/*==============================================================*/
+create index IX_Jugador_Fichaje on Jugador (Fichaje ASC)
+go
+
+/*==============================================================*/
+/* Index: IX_Pie                                                */
+/*==============================================================*/
+create index IX_Jugador_Pie on Jugador (Pie ASC)
+go
+/*==============================================================*/
+/* Index: IX_Puesto_Descripcion                                 */
+/*==============================================================*/
+create index IX_Puesto_Descripcion on Puesto (Descripcion ASC)
+go
+/*==============================================================*/
+/* Index: IX_DatosPersona_Nombre                                */
+/*==============================================================*/
+create index IX_DatosPersona_Nombre on DatosPersona (Nombre ASC)
+go
+
+/*==============================================================*/
+/* Index: IX_DatosPersona_Apellido                              */
+/*==============================================================*/
+create index IX_DatosPersona_Apellido on DatosPersona (Apellido ASC)
+go
+
+
+use BusDep
+go
 
 use BusDep
 go
@@ -86,9 +123,46 @@ BEGIN
 		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
 		values (@TipoUsuario_id, 'Certificaciones', '','icon-folder-close', 5, 'A')
 		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
-		values (@TipoUsuario_id, 'Mis pendientes', '','icon-hourglass', 6, 'A')
+		values (@TipoUsuario_id, 'Ofertas', '','icon-hourglass', 6, 'A')
+   end
+   if @Descripcion = 'Entrenador'
+   begin
 		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
-		values (@TipoUsuario_id, 'Ofertas', '','icon-hourglass', 7, 'A')
+		values (@TipoUsuario_id, 'Mi pefil', '#!Profile/PrivateProfileEntrenador','icon-home', 1, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'AutoEvaluación', '#!Evaluation/SelfAppraisal','fa fa-star', 2, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Cambio de Password', '#!/Account/PasswordChange','fa fa-lock', 3, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Certificaciones', '','icon-folder-close', 4, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Ofertas', '','icon-hourglass', 5, 'A')
+   end
+   if @Descripcion = 'Intermediario'
+   begin
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Mi pefil', '#!Profile/PrivateProfileIntermediario','icon-home', 1, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'AutoEvaluación', '#!Evaluation/SelfAppraisal','fa fa-star', 2, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Cambio de Password', '#!/Account/PasswordChange','fa fa-lock', 3, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Certificaciones', '','icon-folder-close', 4, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Ofertas', '','icon-hourglass', 5, 'A')
+   end
+   if @Descripcion = 'Intermediario'
+   begin
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Mi pefil', '#!Profile/PrivateProfileClub','icon-home', 1, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'AutoEvaluación', '#!Evaluation/SelfAppraisal','fa fa-star', 2, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Cambio de Password', '#!/Account/PasswordChange','fa fa-lock', 3, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Certificaciones', '','icon-folder-close', 4, 'A')
+		insert into Menu (TipoUsuarioId, Descripcion, Url, Icono, Orden, Estado)
+		values (@TipoUsuario_id, 'Ofertas', '','icon-hourglass', 5, 'A')
    end
    -- This is executed as long as the previous fetch succeeds.
    FETCH NEXT FROM _cursor

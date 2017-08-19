@@ -41,6 +41,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', '$rootScope', 
 
                 $rootScope.user.authenticated = true;
                 $rootScope.user.UserName = logindataPost.mail;
+                $rootScope.user.menu = response.data.MenuUsuario;
 
                 deferred.resolve(response);
 

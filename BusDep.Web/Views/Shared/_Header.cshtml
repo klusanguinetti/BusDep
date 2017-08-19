@@ -18,38 +18,14 @@
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                             <span>{{user.UserName}}</span> <i class="icon-user fa"></i> <i class="icon-down-open-big fa"></i>
                         </a>
-
-                        <ul class="dropdown-menu user-menu">
-                            <li class="active">
-                                <a href="#!Profile/PrivateProfile">
-                                    <i class="icon-home"></i> Mi pefil
+                        <ul class="dropdown-menu user-menu" >
+                            <li ng-repeat="item in user.menu">
+                                <a href="{{item.Url}}">
+                                    <i class="{{item.Icono}}"></i> {{item.Descripcion}}
                                 </a>
                             </li>
-                            <li><a href="#!History/SportsHistory/List"><i class="fa fa-futbol-o"></i> Antecedentes </a></li>
-                            <li>
-                                <a href="#!Evaluation/SelfAppraisal">
-                                    <i class="fa fa-star"></i> AutoEvaluación
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!/Account/PasswordChange">
-                                    <i class="fa fa-lock"></i> Cambio de Password
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="icon-folder-close"></i> Certificaciones
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="icon-hourglass"></i> Mis pendientes
-                                </a>
-                            </li>
-                            <li><a href=""><i class="icon-money"></i> Ofertas </a></li>
                         </ul>
                     </li>
-
                     <li data-ng-hide="!user.authenticated"><a href="" data-ng-click="logOut()">Cerrar sesión <i class="glyphicon glyphicon-off"></i> </a></li>
 
                     <li data-ng-hide="user.authenticated"><a href="#!/Account/Login">Iniciar sesión</a></li>

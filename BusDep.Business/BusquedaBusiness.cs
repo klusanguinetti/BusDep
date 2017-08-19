@@ -18,7 +18,7 @@ namespace BusDep.Business
         {
             if (!DependencyFactory.Resolve<IJugadorDA>().ExisteJugador(jugadorId))
                 throw new ExceptionBusiness(40, "No existe jugador");
-            PerfilJugadorViewModel perfil = new PerfilJugadorViewModel {PerfilId = jugadorId};
+            PerfilJugadorViewModel perfil = new PerfilJugadorViewModel { PerfilId = jugadorId };
             var jugador = DependencyFactory.Resolve<IJugadorDA>().GetById(jugadorId);
             if (jugador == null)
                 return null;
@@ -31,9 +31,18 @@ namespace BusDep.Business
             jugador.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             jugador.Usuario.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
             jugador.Usuario.DatosPersona.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
-            perfil.PuestoDescripcion = jugador.Puesto.Descripcion;
-            perfil.PuestoEspecifico = jugador.Puesto.PuestoEspecifico;
-            perfil.PuestoCodigo = jugador.Puesto.Codigo;
+            if (jugador.Puesto != null)
+            {
+                perfil.PuestoDescripcion = jugador.Puesto.Descripcion;
+                perfil.PuestoEspecifico = jugador.Puesto.PuestoEspecifico;
+                perfil.PuestoCodigo = jugador.Puesto.Codigo;
+            }
+            if (jugador.PuestoAlternativo != null)
+            {
+                perfil.PuestoAlterDescripcion = jugador.PuestoAlternativo.Descripcion;
+                perfil.PuestoAlterEspecifico = jugador.PuestoAlternativo.PuestoEspecifico;
+                perfil.PuestoAlterCodigo = jugador.PuestoAlternativo.Codigo;
+            }
             perfil.Antecedentes = DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(jugador.Usuario.Id);
             perfil.AutoEvaluacion = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(usuario);
             return perfil;
@@ -43,8 +52,8 @@ namespace BusDep.Business
         public virtual List<JugadorViewModel> BuscarJugador(BuscarJugadorViewModel buscar)
         {
             return DependencyFactory.Resolve<IJugadorDA>()
-                .BuscarJugador(buscar.Puesto, buscar.EdadDesde, buscar.EdadHasta, buscar.Fichaje, buscar.Perfil, buscar.Pie, buscar.Nombre, 
-                buscar.Pagina.GetValueOrDefault(),buscar.Cantidad.GetValueOrDefault());
+                .BuscarJugador(buscar.Puesto, buscar.EdadDesde, buscar.EdadHasta, buscar.Fichaje, buscar.Perfil, buscar.Pie, buscar.Nombre,
+                buscar.Pagina.GetValueOrDefault(), buscar.Cantidad.GetValueOrDefault());
         }
 
 

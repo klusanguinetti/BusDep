@@ -526,12 +526,12 @@ namespace BusDep.Testing
             //{
                 var oo = new BuscarJugadorViewModel
                 {
-                    Puesto = new[] {listaPuesto.ToList()[rnd.Next(0, 10)].Descripcion},
+                    Puesto = new[] { "Mediocampista" },
                     Fichaje = new[] {"Libre"},
-                    Perfil = new[] {Perfiles[rnd.Next(0, 2)]},
-                    Pie = new[] {"Derecho", "Ambidiestro"},
-                    Pagina = 0,
-                    Cantidad = 2
+                    Perfil = new[] { "Profecional" },
+                    Pie = new[] {"Derecho"},
+                    Pagina = 1,
+                    Cantidad = 4
                 };
                 //Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)]
                 var list = busqueda.BuscarJugador(oo);
