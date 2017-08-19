@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+    <class name="BusDep.Entity.Menu, BusDep.Entity" table="Menu" lazy="true"> 
+      <id name="Id" column="MenuId" type="System.Int64" unsaved-value="0" >
+        <generator class="native" />
+      </id>
+      <property name="Descripcion" column="Descripcion" type="System.String" length="200" />
+      <property name="Url" column="Url" type="System.String" length="400" />
+      <property name="Icono" column="Icono" type="System.String" length="400" />
+      <property name="Img" column="Img" type="System.String" length="400" />
+      <property name="Orden" column="Orden" type="System.Int32" />
+      <property name="ParentMenuId" column="ParentMenuId" type="System.Int64" />
+      <property name="Estado" column="Estado" type="System.String" length="2" />
+      <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
+    </class>
+  </hibernate-mapping>

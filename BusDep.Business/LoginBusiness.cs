@@ -18,6 +18,7 @@
             var userReturn = FillViewModel.FillUsuarioViewModel(user);
             user.UltimoLogin = DateTime.Now;
             DependencyFactory.Resolve<IUsuarioDA>().Save(user);
+            userReturn.MenuUsuario = DependencyFactory.Resolve<IUsuarioDA>().ObtenerMenuTipoUsuario(user.TipoUsuario.Id);
             return userReturn;
         }
         [AuditMethod]
@@ -29,6 +30,7 @@
             var userReturn = FillViewModel.FillUsuarioViewModel(user);
             user.UltimoLogin = DateTime.Now;
             DependencyFactory.Resolve<IUsuarioDA>().Save(user);
+            userReturn.MenuUsuario = DependencyFactory.Resolve<IUsuarioDA>().ObtenerMenuTipoUsuario(user.TipoUsuario.Id);
             return userReturn;
 
         }
@@ -43,6 +45,7 @@
             usuario.Password = decodedPassword;
             var user = DependencyFactory.Resolve<IUsuarioDA>().ActualizarPassword(usuario);
             var userReturn = FillViewModel.FillUsuarioViewModel(user);
+            userReturn.MenuUsuario = DependencyFactory.Resolve<IUsuarioDA>().ObtenerMenuTipoUsuario(user.TipoUsuario.Id);
             return userReturn;
         }
 

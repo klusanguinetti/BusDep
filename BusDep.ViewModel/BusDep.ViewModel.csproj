@@ -49,6 +49,7 @@
     <Compile Include="DeporteViewModel.cs" />
     <Compile Include="EvaluacionViewModel.cs" />
     <Compile Include="JugadorViewModel.cs" />
+    <Compile Include="MenuViewModel.cs" />
     <Compile Include="PaisViewModel.cs" />
     <Compile Include="PerfilJugadorShortViewModel.cs" />
     <Compile Include="PerfilJugadorViewModel.cs" />

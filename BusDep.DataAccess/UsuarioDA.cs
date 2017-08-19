@@ -62,36 +62,44 @@
         {
 
             var list = (from det in Session.Query<EvaluacionDetalle>()
-                       where det.EvaluacionCabecera.Evaluacion.Usuario.Id.Equals(usuarioId)
-                      && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Deporte.Id.Equals(deporteId)
-                      && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.EsDefault.Equals("S")
-                      && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.TipoUsuario == det.EvaluacionCabecera.Evaluacion.Usuario.TipoUsuario
-                       select new
-                       {
-                           Id = det.EvaluacionCabecera.Evaluacion.Id,
-                           JugadorId = det.EvaluacionCabecera.Evaluacion.Usuario.Id,
-                           TipoEvaluacionId = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Id,
-                           Descripcion = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Descripcion,
-                           Chart = det.EvaluacionCabecera.TemplateEvaluacion.Chart,
-                           CabeceraId = det.EvaluacionCabecera.Id,
-                           CabeceraDescripcion = det.EvaluacionCabecera.TemplateEvaluacion.Descripcion,
-                           DetalleId = det.Id,
-                           DetalleDescripcion = det.TemplateEvaluacionDetalle.Descripcion,
-                           DetallePuntuacion = det.Puntuacion
-                       }).ToList();
-            List<EvaluacionViewModel> listEvo = list.Select(o => new {o.Id, o.JugadorId, o.TipoEvaluacionId, o.Descripcion,}).Distinct().Select(i => new EvaluacionViewModel
+                        where det.EvaluacionCabecera.Evaluacion.Usuario.Id.Equals(usuarioId)
+                       && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Deporte.Id.Equals(deporteId)
+                       && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.EsDefault.Equals("S")
+                       && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.TipoUsuario == det.EvaluacionCabecera.Evaluacion.Usuario.TipoUsuario
+                        select new
+                        {
+                            Id = det.EvaluacionCabecera.Evaluacion.Id,
+                            JugadorId = det.EvaluacionCabecera.Evaluacion.Usuario.Id,
+                            TipoEvaluacionId = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Id,
+                            Descripcion = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Descripcion,
+                            Chart = det.EvaluacionCabecera.TemplateEvaluacion.Chart,
+                            CabeceraId = det.EvaluacionCabecera.Id,
+                            CabeceraDescripcion = det.EvaluacionCabecera.TemplateEvaluacion.Descripcion,
+                            DetalleId = det.Id,
+                            DetalleDescripcion = det.TemplateEvaluacionDetalle.Descripcion,
+                            DetallePuntuacion = det.Puntuacion
+                        }).ToList();
+            List<EvaluacionViewModel> listEvo = list.Select(o => new { o.Id, o.JugadorId, o.TipoEvaluacionId, o.Descripcion, }).Distinct().Select(i => new EvaluacionViewModel
             {
-                Id = i.Id, JugadorId = i.JugadorId, TipoEvaluacionId = i.TipoEvaluacionId, Descripcion = i.Descripcion, Cabeceras = (from cab in list.Select(c => new {c.Id, c.CabeceraId, c.CabeceraDescripcion, c.Chart}).Distinct()
-                    where cab.Id.Equals(i.Id)
-                    select new EvaluacionCabeceraViewModel
-                    {
-                        Id = cab.CabeceraId, Descripcion = cab.CabeceraDescripcion, Chart = cab.Chart,
-                        Detalle = (from det in list.Where(r => r.Id.Equals(i.Id) && r.CabeceraId.Equals(cab.CabeceraId))
-                            select new EvaluacionDetalleViewModel
-                            {
-                                Id = det.DetalleId, Descripcion = det.DetalleDescripcion, Puntuacion = det.DetallePuntuacion
-                            }).ToList()
-                    }).ToList()
+                Id = i.Id,
+                JugadorId = i.JugadorId,
+                TipoEvaluacionId = i.TipoEvaluacionId,
+                Descripcion = i.Descripcion,
+                Cabeceras = (from cab in list.Select(c => new { c.Id, c.CabeceraId, c.CabeceraDescripcion, c.Chart }).Distinct()
+                             where cab.Id.Equals(i.Id)
+                             select new EvaluacionCabeceraViewModel
+                             {
+                                 Id = cab.CabeceraId,
+                                 Descripcion = cab.CabeceraDescripcion,
+                                 Chart = cab.Chart,
+                                 Detalle = (from det in list.Where(r => r.Id.Equals(i.Id) && r.CabeceraId.Equals(cab.CabeceraId))
+                                            select new EvaluacionDetalleViewModel
+                                            {
+                                                Id = det.DetalleId,
+                                                Descripcion = det.DetalleDescripcion,
+                                                Puntuacion = det.DetallePuntuacion
+                                            }).ToList()
+                             }).ToList()
             }).ToList();
 
             foreach (var evalu in listEvo)
@@ -116,12 +124,12 @@
         {
             return ObtenerAntecedentesViewModel(usuarioId, null);
         }
-        
+
         public virtual AntecedenteViewModel ObtenerAntecedenteViewModel(long antecedenteId, long usuarioId)
         {
             return ObtenerAntecedentesViewModel(usuarioId, antecedenteId).FirstOrDefault();
         }
-        
+
 
         public virtual Usuario ActualizarPassword(Usuario usuario)
         {
@@ -171,13 +179,30 @@
         {
             return Session.Query<Usuario>().FirstOrDefault(o => o.Mail.ToUpper().Equals(mail.ToUpper().Trim()));
         }
+
+        public virtual List<MenuViewModel> ObtenerMenuTipoUsuario(long tipoUsuarioId)
+        {
+            return (from ant in Session.Query<Menu>()
+                    where ant.TipoUsuario.Id.Equals(tipoUsuarioId)
+                    && ant.Estado.Equals("A")
+                    select new MenuViewModel
+                    {
+                        Id = ant.Id,
+                        Descripcion = ant.Descripcion,
+                        Estado = ant.Estado,
+                        Icono = ant.Icono,
+                        ParentMenuId = ant.ParentMenuId,
+                        Url = ant.Url,
+                        Orden = ant.Orden
+                    }).ToList();
+        }
         #endregion
         #region metodos privados
         private List<AntecedenteViewModel> ObtenerAntecedentesViewModel(long usuarioId, long? antecedenteId)
         {
             return (from ant in Session.Query<Antecedente>()
                     where ant.Usuario.Id.Equals(usuarioId)
-                    && (antecedenteId!=null? ant.Id.Equals(antecedenteId.Value) : 1.Equals(1)) 
+                    && (antecedenteId != null ? ant.Id.Equals(antecedenteId.Value) : 1.Equals(1))
                     orderby ant.FechaInicio descending
                     select
                     new AntecedenteViewModel

@@ -1,11 +1,16 @@
 ﻿namespace BusDep.ViewModel
 {
     using System;
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
     [DataContract]
     public class UsuarioViewModel
     {
+        public UsuarioViewModel()
+        {
+            this.MenuUsuario = new List<MenuViewModel>();
+        }
         [DataMember]
         public long Id { get; set; }
         [DataMember]
@@ -30,5 +35,8 @@
         public string PaisIso { get; set; }
         [DataMember]
         public DateTime? UltimoLogin { get; set; }
-    }
+        [DataMember]
+        public List<MenuViewModel> MenuUsuario { get; set; }
+
+}
 }

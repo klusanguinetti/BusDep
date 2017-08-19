@@ -21,5 +21,7 @@ namespace BusDep.IDataAccess
 
         bool ExisteUsuario(string mail);
         Usuario ObtenerUsuarioPorMail(string mail);
+
+        List<MenuViewModel> ObtenerMenuTipoUsuario(long tipoUsuarioId);
     }
 }
