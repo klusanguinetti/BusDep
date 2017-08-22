@@ -3,9 +3,21 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
 
     $scope.antecedentes = {};
     $scope.perfilShort = {};
+    $scope.modulo = 'Antecedentes';
+    $scope.moduloicono = '';
 
     angular.element(function () {
+        commonService.getMenu().then(function (response) {
+            $rootScope.user.menu = response.data;
+            angular.forEach($rootScope.user.menu, function (value, key) {
+                if (value.Descripcion == $scope.modulo) {
+                    $scope.moduloicono = value.Icono;
+                }
+            });
 
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
         var action = $routeParams.action;
 
         var result = $routeParams.result;
@@ -27,7 +39,9 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
             message('warning', '<strong>¡Hey!</strong> El antecente que buscas no esta disponible.');
         }
         commonService.getPerfilJugadorShort().then(function (response) {
-
+            if (response.data.FechaNacimiento != null) {
+                response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
+            }
             $scope.perfilShort = response.data;
 
         }).catch(function (err) {

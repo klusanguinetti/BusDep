@@ -13,6 +13,12 @@ namespace BusDep.ViewModel
         [DataMember]
         public string Apellido { get; set; }
         [DataMember]
+        public string Pais { get; set; }
+        [DataMember]
+        public string PaisIso { get; set; }
+        [DataMember]
+        public string FotoRostro { get; set; }
+        [DataMember]
         public string Nacionalidad { get; set; }
         [DataMember]
         public string NacionalidadIso { get; set; }
@@ -44,6 +50,8 @@ namespace BusDep.ViewModel
         public string ClubActual { get; set; }
         [DataMember]
         public string ClubCode { get; set; }
+        [DataMember]
+        public string Pie { get; set; }
 
         [DataMember]
         public int? Edad

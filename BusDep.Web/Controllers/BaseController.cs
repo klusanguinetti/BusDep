@@ -91,5 +91,30 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
+        public JsonResult GetMenu()
+        {
+            var perfil = GetAuthData();
+            try
+            {
+                if (perfil!=null)
+                {
+                    
+                    Response.StatusCode = 200;
+                    return new JsonResult { Data = perfil.MenuUsuario, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+                else
+                {
+                    Response.StatusCode = 512;
+                    return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 512;
+                return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
     }
 }

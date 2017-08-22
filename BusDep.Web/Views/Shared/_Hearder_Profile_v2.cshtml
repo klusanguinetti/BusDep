@@ -1,0 +1,53 @@
+﻿
+
+<div class="row">
+
+    <div class="col-xs-12 col-md-3">
+        <h2> {{perfilShort.Nombre}} {{perfilShort.Apellido}}</h2>
+        <div class="seller-info">
+            <div class="company-logo-thumb" style="text-align: center;">
+                <a><img alt="img" class="img-circle" src="{{perfilShort.FotoRostro!=null?perfilShort.FotoRostro:'/Content/img/jugadores-fotos/angel_di_maria.jpg'}}"> </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <p class="no-margin">
+            <strong>Nacimiento:&nbsp;</strong> {{perfilShort.FechaNacimiento}} 
+        </p>
+        <p class="no-margin">
+            <strong>Edad:&nbsp;</strong>{{perfilShort.Edad}}
+        </p>
+        <p class="no-margin">
+            <strong>Pais:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.PaisIso}} xs"></i> {{perfilShort.Pais}}
+        </p>
+        <p class="no-margin">
+            <strong>Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso}} xs"></i> {{perfilShort.Nacionalidad}}
+        </p>
+        <p class="no-margin" ng-show="perfilShort.NacionalidadIso1!=null">
+            <strong>Otra Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso1}} xs"></i> {{perfilShort.Nacionalidad1}}
+        </p>
+        <p class="no-margin">
+            <strong> Perfil:&nbsp;</strong>{{perfilShort.Perfil}}
+        </p>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <p class="no-margin">
+            <strong>Altura:&nbsp;</strong> {{perfilShort.Altura}} Mts
+        </p>
+        <p class="no-margin">
+            <strong>Peso:&nbsp;</strong> {{perfilShort.Peso}} Kg
+        </p>
+        <p class="no-margin">
+            <strong>Pie:&nbsp;</strong> {{perfilShort.Pie}}
+        </p>
+        <p class="no-margin">
+            <strong>Puesto:&nbsp;</strong> {{perfilShort.Puesto}}
+        </p>
+        <p class="no-margin" ng-show="perfilShort.PuestoAlt!=null">
+            <strong>Puesto Alter:&nbsp;</strong> {{perfilShort.PuestoAlt}}
+        </p>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <i class="flagpuestoicon flag-{{perfilShort.PuestoCode}}" />
+    </div>
+</div>

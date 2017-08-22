@@ -14,6 +14,8 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.perfiles = {};
     $scope.puestos = {};
     $scope.pies = { };
+    $scope.sosVisible = true;
+    $scope.fechaNacimiento = null;
 
     $scope.loginData = {
         Id: "",
@@ -22,8 +24,21 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         NewPassword: ""
     };
 
-    angular.element(function () {
+    $scope.modulo = 'Mis Datos';
+    $scope.moduloicono = '';
 
+    angular.element(function () {
+        commonService.getMenu().then(function (response) {
+            $rootScope.user.menu = response.data;
+            angular.forEach($rootScope.user.menu, function (value, key) {
+                if (value.Descripcion == $scope.modulo) {
+                    $scope.moduloicono = value.Icono;
+                }
+            });
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
         privateProfileService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
@@ -35,12 +50,14 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
             if (response.data.FechaNacimiento != null) {
 
                 var date = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
-
-                $scope.datosPersonales.FechaNacimiento = date;
+                $scope.fechaNacimiento = date;
+                //$scope.datosPersonales.FechaNacimiento = date;
 
             }
             commonService.getPerfilJugadorShort().then(function (response) {
-
+                if (response.data.FechaNacimiento != null) {
+                    response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
+                }
                 $scope.perfilShort = response.data;
 
             }).catch(function (err) {
@@ -159,7 +176,9 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
                     $scope.datosPersonales.Nacionalidad1 = value.Nombre;
                 }
             });
-        }
+        }        
+        $scope.datosPersonales.FechaNacimiento = $scope.fechaNacimiento;
+
         return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 
             toastr.success('¡Perfil actualizado con éxito!', '¡Perfecto!');

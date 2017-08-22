@@ -1,5 +1,5 @@
-﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'publicProfileService', 'toastr', '$location',
-    function ($scope, $routeParams, publicProfileService, toastr, $location) {
+﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'commonService', 'publicProfileService', '$rootScope', 'toastr', '$location',
+    function ($scope, $routeParams, commonService, publicProfileService, toastr, $location) {
 
         $scope.data = [];
 
@@ -56,7 +56,12 @@
 
 
         angular.element(function () {
+            commonService.getMenu().then(function (response) {
+                $rootScope.user.menu = response.data;
 
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
             var idJugador = $routeParams.id;
 
             console.log(idJugador);
@@ -64,7 +69,7 @@
             //validar q sea un numero TODO
 
             $scope.myPromise = publicProfileService.getPublicProfile(idJugador).then(function (response) {
-
+                
                 $scope.datosPerfil = response.data;
 
                 if (response.data.FechaNacimiento != null) {

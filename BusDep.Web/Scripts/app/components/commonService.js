@@ -18,4 +18,12 @@ app.service('commonService', ['$http', '$q', function ($http, $q) {
 
     };
 
+    this.getMenu = function () {
+
+        return $http.post(serviceBase + 'GetMenu').then(function (response) {
+            return response;
+        });
+
+    };
+
 }]);

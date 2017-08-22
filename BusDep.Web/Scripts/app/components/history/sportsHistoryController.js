@@ -16,15 +16,30 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
     };
 
     var action = "add";
+    $scope.modulo = 'Antecedentes';
+    $scope.moduloicono = '';
 
     angular.element(function () {
+        commonService.getMenu().then(function (response) {
+            $rootScope.user.menu = response.data;
+            angular.forEach($rootScope.user.menu, function (value, key) {
+                if (value.Descripcion == $scope.modulo) {
+                    $scope.moduloicono = value.Icono;
+                }
+            });
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
 
         $http.get('json/Clubes.json').then(function (data) {
             $scope.clubes = data.data;
         });
 
         commonService.getPerfilJugadorShort().then(function (response) {
-
+            if (response.data.FechaNacimiento != null) {
+                response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
+            }
             $scope.perfilShort = response.data;
 
         }).catch(function (err) {
@@ -92,7 +107,9 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
 
         if ($scope.antecedenteForm.$valid) {
 
-            $scope.antecedente.ClubDescripcion = $filter('filter')($scope.clubes, { Code: $scope.antecedente.ClubLogo })[0].Nombre;
+            $scope.antecedente.ClubDescripcion = $filter('filter')($scope.clubes, {
+                Code: $scope.antecedente.ClubLogo
+            })[0].Nombre;
 
             return sportsHistoryService.saveAntecedente($scope.antecedente).then(function (response) {
 

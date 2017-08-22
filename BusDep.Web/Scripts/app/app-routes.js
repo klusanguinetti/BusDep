@@ -57,6 +57,15 @@
                 }
             }
         })
+        .when('/Profile/PrivateProfileEntrenador', {
+            templateUrl: '/Profile/PrivateProfileEntrenador',
+            controller: 'privateProfileEntrenadorController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
         .when('/History/SportsHistory/List/:action?/:result?', {
             templateUrl: '/History/SportsHistory',
             controller: 'sportsHistoryListController',

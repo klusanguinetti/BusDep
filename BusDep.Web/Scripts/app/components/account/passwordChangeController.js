@@ -13,8 +13,23 @@ function ($scope, passwordChangeService, commonService, $http, $rootScope, toast
         OldPassword: "",
         NewPassword: ""
     };
+    $scope.modulo = 'Cambio de Password';
+    $scope.moduloicono = '';
 
     angular.element(function () {
+        
+        commonService.getMenu().then(function (response) {
+            $rootScope.user.menu = response.data;
+            angular.forEach($rootScope.user.menu, function (value, key) {
+                if (value.Descripcion == $scope.modulo) {
+                    $scope.moduloicono = value.Icono;
+                }
+            });
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+
 
         passwordChangeService.getUserDetails().then(function (response) {
             $scope.datosPersonales = response.data;

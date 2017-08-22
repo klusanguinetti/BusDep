@@ -1,5 +1,5 @@
-﻿app.controller('searchController', ['$scope', '$routeParams', 'searchService', 'privateProfileService', '$http', 'toastr', '$location',
-    function ($scope, $routeParams, searchService, privateProfileService, $http, toastr, $location) {
+﻿app.controller('searchController', ['$scope', '$routeParams', 'searchService', 'commonService', 'privateProfileService', '$http', 'toastr', '$rootScope', '$location',
+    function ($scope, $routeParams, searchService, commonService, privateProfileService, $http, toastr, $rootScope, $location) {
 
         /*Declaración de variables*/
         $scope.pagina = 1;
@@ -21,6 +21,12 @@
         /*Declaración de funciones*/
 
         angular.element(function () {
+            commonService.getMenu().then(function (response) {
+                $rootScope.user.menu = response.data;
+
+            }).catch(function (err) {
+                toastr.error('¡Ha ocurrido un error!', 'Error');
+            });
 
             searchService.getBuscarJugadorViewModel().then(function (response) {
 

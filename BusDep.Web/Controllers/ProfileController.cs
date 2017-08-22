@@ -37,6 +37,10 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
+        public ActionResult PrivateProfileEntrenador()
+        {
+            return View();
+        }
         
 
         #endregion

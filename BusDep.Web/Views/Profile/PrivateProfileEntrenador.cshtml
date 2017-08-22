@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+
+                <div class="inner-box">
+
+                    @*<div class="welcome-msg">
+                            @Html.Partial("_Hearder_Profile_v2")
+                        </div>*@
+
+
+                    <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
+                        <div class="panel panel-default card">
+                            <div class="panel-heading content-in card-header">
+                                <h5 class="panel-title">
+                                    <a data-toggle="collapse" data-target="#collapseB1" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fa fa-info-circle"></i>
+                                        Mis detalles
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class="panel-collapse collapse in" id="collapseB1" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <form class="form-horizontal" role="form" ng-submit="UpdateProfile()" promise-btn>
+
+                                        @Html.Partial("_DatosPersonales")
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-default page-action">Actualizar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

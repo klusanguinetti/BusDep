@@ -11,6 +11,12 @@ app.controller('indexController', ['$scope', '$location', 'commonService', 'auth
 
 
     angular.element(function () {
+        commonService.getMenu().then(function (response) {
+            $rootScope.user.menu = response.data;
+
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
 
         commonService.getTopJugador().then(function (response) {
 

@@ -8,8 +8,8 @@
                         <ul class="acc-list">
                             <li>
                                 <a class="active" >
-                                    <i class="icon-home"></i>
-                                    Mi perfil
+                                    <i class="{{moduloicono}}"></i>
+                                    {{modulo}}
                                 </a>
                             </li>
                         </ul>
@@ -20,26 +20,11 @@
                     <h5 class="collapse-title"> Menu <a href="#MyAds" data-toggle="collapse" class="pull-right"></a></h5>
                     <div class="panel-collapse collapse in" id="MyAds">
                         <ul class="acc-list">
-                            <li><a href="#!History/SportsHistory/List"><i class="fa fa-futbol-o"></i> Antecedentes </a></li>
-                            <li>
-                                <a href="#!Evaluation/SelfAppraisal">
-                                    <i class="fa fa-star"></i> AutoEvaluación
+                            <li ng-repeat="item in user.menu | filter: {'Descripcion': '!' + modulo} ">
+                                <a href="{{item.Url}}">
+                                    <i class="{{item.Icono}}"></i> {{item.Descripcion}}
                                 </a>
                             </li>
-                            <li>
-                                <a href="#!/Account/PasswordChange">
-                                    <i class="fa fa-lock"></i> Cambio de Password
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="icon-folder-close"></i>
-                                    Certificaciones<span class="badge">42</span>
-                                </a>
-                            </li>
-                           
-
-                            <li><a href=""><i class="icon-hourglass"></i> Mis pendientes <span class="badge">42</span></a></li>
                         </ul>
                     </div>
                 </div>
