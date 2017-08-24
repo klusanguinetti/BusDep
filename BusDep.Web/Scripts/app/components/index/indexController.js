@@ -7,8 +7,10 @@ app.controller('indexController', ['$scope', '$location', 'commonService', 'auth
         '/Content/img/Allwiners/agentes.jpg',
         '/Content/img/Allwiners/clubes.jpg'
     ]
+
     $scope.searchResult = {};
 
+    $scope.picFile = "Uploads/defaultavatar.jpg";
 
     angular.element(function () {
         commonService.getMenu().then(function (response) {
@@ -21,6 +23,10 @@ app.controller('indexController', ['$scope', '$location', 'commonService', 'auth
         commonService.getTopJugador().then(function (response) {
 
             $scope.searchResult = response.data;
+
+            if (response.data.FotoRostro != "") {
+                $scope.picFile = response.data.FotoRostro;
+            }
 
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');

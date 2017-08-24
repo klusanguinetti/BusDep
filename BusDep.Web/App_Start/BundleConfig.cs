@@ -62,7 +62,9 @@ namespace BusDep.Web
                 "~/Scripts/vendor/custom/ui-carousel.min.js",
                 "~/Scripts/vendor/custom/ngDialog.min.js",
                 "~/Scripts/vendor/custom/angular-flash.min.js",
-                "~/Scripts/vendor/custom/angular-busy.min.js"));
+                "~/Scripts/vendor/custom/angular-busy.min.js",
+                "~/Scripts/vendor/custom/ng-file-upload.min.js",
+                "~/Scripts/vendor/custom/ng-file-upload-shim.min.js"));
 
 
             // Angular Bundle
