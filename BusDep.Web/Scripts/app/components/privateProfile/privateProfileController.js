@@ -1,5 +1,5 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr',
-function ($scope, privateProfileService, commonService, $http, $rootScope, toastr) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', 'Upload', '$timeout',
+function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, Upload, $timeout) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -13,9 +13,10 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.fichajes = {};
     $scope.perfiles = {};
     $scope.puestos = {};
-    $scope.pies = { };
+    $scope.pies = {};
     $scope.sosVisible = true;
     $scope.fechaNacimiento = null;
+    $scope.picFile = "Uploads/defaultavatar.jpg";
 
     $scope.loginData = {
         Id: "",
@@ -28,17 +29,23 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.moduloicono = '';
 
     angular.element(function () {
+
         commonService.getMenu().then(function (response) {
+
             $rootScope.user.menu = response.data;
+
             angular.forEach($rootScope.user.menu, function (value, key) {
+
                 if (value.Descripcion == $scope.modulo) {
                     $scope.moduloicono = value.Icono;
                 }
+
             });
 
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
+
         privateProfileService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
@@ -49,9 +56,9 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
             if (response.data.FechaNacimiento != null) {
 
+
                 var date = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
                 $scope.fechaNacimiento = date;
-                //$scope.datosPersonales.FechaNacimiento = date;
 
             }
             commonService.getPerfilJugadorShort().then(function (response) {
@@ -59,6 +66,10 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
                     response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
                 }
                 $scope.perfilShort = response.data;
+
+                if (response.data.FotoRostro != "") {
+                    $scope.picFile = response.data.FotoRostro;
+                }
 
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
@@ -72,9 +83,9 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
         privateProfileService.getJugador().then(function (response) {
             $scope.jugador = response.data;
-         }).catch(function (err) {
+        }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
-         });
+        });
         privateProfileService.getFichajes().then(function (response) {
             $scope.fichajes = response.data;
         }).catch(function (err) {
@@ -82,25 +93,22 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         });
         privateProfileService.getPerfiles().then(function (response) {
             $scope.perfiles = response.data;
-            }).catch(function (err) {
+        }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
-        privateProfileService.getPuestos().then(function(response) {
+        });
+        privateProfileService.getPuestos().then(function (response) {
             $scope.puestos = response.data;
-            }).catch(function (err) {
+        }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
-        privateProfileService.getPies().then(function(response) {
+        });
+        privateProfileService.getPies().then(function (response) {
             $scope.pies = response.data;
-            }).catch(function (err) {
+        }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
-        
+        });
+
 
     });
-
-    
-
 
     $scope.passwordUpdate = function () {
 
@@ -136,22 +144,23 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
     };
 
-    $scope.jugadorUpdate = function() {
+    $scope.jugadorUpdate = function () {
 
 
-        return privateProfileService.jugadorUpdate($scope.jugador).then(function(response) {
+        return privateProfileService.jugadorUpdate($scope.jugador).then(function (response) {
 
             toastr.success('¡Informacion guardada con éxito!', '¡Perfecto!');
 
             clearErrors();
 
-        }).catch(function(err) {
+        }).catch(function (err) {
 
-                toastr.error('¡Error desconocido!', 'Error');
+            toastr.error('¡Error desconocido!', 'Error');
         });
 
 
     };
+
     $scope.UpdateProfile = function () {
         if ($scope.datosPersonales.PaisIso != '') {
 
@@ -176,7 +185,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
                     $scope.datosPersonales.Nacionalidad1 = value.Nombre;
                 }
             });
-        }        
+        }
         $scope.datosPersonales.FechaNacimiento = $scope.fechaNacimiento;
 
         return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
@@ -195,6 +204,31 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         $scope.passwordForm.$setPristine();
         $scope.passwordForm.$setValidity();
         $scope.passwordForm.$setUntouched();
+    }
+
+    $scope.uploadFiles = function (file, errFiles) {
+
+        $scope.f = file;
+
+        $scope.errFile = errFiles && errFiles[0];
+
+        if (file) {
+
+            file.upload = Upload.upload({
+                url: 'api/Files/Add/',
+                data: { file: file }
+            });
+
+            file.upload.then(function (response) {
+
+            }, function (response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 *
+                                         evt.loaded / evt.total));
+            });
+        }
     }
 
 }]);

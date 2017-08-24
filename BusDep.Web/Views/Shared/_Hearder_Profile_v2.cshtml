@@ -3,16 +3,47 @@
 <div class="row">
 
     <div class="col-xs-12 col-md-3">
+
         <h2> {{perfilShort.Nombre}} {{perfilShort.Apellido}}</h2>
+
         <div class="seller-info">
+
             <div class="company-logo-thumb" style="text-align: center;">
-                <a><img alt="img" class="img-circle" src="{{perfilShort.FotoRostro!=null?perfilShort.FotoRostro:'/Content/img/jugadores-fotos/angel_di_maria.jpg'}}"> </a>
+
+                <a><img alt="img" class="img-circle" ngf-thumbnail="picFile"> </a>
+
+                <a type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile"
+                        accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                    Cambiar
+                </a>
+
+               <a ng-click="picFile = null" ng-show="picFile">Remover</a>
+
+                <br><br>
+
+                <div style="font:smaller">
+
+                    {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+
+                    <span class="progress" ng-show="f.progress >= 0">
+                        <div style="width:{{f.progress}}%"
+                             ng-bind="f.progress + '%'"></div>
+                    </span>
+
+                </div>
+
+                {{errorMsg}}
+
             </div>
+
         </div>
+
     </div>
+
+
     <div class="col-xs-12 col-md-3">
         <p class="no-margin">
-            <strong>Nacimiento:&nbsp;</strong> {{perfilShort.FechaNacimiento}} 
+            <strong>Nacimiento:&nbsp;</strong> {{perfilShort.FechaNacimiento}}
         </p>
         <p class="no-margin">
             <strong>Edad:&nbsp;</strong>{{perfilShort.Edad}}

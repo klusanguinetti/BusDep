@@ -18,6 +18,8 @@
         $scope.Busqueda = null;
         $scope.searchResultCount = null;
 
+        $scope.picFile = "Uploads/defaultavatar.jpg";
+
         /*Declaración de funciones*/
 
         angular.element(function () {
@@ -106,7 +108,7 @@
             });
 
             searchService.searchPlayerCount($scope.searchProfile).then(function (response) {
-                console.log(response.data);
+  
                 $scope.searchResultCount = response.data;
 
             }).catch(function (err) {

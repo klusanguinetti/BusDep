@@ -2,7 +2,7 @@
 <div class="col-sm-3  photobox">
     <div class="add-image">
         <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}" >
-            <img class="thumbnail no-margin" src="~/Content/img/jugadores-fotos/532516.jpg" alt="img">
+            <img class="thumbnail no-margin" ngf-thumbnail="item.FotoRostro" alt="img">
         </a>
     </div>
 </div>
