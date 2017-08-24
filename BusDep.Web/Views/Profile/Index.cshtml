@@ -185,11 +185,11 @@
 
                                         <div class="item-list job-item" ng-repeat="r in Antecedentes">
 
-                                            <div class="col-sm-2 col-md-2 col-xs-2 no-padding photobox">
+                                            <div class="col-sm-2 col-md-2 col-xs-4 no-padding photobox">
                                                 <i class="flagclubicon flag-{{r.ClubLogo}} xl" title="{{r.ClubDescripcion}}" />
                                             </div>
 
-                                            <div class="col-sm-5 col-md-5 col-xs-5 add-desc-box">
+                                            <div class="col-sm-5 col-md-5 col-xs-8 add-desc-box">
                                                 <div class="add-details jobs-item">
                                                     <h4 class="job-title"> {{r.ClubDescripcion}} </h4>
                                                     <span class="info-row">
@@ -228,8 +228,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-5 col-md-5 hide-xs add-desc-box">
-                                                <i class="flagpuestoicon flag-{{r.Puesto}}" ng-show="r.Puesto!=null" /> &nbsp;&nbsp;
-                                                <i class="flagpuestoicon flag-{{r.PuestoAlt}}" ng-show="r.Puesto!=null" />
+                                                <i class="flagpuestoicon flag-{{r.Puesto}}" ng-show="r.Puesto!=null"/> &nbsp;&nbsp;
+                                                <i class="flagpuestoicon flag-{{r.PuestoAlt}}" ng-show="r.Puesto!=null"/>
+                                            </div>
+                                            <div class="hide-sm hide-md col-xs-12 add-desc-box">
+                                                <i class="flagpuestoicon flag-{{r.Puesto}} md" ng-show="r.Puesto!=null" /> &nbsp;&nbsp;
+                                                <i class="flagpuestoicon flag-{{r.PuestoAlt}} md" ng-show="r.Puesto!=null" />
                                             </div>
                                         </div>
                                     </div>
