@@ -27,5 +27,9 @@ namespace BusDep.IDataAccess
         PerfilJugadorShortViewModel GetPerfilJugadorShort(long jugadorId);
 
         List<JugadorViewModel> TopJugador();
+
+        EvaluacionViewModel ObtenerEvaluacionViewModelDefault(long jugadorId);
+
+        List<AntecedenteViewModel> GetAntecedentes(long jugadorId);
     }
 }

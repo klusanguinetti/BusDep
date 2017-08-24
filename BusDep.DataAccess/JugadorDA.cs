@@ -353,5 +353,89 @@ namespace BusDep.DataAccess
                     }).Take(10).ToList();
         }
 
+        public virtual List<AntecedenteViewModel> GetAntecedentes(long jugadorId)
+        {
+            return (from ant in Session.Query<Antecedente>()
+                    where ant.Usuario.Jugador.Id.Equals(jugadorId)
+                    orderby ant.FechaInicio descending
+                    select
+                    new AntecedenteViewModel
+                    {
+                        Asistencias = ant.Asistencias,
+                        ClubDescripcion = ant.ClubDescripcion,
+                        ClubLogo = ant.ClubLogo,
+                        FechaFin = ant.FechaFin,
+                        FechaInicio = ant.FechaInicio,
+                        Goles = ant.Goles,
+                        Id = ant.Id,
+                        InformacionAdicional = ant.InformacionAdicional,
+                        Partidos = ant.Partidos,
+                        UsuarioId = ant.Usuario.Id,
+                        Video = ant.Video,
+                        Puesto = ant.Puesto,
+                        PuestoAlt = ant.PuestoAlt,
+                        TecnicoMail = ant.TecnicoMail,
+                        TecnicoNombre = ant.TecnicoNombre,
+                        TextoLibre = ant.TextoLibre
+
+                    }).ToList();
+        }
+        public virtual EvaluacionViewModel ObtenerEvaluacionViewModelDefault(long jugadorId)
+        {
+
+            var list = (from det in Session.Query<EvaluacionDetalle>()
+                        where det.EvaluacionCabecera.Evaluacion.Usuario.Jugador.Id.Equals(jugadorId)
+                       //&& det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Deporte.Id.Equals(deporteId)
+                       && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.EsDefault.Equals("S")
+                       && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.TipoUsuario == det.EvaluacionCabecera.Evaluacion.Usuario.TipoUsuario
+                        select new
+                        {
+                            Id = det.EvaluacionCabecera.Evaluacion.Id,
+                            JugadorId = det.EvaluacionCabecera.Evaluacion.Usuario.Id,
+                            TipoEvaluacionId = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Id,
+                            Descripcion = det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Descripcion,
+                            Chart = det.EvaluacionCabecera.TemplateEvaluacion.Chart,
+                            CabeceraId = det.EvaluacionCabecera.Id,
+                            CabeceraDescripcion = det.EvaluacionCabecera.TemplateEvaluacion.Descripcion,
+                            DetalleId = det.Id,
+                            DetalleDescripcion = det.TemplateEvaluacionDetalle.Descripcion,
+                            DetallePuntuacion = det.Puntuacion
+                        }).ToList();
+            List<EvaluacionViewModel> listEvo = list.Select(o => new { o.Id, o.JugadorId, o.TipoEvaluacionId, o.Descripcion, }).Distinct().Select(i => new EvaluacionViewModel
+            {
+                Id = i.Id,
+                JugadorId = i.JugadorId,
+                TipoEvaluacionId = i.TipoEvaluacionId,
+                Descripcion = i.Descripcion,
+                Cabeceras = (from cab in list.Select(c => new { c.Id, c.CabeceraId, c.CabeceraDescripcion, c.Chart }).Distinct()
+                             where cab.Id.Equals(i.Id)
+                             select new EvaluacionCabeceraViewModel
+                             {
+                                 Id = cab.CabeceraId,
+                                 Descripcion = cab.CabeceraDescripcion,
+                                 Chart = cab.Chart,
+                                 Detalle = (from det in list.Where(r => r.Id.Equals(i.Id) && r.CabeceraId.Equals(cab.CabeceraId))
+                                            select new EvaluacionDetalleViewModel
+                                            {
+                                                Id = det.DetalleId,
+                                                Descripcion = det.DetalleDescripcion,
+                                                Puntuacion = det.DetallePuntuacion
+                                            }).ToList()
+                             }).ToList()
+            }).ToList();
+
+            foreach (var evalu in listEvo)
+            {
+                foreach (var cab in evalu.Cabeceras)
+                {
+                    decimal canResp = cab.Detalle.Count(o => o.Puntuacion.HasValue);
+                    decimal puntos = cab.Detalle.Where(o => o.Puntuacion.HasValue).Sum(i => i.Puntuacion.GetValueOrDefault());
+                    if (canResp > 0 && puntos > 0)
+                        cab.Promedio = Decimal.Round(puntos / canResp, 2);
+                }
+            }
+            return listEvo.FirstOrDefault();
+        }
+
     }
 }
