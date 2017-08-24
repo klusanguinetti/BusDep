@@ -53,7 +53,8 @@
         $scope.graficaCualidades = {};
         $scope.graficaCoordinacion = {};
         $scope.graficaEntorno = {};
-
+        $scope.AutoEvaluacion = {};
+        $scope.Antecedentes = [];
 
         angular.element(function () {
             commonService.getMenu().then(function (response) {
@@ -79,26 +80,58 @@
                     $scope.datosPerfil.FechaNacimiento = date;
 
                 }
-                angular.forEach($scope.datosPerfil.AutoEvaluacion.Cabeceras, function (value, key) {
-                    if (value.Descripcion == 'Técnica') {
-                        $scope.graficaTecnica = value;
-                    }
-                    else if (value.Descripcion == 'Condición Fisica') {
-                        $scope.graficaCondicion = value;
-                    }
-                    else if (value.Descripcion == 'Táctica (cualidades cognoscitivas)') {
-                        $scope.graficaTactica = value;
-                    }
-                    else if (value.Descripcion == 'Cualidades mentales') {
-                        $scope.graficaCualidades = value;
-                    }
-                    else if (value.Descripcion == 'Coordinación') {
-                        $scope.graficaCoordinacion = value;
-                    }
-                    else if (value.Descripcion == 'Entorno social') {
-                        $scope.graficaEntorno = value;
-                    }
+
+                publicProfileService.getAutoEvaluacion(idJugador).then(function (response) {
+                    $scope.AutoEvaluacion = response.data;
+                    angular.forEach($scope.AutoEvaluacion.Cabeceras, function (value, key) {
+                        if (value.Descripcion == 'Técnica') {
+                            $scope.graficaTecnica = value;
+                        }
+                        else if (value.Descripcion == 'Condición Fisica') {
+                            $scope.graficaCondicion = value;
+                        }
+                        else if (value.Descripcion == 'Táctica (cualidades cognoscitivas)') {
+                            $scope.graficaTactica = value;
+                        }
+                        else if (value.Descripcion == 'Cualidades mentales') {
+                            $scope.graficaCualidades = value;
+                        }
+                        else if (value.Descripcion == 'Coordinación') {
+                            $scope.graficaCoordinacion = value;
+                        }
+                        else if (value.Descripcion == 'Entorno social') {
+                            $scope.graficaEntorno = value;
+                        }
+                    });
+
+                }).catch(function (err) {
+                    toastr.error('¡Ha ocurrido un error!', 'Error');
                 });
+                publicProfileService.getAntecedentes(idJugador).then(function (response) {
+                    $scope.Antecedentes = response.data;
+                }).catch(function (err) {
+                    toastr.error('¡Ha ocurrido un error!', 'Error');
+                });
+                //angular.forEach($scope.datosPerfil.AutoEvaluacion.Cabeceras, function (value, key) {
+                //    if (value.Descripcion == 'Técnica') {
+                //        $scope.graficaTecnica = value;
+                //    }
+                //    else if (value.Descripcion == 'Condición Fisica') {
+                //        $scope.graficaCondicion = value;
+                //    }
+                //    else if (value.Descripcion == 'Táctica (cualidades cognoscitivas)') {
+                //        $scope.graficaTactica = value;
+                //    }
+                //    else if (value.Descripcion == 'Cualidades mentales') {
+                //        $scope.graficaCualidades = value;
+                //    }
+                //    else if (value.Descripcion == 'Coordinación') {
+                //        $scope.graficaCoordinacion = value;
+                //    }
+                //    else if (value.Descripcion == 'Entorno social') {
+                //        $scope.graficaEntorno = value;
+                //    }
+                //});
 
             }).catch(function (err) {
 
@@ -109,6 +142,8 @@
                 }
 
             });
+
+            
 
         });
 

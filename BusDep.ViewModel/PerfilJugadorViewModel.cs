@@ -8,7 +8,7 @@
     {
         public PerfilJugadorViewModel()
         {
-            Antecedentes=new List<AntecedenteViewModel>();
+            //Antecedentes=new List<AntecedenteViewModel>();
         }
 
         [DataMember]
@@ -80,12 +80,12 @@
         }
         #endregion
 
-        #region Antecedentes deportivos
-        public List<AntecedenteViewModel> Antecedentes { get; set; }
-        #endregion
+        //#region Antecedentes deportivos
+        //public List<AntecedenteViewModel> Antecedentes { get; set; }
+        //#endregion
 
-        #region AutoEvaluacion
-        public EvaluacionViewModel AutoEvaluacion { get; set; }
-        #endregion
+        //#region AutoEvaluacion
+        //public EvaluacionViewModel AutoEvaluacion { get; set; }
+        //#endregion
     }
 }

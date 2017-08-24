@@ -9,6 +9,9 @@ namespace BusDep.IBusiness
         
         PerfilJugadorViewModel ObtenerPerfil(long jugadorId);
 
+        EvaluacionViewModel GetAutoEvaluacionDefault(long jugadorId);
+        List<AntecedenteViewModel> GetAntecedentes(long jugadorId); 
+
         List<JugadorViewModel> BuscarJugador(BuscarJugadorViewModel buscar);
 
         long BuscarJugadorCount(BuscarJugadorViewModel buscar);
@@ -16,5 +19,7 @@ namespace BusDep.IBusiness
         PerfilJugadorShortViewModel GetPerfilJugadorShort(UsuarioViewModel usuario);
 
         List<JugadorViewModel> TopJugador();
+
+        
     }
 }
