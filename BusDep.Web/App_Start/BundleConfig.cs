@@ -82,6 +82,7 @@ namespace BusDep.Web
             bundles.Add(new ScriptBundle("~/bundles/app/main")
                 .Include("~/Scripts/app/app.js",
                     "~/Scripts/app/app-routes.js", "~/Scripts/app/components/commonService.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/shared/components/headerProfile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/directives", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/factories", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/account", "*.js").WithLastModifiedToken()

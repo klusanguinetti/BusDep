@@ -20,6 +20,7 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
     $scope.moduloicono = '';
 
     angular.element(function () {
+
         commonService.getMenu().then(function (response) {
             $rootScope.user.menu = response.data;
             angular.forEach($rootScope.user.menu, function (value, key) {

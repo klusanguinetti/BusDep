@@ -79,3 +79,15 @@ System.Data.SqlClient.SqlException (0x80131904): Valor de tiempo de espera caduc
    en DynamicModule.ns.Wrapped_JugadorDA_fc989dec3fb84a18948dec0b8c1e3abe.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
 ClientConnectionId:76399829-382a-4551-a202-9b01c4752f17
 Error Number:-2,State:0,Class:11
+ERROR 6 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioJugadorBusiness_30cec762ed8f48f1bc0b1894ec668e48
+Metodo: ActualizarDatosJugador
+Parametros: [{"Id":0,"Nombre":null,"Apellido":null,"FotoRostro":null,"FotoCuertoEntero":null,"PuestoId":null,"PuestoCodigo":null,"PuestoDescripcion":null,"PuestoAltId":null,"PuestoAltCodigo":null,"PuestoAltDescripcion":null,"UsuarioId":0,"Nacionalidad":null,"Nacionalidad1":null,"NacionalidadIso":null,"NacionalidadIso1":null,"ClubActual":null,"ClubCode":null,"Perfil":null,"Pie":null,"Fichaje":null,"Informacion":null,"Pais":null,"PaisIso":null,"Altura":null,"Peso":null,"FechaNacimiento":null,"Edad":null}]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#0]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.DefaultLazyInitializer.Intercept(InvocationInfo info)
+   en JugadorProxy.set_Puesto(Puesto )
+   en BusDep.Business.UsuarioJugadorBusiness.ActualizarDatosJugador(JugadorViewModel jugadorView) en C:\Users\luisb\Desktop\BusDep\BusDep.Business\UsuarioJugadorBusiness.cs:línea 110
+   en DynamicModule.ns.Wrapped_UsuarioJugadorBusiness_30cec762ed8f48f1bc0b1894ec668e48.<ActualizarDatosJugador_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

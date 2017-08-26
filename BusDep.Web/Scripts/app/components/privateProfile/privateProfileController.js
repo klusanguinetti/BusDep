@@ -1,5 +1,5 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', 'Upload', '$timeout',
-function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, Upload, $timeout) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr',
+function ($scope, privateProfileService, commonService, $http, $rootScope, toastr) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -16,7 +16,6 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.pies = {};
     $scope.sosVisible = true;
     $scope.fechaNacimiento = null;
-    $scope.picFile = "Uploads/defaultavatar.jpg";
 
     $scope.loginData = {
         Id: "",
@@ -26,6 +25,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     };
 
     $scope.modulo = 'Mis Datos';
+
     $scope.moduloicono = '';
 
     angular.element(function () {
@@ -61,19 +61,6 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
                 $scope.fechaNacimiento = date;
 
             }
-            commonService.getPerfilJugadorShort().then(function (response) {
-                if (response.data.FechaNacimiento != null) {
-                    response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
-                }
-                $scope.perfilShort = response.data;
-
-                if (response.data.FotoRostro != "") {
-                    $scope.picFile = response.data.FotoRostro;
-                }
-
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
 
         }).catch(function (err) {
 
@@ -86,21 +73,25 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
+
         privateProfileService.getFichajes().then(function (response) {
             $scope.fichajes = response.data;
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
+
         privateProfileService.getPerfiles().then(function (response) {
             $scope.perfiles = response.data;
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
+
         privateProfileService.getPuestos().then(function (response) {
             $scope.puestos = response.data;
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
+
         privateProfileService.getPies().then(function (response) {
             $scope.pies = response.data;
         }).catch(function (err) {
@@ -204,31 +195,6 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         $scope.passwordForm.$setPristine();
         $scope.passwordForm.$setValidity();
         $scope.passwordForm.$setUntouched();
-    }
-
-    $scope.uploadFiles = function (file, errFiles) {
-
-        $scope.f = file;
-
-        $scope.errFile = errFiles && errFiles[0];
-
-        if (file) {
-
-            file.upload = Upload.upload({
-                url: 'api/Files/Add/',
-                data: { file: file }
-            });
-
-            file.upload.then(function (response) {
-
-            }, function (response) {
-                if (response.status > 0)
-                    $scope.errorMsg = response.status + ': ' + response.data;
-            }, function (evt) {
-                file.progress = Math.min(100, parseInt(100.0 *
-                                         evt.loaded / evt.total));
-            });
-        }
     }
 
 }]);

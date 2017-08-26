@@ -1,84 +1,127 @@
 ﻿
 
-<div class="row">
+<div class="row" ng-controller="headerProfileController">
 
-    <div class="col-xs-12 col-md-3">
+    <div class="col-sm-6">
 
-        <h2> {{perfilShort.Nombre}} {{perfilShort.Apellido}}</h2>
+        <div class="seller-info seller-profile">
 
-        <div class="seller-info">
-
-            <div class="company-logo-thumb" style="text-align: center;">
-
-                <a><img alt="img" class="img-circle" ngf-thumbnail="picFile"> </a>
-
-                <a type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile"
-                        accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-                    Cambiar
+            <div class="seller-profile-img">
+                <a>
+                    <img alt="User Image" class="thumbnail" ngf-src="picFile" style="height:130px; width:100px;">
                 </a>
+            </div>
 
-               <a ng-click="picFile = null" ng-show="picFile">Remover</a>
+            <h3 class="no-margin no-padding link-color uppercase"> {{perfilShort.Nombre}} {{perfilShort.Apellido}} </h3>
 
-                <br><br>
+            <div class="text-muted">
+               {{perfilShort.Puesto || 'Sin puesto definido'}}
+            </div>
 
-                <div style="font:smaller">
+            <div class="user-ads-action">
+                <a class="btn btn-sm  btn-success"  type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"><i class="fa fa-refresh"></i> Cambiar foto </a>
+                <a class="btn btn-sm  btn-default"  ng-click="removePhoto();" ng-show="picFile"><i class="fa fa-remove"></i> Remover </a>
+            </div>
 
-                    {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-
-                    <span class="progress" ng-show="f.progress >= 0">
-                        <div style="width:{{f.progress}}%"
-                             ng-bind="f.progress + '%'"></div>
-                    </span>
-
-                </div>
-
-                {{errorMsg}}
-
+            <div class="seller-social-list">
+                <ul class="share-this-post">
+                    <li>
+                        <a class="google-plus"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a class="facebook"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a class="pinterest"><i class="fa fa-pinterest"></i></a>
+                    </li>
+                </ul>
             </div>
 
         </div>
-
     </div>
 
+    @*<div class="col-xs-12 col-md-3">
 
-    <div class="col-xs-12 col-md-3">
-        <p class="no-margin">
-            <strong>Nacimiento:&nbsp;</strong> {{perfilShort.FechaNacimiento}}
-        </p>
-        <p class="no-margin">
-            <strong>Edad:&nbsp;</strong>{{perfilShort.Edad}}
-        </p>
-        <p class="no-margin">
-            <strong>Pais:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.PaisIso}} xs"></i> {{perfilShort.Pais}}
-        </p>
-        <p class="no-margin">
-            <strong>Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso}} xs"></i> {{perfilShort.Nacionalidad}}
-        </p>
-        <p class="no-margin" ng-show="perfilShort.NacionalidadIso1!=null">
-            <strong>Otra Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso1}} xs"></i> {{perfilShort.Nacionalidad1}}
-        </p>
-        <p class="no-margin">
-            <strong> Perfil:&nbsp;</strong>{{perfilShort.Perfil}}
-        </p>
-    </div>
-    <div class="col-xs-12 col-md-3">
-        <p class="no-margin">
-            <strong>Altura:&nbsp;</strong> {{perfilShort.Altura}} Mts
-        </p>
-        <p class="no-margin">
-            <strong>Peso:&nbsp;</strong> {{perfilShort.Peso}} Kg
-        </p>
-        <p class="no-margin">
-            <strong>Pie:&nbsp;</strong> {{perfilShort.Pie}}
-        </p>
-        <p class="no-margin">
-            <strong>Puesto:&nbsp;</strong> {{perfilShort.Puesto}}
-        </p>
-        <p class="no-margin" ng-show="perfilShort.PuestoAlt!=null">
-            <strong>Puesto Alter:&nbsp;</strong> {{perfilShort.PuestoAlt}}
-        </p>
-    </div>
-    <div class="col-xs-12 col-md-3">
-        <i class="flagpuestoicon flag-{{perfilShort.PuestoCode}}" />
-    </div>
+            <center> <h2>  {{perfilShort.Nombre}} {{perfilShort.Apellido}} </h2> </center>
+
+            <div class="seller-info">
+
+                <div class="company-logo-thumb" style="text-align: center;">
+
+                    <img alt="img" class="" ngf-thumbnail="picFile" height="160" width="160">
+
+                    <a type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                        <i class="fa fa-exchange" aria-hidden="true"></i> Cambiar
+                    </a>
+
+                    <a ng-click="removePhoto();" ng-show="picFile"><i class="fa fa-remove" aria-hidden="true"></i> Remover</a>
+
+                    <br><br>
+
+                    <div style="font:smaller">
+
+                        {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+
+                        <span class="progress" ng-show="f.progress >= 0">
+                            <div style="width:{{f.progress}}%"
+                                 ng-bind="f.progress + '%'"></div>
+                        </span>
+
+                    </div>
+
+                    {{errorMsg}}
+
+                </div>
+
+            </div>
+
+        </div>*@
+
+
+        <div class="col-xs-12 col-md-3">
+            <p class="no-margin">
+                <strong>Nacimiento:&nbsp;</strong> {{perfilShort.FechaNacimiento}}
+            </p>
+            <p class="no-margin">
+                <strong>Edad:&nbsp;</strong>{{perfilShort.Edad}}
+            </p>
+            <p class="no-margin">
+                <strong>Pais:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.PaisIso}} xs"></i> {{perfilShort.Pais}}
+            </p>
+            <p class="no-margin">
+                <strong>Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso}} xs"></i> {{perfilShort.Nacionalidad}}
+            </p>
+            <p class="no-margin" ng-show="perfilShort.NacionalidadIso1!=null">
+                <strong>Otra Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso1}} xs"></i> {{perfilShort.Nacionalidad1}}
+            </p>
+            <p class="no-margin">
+                <strong> Perfil:&nbsp;</strong>{{perfilShort.Perfil}}
+            </p>
+        </div>
+
+        @*<div class="col-xs-12 col-md-3">
+            <p class="no-margin">
+                <strong>Altura:&nbsp;</strong> {{perfilShort.Altura}} Mts
+            </p>
+            <p class="no-margin">
+                <strong>Peso:&nbsp;</strong> {{perfilShort.Peso}} Kg
+            </p>
+            <p class="no-margin">
+                <strong>Pie:&nbsp;</strong> {{perfilShort.Pie}}
+            </p>
+            <p class="no-margin">
+                <strong>Puesto:&nbsp;</strong> {{perfilShort.Puesto}}
+            </p>
+            <p class="no-margin" ng-show="perfilShort.PuestoAlt!=null">
+                <strong>Puesto Alter:&nbsp;</strong> {{perfilShort.PuestoAlt}}
+            </p>
+        </div>*@
+
+        <div class="col-xs-12 col-md-3">
+            <i class="flagpuestoicon flag-{{perfilShort.PuestoCode}}" />
+        </div>
+
 </div>

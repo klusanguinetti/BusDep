@@ -3,6 +3,9 @@ using BusDep.IBusiness;
 using BusDep.UnityInject;
 using BusDep.ViewModel;
 using BusDep.Web.Class;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,12 +22,17 @@ namespace AspNetWebApi.Controllers
 
     public class FilesController : ApiController
     {
+
+        #region Propiedades
+
         private readonly string workingFolder = HttpRuntime.AppDomainAppPath + @"\Uploads";
 
-        /// <summary>
-        ///   Get all photos
-        /// </summary>
-        /// <returns></returns>
+        private BlobUtility utility = new BlobUtility();
+
+        private string ContainerName = "photos";
+
+        #endregion
+
         public async Task<IHttpActionResult> Get()
         {
             var photos = new List<PhotoViewModel>();
@@ -49,110 +57,64 @@ namespace AspNetWebApi.Controllers
             return Ok(new { Photos = photos });
         }
 
-        /// <summary>
-        ///   Delete photo
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
         [HttpDelete]
-        public async Task<IHttpActionResult> Delete(string fileName)
+        public IHttpActionResult Delete()
         {
-            if (!FileExists(fileName))
+
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            var user = business.ObtenerJugador(GetAuthData());
+
+            string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+
+            if(BlobNameToDelete == "default_avatar-thumb.jpg")
             {
-                return NotFound();
+                // Default Photo, No need to delete anything.
+                return BadRequest("Default Image - No need to delete");
             }
 
-            try
-            {
-                var filePath = Directory.GetFiles(workingFolder, fileName)
-                    .FirstOrDefault();
+            utility.DeleteBlob(BlobNameToDelete, ContainerName);
 
-                await Task.Factory.StartNew(() =>
-                {
-                    if (filePath != null)
-                        File.Delete(filePath);
-                });
+            user.FotoRostro = null;
 
-                var result = new PhotoActionResult
-                {
-                    Successful = true,
-                    Message = fileName + "deleted successfully"
-                };
-                return Ok(new { message = result.Message });
-            }
-            catch (Exception ex)
-            {
-                var result = new PhotoActionResult
-                {
-                    Successful = false,
-                    Message = "error deleting fileName " + ex.GetBaseException().Message
-                };
-                return BadRequest(result.Message);
-            }
+            business.ActualizarDatosJugador(user);
+
+            return Ok(new { Message = "Photo delete ok" });
+
         }
 
-        /// <summary>
-        ///   Add a photo
-        /// </summary>
-        /// <returns></returns>
-        public async Task<IHttpActionResult> Add()
+        public IHttpActionResult Add()
         {
 
-            // Check if the request contains multipart/form-data.
-            if (!Request.Content.IsMimeMultipartContent("form-data"))
+            var request = HttpContext.Current.Request;
+
+            var file = request.Files[0];
+
+            string fileName = Guid.NewGuid().ToString() + Path.GetFileName(file.FileName);
+
+            Stream imageStream = file.InputStream;
+
+            var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+            if (result != null)
             {
-                return BadRequest("Unsupported media type");
-            }
-
-            try
-            {
-
-
-                var provider = new CustomMultipartFormDataStreamProvider(workingFolder);
-
-                JugadorViewModel jugadorViewModel = new JugadorViewModel();
 
                 var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
 
-                await Task.Run(async () => await Request.Content.ReadAsMultipartAsync(provider));
+                var user = business.ObtenerJugador(GetAuthData());
 
+                user.FotoRostro = result.Uri.ToString();
 
-                var photos = new List<PhotoViewModel>();
+                business.ActualizarDatosJugador(user);
 
-                foreach (var file in provider.FileData)
-                {
-                    var fileInfo = new FileInfo(file.LocalFileName);
-
-                    photos.Add(new PhotoViewModel
-                    {
-                        Name = fileInfo.Name,
-                        Created = fileInfo.CreationTime,
-                        Modified = fileInfo.LastWriteTime,
-                        Size = fileInfo.Length / 1024
-                    });
-
-                    jugadorViewModel.Id = this.GetAuthData().Id;
-
-                    jugadorViewModel.FotoRostro = "Uploads/" + fileInfo.Name;
-
-                    business.ActualizarDatosJugador(jugadorViewModel);
-
-                }
-
-                return Ok(new { Message = "Photos uploaded ok", Photos = photos });
+                return Ok(new { Message = "Photos uploaded ok" });
 
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.GetBaseException().Message);
-            }
+
+            return BadRequest();
+
         }
 
-        /// <summary>
-        ///   Check if file exists on disk
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
         public bool FileExists(string fileName)
         {
             var file = Directory.GetFiles(workingFolder, fileName)
@@ -202,6 +164,8 @@ namespace AspNetWebApi.Controllers
 
     }
 
+    #region Clases auxiliares
+
     public class PhotoViewModel
     {
         public string Name { get; set; }
@@ -237,5 +201,8 @@ namespace AspNetWebApi.Controllers
             return name.Trim('"').Replace("&", "and");
         }
     }
+
+
+    #endregion
 
 }
