@@ -1,23 +1,30 @@
 ﻿
 <div class="col-sm-3  photobox">
+
     <div class="add-image">
         <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}" >
-            <img class="thumbnail no-margin" ngf-thumbnail="item.FotoRostro" alt="img">
+            <img class="thumbnail no-margin" ngf-thumbnail="item.FotoRostro || picFile" alt="img">
         </a>
     </div>
+
 </div>
+
 <div class="col-sm-6 add-desc-box">
+
     <div class="add-details">
+
         <h5 class="add-title">
             <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}" >
                 {{item.Nombre}} {{item.Apellido}}
             </a>
         </h5>
+
         <span class="info-row"> <span class="item-location"> {{item.PuestoDescripcion}}, Pie: {{item.Pie}} </span> </span>
 
         <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{item.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{item.Edad}} años / {{item.Altura}} metros </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{item.Perfil}}</span></span>
 
         <div class="prop-info-box">
+
             <div class="prop-info">
                 <div class="clearfix prop-info-block">
                     <span class="info-row" style="margin-bottom: 5px;">Nacionalidad</span>
@@ -33,12 +40,19 @@
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>
+
 <div class="col-sm-3 text-right  price-box" ng-show="{{user.authenticated}}" >
+
     <h4 class="" style="margin-top:10px;"> <strong> Fichaje: {{item.Fichaje}}</strong></h4>
+
     <div style="clear: both"></div>
+
     <a class="btn btn-success btn-sm bold" href="#!/Profile/player/{{item.Id}}">
         Ver perfil
     </a>
+
 </div>

@@ -10,10 +10,12 @@ app.controller('indexController', ['$scope', '$location', 'commonService', 'auth
 
     $scope.searchResult = {};
 
-    $scope.picFile = "Uploads/defaultavatar.jpg";
+    $scope.picFile = "https://allwiners.blob.core.windows.net/photos/default_avatar-thumb.jpg";
 
     angular.element(function () {
+
         commonService.getMenu().then(function (response) {
+
             $rootScope.user.menu = response.data;
 
         }).catch(function (err) {
@@ -24,15 +26,9 @@ app.controller('indexController', ['$scope', '$location', 'commonService', 'auth
 
             $scope.searchResult = response.data;
 
-            if (response.data.FotoRostro != "") {
-                $scope.picFile = response.data.FotoRostro;
-            }
-
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
-
-        
 
     });
 

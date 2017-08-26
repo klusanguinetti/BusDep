@@ -2,7 +2,11 @@
     function ($scope, $routeParams, searchService, commonService, privateProfileService, $http, toastr, $rootScope, $location) {
 
         /*Declaración de variables*/
+
+        $scope.picFile = "https://allwiners.blob.core.windows.net/photos/default_avatar-thumb.jpg";
+
         $scope.pagina = 1;
+
         $scope.cantidad = 10;
 
         $scope.searchProfile = {
@@ -10,19 +14,25 @@
             pagina: 1,
             cantidad: 10
         };
-        $scope.principalSearch = "";
-        $scope.fichajes = {};
-        $scope.perfiles = {};
-        $scope.puestos = {};
-        $scope.pies = {};
-        $scope.Busqueda = null;
-        $scope.searchResultCount = null;
 
-        $scope.picFile = "Uploads/defaultavatar.jpg";
+        $scope.principalSearch = "";
+
+        $scope.fichajes = {};
+
+        $scope.perfiles = {};
+
+        $scope.puestos = {};
+
+        $scope.pies = {};
+
+        $scope.Busqueda = null;
+
+        $scope.searchResultCount = null;
 
         /*Declaración de funciones*/
 
         angular.element(function () {
+
             commonService.getMenu().then(function (response) {
                 $rootScope.user.menu = response.data;
 
@@ -93,8 +103,6 @@
 
         function searchPlayer() {
 
-            //clearFilter();
-
             $scope.searchProfile.Nombre = $scope.principalSearch;
 
             $scope.myPromise = searchService.searchPlayer($scope.searchProfile).then(function (response) {
@@ -128,13 +136,18 @@
             });
 
         }
+
         function getFields(input, field) {
+
             var output = [];
+
             for (var i = 0; i < input.length; ++i) {
                 if (input[i].Selected)
                     output.push(input[i][field]);
             }
+
             return output;
+
         }
 
         $scope.searchFilters = (function () {
@@ -155,25 +168,31 @@
         });
 
         function getSearchFilters() {
+
             $scope.Busqueda.Nombre = $scope.principalSearch;
+
             $scope.Busqueda.Fichaje = getFields($scope.fichajes, 'Descripcion');
+
             $scope.Busqueda.Perfil = getFields($scope.perfiles, 'Descripcion');
+
             $scope.Busqueda.Puesto = getFields($scope.puestos, 'Descripcion');
+
             $scope.Busqueda.Pie = getFields($scope.pies, 'Descripcion');
-            //$scope.Busqueda.Pagina = $scope.pagina;
+
             $scope.Busqueda.Cantidad = $scope.cantidad;
-            console.log($scope.Busqueda);
 
             $scope.myPromise = searchService.searchFiltersPlayer($scope.Busqueda).then(function (response) {
-                console.log(response.data);
+
                 $scope.searchResult = response.data;
+
             }).catch(function (err) {
 
                 toastr.error('¡Ha ocurrido un error en la busqueda del perfil! ' + err, 'Error');
 
             });
+
             searchService.searchFiltersPlayerCount($scope.Busqueda).then(function (response) {
-                console.log(response.data);
+
                 $scope.searchResultCount = response.data;
 
             }).catch(function (err) {
@@ -181,27 +200,38 @@
                 toastr.error('¡Ha ocurrido un error en la busqueda!', 'Error');
 
             });
+
         }
 
         $scope.paginacion = (function (pag) {
+
             if ($scope.Busqueda.Pagina == undefined)
+
                 $scope.Busqueda.Pagina = 1;
+
             var pagNew = $scope.Busqueda.Pagina + pag;
 
-
             if (pagNew != 0) {
+
                 if (pag > 0) {
+
                     var cantrest = ((pagNew - 1) * $scope.cantidad);
+
                     if (($scope.searchResultCount - cantrest) < 0) {
                         toastr.info('No hay mas registro', 'Info');
                         return;
                     }
 
                 }
+
                 $scope.Busqueda.Pagina = pagNew;
+
                 getSearchFilters();
+
             } else {
                 toastr.info('estas en la primera pagina', 'Info');
             }
+
         });
+
     }]);
