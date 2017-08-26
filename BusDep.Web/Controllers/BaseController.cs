@@ -10,13 +10,15 @@ namespace BusDep.Web.Controllers
     using BusDep.UnityInject;
     using BusDep.ViewModel;
     using BusDep.Web.Class;
+    using System.Security.Claims;
+
     public class BaseController : Controller
     {
         private UsuarioViewModel loggedUser = new UsuarioViewModel();
         internal UsuarioViewModel GetAuthData()
         {
 
-            FormsIdentity id = (FormsIdentity)System.Web.HttpContext.Current.User.Identity;
+            var id = (ClaimsIdentity)System.Web.HttpContext.Current.User.Identity;
 
             if (id.IsAuthenticated)
             {

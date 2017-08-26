@@ -8,8 +8,8 @@ app.service('headerProfileService', ['$http', '$q', function ($http, $q) {
         var deferred = $q.defer();
 
         return $http.delete(serviceBase + 'Delete').then(function (response) {
-
-            deferred.resolve(response);
+   
+            deferred.resolve(response.data);
 
         }).catch(function (err) {
 

@@ -65,13 +65,10 @@ namespace AspNetWebApi.Controllers
 
             var user = business.ObtenerJugador(GetAuthData());
 
-            string BlobNameToDelete = user.FotoRostro.Split('/').Last();
-
-            if(BlobNameToDelete == "default_avatar-thumb.jpg")
+            if(user.FotoRostro != null)
             {
-                // Default Photo, No need to delete anything.
-                return BadRequest("Default Image - No need to delete");
-            }
+
+            string BlobNameToDelete = user.FotoRostro.Split('/').Last();
 
             utility.DeleteBlob(BlobNameToDelete, ContainerName);
 
@@ -80,6 +77,10 @@ namespace AspNetWebApi.Controllers
             business.ActualizarDatosJugador(user);
 
             return Ok(new { Message = "Photo delete ok" });
+
+            }
+
+            return Ok(new { Message = "No photo to delete" });
 
         }
 
@@ -94,14 +95,23 @@ namespace AspNetWebApi.Controllers
 
             Stream imageStream = file.InputStream;
 
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            var user = business.ObtenerJugador(GetAuthData());
+
+            if (user.FotoRostro != null)
+            {
+
+                string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+
+                utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+            }
+
             var result = utility.UploadBlob(fileName, ContainerName, imageStream);
 
             if (result != null)
             {
-
-                var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
-
-                var user = business.ObtenerJugador(GetAuthData());
 
                 user.FotoRostro = result.Uri.ToString();
 
@@ -113,14 +123,6 @@ namespace AspNetWebApi.Controllers
 
             return BadRequest();
 
-        }
-
-        public bool FileExists(string fileName)
-        {
-            var file = Directory.GetFiles(workingFolder, fileName)
-                .FirstOrDefault();
-
-            return file != null;
         }
 
         private UsuarioViewModel GetAuthData()

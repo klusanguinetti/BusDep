@@ -55,14 +55,11 @@ function ($scope, headerProfileService, commonService, $http, Flash, Upload, $ti
 
             $scope.picFile = "https://allwiners.blob.core.windows.net/photos/default_avatar-thumb.jpg";
 
-            console.log("Exito: " + response)
-
         }).catch(function (err) {
 
-            console.log("Error: " + err)
+            console.log("Error: " + err);
 
         });
-
 
     };
 

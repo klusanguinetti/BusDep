@@ -19,8 +19,12 @@ namespace BusDep.Web.Class
         {
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
             CloudBlobContainer container = blobClient.GetContainerReference(ContainerName.ToLower());
+
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(BlobName);
+
+            blockBlob.Properties.ContentType = "image/jpg";
 
             try
             {
@@ -39,9 +43,20 @@ namespace BusDep.Web.Class
         {
 
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
             CloudBlobContainer container = blobClient.GetContainerReference(ContainerName);
+
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(BlobName);
-            blockBlob.Delete();
+
+            try
+            {
+                blockBlob.Delete();
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         public CloudBlockBlob DownloadBlob(string BlobName, string ContainerName)

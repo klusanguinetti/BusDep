@@ -63,11 +63,9 @@
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
+
             var idJugador = $routeParams.id;
 
-            console.log(idJugador);
-
-            //validar q sea un numero TODO
 
             $scope.myPromise = publicProfileService.getPublicProfile(idJugador).then(function (response) {
                 
