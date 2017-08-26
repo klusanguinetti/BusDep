@@ -32,7 +32,7 @@ namespace BusDep.Web.Class
 
             request.AddParameter("domain", "sandbox26ec0252865b4709847e8f557fe2e1e6.mailgun.org", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
-            request.AddParameter("from", "Allwiners.com.ar <mailgun@sandbox26ec0252865b4709847e8f557fe2e1e6.mailgun.org>");
+            request.AddParameter("from", "Allwiners.com <mailgun@sandbox26ec0252865b4709847e8f557fe2e1e6.mailgun.org>");
             request.AddParameter("to", datosEmail.Mail);
             request.AddParameter("subject", "Recuperación de credenciales");
             request.AddParameter("html", bodyHTML);
