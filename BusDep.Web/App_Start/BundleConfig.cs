@@ -36,7 +36,6 @@ namespace BusDep.Web
                 "~/Content/country-flags-icon.css",
                 "~/Content/bootstrap-datetimepicker.css",
                 "~/Content/club-flags-icon.css",
-                "~/Content/ui-carousel.min.css",
                 "~/Content/puestos-flags-icon.css",
                 "~/Content/ngDialog/ngDialog.css",
                 "~/Content/ngDialog/ngDialog-theme-default.min.css",
@@ -56,14 +55,14 @@ namespace BusDep.Web
                 "~/Scripts/vendor/angular/angular-toastr.tpls.min.js",
                 "~/Scripts/vendor/angular/angular-chart.min.js",
                 "~/Scripts/vendor/custom/loading-bar.min.js",
-                "~/Scripts/vendor/custom/ui-carousel.min.js",
                 "~/Scripts/vendor/custom/ngDialog.min.js",
                 "~/Scripts/vendor/custom/angular-flash.min.js",
                 "~/Scripts/vendor/custom/angular-busy.min.js",
                 "~/Scripts/vendor/custom/ng-file-upload.min.js",
+                "~/Scripts/vendor/custom/ui-bootstrap-tpls.min.js",
                 "~/Scripts/vendor/custom/ng-file-upload-shim.min.js"));
 
-
+            
             // Angular Bundle
 
             //const string ANGULAR_APP_ROOT = "~/Scripts/app";

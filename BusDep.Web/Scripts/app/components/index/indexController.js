@@ -1,13 +1,23 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', '$rootScope','Carousel',
-function ($scope, $location, commonService, authService, $rootScope, Carousel) {
+app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', '$rootScope',
+function ($scope, $location, commonService, authService, $rootScope) {
+
+    $scope.myInterval = 3000;
 
     $scope.slides = [
-        '/Content/img/Allwiners/jugador.jpg',
-        '/Content/img/Allwiners/entrenadores.jpg',
-        '/Content/img/Allwiners/agentes.jpg',
-        '/Content/img/Allwiners/clubes.jpg'
-    ]
+      {
+          image: '/Content/img/Allwiners/jugador.jpg'
+      },
+      {
+          image: '/Content/img/Allwiners/entrenadores.jpg'
+      },
+      {
+          image: '/Content/img/Allwiners/agentes.jpg'
+      },
+      {
+          image: '/Content/img/Allwiners/clubes.jpg'
+      }
+    ];
 
     $scope.searchResult = {};
 

@@ -1,82 +1,71 @@
 ﻿<div ng-controller="indexController">
 
-        <div class="intro jobs-intro hasOverly" style="background-image: url(/Content/img/slide_1.jpg); background-position: center center;"
-             data-ng-hide="!user.authenticated">
+    <div class="intro jobs-intro hasOverly" style="background-image: url(/Content/img/slide_1.jpg); background-position: center center;"
+         data-ng-hide="!user.authenticated">
 
-            <div class="dtable hw100">
+        <div class="dtable hw100">
 
-                <div class="dtable-cell hw100">
+            <div class="dtable-cell hw100">
 
-                    <div class="container text-center">
+                <div class="container text-center">
 
-                        <h1 class="intro-title animated fadeInDown"> Encuentra un nuevo club </h1>
+                    <h1 class="intro-title animated fadeInDown"> Encuentra un nuevo club </h1>
 
-                        <p class="sub animateme fittext3 animated fadeIn"> La forma mas rapida de encontrar un club, intermediario o un jugador </p>
+                    <p class="sub animateme fittext3 animated fadeIn"> La forma mas rapida de encontrar un club, intermediario o un jugador </p>
 
-                        <div class="row search-row animated fadeInUp">
+                    <div class="row search-row animated fadeInUp">
 
-                            <form ng-submit="search();">
+                        <form ng-submit="search();">
 
-                                <div class="col-lg-9 col-sm-9 search-col relative">
-                                    <i class="icon-user icon-append"></i>
-                                    <input type="text" name="player_search" class="form-control has-icon" ng-model="searchValue"
-                                           placeholder="Escribe lo que quieras sobre el jugador que quieres encontrar" value="">
-                                </div>
+                            <div class="col-lg-9 col-sm-9 search-col relative">
+                                <i class="icon-user icon-append"></i>
+                                <input type="text" name="player_search" class="form-control has-icon" ng-model="searchValue"
+                                       placeholder="Escribe lo que quieras sobre el jugador que quieres encontrar" value="">
+                            </div>
 
-                                <div class="col-lg-3 col-sm-3 search-col">
-                                    <button class="btn btn-primary btn-search btn-block" type="submit">
-                                        <i class="icon-search"></i><strong>
-                                            Encontrar
-                                        </strong>
-                                    </button>
-                                </div>
+                            <div class="col-lg-3 col-sm-3 search-col">
+                                <button class="btn btn-primary btn-search btn-block" type="submit">
+                                    <i class="icon-search"></i><strong>
+                                        Encontrar
+                                    </strong>
+                                </button>
+                            </div>
 
-                            </form>
-
-                        </div>
-
-                        <div class="resume-up">
-                            <a>
-                                <i class="icon-doc-4"></i>
-                            </a>
-                            <a href="#!Profile/PrivateProfile"><b>Carga tu perfil</b></a> y encuentra facilmente lo que buscas.
-                        </div>
+                        </form>
 
                     </div>
+
+                    <div class="resume-up">
+                        <a>
+                            <i class="icon-doc-4"></i>
+                        </a>
+                        <a href="#!Profile/PrivateProfile"><b>Carga tu perfil</b></a> y encuentra facilmente lo que buscas.
+                    </div>
+
                 </div>
             </div>
-
         </div>
 
-    <div>
+    </div>
 
+    <div data-ng-hide="user.authenticated">
 
+        <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">
+                <a href="#!/Account/Register">
+                    <img ng-src="{{slide.image}}" class="image">
+                </a>
+                <div class="carousel-caption">
+
+                </div>
+            </slide>
+        </carousel>
 
     </div>
 
     <div class="main-container">
 
         <div class="container">
-
-            <ui-carousel slides="slides"
-                         slides-to-scroll="3"
-                         initial-slide="1"
-                         arrows="true"
-                         autoplay="true"
-                         autoplay-speed="5000"
-                         fade=true
-                         dots="true"
-                         data-ng-hide="user.authenticated">
-
-                <carousel-item>
-
-                    <a href="#!/Account/Register">
-                        <img src="{{ item }}" />
-                    </a>
-
-                </carousel-item>
-
-            </ui-carousel>
 
             <div style="clear: both"></div>
 
