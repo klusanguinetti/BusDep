@@ -16,6 +16,7 @@ namespace BusDep.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/vendor/boostrap/bootstrap.js",
+                "~/Scripts/vendor/boostrap/bootstrap-slider.min.js",
                 "~/Scripts/vendor/custom/please-wait.min.js",
                 "~/Scripts/vendor/custom/moment-with-locales.min.js",
                 "~/Scripts/vendor/custom/Chart.min.js",
@@ -27,6 +28,7 @@ namespace BusDep.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/font-awesome.css",
+                "~/Content/bootstrap-slider.min.css",
                 "~/Content/please-wait.css",
                 "~/Content/jquery.fs.scroller.css",
                 "~/Content/jquery.fs.selecter.css",
