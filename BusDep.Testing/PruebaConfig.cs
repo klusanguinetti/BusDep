@@ -538,6 +538,17 @@ namespace BusDep.Testing
                 Console.WriteLine(list.SerializarToJson());
            //}
         }
+
+        [Test]
+        public void Top()
+        {
+   
+            //Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)]
+            var list = busqueda.TopJugador();
+            Console.WriteLine(list.SerializarToJson());
+            //}
+        }
+
         [Test]
         public void LeerJson()
         {

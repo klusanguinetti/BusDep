@@ -87,7 +87,7 @@ namespace BusDep.Web.Controllers
                 Response.StatusCode = 200;
                 return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Response.StatusCode = 500;
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };

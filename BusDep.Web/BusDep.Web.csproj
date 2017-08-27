@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -74,8 +78,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Bin\NHibernate.dll</HintPath>
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
@@ -644,15 +648,6 @@
     <Content Include="Content\img\country\zz.png" />
     <Content Include="Content\img\icon.png" />
     <Content Include="Content\img\info.png" />
-    <Content Include="Content\img\jugadores-fotos\2.jpg" />
-    <Content Include="Content\img\jugadores-fotos\532516.jpg" />
-    <Content Include="Content\img\jugadores-fotos\angel_di_maria.jpg" />
-    <Content Include="Content\img\jugadores-fotos\carlos_teves.jpg" />
-    <Content Include="Content\img\jugadores-fotos\ezequiel.jpg" />
-    <Content Include="Content\img\jugadores-fotos\gonzalo_higuain.jpg" />
-    <Content Include="Content\img\jugadores-fotos\javier_mascherano.jpg" />
-    <Content Include="Content\img\jugadores-fotos\marcos_rojo.jpg" />
-    <Content Include="Content\img\jugadores-fotos\paulo_dybala.jpg" />
     <Content Include="Content\img\logos-clubes\PSG.png" />
     <Content Include="Content\img\misc\298.png" />
     <Content Include="Content\img\property-agency-logo.png" />
@@ -1539,6 +1534,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\jugadores-fotos\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Entities\" />
   </ItemGroup>

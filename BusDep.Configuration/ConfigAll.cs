@@ -36,21 +36,21 @@
         public void Init()
         {
             #region DataAccess
-            DependencyFactory.RegisterType<IUsuarioDA, UsuarioDA>(
+            DependencyFactory.RegisterType<IUsuarioDA, UsuarioDA>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                 }
                 );
-            DependencyFactory.RegisterType<IJugadorDA, JugadorDA>(
+            DependencyFactory.RegisterType<IJugadorDA, JugadorDA>(new PerThreadLifetimeManager(),
              new InjectionMember[]
              {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
              }
              );
-            DependencyFactory.RegisterType<ICommnDA, CommnDA>(
+            DependencyFactory.RegisterType<ICommnDA, CommnDA>(new PerThreadLifetimeManager(),
             new InjectionMember[]
             {
                     new Interceptor<VirtualMethodInterceptor>(),
@@ -58,159 +58,159 @@
             }
             );
             #region genericos
-            DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(
+            DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, BaseDA<DatosPersona>>(
+            DependencyFactory.RegisterType<IBaseDA<DatosPersona>, BaseDA<DatosPersona>>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                 }
                 );
-            DependencyFactory.RegisterType<IBaseDA<Deporte>, BaseDA<Deporte>>(
+            DependencyFactory.RegisterType<IBaseDA<Deporte>, BaseDA<Deporte>>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                 }
                 );
-            DependencyFactory.RegisterType<IBaseDA<Evaluacion>, BaseDA<Evaluacion>>(
+            DependencyFactory.RegisterType<IBaseDA<Evaluacion>, BaseDA<Evaluacion>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<EvaluacionCabecera>, BaseDA<EvaluacionCabecera>>(
+            DependencyFactory.RegisterType<IBaseDA<EvaluacionCabecera>, BaseDA<EvaluacionCabecera>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<EvaluacionDetalle>, BaseDA<EvaluacionDetalle>>(
+            DependencyFactory.RegisterType<IBaseDA<EvaluacionDetalle>, BaseDA<EvaluacionDetalle>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Jugador>, BaseDA<Jugador>>(
+            DependencyFactory.RegisterType<IBaseDA<Jugador>, BaseDA<Jugador>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Puesto>, BaseDA<Puesto>>(
+            DependencyFactory.RegisterType<IBaseDA<Puesto>, BaseDA<Puesto>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, BaseDA<TemplateEvaluacion>>(
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacion>, BaseDA<TemplateEvaluacion>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacionDetalle>, BaseDA<TemplateEvaluacionDetalle>>(
+            DependencyFactory.RegisterType<IBaseDA<TemplateEvaluacionDetalle>, BaseDA<TemplateEvaluacionDetalle>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TipoUsuario>, BaseDA<TipoUsuario>>(
+            DependencyFactory.RegisterType<IBaseDA<TipoUsuario>, BaseDA<TipoUsuario>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TipoVideo>, BaseDA<TipoVideo>>(
+            DependencyFactory.RegisterType<IBaseDA<TipoVideo>, BaseDA<TipoVideo>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Usuario>, BaseDA<Usuario>>(
+            DependencyFactory.RegisterType<IBaseDA<Usuario>, BaseDA<Usuario>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<UsuarioAplicativo>, BaseDA<UsuarioAplicativo>>(
+            DependencyFactory.RegisterType<IBaseDA<UsuarioAplicativo>, BaseDA<UsuarioAplicativo>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<Video>, BaseDA<Video>>(
+            DependencyFactory.RegisterType<IBaseDA<Video>, BaseDA<Video>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
                {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
                }
                );
-            DependencyFactory.RegisterType<IBaseDA<TipoEvaluacion>, BaseDA<TipoEvaluacion>>(
+            DependencyFactory.RegisterType<IBaseDA<TipoEvaluacion>, BaseDA<TipoEvaluacion>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<Entrenador>, BaseDA<Entrenador>>(
+            DependencyFactory.RegisterType<IBaseDA<Entrenador>, BaseDA<Entrenador>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<Intermediario>, BaseDA<Intermediario>>(
+            DependencyFactory.RegisterType<IBaseDA<Intermediario>, BaseDA<Intermediario>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<Club>, BaseDA<Club>>(
+            DependencyFactory.RegisterType<IBaseDA<Club>, BaseDA<Club>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<ClubDetalle>, BaseDA<ClubDetalle>>(
+            DependencyFactory.RegisterType<IBaseDA<ClubDetalle>, BaseDA<ClubDetalle>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorDataAccess>()
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<LogActividad>, BaseDA<LogActividad>>(
+            DependencyFactory.RegisterType<IBaseDA<LogActividad>, BaseDA<LogActividad>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<LogError>, BaseDA<LogError>>(
+            DependencyFactory.RegisterType<IBaseDA<LogError>, BaseDA<LogError>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
               }
               );
-            DependencyFactory.RegisterType<IBaseDA<RecuperoUsuario>, BaseDA<RecuperoUsuario>>(
+            DependencyFactory.RegisterType<IBaseDA<RecuperoUsuario>, BaseDA<RecuperoUsuario>>(new PerThreadLifetimeManager(),
               new InjectionMember[]
               {
                     new Interceptor<VirtualMethodInterceptor>(),
@@ -220,35 +220,35 @@
             #endregion
 
             #region Business
-            DependencyFactory.RegisterType<ILoginBusiness, LoginBusiness>(
+            DependencyFactory.RegisterType<ILoginBusiness, LoginBusiness>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
                 );
-            DependencyFactory.RegisterType<IUsuarioBusiness, UsuarioBusiness>(
+            DependencyFactory.RegisterType<IUsuarioBusiness, UsuarioBusiness>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
                 );
-            DependencyFactory.RegisterType<ICommonBusiness, CommonBusiness>(
+            DependencyFactory.RegisterType<ICommonBusiness, CommonBusiness>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
                 );
-            DependencyFactory.RegisterType<IBusquedaBusiness, BusquedaBusiness>(
+            DependencyFactory.RegisterType<IBusquedaBusiness, BusquedaBusiness>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
                 );
-            DependencyFactory.RegisterType<IUsuarioJugadorBusiness, UsuarioJugadorBusiness>(
+            DependencyFactory.RegisterType<IUsuarioJugadorBusiness, UsuarioJugadorBusiness>(new PerThreadLifetimeManager(),
                 new InjectionMember[]
                 {
                     new Interceptor<VirtualMethodInterceptor>(),
