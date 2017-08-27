@@ -3362,10 +3362,6 @@ td.ads-details-td {
         margin-bottom: 30px;
     }
 
-.image {
-    margin: 0 0 15px 0;
-}
-
 .share-this-post {
     display: block;
     margin: 10px 30px;
@@ -5076,8 +5072,10 @@ form .progress {
     border: 3px groove #CCC;
 }
 
-.progress div {
-    font-size: smaller;
-    background: orange;
-    width: 0;
-}
+    .progress div {
+        font-size: smaller;
+        background: orange;
+        width: 0;
+    }
+
+

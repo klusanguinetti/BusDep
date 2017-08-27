@@ -197,7 +197,6 @@
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootsnav.css" />
     <Content Include="Content\bootstrap-datetimepicker.css" />
-    <Content Include="Content\bootstrap-slider.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\Allwiners\agentes 2.png" />
@@ -668,8 +667,6 @@
     <Content Include="Content\ngAnimate\ngAnimation.css" />
     <Content Include="Content\ngDialog\ngDialog-theme-default.min.css" />
     <Content Include="Content\ngDialog\ngDialog.css" />
-    <Content Include="Content\owl.carousel.css" />
-    <Content Include="Content\owl.theme.css" />
     <Content Include="Content\please-wait.css" />
     <Content Include="Content\promise-buttom\promise-buttom.css" />
     <Content Include="Content\Site.css" />
@@ -727,7 +724,6 @@
     <Content Include="Scripts\app\components\account\loginController.js" />
     <Content Include="Scripts\app\components\index\indexController.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap-datetimepicker.min.js" />
-    <Content Include="Scripts\vendor\boostrap\bootstrap-slider.min.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -1501,7 +1497,6 @@
     <Content Include="Scripts\vendor\custom\modernizr-2.6.2.js" />
     <Content Include="Scripts\vendor\custom\moment.min.js" />
     <Content Include="Scripts\vendor\custom\ngDialog.min.js" />
-    <Content Include="Scripts\vendor\custom\owl.carousel.min.js" />
     <Content Include="Scripts\vendor\custom\please-wait.min.js" />
     <Content Include="Scripts\vendor\custom\script.js" />
     <Content Include="Scripts\vendor\custom\ui-carousel.min.js" />

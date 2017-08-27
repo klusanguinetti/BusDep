@@ -1,7 +1,5 @@
 ﻿<div ng-controller="indexController">
 
-    <div>
-
         <div class="intro jobs-intro hasOverly" style="background-image: url(/Content/img/slide_1.jpg); background-position: center center;"
              data-ng-hide="!user.authenticated">
 
@@ -50,33 +48,46 @@
 
         </div>
 
-        <ui-carousel slides="slides"
-                     slides-to-scroll="1"
-                     initial-slide="1"
-                     autoplay="true"
-                     autoplay-speed="5000"
-                     fade=true
-                     dots="true"
-                     data-ng-hide="user.authenticated">
-            <carousel-item>
-                <a href="#!/Account/Register">
-                    <img class="offer-detail-image" src="{{ item }}" />
-                </a>
-            </carousel-item>
+    <div>
 
-        </ui-carousel>
+
 
     </div>
 
-
     <div class="main-container">
+
         <div class="container">
 
+            <ui-carousel slides="slides"
+                         slides-to-scroll="3"
+                         initial-slide="1"
+                         arrows="true"
+                         autoplay="true"
+                         autoplay-speed="5000"
+                         fade=true
+                         dots="true"
+                         data-ng-hide="user.authenticated">
+
+                <carousel-item>
+
+                    <a href="#!/Account/Register">
+                        <img src="{{ item }}" />
+                    </a>
+
+                </carousel-item>
+
+            </ui-carousel>
+
             <div style="clear: both"></div>
+
             <div class="row">
+
                 <div class="col-sm-9 page-content col-thin-right">
+
                     <div class="content-box col-lg-12">
+
                         <div class="row row-featured row-featured-category">
+
                             <div class="col-lg-12  box-title no-border">
                                 <div class="inner">
                                     <h2>
@@ -85,25 +96,37 @@
                                     </h2>
                                 </div>
                             </div>
+
                             <div class="adds-wrapper jobs-list">
                                 <div class="item-list" ng-repeat="item in searchResult">
                                     @Html.Partial("_Jugador_Item")
                                 </div>
                             </div>
+
                             <div class="tab-box  save-search-bar text-center"><a class="text-uppercase" ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}"> <i class="icon-briefcase "></i> Ver todos los perfiles </a></div>
+
                         </div>
+
                     </div>
+
                 </div>
+
                 <div class="col-sm-3 page-sidebar col-thin-left">
+
                     <aside>
+
                         <div class="inner-box no-padding">
                             <div class="inner-box-content">
                                 <a href="#"><img class="img-responsive" src="~/Content/img/company-logos/add_example.jpg" alt="tv"></a>
                             </div>
                         </div>
+
                         <div class="inner-box">
+
                             <h2 class="title-2">Categorias Perfiles </h2>
+
                             <div class="inner-box-content">
+
                                 <ul class="cat-list arrow">
                                     <li>
                                         <a href="job-list.html">Portero <span class="count">(52)</span> </a>
@@ -132,98 +155,141 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="inner-box no-padding">
                             <img class="img-responsive" src="~/Content/img/company-logos/add_example.jpg" alt="">
                         </div>
+
                     </aside>
+
                 </div>
+
+
             </div>
 
         </div>
+
     </div>
 
     <div class="page-info hasOverly" style="background-image: url(../../Content/img/2.jpg);    background-position: center center;  background-size:cover">
+
         <div class="bg-overly">
+
             <div class="container text-center section-promo">
+
                 <div class="row">
+
                     <div class="col-sm-3 col-xs-6 col-xxs-12">
+
                         <div class="iconbox-wrap">
+
                             <div class="iconbox">
+
                                 <div class="iconbox-wrap-icon">
                                     <i class="icon  icon-commerical-building"></i>
                                 </div>
+
                                 <div class="iconbox-wrap-content">
                                     <h5><span>2200+</span></h5>
                                     <div class="iconbox-wrap-text">Jugadores</div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
+
                     <div class="col-sm-3 col-xs-6 col-xxs-12">
+
                         <div class="iconbox-wrap">
+
                             <div class="iconbox">
+
                                 <div class="iconbox-wrap-icon">
                                     <i class="icon  icon-briefcase"></i>
                                 </div>
+
                                 <div class="iconbox-wrap-content">
                                     <h5><span>400K+</span></h5>
                                     <div class="iconbox-wrap-text">Entrenadores</div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
+
                     <div class="col-sm-3 col-xs-6  col-xxs-12">
+
                         <div class="iconbox-wrap">
+
                             <div class="iconbox">
+
                                 <div class="iconbox-wrap-icon">
                                     <i class="icon  icon-users"></i>
                                 </div>
+
                                 <div class="iconbox-wrap-content">
                                     <h5><span>3000+</span></h5>
                                     <div class="iconbox-wrap-text"> Intermediarios</div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
+
                     <div class="col-sm-3 col-xs-6 col-xxs-12">
+
                         <div class="iconbox-wrap">
+
                             <div class="iconbox">
+
                                 <div class="iconbox-wrap-icon">
                                     <i class="icon icon-doc-1"></i>
                                 </div>
+
                                 <div class="iconbox-wrap-content">
                                     <h5><span>2000+</span></h5>
                                     <div class="iconbox-wrap-text"> Clubes</div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <div class="page-bottom-info">
+
         <div class="page-bottom-info-inner">
+
             <div class="page-bottom-info-content text-center">
+
                 <h1>
                     Si tiene alguna pregunta, comentarios or dudas, no dude en llamarnos al
                     (0810) 555-5555
                 </h1>
+
                 <a class="btn  btn-lg btn-primary-dark" href="tel:+000000000">
                     <i class="icon-mobile"></i> <span class="hide-xs color50">Llame ahora:</span> (0810) 555-5555
                 </a>
-            </div>
-        </div>
-    </div>
 
+            </div>
+
+        </div>
+
+    </div>
 
 </div>

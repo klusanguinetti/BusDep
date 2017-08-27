@@ -1,5 +1,6 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', 'Carousel', '$rootScope', function ($scope, $location, commonService, authService, Carousel, $rootScope) {
+app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', '$rootScope','Carousel',
+function ($scope, $location, commonService, authService, $rootScope, Carousel) {
 
     $scope.slides = [
         '/Content/img/Allwiners/jugador.jpg',
