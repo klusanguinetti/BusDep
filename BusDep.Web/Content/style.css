@@ -5094,3 +5094,9 @@ width: 100%;
   top:20px;
  margin-left:-200px;
 }
+
+.img-perfil-item {
+    max-width: 144px !important;
+    max-height: 144px !important;
+}
+}
