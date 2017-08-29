@@ -34,7 +34,7 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
         });
 
         $http.get('json/Clubes.json').then(function (data) {
-            $scope.clubes = data.data;
+            $scope.clubes = $filter('orderBy')(data.data, 'Nombre');
         });
 
         commonService.getPerfilJugadorShort().then(function (response) {

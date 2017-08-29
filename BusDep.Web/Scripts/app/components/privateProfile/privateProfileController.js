@@ -1,5 +1,5 @@
-﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr',
-function ($scope, privateProfileService, commonService, $http, $rootScope, toastr) {
+﻿app.controller('privateProfileController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', '$filter',
+function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, $filter) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -49,7 +49,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         privateProfileService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
-                $scope.paises = data.data;
+                $scope.paises = $filter('orderBy')(data.data, 'Nombre');
             });
 
             $scope.datosPersonales = response.data;
