@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
-  <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-    <class name="BusDep.Entity.Usuario, BusDep.Entity" table="Usuario" lazy="true"> 
-      <id name="Id" column="UsuarioId" type="System.Int64" unsaved-value="0" >
-        <generator class="native" />
-      </id>
-      <property name="Mail" column="Mail" type="System.String" length="400" />
-      <property name="Password" column="Password" type="System.String" length="100" />
-      <property name="UltimoLogin" column="UltimoLogin" type="System.DateTime"  />
-      <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
-      <many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
-      <one-to-one name="DatosPersona" class="BusDep.Entity.DatosPersona, BusDep.Entity" cascade="all"/>
-      <one-to-one name="Jugador" class="BusDep.Entity.Jugador, BusDep.Entity" cascade="all" />
-      <one-to-one name="Intermediario" class="BusDep.Entity.Intermediario, BusDep.Entity" cascade="all"/>
-      <one-to-one name="Entrenador" class="BusDep.Entity.Entrenador, BusDep.Entity" cascade="all"/>
-      <one-to-one name="Club" class="BusDep.Entity.Club, BusDep.Entity" cascade="all" />
-      <bag name="AplicacionToken" table="UsuarioAplicativo" cascade="all" inverse="true">
-        <key column="UsuarioId" />
-        <one-to-many class="BusDep.Entity.UsuarioAplicativo, BusDep.Entity" />
-      </bag>
-    </class>
-  </hibernate-mapping>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="BusDep.Entity.Usuario, BusDep.Entity" table="Usuario" lazy="true">
+    <id name="Id" column="UsuarioId" type="System.Int64" unsaved-value="0" >
+      <generator class="native" />
+    </id>
+    <property name="Mail" column="Mail" type="System.String" length="400" />
+    <property name="Password" column="Password" type="System.String" length="100" />
+    <property name="UltimoLogin" column="UltimoLogin" type="System.DateTime"  />
+    <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
+    <many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />
+    <many-to-one name="DatosPersona"  column="DatosPersonaId" class="BusDep.Entity.DatosPersona, BusDep.Entity" cascade="all"/>
+    <many-to-one name="Jugador"  column="JugadorId" class="BusDep.Entity.Jugador, BusDep.Entity" cascade="all"/>
+    <many-to-one name="Intermediario" column="IntermediarioId" class="BusDep.Entity.Intermediario, BusDep.Entity" cascade="all"/>
+    <many-to-one name="Entrenador" column="EntrenadorId" class="BusDep.Entity.Entrenador, BusDep.Entity" cascade="all"/>
+    <many-to-one name="Club" column="ClubId" class="BusDep.Entity.Club, BusDep.Entity" cascade="all"/>
+    <bag name="AplicacionToken" table="UsuarioAplicativo" cascade="all" inverse="true">
+      <key column="UsuarioId" />
+      <one-to-many class="BusDep.Entity.UsuarioAplicativo, BusDep.Entity" />
+    </bag>
+  </class>
+</hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->
 <!--
 <bag name="Puestos" table="Puesto" cascade="all" inverse="true">

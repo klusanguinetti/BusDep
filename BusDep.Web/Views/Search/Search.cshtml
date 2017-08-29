@@ -4,7 +4,7 @@
 
 <div>
 
-    <div class="search-row-wrapper" style="background-image: url(../../Content/img/1.jpg); background-size: cover; background-position: center center;">
+    <div class="search-row-wrapper" style="background-image: url(../../Content/img/slide_3.jpg); background-size: cover; background-position: center center;">
 
         <form role="form" novalidate="" name="advancedSearchForm" ng-submit="search()">
 
@@ -36,7 +36,7 @@
 
                         <div class="inner-box">
 
-                            <form  role="form" novalidate="" name="advancedSearchForm" ng-submit="searchFilters()">
+                            <form role="form" novalidate="" name="advancedSearchForm" ng-submit="searchFilters()">
 
                                 <div class="list-filter">
 
@@ -61,14 +61,18 @@
                                                 <label for="posted_35">Hasta 35</label>
                                             </li>
                                         </ul>
+                                        <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
                                     </div>
+
+
+
                                 </div>
 
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
                                     <ul>
                                         <li>
-                                            <input type="radio" value='' id="tipo_pie_0" name="tipo_pie" ng-click="clearSelect(pies)" >
+                                            <input type="radio" value='' id="tipo_pie_0" name="tipo_pie" ng-click="clearSelect(pies)">
                                             <label for="tipo_pie_0">Todos</label>
                                         </li>
                                         <li ng-repeat="item in pies">
@@ -76,13 +80,17 @@
                                             <label for="tipo_pie_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
+
+                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
+
                                 </div>
+
 
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
                                     <ul>
                                         <li>
-                                            <input type="radio" value='' id="tipo_puesto_0" name="tipo_puesto" ng-click="clearSelect(puestos)" >
+                                            <input type="radio" value='' id="tipo_puesto_0" name="tipo_puesto" ng-click="clearSelect(puestos)">
                                             <label for="tipo_puesto_0">Todos</label>
                                         </li>
                                         <li ng-repeat="item in puestos">
@@ -90,15 +98,16 @@
                                             <label for="tipo_puesto_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
+                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
                                 </div>
-
+                                
                                 <div class="list-filter">
                                     <h5 class="list-title"><strong><a href="#">Tipo de Perfil</a></strong></h5>
-                                    
-                                    <div class="filter-date filter-content" >
+
+                                    <div class="filter-date filter-content">
                                         <ul>
                                             <li>
-                                                <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(perfiles)" >
+                                                <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(perfiles)">
                                                 <label for="tipo_perfil_0">Todos</label>
                                             </li>
                                             <li ng-repeat="item in perfiles">
@@ -107,14 +116,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div style="clear: both"></div>
+                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
                                 </div>
-
+                                
                                 <div class="locations-list  list-filter">
                                     <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
                                     <ul>
                                         <li>
-                                            <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(fichajes)" >
+                                            <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(fichajes)">
                                             <label for="tipo_perfil_0">Todos</label>
                                         </li>
                                         <li ng-repeat="item in fichajes">
@@ -122,14 +131,7 @@
                                             <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                         </li>
                                     </ul>
-                                </div>
-
-                                <div class="list-title">
-
-                                </div>
-
-                                <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-default page-action">Aplicar filtros</button>
+                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
                                 </div>
 
                             </form>
@@ -180,7 +182,7 @@
                             </div>
 
                             <div class="menu-overly-mask"></div>
-                        
+
                         </div>
 
                         <div class="listing-filter hidden-xs">
@@ -189,7 +191,7 @@
                             </div>
 
                             <div class="pull-right col-sm-6 col-xs-12 text-right text-center-xs listing-view-action">
-                                <a class="clear-all-button text-muted" ng-click="clearFilter()" >Limpiar filtros</a>
+                                <a class="clear-all-button text-muted" ng-click="clearFilter()">Limpiar filtros</a>
                             </div>
 
                             <div style="clear:both"></div>

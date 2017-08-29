@@ -63,104 +63,104 @@
 
     </div>
 
-    <div class="main-container">
 
-        <div class="container">
 
-            <div style="clear: both"></div>
 
-            <div class="row">
+<div class="main-container">
 
-                <div class="col-sm-9 page-content col-thin-right">
+    <div class="container">
 
-                    <div class="content-box col-lg-12">
+        <div style="clear: both"></div>
 
-                        <div class="row row-featured row-featured-category">
+        <div class="row">
 
-                            <div class="col-lg-12  box-title no-border">
-                                <div class="inner">
-                                    <h2>
-                                        <span>Ultimos perfiles</span>
-                                        Registrados <a ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}" class="sell-your-item"> {{user.authenticated?'Ver todos los perfiles':'QUIERO DARME DE ALTA'}} <i class="icon-th-list"></i> </a>
-                                    </h2>
-                                </div>
+            <div class="col-sm-{{user.authenticated?'12':'9'}} page-content col-thin-right">
+
+                <div class="content-box col-lg-12">
+
+                    <div class="row row-featured row-featured-category">
+
+                        <div class="col-lg-12  box-title no-border">
+                            <div class="inner">
+                                <h2>
+                                    <span>Ultimos perfiles</span>
+                                    Registrados <a ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}" class="sell-your-item"> {{user.authenticated?'Ver todos los perfiles':'QUIERO DARME DE ALTA'}} <i class="icon-th-list"></i> </a>
+                                </h2>
                             </div>
+                        </div>
 
-                            <div class="adds-wrapper jobs-list">
-                                <div class="item-list" ng-repeat="item in searchResult">
-                                    @Html.Partial("_Jugador_Item")
-                                </div>
+                        <div class="adds-wrapper jobs-list">
+                            <div class="item-list" ng-repeat="item in searchResult">
+                                @Html.Partial("_Jugador_Item")
                             </div>
+                        </div>
 
-                            <div class="tab-box  save-search-bar text-center"><a class="text-uppercase" ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}"> <i class="icon-briefcase "></i> Ver todos los perfiles </a></div>
-
+                        <div class="tab-box  save-search-bar text-center"><a class="text-uppercase" ng-href="{{user.authenticated?'#!/Search/':'#!/Account/Register'}}"> <i class="icon-briefcase "></i> Ver todos los perfiles </a>
                         </div>
 
                     </div>
 
                 </div>
 
-                <div class="col-sm-3 page-sidebar col-thin-left">
+            </div>
 
-                    <aside>
+            <div class="col-sm-3 page-sidebar col-thin-left" ng-show="!user.authenticated">
 
-                        @*<div class="inner-box no-padding">
-                            <div class="inner-box-content">
-                                <a href="#"><img class="img-responsive" src="~/Content/img/company-logos/add_example.jpg" alt="tv"></a>
+                <aside>
+                    <div class="col-md-12 reg-sidebar">
+                        <div class="reg-sidebar-inner text-center">
+                            <div class="promo-text-box">
+                                <i class="icon-briefcase fa fa-4x icon-color-1"></i>
+                                <h3><strong>Registrate </strong>
+                                </h3>
+                                <p>
+                                    Solo llenando el formulario de la izquierda ya estaras registrado de manera gratuita y sin problemas.
+                                </p>
                             </div>
-                        </div>*@
-
-                        <div class="inner-box">
-
-                            <h2 class="title-2">Categorias Perfiles </h2>
-
-                            <div class="inner-box-content">
-
-                                <ul class="cat-list arrow">
-                                    <li>
-                                        <a href="">Portero <span class="count">(52)</span> </a>
-                                    </li>
-                                    <li>
-                                        <a href="">Defensor central <span class="count">(156)</span> </a>
-                                    </li>
-                                    <li>
-                                        <a href="">Defensor lateral <span class="count">(25)</span></a>
-                                    </li>
-                                    <li><a href="">Mediocampista defensivo <span class="count">(87)</span></a></li>
-                                    <li><a href="">Mediocampista Central <span class="count">(15)</span></a></li>
-                                    <li><a href="">Lateral volante <span class="count">(125)</span></a></li>
-                                    <li><a href="">Volante de corte <span class="count">(7)</span></a></li>
-                                    <li><a href="">Volante de salida <span class="count">(85)</span></a></li>
-                                    <li>
-                                        <a href="">Volante mixto <span class="count">(56)</span></a>
-                                    </li>
-                                    <li><a href="">Media punta derecha <span class="count">(100)</span></a></li>
-                                    <li>
-                                        <a href="">Delantero centro <span class="count">(180)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="">Puntero <span class="count">(200)</span></a>
-                                    </li>
-                                </ul>
+                            <div class="promo-text-box">
+                                <i class="icon-pencil-circled fa fa-4x icon-color-2"></i>
+                                <h3><strong>Carga tu perfil y habilidades</strong>
+                                </h3>
+                                <p>
+                                    La aplicación te dara la oportunidad de mostrar tu habilidades y experiencia mediante un conjunto de examenes.
+                                </p>
+                            </div>
+                            <div class="promo-text-box">
+                                <i class="icon-heart-2 fa fa-4x icon-color-3"></i>
+                                <h3><strong>Encuentra el club que buscas.</strong>
+                                </h3>
+                                <p>
+                                    Solo relajate y deja que cientos de clubes y entrenadores te encuentren.
+                                </p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="inner-box no-padding">
-                            <img class="img-responsive" src="~/Content/img/company-logos/add_example.jpg" alt="">
-                        </div>
-
-                    </aside>
-
-                </div>
-
+                </aside>
 
             </div>
 
+
         </div>
+        <div class="col-md-12">
 
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slidespublicidad" active="slide.active">
+                        <img ng-src="{{slide.image}}" class="image">
+                    <div class="carousel-caption">
+                    </div>
+                </slide>
+            </carousel>
+
+        </div>
     </div>
+    
+</div>
 
-    <div class="page-info hasOverly" style="background-image: url(../../Content/img/2.jpg);    background-position: center center;  background-size:cover">
+
+    
+
+<div class="page-info hasOverly" style="background-image: url(../../Content/img/2.jpg);    background-position: center center;  background-size:cover">
 
         <div class="bg-overly">
 

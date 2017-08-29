@@ -800,6 +800,11 @@ namespace BusDep.Testing
             Console.WriteLine(usuarioViewModel.SerializarToJson());
 
         }
+        [Test]
+        public void Login1()
+        {
+            var user = login.LoginUser(string.Format("prueba@prueba.com"), Base64Encode(string.Format("{0}", "123456")));
+        }
     }
 
 }

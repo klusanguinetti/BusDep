@@ -1,0 +1,197 @@
+ERROR 8 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_a09f85c81a9e46b89725953e55f7d5ba
+Metodo: Save
+Parametros: 
+
+System.IndexOutOfRangeException: Índice 12 no válido para SqlParameterCollection con Count=12.
+   en System.Data.SqlClient.SqlParameterCollection.RangeCheck(Int32 index)
+   en System.Data.SqlClient.SqlParameterCollection.GetParameter(Int32 index)
+   en System.Data.Common.DbParameterCollection.System.Collections.IList.get_Item(Int32 index)
+   en NHibernate.Type.Int64Type.Set(IDbCommand rs, Object value, Int32 index)
+   en NHibernate.Type.NullableType.NullSafeSet(IDbCommand cmd, Object value, Int32 index)
+   en NHibernate.Type.NullableType.NullSafeSet(IDbCommand st, Object value, Int32 index, ISessionImplementor session)
+   en NHibernate.Persister.Entity.AbstractEntityPersister.Dehydrate(Object id, Object[] fields, Object rowId, Boolean[] includeProperty, Boolean[][] includeColumns, Int32 table, IDbCommand statement, ISessionImplementor session, Int32 index)
+   en NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session)
+   en NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Object obj, ISessionImplementor session)
+   en NHibernate.Action.EntityInsertAction.Execute()
+   en NHibernate.Engine.ActionQueue.Execute(IExecutable executable)
+   en NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   en NHibernate.Engine.ActionQueue.ExecuteActions()
+   en NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+   en NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   en NHibernate.Impl.SessionImpl.Flush()
+   en NHibernate.Transaction.AdoTransaction.Commit()
+   en BusDep.DataAccess.BaseDataAccess`1.Save(T obje) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 83
+   en BusDep.DataAccess.UsuarioDA.Save(Usuario user) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 20
+   en DynamicModule.ns.Wrapped_UsuarioDA_a09f85c81a9e46b89725953e55f7d5ba.<Save_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 13 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_a09f85c81a9e46b89725953e55f7d5ba
+Metodo: Save
+Parametros: 
+
+System.IndexOutOfRangeException: Índice 12 no válido para SqlParameterCollection con Count=12.
+   en System.Data.SqlClient.SqlParameterCollection.RangeCheck(Int32 index)
+   en System.Data.SqlClient.SqlParameterCollection.GetParameter(Int32 index)
+   en System.Data.Common.DbParameterCollection.System.Collections.IList.get_Item(Int32 index)
+   en NHibernate.Type.Int64Type.Set(IDbCommand rs, Object value, Int32 index)
+   en NHibernate.Type.NullableType.NullSafeSet(IDbCommand cmd, Object value, Int32 index)
+   en NHibernate.Type.NullableType.NullSafeSet(IDbCommand st, Object value, Int32 index, ISessionImplementor session)
+   en NHibernate.Persister.Entity.AbstractEntityPersister.Dehydrate(Object id, Object[] fields, Object rowId, Boolean[] includeProperty, Boolean[][] includeColumns, Int32 table, IDbCommand statement, ISessionImplementor session, Int32 index)
+   en NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Boolean[] notNull, Int32 j, SqlCommandInfo sql, Object obj, ISessionImplementor session)
+   en NHibernate.Persister.Entity.AbstractEntityPersister.Insert(Object id, Object[] fields, Object obj, ISessionImplementor session)
+   en NHibernate.Action.EntityInsertAction.Execute()
+   en NHibernate.Engine.ActionQueue.Execute(IExecutable executable)
+   en NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   en NHibernate.Engine.ActionQueue.ExecuteActions()
+   en NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+   en NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   en NHibernate.Impl.SessionImpl.Flush()
+   en NHibernate.Transaction.AdoTransaction.Commit()
+   en BusDep.DataAccess.BaseDataAccess`1.Save(T obje) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 83
+   en BusDep.DataAccess.UsuarioDA.Save(Usuario user) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 20
+   en DynamicModule.ns.Wrapped_UsuarioDA_a09f85c81a9e46b89725953e55f7d5ba.<Save_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 11 NHibernate.Util.ADOExceptionReporter - The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Jugador_Usuario". The conflict occurred in database "BusDep", table "dbo.Usuario", column 'UsuarioId'.
+The statement has been terminated.
+ERROR 11 NHibernate.Event.Default.AbstractFlushingEventListener - Could not synchronize database state with session
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Jugador_Usuario". The conflict occurred in database "BusDep", table "dbo.Usuario", column 'UsuarioId'.
+The statement has been terminated.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   en System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   en lambda_method(Closure , Object )
+   en NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   en NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   en NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   en NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   en NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   en NHibernate.Engine.ActionQueue.ExecuteActions()
+   en NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+ERROR 11 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_8b0be1ac0605492982f2331f8aea3e1e
+Metodo: Save
+Parametros: 
+
+NHibernate.Exceptions.GenericADOException: could not execute batch command.[SQL: SQL not available] ---> System.Data.SqlClient.SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Jugador_Usuario". The conflict occurred in database "BusDep", table "dbo.Usuario", column 'UsuarioId'.
+The statement has been terminated.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   en System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   en lambda_method(Closure , Object )
+   en NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   en NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+   en NHibernate.AdoNet.AbstractBatcher.ExecuteBatchWithTiming(IDbCommand ps)
+   en NHibernate.AdoNet.AbstractBatcher.ExecuteBatch()
+   en NHibernate.Engine.ActionQueue.ExecuteActions(IList list)
+   en NHibernate.Engine.ActionQueue.ExecuteActions()
+   en NHibernate.Event.Default.AbstractFlushingEventListener.PerformExecutions(IEventSource session)
+   en NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   en NHibernate.Impl.SessionImpl.Flush()
+   en NHibernate.Transaction.AdoTransaction.Commit()
+   en BusDep.DataAccess.BaseDataAccess`1.Save(T obje) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 83
+   en BusDep.DataAccess.UsuarioDA.Save(Usuario user) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 20
+   en DynamicModule.ns.Wrapped_UsuarioDA_8b0be1ac0605492982f2331f8aea3e1e.<Save_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_6f60316c35b94433b4d2b22bb0332996
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.MappingException: property-ref [BusDep.Entity.Usuario, BusDep.Entity] not found on entity [BusDep.Entity.Jugador] ---> NHibernate.MappingException: property [BusDep.Entity.Usuario, BusDep.Entity] not found on entity [BusDep.Entity.Jugador]
+   en NHibernate.Mapping.PersistentClass.GetRecursiveProperty(String propertyPath, IEnumerable`1 iter)
+   en NHibernate.Mapping.PersistentClass.GetReferencedProperty(String propertyPath)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en NHibernate.Mapping.PersistentClass.GetReferencedProperty(String propertyPath)
+   en NHibernate.Cfg.Configuration.SecondPassCompile()
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 322
+   en DynamicModule.ns.Wrapped_JugadorDA_6f60316c35b94433b4d2b22bb0332996.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 8 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_6f60316c35b94433b4d2b22bb0332996
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.MappingException: property-ref [BusDep.Entity.Usuario, BusDep.Entity] not found on entity [BusDep.Entity.Jugador] ---> NHibernate.MappingException: property [BusDep.Entity.Usuario, BusDep.Entity] not found on entity [BusDep.Entity.Jugador]
+   en NHibernate.Mapping.PersistentClass.GetRecursiveProperty(String propertyPath, IEnumerable`1 iter)
+   en NHibernate.Mapping.PersistentClass.GetReferencedProperty(String propertyPath)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en NHibernate.Mapping.PersistentClass.GetReferencedProperty(String propertyPath)
+   en NHibernate.Cfg.Configuration.SecondPassCompile()
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 322
+   en DynamicModule.ns.Wrapped_JugadorDA_6f60316c35b94433b4d2b22bb0332996.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 6 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_6f60316c35b94433b4d2b22bb0332996
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.MappingException: property-ref [BusDep.Entity.Usuario, BusDep.Entity] not found on entity [BusDep.Entity.Jugador] ---> NHibernate.MappingException: property [BusDep.Entity.Usuario, BusDep.Entity] not found on entity [BusDep.Entity.Jugador]
+   en NHibernate.Mapping.PersistentClass.GetRecursiveProperty(String propertyPath, IEnumerable`1 iter)
+   en NHibernate.Mapping.PersistentClass.GetReferencedProperty(String propertyPath)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en NHibernate.Mapping.PersistentClass.GetReferencedProperty(String propertyPath)
+   en NHibernate.Cfg.Configuration.SecondPassCompile()
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 322
+   en DynamicModule.ns.Wrapped_JugadorDA_6f60316c35b94433b4d2b22bb0332996.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 10 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioDA_d498aed69f314dccbef83df0d365d629
+Metodo: Save
+Parametros: 
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#921]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.AbstractLazyInitializer.GetImplementation()
+   en NHibernate.Engine.StatefulPersistenceContext.UnproxyAndReassociate(Object maybeProxy)
+   en NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   en NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   en NHibernate.Impl.SessionImpl.SaveOrUpdate(String entityName, Object obj)
+   en NHibernate.Engine.CascadingAction.SaveUpdateCascadingAction.Cascade(IEventSource session, Object child, String entityName, Object anything, Boolean isCascadeDeleteEnabled)
+   en NHibernate.Engine.Cascade.CascadeToOne(Object parent, Object child, IType type, CascadeStyle style, Object anything, Boolean isCascadeDeleteEnabled)
+   en NHibernate.Engine.Cascade.CascadeAssociation(Object parent, Object child, IType type, CascadeStyle style, Object anything, Boolean isCascadeDeleteEnabled)
+   en NHibernate.Engine.Cascade.CascadeProperty(Object parent, Object child, IType type, CascadeStyle style, String propertyName, Object anything, Boolean isCascadeDeleteEnabled)
+   en NHibernate.Engine.Cascade.CascadeOn(IEntityPersister persister, Object parent, Object anything)
+   en NHibernate.Event.Default.AbstractFlushingEventListener.CascadeOnFlush(IEventSource session, IEntityPersister persister, Object key, Object anything)
+   en NHibernate.Event.Default.AbstractFlushingEventListener.PrepareEntityFlushes(IEventSource session)
+   en NHibernate.Event.Default.AbstractFlushingEventListener.FlushEverythingToExecutions(FlushEvent event)
+   en NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   en NHibernate.Impl.SessionImpl.Flush()
+   en NHibernate.Transaction.AdoTransaction.Commit()
+   en BusDep.DataAccess.BaseDataAccess`1.Save(T obje) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 83
+   en BusDep.DataAccess.UsuarioDA.Save(Usuario user) en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\UsuarioDA.cs:línea 20
+   en DynamicModule.ns.Wrapped_UsuarioDA_d498aed69f314dccbef83df0d365d629.<Save_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 11 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BusquedaBusiness_f184a160a1724f8987bed82e6d8a5e00
+Metodo: ObtenerPerfil
+Parametros: [918]
+
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en BusDep.Business.BusquedaBusiness.ObtenerPerfil(Int64 jugadorId) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BusquedaBusiness.cs:línea 30
+   en DynamicModule.ns.Wrapped_BusquedaBusiness_f184a160a1724f8987bed82e6d8a5e00.<ObtenerPerfil_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
