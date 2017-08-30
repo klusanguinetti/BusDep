@@ -88,6 +88,7 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/search", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/index", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/sportData", "*.js").WithLastModifiedToken()
                     );
             //
         }

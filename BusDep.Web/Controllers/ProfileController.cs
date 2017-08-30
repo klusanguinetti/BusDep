@@ -15,7 +15,7 @@ namespace BusDep.Web.Controllers
     public class ProfileController : BaseController
     {
 
-        
+
 
         #region Get functions 
 
@@ -40,8 +40,12 @@ namespace BusDep.Web.Controllers
         public ActionResult PrivateProfileEntrenador()
         {
             return View();
+        } 
+
+        public ActionResult SportDataProfile()
+        {
+            return View();
         }
-        
 
         #endregion
 

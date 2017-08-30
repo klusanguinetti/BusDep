@@ -695,6 +695,7 @@
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
     <Content Include="Scripts\app\components\search\searchService.js" />
+    <Content Include="Scripts\app\components\sportData\sportDataController.js" />
     <Content Include="Scripts\app\shared\components\headerProfile\headerProfileController.js" />
     <Content Include="Scripts\app\shared\components\headerProfile\headerProfileService.js" />
     <Content Include="Scripts\app\shared\directives\datetimepicker.js" />
@@ -1531,6 +1532,7 @@
     <Content Include="Views\Shared\_Hearder_Profile_v2.cshtml" />
     <Content Include="Views\Shared\_DatosPersonales.cshtml" />
     <Content Include="Views\Profile\PrivateProfileEntrenador.cshtml" />
+    <Content Include="Views\Profile\SportDataProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

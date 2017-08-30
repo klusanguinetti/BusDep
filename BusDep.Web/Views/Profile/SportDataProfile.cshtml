@@ -1,0 +1,184 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+
+                <div class="inner-box">
+
+                    @Html.Partial("_Hearder_Profile_v2")
+
+                </div>
+
+
+                <div class="panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true">
+
+                    <div class="panel panel-default card">
+
+                        <div class="panel-heading content-in card-header">
+                            <h5 class="panel-title">
+                                <a data-toggle="collapse" data-target="#collapseB2"><i class="fa fa-futbol-o"></i> Información deportiva </a>
+                            </h5>
+                        </div>
+
+                        <div class="panel-collapse collapse in" id="collapseB2" class="panel-collapse collapse">
+
+                            <div class="panel-body">
+
+                                <form class="form-horizontal" role="form" name="passwordForm" ng-submit="jugadorUpdate()" novalidate="" promise-btn>
+
+                                    <div class="form-group">
+
+                                        <label class="col-sm-3 control-label">Pie</label>
+
+                                        <div class="col-sm-9">
+
+                                            <div class="" tabindex="0">
+
+                                                <select ng-model="jugador.Pie" class="form-control"
+                                                        name="category" id="search-category" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion for item in pies">
+
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione Pie</option>
+
+                                                    <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Tipo de Pie -
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label class="col-sm-3 control-label">Fichaje</label>
+
+                                        <div class="col-sm-9">
+
+                                            <div class="" tabindex="0">
+
+                                                <select ng-model="jugador.Fichaje" class="form-control"
+                                                        name="category" id="search-category" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion for item in fichajes">
+
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione Fichaje</option>
+
+                                                    <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Tipo de Fichaje -
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label class="col-sm-3 control-label">Perfil</label>
+
+                                        <div class="col-sm-9">
+
+                                            <div class="" tabindex="0">
+
+                                                <select ng-model="jugador.Perfil" class="form-control"
+                                                        name="category" id="search-category" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion for item in perfiles">
+
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione Fichaje</option>
+
+                                                    <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Tipo de Fichaje -
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">
+                                            Puesto
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <div class="" tabindex="0">
+                                                <select ng-model="jugador.PuestoId" class="form-control"
+                                                        name="category" id="search-category" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos">
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
+
+                                                    <option value="Puestos" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Puesto -
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">
+                                            Puesto Alternativo
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <div class="" tabindex="0">
+                                                <select ng-model="jugador.PuestoAltId" class="form-control"
+                                                        name="category" id="search-category" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos">
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
+
+                                                    <option value="Puestos" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Puesto -
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Altura</label>
+                                        <div class="col-sm-9 input-group input-icon">
+                                            <span class="input-group-addon bgtransparent"><i class="fa fa-arrow-up s16"></i></span>
+                                            <input type="number" class="form-control" placeholder="1.99" ng-model="jugador.Altura">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Peso</label>
+                                        <div class="col-sm-9 input-group input-icon">
+                                            <span class="input-group-addon bgtransparent"><i class="fa fa-plus-square s16"></i></span>
+                                            <input type="number" class="form-control" placeholder="99.9" ng-model="jugador.Peso">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-9">
+                                            <button type="submit" class="btn btn-default page-action">Actualizar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -93,6 +93,15 @@
              }
          }
      })
+     .when('/Profile/SportData', {
+         templateUrl: '/Profile/SportDataProfile',
+         controller: 'sportDataController',
+         resolve: {
+             permission: function (authService) {
+                 return authService.isLogIn();
+             }
+         }
+     })
         .otherwise({
             redirectTo: '/'
         });
