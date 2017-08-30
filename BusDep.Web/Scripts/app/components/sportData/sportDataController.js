@@ -15,7 +15,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.sosVisible = true;
 
 
-    $scope.modulo = 'Mis Datos Deportivos';
+    $scope.modulo = 'Datos Deportivos';
 
     $scope.moduloicono = '';
 

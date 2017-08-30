@@ -99,7 +99,8 @@
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <canvas id="radar{{graficaCondicion.Id}}" class="chart-base" chart-type="graficaCondicion.Chart"
-                                                    chart-options="optionsradar" chart-data="graficaCondicion.Values" chart-labels="graficaCondicion.Labels"></canvas>
+                                                    chart-options="optionsradar" 
+                                                    chart-data="graficaCondicion.Values" chart-labels="graficaCondicion.Labels"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +118,7 @@
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <canvas id="radar{{graficaTactica.Id}}" class="chart-base" chart-type="graficaTactica.Chart"
-                                                    chart-options="optionsradar"
+                                                    chart-options="graficaEntorno.Chart=='bar'||graficaEntorno.Chart=='horizontalBar'? optionsBar : options"
                                                     chart-data="graficaTactica.Values"
                                                     chart-labels="graficaTactica.Labels"></canvas>
                                         </div>

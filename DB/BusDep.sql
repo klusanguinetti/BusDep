@@ -1,9 +1,7 @@
-use master
-go
 /*==============================================================*/
 /* Database name:  BusDep                                       */
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     16/07/2017 02:09:26 p.m.                     */
+/* Created on:     29/08/2017 11:11:09 a.m.                     */
 /*==============================================================*/
 
 
@@ -34,6 +32,10 @@ create table Antecedente (
    Goles                numeric(8)           null,
    Partidos             numeric(8)           null,
    Asistencias          numeric(8)           null,
+   Puesto               nvarchar(3)          null,
+   PuestoAlt            nvarchar(3)          null,
+   TecnicoNombre        nvarchar(200)        null,
+   TecnicoMail          nvarchar(200)        null,
    constraint PK_ANTECEDENTE primary key (AntecedenteId)
 )
 go
@@ -56,6 +58,18 @@ create table Club (
    ClubId               numeric(10)          identity,
    UsuarioId            numeric(10)          null,
    constraint PK_CLUB primary key (ClubId)
+)
+go
+
+/*==============================================================*/
+/* Table: ClubDetalle                                           */
+/*==============================================================*/
+create table ClubDetalle (
+   ClubDetalleID        numeric(10)          identity,
+   Code                 nvarchar(4)          null,
+   Division             nvarchar(200)        null,
+   Nombre               nvarchar(200)        null,
+   constraint PK_CLUBDETALLE primary key (ClubDetalleID)
 )
 go
 
@@ -83,7 +97,26 @@ create table DatosPersona (
    NacionalidadIso      nvarchar(5)          null,
    NacionalidadIso1     nvarchar(5)          null,
    Informacion          nvarchar(4000)       null,
-   constraint PK_DATOSPERSONA primary key (DatosPersonaId)
+   ContactoNombre       nvarchar(200)        null,
+   ContactoTelefono     nvarchar(20)         null,
+   ContactoMail         nvarchar(200)        null,
+   constraint PK_DATOSPERSONA primary key nonclustered (DatosPersonaId)
+)
+go
+
+/*==============================================================*/
+/* Index: IX_DatosPersona_Nombre                                */
+/*==============================================================*/
+create index IX_DatosPersona_Nombre on DatosPersona (
+Nombre ASC
+)
+go
+
+/*==============================================================*/
+/* Index: IX_DatosPersona_Apellido                              */
+/*==============================================================*/
+create index IX_DatosPersona_Apellido on DatosPersona (
+Apellido ASC
 )
 go
 
@@ -204,6 +237,7 @@ create table Jugador (
    JugadorId            numeric(10)          identity,
    PuestoId             numeric(10)          null,
    UsuarioId            numeric(10)          null,
+   PuestoAltId          numeric(10)          null,
    Altura               numeric(3,2)         null,
    Peso                 numeric(5,2)         null,
    FotoCuertoEntero     nvarchar(200)        null,
@@ -213,7 +247,31 @@ create table Jugador (
    Pie                  nvarchar(20)         null,
    ClubDescripcion      nvarchar(400)        null,
    ClubLogo             nvarchar(200)        null,
-   constraint PK_JUGADOR primary key (JugadorId)
+   constraint PK_JUGADOR primary key nonclustered (JugadorId)
+)
+go
+
+/*==============================================================*/
+/* Index: IX_Jugador_Perfil                                     */
+/*==============================================================*/
+create index IX_Jugador_Perfil on Jugador (
+Perfil ASC
+)
+go
+
+/*==============================================================*/
+/* Index: IX_Jugador_Fichaje                                    */
+/*==============================================================*/
+create index IX_Jugador_Fichaje on Jugador (
+Fichaje ASC
+)
+go
+
+/*==============================================================*/
+/* Index: IX_Jugador_Pie                                        */
+/*==============================================================*/
+create index IX_Jugador_Pie on Jugador (
+Pie ASC
 )
 go
 
@@ -242,6 +300,23 @@ create table LogError (
 go
 
 /*==============================================================*/
+/* Table: Menu                                                  */
+/*==============================================================*/
+create table Menu (
+   MenuId               numeric(10)          identity,
+   TipoUsuarioId        numeric(10)          null,
+   ParentMenuId         numeric(10)          null,
+   Descripcion          nvarchar(200)        null,
+   Url                  nvarchar(400)        null,
+   Icono                nvarchar(200)        null,
+   Img                  nvarchar(400)        null,
+   Orden                numeric(2)           null,
+   Estado               nvarchar(2)          null,
+   constraint PK_MENU primary key (MenuId)
+)
+go
+
+/*==============================================================*/
 /* Table: Participacion                                         */
 /*==============================================================*/
 create table Participacion (
@@ -260,7 +335,28 @@ create table Puesto (
    DeporteId            numeric(10)          null,
    Descripcion          nvarchar(200)        null,
    PuestoEspecifico     nvarchar(200)        null,
-   constraint PK_PUESTO primary key (PuestoId)
+   Codigo               nvarchar(3)          null,
+   constraint PK_PUESTO primary key nonclustered (PuestoId)
+)
+go
+
+/*==============================================================*/
+/* Index: IX_Puesto_Descripcion                                 */
+/*==============================================================*/
+create index IX_Puesto_Descripcion on Puesto (
+Descripcion ASC
+)
+go
+
+/*==============================================================*/
+/* Table: RecuperoUsuario                                       */
+/*==============================================================*/
+create table RecuperoUsuario (
+   RecuperoUsuarioId    numeric(10)          identity,
+   Mail                 nvarchar(200)        null,
+   Codigo               numeric(8)           null,
+   Fecha                datetime             null,
+   constraint PK_RECUPEROUSUARIO primary key (RecuperoUsuarioId)
 )
 go
 
@@ -271,6 +367,7 @@ create table TemplateEvaluacion (
    TemplateEvaluacionId numeric(10)          identity,
    TipoEvaluacionId     numeric(10)          null,
    Descripcion          nvarchar(100)        null,
+   Chart                nvarchar(50)         null default 'doughnut',
    constraint PK_TEMPLATEEVALUACION primary key (TemplateEvaluacionId)
 )
 go
@@ -338,6 +435,11 @@ create table Usuario (
    UsuarioId            numeric(10)          identity,
    TipoUsuarioId        numeric(10)          null,
    DeporteId            numeric(10)          null,
+   JugadorId            numeric(10)          null,
+   ClubId               numeric(10)          null,
+   EntrenadorId         numeric(10)          null,
+   IntermediarioId      numeric(10)          null,
+   DatosPersonaId       numeric(10)          null,
    Mail                 nvarchar(200)        null,
    Password             nvarchar(100)        null,
    UltimoLogin          datetime             null,
@@ -405,7 +507,7 @@ alter table Evaluacion
 go
 
 alter table Evaluacion
-   add constraint FK_EVALUACI_REFERENCE_USUARIO foreign key (UsuarioId)
+   add constraint FK_Evaluacion_Usuario foreign key (UsuarioId)
       references Usuario (UsuarioId)
 go
 
@@ -450,6 +552,11 @@ alter table Intermediario
 go
 
 alter table Jugador
+   add constraint FK_PuestoAlt_Jugador foreign key (PuestoAltId)
+      references Puesto (PuestoId)
+go
+
+alter table Jugador
    add constraint FK_Puesto_Jugador foreign key (PuestoId)
       references Puesto (PuestoId)
 go
@@ -457,6 +564,16 @@ go
 alter table Jugador
    add constraint FK_Usuario_Jugador foreign key (UsuarioId)
       references Usuario (UsuarioId)
+go
+
+alter table Menu
+   add constraint FK_Menu_MenuParent foreign key (ParentMenuId)
+      references Menu (MenuId)
+go
+
+alter table Menu
+   add constraint FK_Menu_TipoUsuario foreign key (TipoUsuarioId)
+      references TipoUsuario (TipoUsuarioId)
 go
 
 alter table Participacion
@@ -490,8 +607,33 @@ alter table TipoEvaluacion
 go
 
 alter table Usuario
+   add constraint FK_Club_Usuario foreign key (ClubId)
+      references Club (ClubId)
+go
+
+alter table Usuario
+   add constraint FK_Entrenado_Usuario foreign key (EntrenadorId)
+      references Entrenador (EntrenadorId)
+go
+
+alter table Usuario
+   add constraint FK_Intermediario_Usuario foreign key (IntermediarioId)
+      references Intermediario (IntermediarioId)
+go
+
+alter table Usuario
+   add constraint FK_Jugardor_Usuario foreign key (JugadorId)
+      references Jugador (JugadorId)
+go
+
+alter table Usuario
    add constraint FK_TipoUsuario_Usuario foreign key (TipoUsuarioId)
       references TipoUsuario (TipoUsuarioId)
+go
+
+alter table Usuario
+   add constraint FK_Usuario_DatosPersona foreign key (DatosPersonaId)
+      references DatosPersona (DatosPersonaId)
 go
 
 alter table Usuario

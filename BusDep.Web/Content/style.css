@@ -2426,7 +2426,7 @@ div.login-box .panel-footer label {
 
     .page-info i {
         color: #fff;
-        font-size: 40px;
+        font-size: 80px;
         display: block;
     }
 
@@ -2466,7 +2466,7 @@ div.login-box .panel-footer label {
         margin-right: auto;
         vertical-align: middle !important;
         width: 60px !important;
-        color: #2ecc71;
+        color: #E85144;
     }
 
 .iconbox-wrap-content {
@@ -5079,24 +5079,68 @@ form .progress {
     }
 
 
-#slides_control > div{
-  height: 200px;
+#slides_control > div {
+    height: 200px;
 }
 
-.image{
-  margin:auto;
-width: 100%;
+.image {
+    margin: auto;
+    width: 100%;
 }
+
 #slides_control {
-  position:absolute;
-  width: 400px;
-  left:50%;
-  top:20px;
- margin-left:-200px;
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    top: 20px;
+    margin-left: -200px;
 }
 
 .img-perfil-item {
     max-width: 144px !important;
     max-height: 144px !important;
 }
+
+.btn-primary {
+    background-color: #E85144 !important;
+    border-color: #E85144 !important;
+}
+
+    .btn-primary:hover {
+        background-color: #44dbe7 !important;
+        border-color: #44dbe7 !important;
+    }
+
+.btn-success {
+    background-color: #E85144 !important;
+    border-color: #E85144 !important;
+}
+
+    .btn-success:hover {
+        background-color: #44dbe7 !important;
+        border-color: #44dbe7 !important;
+    }
+
+.btn-default {
+    background-color: #E85144 !important;
+    border-color: #E85144 !important;
+}
+
+    .btn-default:hover {
+        background-color: #44dbe7 !important;
+        border-color: #44dbe7 !important;
+    }
+
+.btn-primary-dark {
+    background-color: #E85144 !important;
+    border-color: #E85144 !important;}
+
+    .btn-primary-dark :hover {
+        background-color: #44dbe7 !important;
+        border-color: #44dbe7 !important;
+    }
+    
+
+.page-bottom-info {
+    background-color: #E85144 !important;
 }
