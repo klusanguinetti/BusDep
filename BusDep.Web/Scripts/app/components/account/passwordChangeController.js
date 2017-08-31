@@ -38,6 +38,8 @@ function ($scope, passwordChangeService, commonService, $http, $rootScope, toast
             toastr.error('¡Ha ocurrido un error cargando de la información!', 'Error');
 
         });
+
+
         commonService.getPerfilJugadorShort().then(function (response) {
 
             $scope.perfilShort = response.data;

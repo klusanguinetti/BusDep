@@ -30,17 +30,21 @@
                 }
                 $scope.perfilShort = response.data;
 
+                if ($scope.perfilShort != '') {
+                    selfAppraisalService.getJugador().then(function (response) {
+
+                        $scope.jugador = response.data;
+
+                    }).catch(function (err) {
+                        toastr.error('¡Ha ocurrido un error!', 'Error');
+                    });
+                }
+
             }).catch(function (err) {
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
 
-            selfAppraisalService.getJugador().then(function (response) {
 
-                $scope.jugador = response.data;
-
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
 
             $scope.myPromise = selfAppraisalService.getAutoEvaluacion().then(function (response) {
 

@@ -24,6 +24,12 @@
         [DataMember]
         public long? JugadorId { get; set; }
         [DataMember]
+        public long? EntrenadorId { get; set; }
+        [DataMember]
+        public long? IntermediarioId { get; set; }
+        [DataMember]
+        public long? ClubId { get; set; }
+        [DataMember]
         public long? DatosPersonaId { get; set; }
         [DataMember]
         public string Nombre { get; set; }
