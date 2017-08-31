@@ -3,6 +3,30 @@
     Layout = null;
 }
 
+<style>
+
+    .cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:500px;
+    height:350px;
+}
+form .progress {
+    line-height: 15px;
+}
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+
+</style>
+
 <div class="main-container">
 
     <div class="container">
@@ -171,12 +195,69 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div>
 
+                <div class="panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true" style="margin-top:10px;">
 
+                    <div class="panel panel-default card">
+
+                        <div class="panel-heading content-in card-header">
+                            <h5 class="panel-title">
+                                <a data-toggle="collapse" data-target="#collapseB2"><i class="fa fa-picture-o"></i> Foto de cuerpo completo </a>
+                            </h5>
+                        </div>
+
+                        <div class="panel-collapse collapse in" id="collapseB2" class="panel-collapse collapse">
+
+                            <div class="panel-body">
+
+                                <p>Coloca una foto de cuerpo completo donde se puedan apreciar atributos fisicos como peso, altura, etc.</p>
+
+                                <form class="form-horizontal" role="form" name="passwordForm" novalidate="" promise-btn>
+
+                                    <div class="form-group">
+
+                                        <label class="col-sm-3 control-label">Foto</label>
+
+                                        <a class="btn btn-sm  btn-success" type="file" ngf-select ng-model="myImage" accept="image/*"><i class="fa fa-refresh"></i> Cambiar foto </a>
+
+                                        <div ngf-drop ng-model="myImage" ngf-pattern="image/*" class="cropArea">
+
+                                            <ui-cropper image="myImage" area-type="square" result-image="croppedDataUrl" result-image-size="'max'"></ui-cropper>
+
+                                        </div>
+
+                                        <div>
+                                            <img ng-src="{{croppedDataUrl}}" />
+                                        </div>
+
+                                        <button ng-click="upload(croppedDataUrl, FotoCuertoEntero.name)">Submit</button>
+
+                                        <span class="progress" ng-show="progress >= 0">
+
+                                            <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+
+                                        </span>
+
+                                        <span ng-show="result">Upload Successful</span>
+
+                                        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
+
         </div>
 
     </div>

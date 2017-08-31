@@ -667,6 +667,7 @@
     <Content Include="Content\promise-buttom\promise-buttom.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\ui-cropper.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1486,6 +1487,7 @@
     <Content Include="Scripts\vendor\custom\ng-file-upload-shim.min.js" />
     <Content Include="Scripts\vendor\custom\ng-file-upload.min.js" />
     <Content Include="Scripts\vendor\custom\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\vendor\custom\ui-cropper.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery\jquery-1.10.2.min.js" />
     <Content Include="Scripts\vendor\jquery\jquery.fs.scroller.js" />

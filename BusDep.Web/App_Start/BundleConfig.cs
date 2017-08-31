@@ -42,6 +42,7 @@ namespace BusDep.Web
                 "~/Content/angular-toast/angular-toastr.min.css",
                 "~/Content/angular-busy/angular-busy.min.css",
                 "~/Content/angular-flash/angular-flash.min.css",
+                "~/Content/ui-cropper.css",
                 "~/Content/style.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
@@ -60,20 +61,8 @@ namespace BusDep.Web
                 "~/Scripts/vendor/custom/angular-busy.min.js",
                 "~/Scripts/vendor/custom/ng-file-upload.min.js",
                 "~/Scripts/vendor/custom/ui-bootstrap-tpls.min.js",
-                "~/Scripts/vendor/custom/ng-file-upload-shim.min.js"));
-
-            
-            // Angular Bundle
-
-            //const string ANGULAR_APP_ROOT = "~/Scripts/app";
-            //const string VIRTUAL_BUNDLE_PATH = ANGULAR_APP_ROOT + "main.js";
-
-            //var scriptBundle = new ScriptBundle(VIRTUAL_BUNDLE_PATH)
-            //    .Include(ANGULAR_APP_ROOT + "app.js")
-            //    .IncludeDirectory(ANGULAR_APP_ROOT, "*.js", searchSubdirectories: true);
-
-            //bundles.Add(scriptBundle);
-
+                "~/Scripts/vendor/custom/ng-file-upload-shim.min.js",
+                "~/Scripts/vendor/custom/ui-cropper.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app/main")
                 .Include("~/Scripts/app/app.js",
@@ -90,7 +79,7 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/components/index", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/sportData", "*.js").WithLastModifiedToken()
                     );
-            //
+
         }
     }
 }

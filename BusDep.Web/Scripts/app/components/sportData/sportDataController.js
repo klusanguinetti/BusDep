@@ -1,5 +1,5 @@
-﻿app.controller('sportDataController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', '$filter',
-function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, $filter) {
+﻿app.controller('sportDataController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', '$filter', 'Upload','$timeout',
+function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, $filter, Upload, $timeout) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -39,7 +39,13 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
 
         privateProfileService.getJugador().then(function (response) {
+
             $scope.jugador = response.data;
+
+            if (response.data.FotoCuertoEntero != null) {
+                $scope.myImage = response.data.FotoCuertoEntero;
+            }
+
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
@@ -89,6 +95,23 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
     };
 
+    $scope.upload = function (dataUrl, name) {
+        Upload.upload({
+            url: 'api/Files/AddFotoCuertoEntero/',
+            data: {
+                file: Upload.dataUrltoBlob(dataUrl, name)
+            },
+        }).then(function (response) {
+            $timeout(function () {
+                $scope.result = response.data;
+            });
+        }, function (response) {
+            if (response.status > 0) $scope.errorMsg = response.status
+                + ': ' + response.data;
+        }, function (evt) {
+            $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
+        });
+    }
 
     function clearErrors() {
         $scope.passwordForm.$setPristine();

@@ -32,7 +32,7 @@ function ($scope, headerProfileService, commonService, $http, Flash, Upload, $ti
         if (file) {
 
             file.upload = Upload.upload({
-                url: 'api/Files/Add/',
+                url: 'api/Files/AddFotoRostro/',
                 data: { file: file }
             });
 

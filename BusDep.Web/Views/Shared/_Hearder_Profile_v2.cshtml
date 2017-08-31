@@ -23,62 +23,9 @@
                 <a class="btn btn-sm  btn-default"  ng-click="removePhoto();" ng-show="picFile"><i class="fa fa-remove"></i> Remover </a>
             </div>
 
-            @*<div class="seller-social-list">
-                <ul class="share-this-post">
-                    <li>
-                        <a class="google-plus"><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li>
-                        <a class="facebook"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a class="pinterest"><i class="fa fa-pinterest"></i></a>
-                    </li>
-                </ul>
-            </div>*@
-
         </div>
+
     </div>
-
-    @*<div class="col-xs-12 col-md-3">
-
-            <center> <h2>  {{perfilShort.Nombre}} {{perfilShort.Apellido}} </h2> </center>
-
-            <div class="seller-info">
-
-                <div class="company-logo-thumb" style="text-align: center;">
-
-                    <img alt="img" class="" ngf-thumbnail="picFile" height="160" width="160">
-
-                    <a type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-                        <i class="fa fa-exchange" aria-hidden="true"></i> Cambiar
-                    </a>
-
-                    <a ng-click="removePhoto();" ng-show="picFile"><i class="fa fa-remove" aria-hidden="true"></i> Remover</a>
-
-                    <br><br>
-
-                    <div style="font:smaller">
-
-                        {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-
-                        <span class="progress" ng-show="f.progress >= 0">
-                            <div style="width:{{f.progress}}%"
-                                 ng-bind="f.progress + '%'"></div>
-                        </span>
-
-                    </div>
-
-                    {{errorMsg}}
-
-                </div>
-
-            </div>
-
-        </div>*@
 
 
         <div class="col-xs-12 col-md-3">
@@ -101,24 +48,6 @@
                 <strong> Perfil:&nbsp;</strong>{{perfilShort.Perfil}}
             </p>
         </div>
-
-        @*<div class="col-xs-12 col-md-3">
-            <p class="no-margin">
-                <strong>Altura:&nbsp;</strong> {{perfilShort.Altura}} Mts
-            </p>
-            <p class="no-margin">
-                <strong>Peso:&nbsp;</strong> {{perfilShort.Peso}} Kg
-            </p>
-            <p class="no-margin">
-                <strong>Pie:&nbsp;</strong> {{perfilShort.Pie}}
-            </p>
-            <p class="no-margin">
-                <strong>Puesto:&nbsp;</strong> {{perfilShort.Puesto}}
-            </p>
-            <p class="no-margin" ng-show="perfilShort.PuestoAlt!=null">
-                <strong>Puesto Alter:&nbsp;</strong> {{perfilShort.PuestoAlt}}
-            </p>
-        </div>*@
 
         <div class="col-xs-12 col-md-3">
             <i class="flagpuestoicon flag-{{perfilShort.PuestoCode}}" />

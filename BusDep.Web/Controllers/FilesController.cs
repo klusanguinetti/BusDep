@@ -84,7 +84,7 @@ namespace AspNetWebApi.Controllers
 
         }
 
-        public IHttpActionResult Add()
+        public IHttpActionResult AddFotoRostro()
         {
 
             var request = HttpContext.Current.Request;
@@ -114,6 +114,47 @@ namespace AspNetWebApi.Controllers
             {
 
                 user.FotoRostro = result.Uri.ToString();
+
+                business.ActualizarDatosJugador(user);
+
+                return Ok(new { Message = "Photos uploaded ok" });
+
+            }
+
+            return BadRequest();
+
+        }
+
+        public IHttpActionResult AddFotoCuertoEntero()
+        {
+
+            var request = HttpContext.Current.Request;
+
+            var file = request.Files[0];
+
+            string fileName = Guid.NewGuid().ToString() + Path.GetFileName(file.FileName);
+
+            Stream imageStream = file.InputStream;
+
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            var user = business.ObtenerJugador(GetAuthData());
+
+            if (user.FotoCuertoEntero != null)
+            {
+
+                string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+
+                utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+            }
+
+            var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+            if (result != null)
+            {
+
+                user.FotoCuertoEntero = result.Uri.ToString();
 
                 business.ActualizarDatosJugador(user);
 
