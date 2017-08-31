@@ -233,6 +233,7 @@
     <Content Include="Content\img\Allwiners\logo_gold.png" />
     <Content Include="Content\img\Allwiners\logo_header.png" />
     <Content Include="Content\img\Allwiners\logo_short.png" />
+    <Content Include="Content\img\default_1.jpg" />
     <Content Include="Content\img\Puestos\ar.png" />
     <Content Include="Content\img\Puestos\Cancha.png" />
     <Content Include="Content\img\Puestos\cancha_limpia.png" />
@@ -246,6 +247,7 @@
     <Content Include="Content\img\Puestos\md.png" />
     <Content Include="Content\img\Puestos\mi.png" />
     <Content Include="Content\img\Puestos\pasto.png" />
+    <Content Include="Content\img\slide_4.jpg" />
     <Content Include="Content\puestos-flags-icon.css" />
     <Content Include="Content\club-flags-icon.css" />
     <Content Include="Content\country-flags-icon.css" />

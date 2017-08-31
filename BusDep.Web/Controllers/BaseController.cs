@@ -64,6 +64,12 @@ namespace BusDep.Web.Controllers
                     Response.StatusCode = 200;
                     return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }
+                else if (perfil.EntrenadorId.HasValue)
+                {
+                    //TODO
+                    Response.StatusCode = 200;
+                    return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
                 else
                 {
                     Response.StatusCode = 404;
@@ -99,9 +105,9 @@ namespace BusDep.Web.Controllers
             var perfil = GetAuthData();
             try
             {
-                if (perfil!=null)
+                if (perfil != null)
                 {
-                    
+
                     Response.StatusCode = 200;
                     return new JsonResult { Data = perfil.MenuUsuario, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }

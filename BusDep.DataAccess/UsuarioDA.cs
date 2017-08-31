@@ -194,7 +194,7 @@
                         ParentMenuId = ant.ParentMenuId,
                         Url = ant.Url,
                         Orden = ant.Orden
-                    }).ToList();
+                    }).OrderBy(o=> o.Orden).ToList();
         }
         #endregion
         #region metodos privados

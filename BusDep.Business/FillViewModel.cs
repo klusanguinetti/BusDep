@@ -15,6 +15,9 @@ namespace BusDep.Business
                 userView.TipoUsuario = user.TipoUsuario.Descripcion;
                 userView.DeporteId = user.Deporte?.Id;
                 userView.JugadorId = user.Jugador?.Id;
+                userView.EntrenadorId = user.Entrenador?.Id;
+                userView.IntermediarioId = user.Intermediario?.Id;
+                userView.ClubId = user.Club?.Id;
                 userView.DatosPersonaId = user.DatosPersona?.Id;
                 userView.Nombre = user.DatosPersona?.Nombre;
                 userView.Apellido = user.DatosPersona?.Apellido;
