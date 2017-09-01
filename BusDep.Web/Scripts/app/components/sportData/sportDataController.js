@@ -1,5 +1,5 @@
-﻿app.controller('sportDataController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', '$filter', 'Upload','$timeout',
-function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, $filter, Upload, $timeout) {
+﻿app.controller('sportDataController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', '$filter', 'Upload', '$timeout', 'headerProfileService',
+function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, $filter, Upload, $timeout, headerProfileService) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -14,6 +14,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.pies = {};
     $scope.sosVisible = true;
 
+    $scope.myImage = "https://allwiners.blob.core.windows.net/photos/default-banner.jpg";
 
     $scope.modulo = 'Datos Deportivos';
 
@@ -95,23 +96,48 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
     };
 
-    $scope.upload = function (dataUrl, name) {
-        Upload.upload({
-            url: 'api/Files/AddFotoCuertoEntero/',
-            data: {
-                file: Upload.dataUrltoBlob(dataUrl, name)
-            },
-        }).then(function (response) {
-            $timeout(function () {
-                $scope.result = response.data;
+    $scope.upload = function (file, errFiles) {
+
+        $scope.f = file;
+
+        $scope.errFile = errFiles && errFiles[0];
+
+        if (file) {
+
+            file.upload = Upload.upload({
+                url: 'api/Files/AddFotoCuertoEntero/',
+                data: { file: file }
             });
-        }, function (response) {
-            if (response.status > 0) $scope.errorMsg = response.status
-                + ': ' + response.data;
-        }, function (evt) {
-            $scope.progress = parseInt(100.0 * evt.loaded / evt.total);
-        });
+
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    $scope.result = response.data;
+                });
+            }, function (response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 *
+                                         evt.loaded / evt.total));
+            });
+
+        }
+
     }
+
+    $scope.removePhotoCuerpoCompleto = function () {
+
+        return headerProfileService.removePhotoCuerpoCompleto().then(function (response) {
+
+            $scope.myImage = "https://allwiners.blob.core.windows.net/photos/default-banner.jpg";
+
+        }).catch(function (err) {
+
+            console.log("Error: " + err);
+
+        });
+
+    };
 
     function clearErrors() {
         $scope.passwordForm.$setPristine();

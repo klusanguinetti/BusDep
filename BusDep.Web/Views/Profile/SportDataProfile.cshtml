@@ -4,27 +4,28 @@
 }
 
 <style>
-
     .cropArea {
-    background: #E4E4E4;
-    overflow: hidden;
-    width:500px;
-    height:350px;
-}
-form .progress {
-    line-height: 15px;
-}
-.progress {
-    display: inline-block;
-    width: 100px;
-    border: 3px groove #CCC;
-}
-.progress div {
-    font-size: smaller;
-    background: orange;
-    width: 0;
-}
+        background: #E4E4E4;
+        overflow: hidden;
+        width: 500px;
+        height: 350px;
+    }
 
+    form .progress {
+        line-height: 15px;
+    }
+
+    .progress {
+        display: inline-block;
+        width: 100px;
+        border: 3px groove #CCC;
+    }
+
+        .progress div {
+            font-size: smaller;
+            background: orange;
+            width: 0;
+        }
 </style>
 
 <div class="main-container">
@@ -215,39 +216,29 @@ form .progress {
 
                                 <p>Coloca una foto de cuerpo completo donde se puedan apreciar atributos fisicos como peso, altura, etc.</p>
 
-                                <form class="form-horizontal" role="form" name="passwordForm" novalidate="" promise-btn>
+                                <div class="col-sm-12">
 
-                                    <div class="form-group">
+                                    <div class="seller-info seller-profile">
 
-                                        <label class="col-sm-3 control-label">Foto</label>
-
-                                        <a class="btn btn-sm  btn-success" type="file" ngf-select ng-model="myImage" accept="image/*"><i class="fa fa-refresh"></i> Cambiar foto </a>
-
-                                        <div ngf-drop ng-model="myImage" ngf-pattern="image/*" class="cropArea">
-
-                                            <ui-cropper image="myImage" area-type="square" result-image="croppedDataUrl" result-image-size="'max'"></ui-cropper>
-
+                                        <div class="">
+                                            <a>
+                                                <img alt="User Image" class="thumbnail" ngf-src="myImage" style="height:330px; width:100%;">
+                                            </a>
                                         </div>
 
-                                        <div>
-                                            <img ng-src="{{croppedDataUrl}}" />
+                                        <div class="user-ads-action">
+                                            <a class="btn btn-sm  btn-success" type="file" ngf-select="upload($file, $invalidFiles)" ng-model="myImage" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"><i class="fa fa-refresh"></i> Cambiar foto </a>
+                                            <a class="btn btn-sm  btn-default" ng-click="removePhotoCuerpoCompleto();" ng-show="myImage"><i class="fa fa-remove"></i> Remover </a>
+
+                                            <span ng-show="result" style="margin-left:5px;">
+                                                ¡Foto subida con éxito!
+                                            </span>
+
                                         </div>
-
-                                        <button ng-click="upload(croppedDataUrl, FotoCuertoEntero.name)">Submit</button>
-
-                                        <span class="progress" ng-show="progress >= 0">
-
-                                            <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
-
-                                        </span>
-
-                                        <span ng-show="result">Upload Successful</span>
-
-                                        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
 
                                     </div>
 
-                                </form>
+                                </div>
 
                             </div>
 

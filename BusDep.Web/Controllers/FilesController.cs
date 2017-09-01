@@ -84,6 +84,33 @@ namespace AspNetWebApi.Controllers
 
         }
 
+        [HttpDelete]
+        public IHttpActionResult DeleteCuerpoCompleto()
+        {
+
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            var user = business.ObtenerJugador(GetAuthData());
+
+            if (user.FotoCuertoEntero != null)
+            {
+
+                string BlobNameToDelete = user.FotoCuertoEntero.Split('/').Last();
+
+                utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+                user.FotoCuertoEntero = null;
+
+                business.ActualizarDatosJugador(user);
+
+                return Ok(new { Message = "Photo delete ok" });
+
+            }
+
+            return Ok(new { Message = "No photo to delete" });
+
+        }
+
         public IHttpActionResult AddFotoRostro()
         {
 
@@ -143,7 +170,7 @@ namespace AspNetWebApi.Controllers
             if (user.FotoCuertoEntero != null)
             {
 
-                string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+                string BlobNameToDelete = user.FotoCuertoEntero.Split('/').Last();
 
                 utility.DeleteBlob(BlobNameToDelete, ContainerName);
 

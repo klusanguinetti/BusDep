@@ -28,7 +28,7 @@ function ($scope, headerProfileService, commonService, $http, Flash, Upload, $ti
         $scope.f = file;
 
         $scope.errFile = errFiles && errFiles[0];
-
+         
         if (file) {
 
             file.upload = Upload.upload({
@@ -37,7 +37,9 @@ function ($scope, headerProfileService, commonService, $http, Flash, Upload, $ti
             });
 
             file.upload.then(function (response) {
-
+                $timeout(function () {
+                    $scope.headerResult = response.data;
+                });
             }, function (response) {
                 if (response.status > 0)
                     $scope.errorMsg = response.status + ': ' + response.data;
