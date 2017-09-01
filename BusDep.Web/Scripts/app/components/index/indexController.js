@@ -34,7 +34,18 @@ function ($scope, $location, commonService, authService, $rootScope) {
          image: '/Content/img/Allwiners/clubes.jpg'
      }
     ];
-
+    $scope.slidespublicidadchica = [
+     {
+         image: '/Content/img/Publicidad/Pruebas1.jpg'
+     },
+     {
+         image: '/Content/img/Publicidad/Pruebas2.jpg'
+     },
+     {
+         image: '/Content/img/Publicidad/Pruebas3.jpg'
+     }
+    ];
+    
     $scope.searchResult = {};
 
     $scope.picFile = "https://allwiners.blob.core.windows.net/photos/default_avatar-thumb.jpg";
