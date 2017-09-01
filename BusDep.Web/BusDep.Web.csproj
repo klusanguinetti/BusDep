@@ -234,9 +234,9 @@
     <Content Include="Content\img\Allwiners\logo_header.png" />
     <Content Include="Content\img\Allwiners\logo_short.png" />
     <Content Include="Content\img\default_1.jpg" />
-    <Content Include="Content\img\Publicidad\Pruebas1.jpg" />
-    <Content Include="Content\img\Publicidad\Pruebas2.jpg" />
-    <Content Include="Content\img\Publicidad\Pruebas3.jpg" />
+    <Content Include="Content\img\misc\Pruebas1.jpg" />
+    <Content Include="Content\img\misc\Pruebas2.jpg" />
+    <Content Include="Content\img\misc\Pruebas3.jpg" />
     <Content Include="Content\img\Puestos\ar.png" />
     <Content Include="Content\img\Puestos\Cancha.png" />
     <Content Include="Content\img\Puestos\cancha_limpia.png" />

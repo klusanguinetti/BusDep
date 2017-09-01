@@ -36,13 +36,13 @@ function ($scope, $location, commonService, authService, $rootScope) {
     ];
     $scope.slidespublicidadchica = [
      {
-         image: '/Content/img/Publicidad/Pruebas1.jpg'
+         image: '/Content/img/misc/Pruebas1.jpg'
      },
      {
-         image: '/Content/img/Publicidad/Pruebas2.jpg'
+         image: '/Content/img/misc/Pruebas2.jpg'
      },
      {
-         image: '/Content/img/Publicidad/Pruebas3.jpg'
+         image: '/Content/img/misc/Pruebas3.jpg'
      }
     ];
     
