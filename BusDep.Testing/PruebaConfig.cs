@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -370,7 +371,7 @@ namespace BusDep.Testing
     public class PruebaUsuarios
     {
         #region atributos
-
+        private List<string> ListaUs = new List<string>(); 
         private IUsuarioBusiness registracion => DependencyFactory.Resolve<IUsuarioBusiness>();
         private ICommonBusiness common => DependencyFactory.Resolve<ICommonBusiness>();
         private IBusquedaBusiness busqueda => DependencyFactory.Resolve<IBusquedaBusiness>();
@@ -416,9 +417,14 @@ namespace BusDep.Testing
         [Test]
         public void RegistracionMasiva()
         {
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Registracion(i);
+            }
+
+            foreach (var u in ListaUs)
+            {
+                Console.WriteLine(u);
             }
         }
 
@@ -448,6 +454,7 @@ namespace BusDep.Testing
             try
             {
                 userView = registracion.Registracion(userView);
+                ListaUs.Add(string.Format("{0} - {1}", string.Format(nombre + "{0}@{1}.com", i, apellido), string.Format("{0}{1}", apellido, nombre)));
             }
             catch
             {
@@ -474,15 +481,16 @@ namespace BusDep.Testing
             if (listaPuesto.Any())
             {
                 jugadorView.PuestoId = listaPuesto.ToList()[rnd.Next(0, 10)].Id;
+                jugadorView.PuestoAltId = listaPuesto.ToList()[rnd.Next(0, 10)].Id;
             }
             jugadorView.Pie = Pies[rnd.Next(0, 3)];
             jugadorView.Fichaje = Fichajes[rnd.Next(0, 2)];
             jugadorView.Perfil = Perfiles[rnd.Next(0, 2)];
             jugadorView.Peso = rnd.NextDecimal(75m, 110m);
             jugadorView.Altura = rnd.NextDecimal(1.5m, 2.05m);
-            ;
-            jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
-            jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
+            //;
+            //jugadorView.FotoCuertoEntero = string.Format("aaa{0}.jpg", i);
+            //jugadorView.FotoRostro = string.Format("bbb{0}.jpg", i);
 
             jugador.ActualizarDatosJugador(jugadorView);
             var user = login.LoginUser(string.Format(nombre + "{0}@{1}.com", i, apellido), Base64Encode(string.Format("{0}{1}", apellido, nombre)));
@@ -492,7 +500,7 @@ namespace BusDep.Testing
             {
                 foreach (var detalle in cabecera.Detalle)
                 {
-                    detalle.Puntuacion = rnd.Next(0, 5);
+                    detalle.Puntuacion = rnd.Next(1, 10);
                 }
             }
             jugador.GuardarEvalucacion(evaluacion);
@@ -503,8 +511,15 @@ namespace BusDep.Testing
             ante.ClubLogo = club.Code;
             ante.FechaInicio = new DateTime(rnd.Next(2010, 2015), rnd.Next(1, 12), rnd.Next(1, 28));// DateTime.Now.AddYears(-rnd.Next(6, 10));
             ante.FechaFin = ante.FechaInicio.Value.AddYears(rnd.Next(0, 2));
+            ante.Asistencias = rnd.Next(0, 20);
+            ante.Goles = rnd.Next(0, 20);
+            ante.Partidos = rnd.Next(0, 40);
             ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1} - Hasta: {2}", ante.ClubDescripcion, ante.FechaInicio, ante.FechaFin);
-
+            if (listaPuesto.Any())
+            {
+                ante.Puesto = listaPuesto.ToList()[rnd.Next(0, 10)].Codigo;
+                ante.PuestoAlt = listaPuesto.ToList()[rnd.Next(0, 10)].Codigo;
+            }
             jugador.GuardarAntecedenteViewModel(ante);
             DateTime fechafin = ante.FechaFin.GetValueOrDefault();
 
@@ -514,9 +529,15 @@ namespace BusDep.Testing
             ante.ClubLogo = club.Code;
             ante.FechaInicio = fechafin.AddMonths(rnd.Next(1, 6));
             ante.InformacionAdicional = string.Format("Club: {0}, Desde: {1}", ante.ClubDescripcion, ante.FechaInicio);
+            if (listaPuesto.Any())
+            {
+                ante.Puesto = listaPuesto.ToList()[rnd.Next(0, 10)].Codigo;
+                ante.PuestoAlt = listaPuesto.ToList()[rnd.Next(0, 10)].Codigo;
+            }
+
             jugador.GuardarAntecedenteViewModel(ante);
 
-            Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
+            //Console.WriteLine(string.Format("Usuario:{0}", user.Mail));
         }
 
         [Test]

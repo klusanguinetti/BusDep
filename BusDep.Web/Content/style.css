@@ -1227,7 +1227,7 @@ button.btn-search {
 
 @media screen and (min-width: 1024px) {
     .search-row-wrapper {
-        height: 140px;
+        height: 220px;
         display: block;
     }
 }

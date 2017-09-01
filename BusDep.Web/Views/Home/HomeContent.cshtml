@@ -1,6 +1,6 @@
 ﻿<div ng-controller="indexController">
 
-    <div class="intro jobs-intro hasOverly" style="background-image: url(/Content/img/slide_1.jpg); background-position: center center;"
+    <div class="intro jobs-intro hasOverly" style="background-image: url(/Content/img/slide_3.jpg); background-position: center center;"
          data-ng-hide="!user.authenticated">
 
         <div class="dtable hw100">
@@ -107,6 +107,14 @@
 
                 <div class="col-sm-3 page-sidebar col-thin-left" ng-show="!user.authenticated">
 
+                    <carousel interval="myInterval">
+                        <slide ng-repeat="slide in slidespublicidadchica" active="slide.active">
+                            <img ng-src="{{slide.image}}" class="image">
+                            <div class="carousel-caption">
+                            </div>
+                        </slide>
+                    </carousel>
+
                     <aside>
                         <div class="col-md-12 reg-sidebar">
                             <div class="reg-sidebar-inner text-center">
@@ -142,28 +150,30 @@
 
                     </aside>
 
+
+
                 </div>
 
 
             </div>
             <div class="col-md-12">
 
-                <carousel interval="myInterval">
-                    <slide ng-repeat="slide in slidespublicidad" active="slide.active">
-                        <img ng-src="{{slide.image}}" class="image">
-                        <div class="carousel-caption">
-                        </div>
-                    </slide>
-                </carousel>
+                
 
             </div>
         </div>
 
     </div>
 
+    @*<carousel interval="myInterval">
+        <slide ng-repeat="slide in slidespublicidad" active="slide.active">
+            <img ng-src="{{slide.image}}" class="image">
+            <div class="carousel-caption">
+            </div>
+        </slide>
+    </carousel>*@
 
-
-
+    @*<div style="margin-top: 3px;"></div>*@
     <div class="page-info hasOverly" style="background-image: url(../../Content/img/slide_4.jpg);    background-position: center center;  background-size:cover">
 
         <div class="bg-overly">
