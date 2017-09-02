@@ -31,5 +31,7 @@ namespace BusDep.IDataAccess
         EvaluacionViewModel ObtenerEvaluacionViewModelDefault(long jugadorId);
 
         List<AntecedenteViewModel> GetAntecedentes(long jugadorId);
+
+        PerfilJugadorViewModel ObtenerPerfil(long jugadorId);
     }
 }

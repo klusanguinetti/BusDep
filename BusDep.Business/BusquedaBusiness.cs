@@ -15,34 +15,8 @@
         {
             if (!DependencyFactory.Resolve<IJugadorDA>().ExisteJugador(jugadorId))
                 throw new ExceptionBusiness(40, "No existe jugador");
-            PerfilJugadorViewModel perfil = new PerfilJugadorViewModel { PerfilId = jugadorId };
-            var jugador = DependencyFactory.Resolve<IJugadorDA>().GetById(jugadorId);
-            if (jugador == null)
-                return null;
-            //UsuarioViewModel usuario = new UsuarioViewModel
-            //{
-            //    Id = jugador.Usuario.Id,
-            //    DeporteId = jugador.Usuario.Deporte.Id,
-            //    JugadorId = jugador.Id
-            //};
-            jugador.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
-            jugador.Usuario.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
-            jugador.Usuario.DatosPersona.MapperClass(perfil, TypeMapper.IgnoreCaseSensitive);
-            if (jugador.Puesto != null)
-            {
-                perfil.PuestoDescripcion = jugador.Puesto.Descripcion;
-                perfil.PuestoEspecifico = jugador.Puesto.PuestoEspecifico;
-                perfil.PuestoCodigo = jugador.Puesto.Codigo;
-            }
-            if (jugador.PuestoAlternativo != null)
-            {
-                perfil.PuestoAlterDescripcion = jugador.PuestoAlternativo.Descripcion;
-                perfil.PuestoAlterEspecifico = jugador.PuestoAlternativo.PuestoEspecifico;
-                perfil.PuestoAlterCodigo = jugador.PuestoAlternativo.Codigo;
-            }
-            //perfil.Antecedentes = DependencyFactory.Resolve<IUsuarioDA>().ObtenerAntecedentes(jugador.Usuario.Id);
-            //perfil.AutoEvaluacion = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(usuario);
-            return perfil;
+
+            return DependencyFactory.Resolve<IJugadorDA>().ObtenerPerfil(jugadorId);
         }
 
         [AuditMethod]

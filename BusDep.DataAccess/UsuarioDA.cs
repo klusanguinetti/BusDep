@@ -145,33 +145,33 @@
 
         public virtual DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId)
         {
-            return (from o in Session.Query<DatosPersona>()
-                    where o.Id.Equals(datosPersonalesId)
+            return (from o in Session.Query<Usuario>()
+                    where o.DatosPersona!=null && o.DatosPersona.Id.Equals(datosPersonalesId)
                     select new DatosPersonaViewModel
                     {
                         Id = o.Id,
-                        UsuarioId = o.Usuario.Id,
-                        Apellido = o.Apellido,
-                        Direccion = o.Direccion,
-                        Ciudad = o.Ciudad,
-                        CodigoPostal = o.CodigoPostal,
-                        FechaNacimiento = o.FechaNacimiento,
-                        Nacionalidad = o.Nacionalidad,
-                        Nacionalidad1 = o.Nacionalidad1,
-                        NacionalidadIso = o.NacionalidadIso,
-                        NacionalidadIso1 = o.NacionalidadIso1,
-                        Nombre = o.Nombre,
-                        NumeroDocumento = o.NumeroDocumento,
-                        Pais = o.Pais,
-                        PaisIso = o.PaisIso,
-                        Provincia = o.Provincia,
-                        Telefono = o.Telefono,
-                        TipoDocumento = o.TipoDocumento,
-                        Informacion = o.Informacion,
-                        UltimoLogin = o.Usuario.UltimoLogin,
-                        ContactoMail = o.ContactoMail,
-                        ContactoNombre = o.ContactoNombre,
-                        ContactoTelefono = o.ContactoTelefono,
+                        UsuarioId = o.Id,
+                        Apellido = o.DatosPersona.Apellido,
+                        Direccion = o.DatosPersona.Direccion,
+                        Ciudad = o.DatosPersona.Ciudad,
+                        CodigoPostal = o.DatosPersona.CodigoPostal,
+                        FechaNacimiento = o.DatosPersona.FechaNacimiento,
+                        Nacionalidad = o.DatosPersona.Nacionalidad,
+                        Nacionalidad1 = o.DatosPersona.Nacionalidad1,
+                        NacionalidadIso = o.DatosPersona.NacionalidadIso,
+                        NacionalidadIso1 = o.DatosPersona.NacionalidadIso1,
+                        Nombre = o.DatosPersona.Nombre,
+                        NumeroDocumento = o.DatosPersona.NumeroDocumento,
+                        Pais = o.DatosPersona.Pais,
+                        PaisIso = o.DatosPersona.PaisIso,
+                        Provincia = o.DatosPersona.Provincia,
+                        Telefono = o.DatosPersona.Telefono,
+                        TipoDocumento = o.DatosPersona.TipoDocumento,
+                        Informacion = o.DatosPersona.Informacion,
+                        UltimoLogin = o.UltimoLogin,
+                        ContactoMail = o.DatosPersona.ContactoMail,
+                        ContactoNombre = o.DatosPersona.ContactoNombre,
+                        ContactoTelefono = o.DatosPersona.ContactoTelefono,
                     }).FirstOrDefault();
         }
 

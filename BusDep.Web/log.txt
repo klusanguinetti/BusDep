@@ -574,3 +574,187 @@ System.Data.SqlClient.SqlException (0x80131904): Valor de tiempo de espera caduc
    en DynamicModule.ns.Wrapped_JugadorDA_9c95a47ce9c149f1bd0ffb20ec8138e0.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
 ClientConnectionId:3b7a7984-41a9-4a4e-a300-f595d357d853
 Error Number:-2,State:0,Class:11
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 9 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 6 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 22 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 25 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 21 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 25 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 22 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed
+Metodo: TopJugador
+Parametros: 
+
+NHibernate.PropertyNotFoundException: Could not find a getter for property 'Usuario' in class 'BusDep.Entity.Club'
+   en NHibernate.Properties.BasicPropertyAccessor.GetGetter(Type type, String propertyName)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer.BuildPropertyGetter(Property mappedProperty, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.AbstractEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappingInfo)
+   en NHibernate.Tuple.Entity.PocoEntityTuplizer..ctor(EntityMetamodel entityMetamodel, PersistentClass mappedEntity)
+   en NHibernate.Tuple.Entity.EntityEntityModeToTuplizerMapping..ctor(PersistentClass mappedEntity, EntityMetamodel em)
+   en NHibernate.Tuple.Entity.EntityMetamodel..ctor(PersistentClass persistentClass, ISessionFactoryImplementor sessionFactory)
+   en NHibernate.Persister.Entity.AbstractEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory)
+   en NHibernate.Persister.Entity.SingleTableEntityPersister..ctor(PersistentClass persistentClass, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping mapping)
+   en NHibernate.Persister.PersisterFactory.CreateClassPersister(PersistentClass model, ICacheConcurrencyStrategy cache, ISessionFactoryImplementor factory, IMapping cfg)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_2ad43b6153a44e32af6e0bef8c2c5eed.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

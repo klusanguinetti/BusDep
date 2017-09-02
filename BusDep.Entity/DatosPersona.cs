@@ -4,7 +4,7 @@ namespace BusDep.Entity
     public class DatosPersona
     {
         public virtual long Id { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        //public virtual Usuario Usuario { get; set; }
         public virtual string Apellido { get; set; }
         public virtual string Direccion { get; set; }
         public virtual string Ciudad { get; set; }

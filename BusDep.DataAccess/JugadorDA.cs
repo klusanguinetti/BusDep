@@ -26,96 +26,7 @@ namespace BusDep.DataAccess
         public virtual List<JugadorViewModel> BuscarJugador(string[] puesto, int? edadDesde, int? edadHasta, string[] fichaje, string[] perfil, string[] pie, string nombre,
             int? pagina = null, int? cantidad = null)
         {
-            if (pagina.HasValue && cantidad.HasValue && cantidad.GetValueOrDefault() > 0)
-            {
-                var inicio = pagina.GetValueOrDefault().Equals(1) ? 0 : (pagina.GetValueOrDefault() - 1) * cantidad;
-
-                return (from item in Session.Query<Jugador>()
-                        where ((edadDesde.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
-                            && ((edadHasta.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
-                            && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Puesto.Descripcion)) : 1.Equals(1))
-                            && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Fichaje)) : 1.Equals(1))
-                            && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Perfil.Equals(perfil[0]) : perfil.Contains(item.Perfil)) : 1.Equals(1))
-                            && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Pie.Equals(pie[0]) : pie.Contains(item.Pie)) : 1.Equals(1))
-                            && ((!string.IsNullOrWhiteSpace(nombre)) ? item.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
-                                                                      item.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
-                                                                    : 1.Equals(1))
-                        select new JugadorViewModel
-                        {
-                            Apellido = item.Usuario.DatosPersona.Apellido,
-                            ClubActual = item.ClubDescripcion,
-                            ClubCode = item.ClubLogo,
-                            Fichaje = item.Fichaje,
-                            FotoRostro = item.FotoRostro,
-                            Id = item.Id,
-                            Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                            Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                            NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                            NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                            FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                            Informacion = item.Usuario.DatosPersona.Informacion,
-                            Pais = item.Usuario.DatosPersona.Pais,
-                            PaisIso = item.Usuario.DatosPersona.PaisIso,
-                            Nombre = item.Usuario.DatosPersona.Nombre,
-                            Perfil = item.Perfil,
-                            Pie = item.Pie,
-                            Altura = item.Altura,
-                            Peso = item.Peso,
-                            FotoCuertoEntero = item.FotoCuertoEntero,
-                            PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
-                            PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
-                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
-                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
-                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                            UsuarioId = item.Usuario.Id
-                        }).Skip(inicio.GetValueOrDefault()).Take(cantidad.GetValueOrDefault()).ToList();
-            }
-            else
-            {
-                return (from item in Session.Query<Jugador>()
-                        where ((edadDesde.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
-                                   && ((edadHasta.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
-                                   && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Puesto.Descripcion)) : 1.Equals(1))
-                                   && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Fichaje)) : 1.Equals(1))
-                                   && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Perfil.Equals(perfil[0]) : perfil.Contains(item.Perfil)) : 1.Equals(1))
-                                   && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Pie.Equals(pie[0]) : pie.Contains(item.Pie)) : 1.Equals(1))
-                                   && ((!string.IsNullOrWhiteSpace(nombre)) ? item.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
-                                                                             item.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
-                                                                           : 1.Equals(1))
-                        select new JugadorViewModel
-                        {
-                            Apellido = item.Usuario.DatosPersona.Apellido,
-                            ClubActual = item.ClubDescripcion,
-                            ClubCode = item.ClubLogo,
-                            Fichaje = item.Fichaje,
-                            FotoRostro = item.FotoRostro,
-                            Id = item.Id,
-                            Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                            Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                            NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                            NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                            FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                            Informacion = item.Usuario.DatosPersona.Informacion,
-                            Pais = item.Usuario.DatosPersona.Pais,
-                            PaisIso = item.Usuario.DatosPersona.PaisIso,
-                            Nombre = item.Usuario.DatosPersona.Nombre,
-                            Perfil = item.Perfil,
-                            Pie = item.Pie,
-                            Altura = item.Altura,
-                            Peso = item.Peso,
-                            FotoCuertoEntero = item.FotoCuertoEntero,
-                            PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
-                            PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
-                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
-                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
-                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                            UsuarioId = item.Usuario.Id
-                        }).ToList();
-
-            }
-
+            return SearchJugador(null, puesto, edadDesde, edadHasta, fichaje, perfil, pie, nombre, pagina, cantidad);
         }
         public virtual JugadorViewModel ObtenerJugador(long id)
         {
@@ -129,125 +40,127 @@ namespace BusDep.DataAccess
 
             if (jugadorId.HasValue)
             {
-                return (from item in Session.Query<Jugador>()
-                        where item.Id.Equals(jugadorId.Value)
+                return (from item in Session.Query<Usuario>()
+                        where item.Jugador != null && item.Jugador.Id.Equals(jugadorId.Value)
                         select new JugadorViewModel
                         {
-                            Apellido = item.Usuario.DatosPersona.Apellido,
-                            ClubActual = item.ClubDescripcion,
-                            ClubCode = item.ClubLogo,
-                            Fichaje = item.Fichaje,
-                            FotoRostro = item.FotoRostro,
-                            Id = item.Id,
-                            Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                            Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                            NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                            NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                            FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                            Informacion = item.Usuario.DatosPersona.Informacion,
-                            Pais = item.Usuario.DatosPersona.Pais,
-                            PaisIso = item.Usuario.DatosPersona.PaisIso,
-                            Nombre = item.Usuario.DatosPersona.Nombre,
-                            Perfil = item.Perfil,
-                            Pie = item.Pie,
-                            Altura = item.Altura,
-                            Peso = item.Peso,
-                            FotoCuertoEntero = item.FotoCuertoEntero,
-                            PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
-                            PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
-                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
-                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
-                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                            UsuarioId = item.Usuario.Id
+                            Apellido = item.DatosPersona.Apellido,
+                            ClubActual = item.Jugador.ClubDescripcion,
+                            ClubCode = item.Jugador.ClubLogo,
+                            Fichaje = item.Jugador.Fichaje,
+                            FotoRostro = item.Jugador.FotoRostro,
+                            Id = item.Jugador.Id,
+                            Nacionalidad = item.DatosPersona.Nacionalidad,
+                            Nacionalidad1 = item.DatosPersona.Nacionalidad1,
+                            NacionalidadIso = item.DatosPersona.NacionalidadIso,
+                            NacionalidadIso1 = item.DatosPersona.NacionalidadIso1,
+                            FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                            Informacion = item.DatosPersona.Informacion,
+                            Pais = item.DatosPersona.Pais,
+                            PaisIso = item.DatosPersona.PaisIso,
+                            Nombre = item.DatosPersona.Nombre,
+                            Perfil = item.Jugador.Perfil,
+                            Pie = item.Jugador.Pie,
+                            Altura = item.Jugador.Altura,
+                            Peso = item.Jugador.Peso,
+                            FotoCuertoEntero = item.Jugador.FotoCuertoEntero,
+                            PuestoId = item.Jugador.Puesto != null ? item.Jugador.Puesto.Id : (long?)null,
+                            PuestoCodigo = item.Jugador.Puesto != null ? item.Jugador.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Jugador.Puesto != null ? item.Jugador.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.PuestoEspecifico : null,
+                            UsuarioId = item.Id
                         }).ToList();
             }
             if (pagina.HasValue && cantidad.HasValue && cantidad.GetValueOrDefault() > 0)
             {
                 var inicio = pagina.GetValueOrDefault().Equals(1) ? 0 : (pagina.GetValueOrDefault() - 1) * cantidad;
 
-                return (from item in Session.Query<Jugador>()
-                        where ((edadDesde.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
-                            && ((edadHasta.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
-                            && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Puesto.Descripcion)) : 1.Equals(1))
-                            && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Fichaje)) : 1.Equals(1))
-                            && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Perfil.Equals(perfil[0]) : perfil.Contains(item.Perfil)) : 1.Equals(1))
-                            && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Pie.Equals(pie[0]) : pie.Contains(item.Pie)) : 1.Equals(1))
-                            && ((!string.IsNullOrWhiteSpace(nombre)) ? item.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
-                                                                      item.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
+                return (from item in Session.Query<Usuario>()
+                        where item.Jugador != null
+                            && ((edadDesde.HasValue) ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
+                            && ((edadHasta.HasValue) ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
+                            && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Jugador.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Jugador.Puesto.Descripcion)) : 1.Equals(1))
+                            && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Jugador.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Jugador.Fichaje)) : 1.Equals(1))
+                            && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Jugador.Perfil.Equals(perfil[0]) : perfil.Contains(item.Jugador.Perfil)) : 1.Equals(1))
+                            && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Jugador.Pie.Equals(pie[0]) : pie.Contains(item.Jugador.Pie)) : 1.Equals(1))
+                            && ((!string.IsNullOrWhiteSpace(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
+                                                                      item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                                                                     : 1.Equals(1))
                         select new JugadorViewModel
                         {
-                            Apellido = item.Usuario.DatosPersona.Apellido,
-                            ClubActual = item.ClubDescripcion,
-                            ClubCode = item.ClubLogo,
-                            Fichaje = item.Fichaje,
-                            FotoRostro = item.FotoRostro,
+                            Apellido = item.DatosPersona.Apellido,
+                            ClubActual = item.Jugador.ClubDescripcion,
+                            ClubCode = item.Jugador.ClubLogo,
+                            Fichaje = item.Jugador.Fichaje,
+                            FotoRostro = item.Jugador.FotoRostro,
                             Id = item.Id,
-                            Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                            Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                            NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                            NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                            FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                            Informacion = item.Usuario.DatosPersona.Informacion,
-                            Pais = item.Usuario.DatosPersona.Pais,
-                            PaisIso = item.Usuario.DatosPersona.PaisIso,
-                            Nombre = item.Usuario.DatosPersona.Nombre,
-                            Perfil = item.Perfil,
-                            Pie = item.Pie,
-                            Altura = item.Altura,
-                            Peso = item.Peso,
-                            FotoCuertoEntero = item.FotoCuertoEntero,
-                            PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
-                            PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
-                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
-                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
-                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                            UsuarioId = item.Usuario.Id
+                            Nacionalidad = item.DatosPersona.Nacionalidad,
+                            Nacionalidad1 = item.DatosPersona.Nacionalidad1,
+                            NacionalidadIso = item.DatosPersona.NacionalidadIso,
+                            NacionalidadIso1 = item.DatosPersona.NacionalidadIso1,
+                            FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                            Informacion = item.DatosPersona.Informacion,
+                            Pais = item.DatosPersona.Pais,
+                            PaisIso = item.DatosPersona.PaisIso,
+                            Nombre = item.DatosPersona.Nombre,
+                            Perfil = item.Jugador.Perfil,
+                            Pie = item.Jugador.Pie,
+                            Altura = item.Jugador.Altura,
+                            Peso = item.Jugador.Peso,
+                            FotoCuertoEntero = item.Jugador.FotoCuertoEntero,
+                            PuestoId = item.Jugador.Puesto != null ? item.Jugador.Puesto.Id : (long?)null,
+                            PuestoCodigo = item.Jugador.Puesto != null ? item.Jugador.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Jugador.Puesto != null ? item.Jugador.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.PuestoEspecifico : null,
+                            UsuarioId = item.Id
                         }).Skip(inicio.GetValueOrDefault()).Take(cantidad.GetValueOrDefault()).ToList();
             }
             else
             {
-                return (from item in Session.Query<Jugador>()
-                        where ((edadDesde.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
-                                   && ((edadHasta.HasValue) ? item.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
-                                   && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Puesto.Descripcion)) : 1.Equals(1))
-                                   && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Fichaje)) : 1.Equals(1))
-                                   && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Perfil.Equals(perfil[0]) : perfil.Contains(item.Perfil)) : 1.Equals(1))
-                                   && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Pie.Equals(pie[0]) : pie.Contains(item.Pie)) : 1.Equals(1))
-                                   && ((!string.IsNullOrWhiteSpace(nombre)) ? item.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
-                                                                             item.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
-                                                                           : 1.Equals(1))
+                return (from item in Session.Query<Usuario>()
+                        where item.Jugador != null
+                            && ((edadDesde.HasValue) ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
+                            && ((edadHasta.HasValue) ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
+                            && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Jugador.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Jugador.Puesto.Descripcion)) : 1.Equals(1))
+                            && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Jugador.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Jugador.Fichaje)) : 1.Equals(1))
+                            && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Jugador.Perfil.Equals(perfil[0]) : perfil.Contains(item.Jugador.Perfil)) : 1.Equals(1))
+                            && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Jugador.Pie.Equals(pie[0]) : pie.Contains(item.Jugador.Pie)) : 1.Equals(1))
+                            && ((!string.IsNullOrWhiteSpace(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
+                                                                      item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
+                                                                    : 1.Equals(1))
                         select new JugadorViewModel
                         {
-                            Apellido = item.Usuario.DatosPersona.Apellido,
-                            ClubActual = item.ClubDescripcion,
-                            ClubCode = item.ClubLogo,
-                            Fichaje = item.Fichaje,
-                            FotoRostro = item.FotoRostro,
+                            Apellido = item.DatosPersona.Apellido,
+                            ClubActual = item.Jugador.ClubDescripcion,
+                            ClubCode = item.Jugador.ClubLogo,
+                            Fichaje = item.Jugador.Fichaje,
+                            FotoRostro = item.Jugador.FotoRostro,
                             Id = item.Id,
-                            Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                            Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                            NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                            NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                            FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                            Informacion = item.Usuario.DatosPersona.Informacion,
-                            Pais = item.Usuario.DatosPersona.Pais,
-                            PaisIso = item.Usuario.DatosPersona.PaisIso,
-                            Nombre = item.Usuario.DatosPersona.Nombre,
-                            Perfil = item.Perfil,
-                            Pie = item.Pie,
-                            Altura = item.Altura,
-                            Peso = item.Peso,
-                            FotoCuertoEntero = item.FotoCuertoEntero,
-                            PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
-                            PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
-                            PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                            PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
-                            PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
-                            PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                            UsuarioId = item.Usuario.Id
+                            Nacionalidad = item.DatosPersona.Nacionalidad,
+                            Nacionalidad1 = item.DatosPersona.Nacionalidad1,
+                            NacionalidadIso = item.DatosPersona.NacionalidadIso,
+                            NacionalidadIso1 = item.DatosPersona.NacionalidadIso1,
+                            FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                            Informacion = item.DatosPersona.Informacion,
+                            Pais = item.DatosPersona.Pais,
+                            PaisIso = item.DatosPersona.PaisIso,
+                            Nombre = item.DatosPersona.Nombre,
+                            Perfil = item.Jugador.Perfil,
+                            Pie = item.Jugador.Pie,
+                            Altura = item.Jugador.Altura,
+                            Peso = item.Jugador.Peso,
+                            FotoCuertoEntero = item.Jugador.FotoCuertoEntero,
+                            PuestoId = item.Jugador.Puesto != null ? item.Jugador.Puesto.Id : (long?)null,
+                            PuestoCodigo = item.Jugador.Puesto != null ? item.Jugador.Puesto.Codigo : null,
+                            PuestoDescripcion = item.Jugador.Puesto != null ? item.Jugador.Puesto.PuestoEspecifico : null,
+                            PuestoAltId = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Id : (long?)null,
+                            PuestoAltCodigo = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Codigo : null,
+                            PuestoAltDescripcion = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.PuestoEspecifico : null,
+                            UsuarioId = item.Id
                         }).ToList();
 
             }
@@ -258,23 +171,23 @@ namespace BusDep.DataAccess
             int? pagina = null, int? cantidad = null)
         {
 
-            return (from item in Session.Query<Jugador>()
-                    where
+            return (from item in Session.Query<Usuario>()
+                    where item.Jugador != null &&
                         ((edadDesde.HasValue)
-                            ? item.Usuario.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value)
+                            ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value)
                             : 1.Equals(1))
                         &&
                         ((edadHasta.HasValue)
-                            ? item.Usuario.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value)
+                            ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value)
                             : 1.Equals(1))
-                        && ((puesto != null && puesto.Length > 0) ? puesto.Contains(item.Puesto.Descripcion) : 1.Equals(1))
-                        && ((fichaje != null && fichaje.Length > 0) ? fichaje.Contains(item.Fichaje) : 1.Equals(1))
-                        && ((perfil != null && perfil.Length > 0) ? perfil.Contains(item.Perfil) : 1.Equals(1))
-                        && ((pie != null && pie.Length > 0) ? pie.Contains(item.Pie) : 1.Equals(1))
+                        && ((puesto != null && puesto.Length > 0) ? puesto.Contains(item.Jugador.Puesto.Descripcion) : 1.Equals(1))
+                        && ((fichaje != null && fichaje.Length > 0) ? fichaje.Contains(item.Jugador.Fichaje) : 1.Equals(1))
+                        && ((perfil != null && perfil.Length > 0) ? perfil.Contains(item.Jugador.Perfil) : 1.Equals(1))
+                        && ((pie != null && pie.Length > 0) ? pie.Contains(item.Jugador.Pie) : 1.Equals(1))
                         &&
                         ((!string.IsNullOrWhiteSpace(nombre))
-                            ? item.Usuario.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
-                              item.Usuario.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
+                            ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
+                              item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                             : 1.Equals(1))
                     select item).Count();
         }
@@ -286,70 +199,71 @@ namespace BusDep.DataAccess
 
         public virtual PerfilJugadorShortViewModel GetPerfilJugadorShort(long jugadorId)
         {
-            return (from item in Session.Query<Jugador>()
-                    where item.Id.Equals(jugadorId)
+            return (from item in Session.Query<Usuario>()
+                    where item.Jugador.Id.Equals(jugadorId)
                     select new PerfilJugadorShortViewModel
                     {
-                        Id = item.Id,
-                        Altura = item.Altura,
-                        Apellido = item.Usuario.DatosPersona.Apellido,
-                        Pais = item.Usuario.DatosPersona.Pais,
-                        PaisIso = item.Usuario.DatosPersona.PaisIso,
-                        FotoRostro = item.FotoRostro,
-                        ClubActual = item.ClubDescripcion,
-                        FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                        Peso = item.Peso,
-                        Nombre = item.Usuario.DatosPersona.Nombre,
-                        NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                        Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                        NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                        Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                        Perfil = item.Perfil,
-                        ClubCode = item.ClubLogo,
-                        Pie = item.Pie,
-                        Provincia = item.Usuario.DatosPersona.Provincia,
-                        Ciudad = item.Usuario.DatosPersona.Ciudad,
-                        Puesto = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                        PuestoCode = item.Puesto != null ? item.Puesto.Codigo : null,
-                        PuestoAlt = item.Puesto != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                        PuestoAltCode = item.Puesto != null ? item.PuestoAlternativo.Codigo : null
+                        Id = item.Jugador.Id,
+                        Altura = item.Jugador.Altura,
+                        Apellido = item.DatosPersona.Apellido,
+                        Pais = item.DatosPersona.Pais,
+                        PaisIso = item.DatosPersona.PaisIso,
+                        FotoRostro = item.Jugador.FotoRostro,
+                        ClubActual = item.Jugador.ClubDescripcion,
+                        FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                        Peso = item.Jugador.Peso,
+                        Nombre = item.DatosPersona.Nombre,
+                        NacionalidadIso = item.DatosPersona.NacionalidadIso,
+                        Nacionalidad = item.DatosPersona.Nacionalidad,
+                        NacionalidadIso1 = item.DatosPersona.NacionalidadIso1,
+                        Nacionalidad1 = item.DatosPersona.Nacionalidad1,
+                        Perfil = item.Jugador.Perfil,
+                        ClubCode = item.Jugador.ClubLogo,
+                        Pie = item.Jugador.Pie,
+                        Provincia = item.DatosPersona.Provincia,
+                        Ciudad = item.DatosPersona.Ciudad,
+                        Puesto = item.Jugador.Puesto != null ? item.Jugador.Puesto.PuestoEspecifico : null,
+                        PuestoCode = item.Jugador.Puesto != null ? item.Jugador.Puesto.Codigo : null,
+                        PuestoAlt = item.Jugador.Puesto != null ? item.Jugador.PuestoAlternativo.PuestoEspecifico : null,
+                        PuestoAltCode = item.Jugador.Puesto != null ? item.Jugador.PuestoAlternativo.Codigo : null
                     }).FirstOrDefault();
         }
 
         public virtual List<JugadorViewModel> TopJugador()
         {
 
-            return (from item in Session.Query<Jugador>()
-                    orderby item.Id descending
+            return (from item in Session.Query<Usuario>()
+                    where item.Jugador != null
+                    orderby item.Jugador.Id descending
                     select new JugadorViewModel
                     {
-                        Apellido = item.Usuario.DatosPersona.Apellido,
-                        ClubActual = item.ClubDescripcion,
-                        ClubCode = item.ClubLogo,
-                        Fichaje = item.Fichaje,
-                        FotoRostro = item.FotoRostro,
-                        Id = item.Id,
-                        Nacionalidad = item.Usuario.DatosPersona.Nacionalidad,
-                        Nacionalidad1 = item.Usuario.DatosPersona.Nacionalidad1,
-                        NacionalidadIso = item.Usuario.DatosPersona.NacionalidadIso,
-                        NacionalidadIso1 = item.Usuario.DatosPersona.NacionalidadIso1,
-                        FechaNacimiento = item.Usuario.DatosPersona.FechaNacimiento,
-                        Informacion = item.Usuario.DatosPersona.Informacion,
-                        Pais = item.Usuario.DatosPersona.Pais,
-                        PaisIso = item.Usuario.DatosPersona.PaisIso,
-                        Nombre = item.Usuario.DatosPersona.Nombre,
-                        Perfil = item.Perfil,
-                        Pie = item.Pie,
-                        Altura = item.Altura,
-                        Peso = item.Peso,
-                        FotoCuertoEntero = item.FotoCuertoEntero,
-                        PuestoId = item.Puesto != null ? item.Puesto.Id : (long?)null,
-                        PuestoCodigo = item.Puesto != null ? item.Puesto.Codigo : null,
-                        PuestoDescripcion = item.Puesto != null ? item.Puesto.PuestoEspecifico : null,
-                        PuestoAltId = item.PuestoAlternativo != null ? item.PuestoAlternativo.Id : (long?)null,
-                        PuestoAltCodigo = item.PuestoAlternativo != null ? item.PuestoAlternativo.Codigo : null,
-                        PuestoAltDescripcion = item.PuestoAlternativo != null ? item.PuestoAlternativo.PuestoEspecifico : null,
-                        UsuarioId = item.Usuario.Id
+                        Apellido = item.DatosPersona.Apellido,
+                        ClubActual = item.Jugador.ClubDescripcion,
+                        ClubCode = item.Jugador.ClubLogo,
+                        Fichaje = item.Jugador.Fichaje,
+                        FotoRostro = item.Jugador.FotoRostro,
+                        Id = item.Jugador.Id,
+                        Nacionalidad = item.DatosPersona.Nacionalidad,
+                        Nacionalidad1 = item.DatosPersona.Nacionalidad1,
+                        NacionalidadIso = item.DatosPersona.NacionalidadIso,
+                        NacionalidadIso1 = item.DatosPersona.NacionalidadIso1,
+                        FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                        Informacion = item.DatosPersona.Informacion,
+                        Pais = item.DatosPersona.Pais,
+                        PaisIso = item.DatosPersona.PaisIso,
+                        Nombre = item.DatosPersona.Nombre,
+                        Perfil = item.Jugador.Perfil,
+                        Pie = item.Jugador.Pie,
+                        Altura = item.Jugador.Altura,
+                        Peso = item.Jugador.Peso,
+                        FotoCuertoEntero = item.Jugador.FotoCuertoEntero,
+                        PuestoId = item.Jugador.Puesto != null ? item.Jugador.Puesto.Id : (long?)null,
+                        PuestoCodigo = item.Jugador.Puesto != null ? item.Jugador.Puesto.Codigo : null,
+                        PuestoDescripcion = item.Jugador.Puesto != null ? item.Jugador.Puesto.PuestoEspecifico : null,
+                        PuestoAltId = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Id : (long?)null,
+                        PuestoAltCodigo = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.Codigo : null,
+                        PuestoAltDescripcion = item.Jugador.PuestoAlternativo != null ? item.Jugador.PuestoAlternativo.PuestoEspecifico : null,
+                        UsuarioId = item.Id
                     }).Take(10).ToList();
         }
 
@@ -385,7 +299,6 @@ namespace BusDep.DataAccess
 
             var list = (from det in Session.Query<EvaluacionDetalle>()
                         where det.EvaluacionCabecera.Evaluacion.Usuario.Jugador.Id.Equals(jugadorId)
-                       //&& det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.Deporte.Id.Equals(deporteId)
                        && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.EsDefault.Equals("S")
                        && det.EvaluacionCabecera.Evaluacion.TipoEvaluacion.TipoUsuario == det.EvaluacionCabecera.Evaluacion.Usuario.TipoUsuario
                         select new
@@ -435,6 +348,40 @@ namespace BusDep.DataAccess
                 }
             }
             return listEvo.FirstOrDefault();
+        }
+
+        public virtual PerfilJugadorViewModel ObtenerPerfil(long jugadorId)
+        {
+
+            return (from item in Session.Query<Usuario>()
+                    where item.Jugador != null && item.Jugador.Id.Equals(jugadorId)
+                    select new PerfilJugadorViewModel
+                    {
+                        PerfilId = item.Jugador.Id,
+                        Mail = item.Mail,
+                        Nombre = item.DatosPersona.Nombre,
+                        Apellido = item.DatosPersona.Apellido,
+                        FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                        Pais = item.DatosPersona.Pais,
+                        PaisIso = item.DatosPersona.PaisIso,
+                        Nacionalidad = item.DatosPersona.Nacionalidad,
+                        Nacionalidad1 = item.DatosPersona.Nacionalidad1,
+                        NacionalidadIso = item.DatosPersona.NacionalidadIso,
+                        NacionalidadIso1 = item.DatosPersona.NacionalidadIso1,
+                        Altura = item.Jugador.Altura,
+                        FotoCuertoEntero = item.Jugador.FotoCuertoEntero,
+                        FotoRostro = item.Jugador.FotoRostro,
+                        Perfil = item.Jugador.Perfil,
+                        Peso = item.Jugador.Peso,
+                        PuestoDescripcion = item.Jugador.Puesto.Descripcion,
+                        PuestoEspecifico = item.Jugador.Puesto.PuestoEspecifico,
+                        PuestoCodigo = item.Jugador.Puesto.Codigo,
+                        PuestoAlterDescripcion = item.Jugador.PuestoAlternativo.Descripcion,
+                        PuestoAlterEspecifico = item.Jugador.PuestoAlternativo.PuestoEspecifico,
+                        PuestoAlterCodigo = item.Jugador.PuestoAlternativo.Codigo,
+                        Informacion = item.DatosPersona.Informacion,
+                        Pie = item.Jugador.Pie
+                    }).FirstOrDefault();
         }
 
     }
