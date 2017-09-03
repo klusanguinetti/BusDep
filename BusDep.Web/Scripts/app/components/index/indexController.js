@@ -36,6 +36,9 @@ function ($scope, $location, commonService, authService, $rootScope) {
     ];
     $scope.slidespublicidadchica = [
      {
+         image: '/Content/img/misc/Pruebas0.jpg'
+     },
+     {
          image: '/Content/img/misc/Pruebas1.jpg'
      },
      {
@@ -43,9 +46,15 @@ function ($scope, $location, commonService, authService, $rootScope) {
      },
      {
          image: '/Content/img/misc/Pruebas3.jpg'
+     },
+     {
+         image: '/Content/img/misc/Pruebas4.jpg'
+     },
+     {
+         image: '/Content/img/misc/Pruebas5.jpg'
      }
     ];
-    
+
     $scope.searchResult = {};
 
     $scope.picFile = "https://allwiners.blob.core.windows.net/photos/default_avatar-thumb.jpg";
@@ -97,7 +106,7 @@ function ($scope, $location, commonService, authService, $rootScope) {
 
         /*Sanitaze this input*/
 
-        $location.path("/Search").search({ b: $scope.searchValue});
+        $location.path("/Search").search({ b: $scope.searchValue });
 
     }
 

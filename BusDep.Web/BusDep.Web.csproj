@@ -234,9 +234,12 @@
     <Content Include="Content\img\Allwiners\logo_header.png" />
     <Content Include="Content\img\Allwiners\logo_short.png" />
     <Content Include="Content\img\default_1.jpg" />
+    <Content Include="Content\img\misc\Pruebas0.jpg" />
     <Content Include="Content\img\misc\Pruebas1.jpg" />
     <Content Include="Content\img\misc\Pruebas2.jpg" />
     <Content Include="Content\img\misc\Pruebas3.jpg" />
+    <Content Include="Content\img\misc\Pruebas4.jpg" />
+    <Content Include="Content\img\misc\Pruebas5.jpg" />
     <Content Include="Content\img\Puestos\ar.png" />
     <Content Include="Content\img\Puestos\Cancha.png" />
     <Content Include="Content\img\Puestos\cancha_limpia.png" />
@@ -655,7 +658,6 @@
     <Content Include="Content\img\icon.png" />
     <Content Include="Content\img\info.png" />
     <Content Include="Content\img\logos-clubes\PSG.png" />
-    <Content Include="Content\img\misc\298.png" />
     <Content Include="Content\img\slide_1.jpg" />
     <Content Include="Content\img\slide_2.jpg" />
     <Content Include="Content\img\slide_3.jpg" />
