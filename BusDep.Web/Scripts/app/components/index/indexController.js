@@ -39,13 +39,7 @@ function ($scope, $location, commonService, authService, $rootScope) {
          image: '/Content/img/misc/Pruebas0.jpg'
      },
      {
-         image: '/Content/img/misc/Pruebas1.jpg'
-     },
-     {
          image: '/Content/img/misc/Pruebas2.jpg'
-     },
-     {
-         image: '/Content/img/misc/Pruebas3.jpg'
      },
      {
          image: '/Content/img/misc/Pruebas4.jpg'
