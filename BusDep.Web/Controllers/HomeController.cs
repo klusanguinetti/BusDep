@@ -31,6 +31,13 @@ namespace BusDep.Web.Controllers
 
         }
 
+        public ActionResult Terms()
+        {
+
+            return View();
+
+        }
+
         public ActionResult HomeContent()
         {
             return View();

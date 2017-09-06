@@ -5,6 +5,9 @@
             templateUrl: '/Home/HomeContent',
             controller: 'indexController',
         })
+        .when('/Terms', {
+            templateUrl: '/Home/Terms'
+        })
         .when('/Account/Login/:lastAction?', {
             templateUrl: '/Account/Login',
             controller: 'loginController'

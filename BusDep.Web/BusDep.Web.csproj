@@ -233,6 +233,7 @@
     <Content Include="Content\img\Allwiners\logo_gold.png" />
     <Content Include="Content\img\Allwiners\logo_header.png" />
     <Content Include="Content\img\Allwiners\logo_short.png" />
+    <Content Include="Content\img\terms_test_image.jpg" />
     <Content Include="Content\img\default_1.jpg" />
     <Content Include="Content\img\misc\Pruebas0.jpg" />
     <Content Include="Content\img\misc\Pruebas2.jpg" />
@@ -1540,6 +1541,8 @@
     <Content Include="Views\Shared\_DatosPersonales.cshtml" />
     <Content Include="Views\Profile\PrivateProfileEntrenador.cshtml" />
     <Content Include="Views\Profile\SportDataProfile.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
