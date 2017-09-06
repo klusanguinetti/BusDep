@@ -108,10 +108,12 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
 
         if ($scope.antecedenteForm.$valid) {
 
-            $scope.antecedente.ClubDescripcion = $filter('filter')($scope.clubes, {
-                Code: $scope.antecedente.ClubLogo
-            })[0].Nombre;
+            if ($scope.antecedente.ClubLogo != 'oo') {
 
+                $scope.antecedente.ClubDescripcion = $filter('filter')($scope.clubes, {
+                    Code: $scope.antecedente.ClubLogo
+                })[0].Nombre;
+            }
             return sportsHistoryService.saveAntecedente($scope.antecedente).then(function (response) {
 
                 $location.path('/History/SportsHistory/List').search({ action: action, result: 'success' });

@@ -12,6 +12,18 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.modulo = 'Mis Datos';
     $scope.moduloicono = '';
 
+    $scope.tipoDocumento = [
+        {
+            "Nombre": "Documento Nacional de Identidad"
+        },
+        {
+            "Nombre": "Pasaporte"
+        },
+        {
+            "Nombre": "Cédula"
+        }
+    ];
+
     angular.element(function () {
         commonService.getMenu().then(function (response) {
             $rootScope.user.menu = response.data;

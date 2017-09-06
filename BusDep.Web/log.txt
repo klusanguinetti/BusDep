@@ -1,0 +1,203 @@
+ERROR 9 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_3e820ebb762040f286c56d4b8970bd3d
+Metodo: TopJugador
+Parametros: 
+
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "BusDep" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   en NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_3e820ebb762040f286c56d4b8970bd3d.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ClientConnectionId:2f872d93-8038-459e-954e-242d699be150
+Error Number:4060,State:1,Class:11
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_3e820ebb762040f286c56d4b8970bd3d
+Metodo: TopJugador
+Parametros: 
+
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "BusDep" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   en NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_3e820ebb762040f286c56d4b8970bd3d.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ClientConnectionId:2f872d93-8038-459e-954e-242d699be150
+Error Number:4060,State:1,Class:11
+ERROR 10 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_3e820ebb762040f286c56d4b8970bd3d
+Metodo: TopJugador
+Parametros: 
+
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "BusDep" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   en NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 115
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 151
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 162
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 200
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 235
+   en DynamicModule.ns.Wrapped_JugadorDA_3e820ebb762040f286c56d4b8970bd3d.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ClientConnectionId:2f872d93-8038-459e-954e-242d699be150
+Error Number:4060,State:1,Class:11
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_67fab56eee4f4a8f897f56355dfe8bc9
+Metodo: TopJugador
+Parametros: 
+
+System.NotSupportedException: Boolean IsNullOrWhiteSpace(System.String)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitUnaryExpression(UnaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 245
+   en DynamicModule.ns.Wrapped_JugadorDA_67fab56eee4f4a8f897f56355dfe8bc9.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 6 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_67fab56eee4f4a8f897f56355dfe8bc9
+Metodo: TopJugador
+Parametros: 
+
+System.NotSupportedException: Boolean IsNullOrWhiteSpace(System.String)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitUnaryExpression(UnaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 245
+   en DynamicModule.ns.Wrapped_JugadorDA_67fab56eee4f4a8f897f56355dfe8bc9.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 8 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_67fab56eee4f4a8f897f56355dfe8bc9
+Metodo: TopJugador
+Parametros: 
+
+System.NotSupportedException: Boolean IsNullOrWhiteSpace(System.String)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitMethodCallExpression(MethodCallExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitUnaryExpression(UnaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitBinaryExpression(BinaryExpression expression)
+   en NHibernate.Linq.Visitors.HqlGeneratorExpressionTreeVisitor.VisitExpression(Expression expression)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.VisitWhereClause(WhereClause whereClause, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.Clauses.WhereClause.Accept(IQueryModelVisitor visitor, QueryModel queryModel, Int32 index)
+   en Remotion.Linq.QueryModelVisitorBase.VisitBodyClauses(ObservableCollection`1 bodyClauses, QueryModel queryModel)
+   en Remotion.Linq.QueryModelVisitorBase.VisitQueryModel(QueryModel queryModel)
+   en NHibernate.Linq.Visitors.QueryModelVisitor.GenerateHqlQuery(QueryModel queryModel, VisitorParameters parameters, Boolean root)
+   en NHibernate.Linq.NhLinqExpression.Translate(ISessionFactoryImplementor sessionFactory, Boolean filter)
+   en NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory.CreateQueryTranslators(IQueryExpression queryExpression, String collectionRole, Boolean shallow, IDictionary`2 filters, ISessionFactoryImplementor factory)
+   en NHibernate.Engine.Query.QueryPlanCache.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow, IDictionary`2 enabledFilters)
+   en NHibernate.Impl.AbstractSessionImpl.GetHQLQueryPlan(IQueryExpression queryExpression, Boolean shallow)
+   en NHibernate.Impl.AbstractSessionImpl.CreateQuery(IQueryExpression queryExpression)
+   en NHibernate.Linq.DefaultQueryProvider.PrepareQuery(Expression expression, IQuery& query, NhLinqExpression& nhQuery)
+   en NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
+   en NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
+   en Remotion.Linq.QueryableBase`1.GetEnumerator()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 245
+   en DynamicModule.ns.Wrapped_JugadorDA_67fab56eee4f4a8f897f56355dfe8bc9.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 10 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_UsuarioJugadorBusiness_15d9494627204b3e94396fad6b84177f
+Metodo: ActualizarDatosJugador
+Parametros: [{"Id":0,"Nombre":null,"Apellido":null,"FotoRostro":null,"FotoCuertoEntero":null,"PuestoId":null,"PuestoCodigo":null,"PuestoDescripcion":null,"PuestoAltId":null,"PuestoAltCodigo":null,"PuestoAltDescripcion":null,"UsuarioId":0,"Nacionalidad":null,"Nacionalidad1":null,"NacionalidadIso":null,"NacionalidadIso1":null,"ClubActual":null,"ClubCode":null,"Perfil":null,"Pie":null,"Fichaje":null,"Informacion":null,"Pais":null,"PaisIso":null,"Altura":null,"Peso":null,"FechaNacimiento":null,"Edad":null}]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.Jugador#0]
+   en NHibernate.Impl.SessionFactoryImpl.DefaultEntityNotFoundDelegate.HandleEntityNotFound(String entityName, Object id)
+   en NHibernate.Proxy.AbstractLazyInitializer.CheckTargetState()
+   en NHibernate.Proxy.AbstractLazyInitializer.Initialize()
+   en NHibernate.Proxy.DefaultLazyInitializer.Intercept(InvocationInfo info)
+   en JugadorProxy.set_Puesto(Puesto )
+   en BusDep.Business.UsuarioJugadorBusiness.ActualizarDatosJugador(JugadorViewModel jugadorView) en C:\Proyectos\GitHub\BusDep\BusDep.Business\UsuarioJugadorBusiness.cs:línea 110
+   en DynamicModule.ns.Wrapped_UsuarioJugadorBusiness_15d9494627204b3e94396fad6b84177f.<ActualizarDatosJugador_DelegateImplementation>__6(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

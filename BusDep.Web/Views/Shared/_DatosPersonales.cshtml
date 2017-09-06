@@ -11,13 +11,42 @@
         <input type="text" class="form-control" placeholder="¿Como te apellidas?" ng-model="datosPersonales.Apellido">
     </div>
 </div>
-
 <div class="form-group">
     <label class="col-sm-3 control-label">Email</label>
     <div class="col-sm-9">
         <input type="email" class="form-control" placeholder="¿Cual es tu correo electrónico?" disabled ng-model="Mail">
     </div>
 </div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Tipo Documento</label>
+    <div class="col-sm-9">
+        @*TODO: Poner combo*@
+        <div class="" tabindex="0">
+            <select ng-model="datosPersonales.TipoDocumento" class="form-control"
+                    name="category" id="search-category" tabindex="-1"
+                    ng-options="item.Nombre as item.Nombre for item in tipoDocumento">
+
+                <option value="" class="selecter-placeholder" selected="">Seleccione un Tipo Documento</option>
+
+                <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                    - Tipo Documento disponibles -
+                </option>
+
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Número Documento</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" placeholder="Ingresa tu número de documento" ng-model="datosPersonales.NumeroDocumento">
+    </div>
+</div>
+
+
+
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Fecha de nacimiento</label>

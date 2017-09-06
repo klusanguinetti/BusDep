@@ -17,6 +17,8 @@
         {
             if (user.Id.Equals(0) && !string.IsNullOrWhiteSpace(user.Password))
                 user.Password = Common.Encrypt.EncryptToBase64String(user.Password);
+            if (string.IsNullOrWhiteSpace(user.Estado))
+                user.Estado = "A";
             base.Save(user);
         }
         public virtual Usuario LoginUser(string mail, string password)

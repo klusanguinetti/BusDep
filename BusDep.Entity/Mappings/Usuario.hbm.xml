@@ -6,6 +6,7 @@
     </id>
     <property name="Mail" column="Mail" type="System.String" length="400" />
     <property name="Password" column="Password" type="System.String" length="100" />
+    <property name="Estado" column="Estado" type="System.String" length="2" />
     <property name="UltimoLogin" column="UltimoLogin" type="System.DateTime"  />
     <many-to-one name="TipoUsuario" column="TipoUsuarioId" cascade="none" class="BusDep.Entity.TipoUsuario, BusDep.Entity" />
     <many-to-one name="Deporte" column="DeporteId" cascade="none" class="BusDep.Entity.Deporte, BusDep.Entity" />

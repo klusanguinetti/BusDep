@@ -126,7 +126,8 @@ namespace BusDep.Business
         {
             if (userView.JugadorId.HasValue)
             {
-                return DependencyFactory.Resolve<IJugadorDA>().ObtenerJugador(userView.JugadorId.Value);
+                var user = DependencyFactory.Resolve<IJugadorDA>().ObtenerJugador(userView.JugadorId.Value);
+                return user;
             }
             throw new ExceptionBusiness(1, "No existe Jugador");
         }

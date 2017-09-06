@@ -17,6 +17,19 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.sosVisible = true;
     $scope.fechaNacimiento = null;
 
+    $scope.tipoDocumento = [
+        {
+            "Nombre": "Documento Nacional de Identidad"
+        },
+        {
+            "Nombre": "Pasaporte"
+        },
+        {
+            "Nombre": "Cédula"
+        }
+    ];
+
+
     $scope.loginData = {
         Id: "",
         Mail: "",

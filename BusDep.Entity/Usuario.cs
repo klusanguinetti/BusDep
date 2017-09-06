@@ -25,7 +25,9 @@ namespace BusDep.Entity
         public virtual Entrenador Entrenador { get; set; }
         public virtual Club Club { get; set; }
         public virtual DateTime? UltimoLogin { get; set; }
-        
+
+        public virtual string Estado { get; set; }
+
         public virtual IList<UsuarioAplicativo> AplicacionToken { get; set; }
         #endregion 
     }

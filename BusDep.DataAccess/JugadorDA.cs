@@ -42,6 +42,8 @@ namespace BusDep.DataAccess
             {
                 return (from item in Session.Query<Usuario>()
                         where item.Jugador != null && item.Jugador.Id.Equals(jugadorId.Value)
+                        //&& item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                        && item.Estado == "A"
                         select new JugadorViewModel
                         {
                             Apellido = item.DatosPersona.Apellido,
@@ -79,13 +81,15 @@ namespace BusDep.DataAccess
 
                 return (from item in Session.Query<Usuario>()
                         where item.Jugador != null
+                        && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                        && item.Estado == "A"
                             && ((edadDesde.HasValue) ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
                             && ((edadHasta.HasValue) ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
                             && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Jugador.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Jugador.Puesto.Descripcion)) : 1.Equals(1))
                             && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Jugador.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Jugador.Fichaje)) : 1.Equals(1))
                             && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Jugador.Perfil.Equals(perfil[0]) : perfil.Contains(item.Jugador.Perfil)) : 1.Equals(1))
                             && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Jugador.Pie.Equals(pie[0]) : pie.Contains(item.Jugador.Pie)) : 1.Equals(1))
-                            && ((!string.IsNullOrWhiteSpace(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
+                            && ((!string.IsNullOrEmpty(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
                                                                       item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                                                                     : 1.Equals(1))
                         select new JugadorViewModel
@@ -123,13 +127,15 @@ namespace BusDep.DataAccess
             {
                 return (from item in Session.Query<Usuario>()
                         where item.Jugador != null
+                        && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                        && item.Estado == "A"
                             && ((edadDesde.HasValue) ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
                             && ((edadHasta.HasValue) ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
                             && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Jugador.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Jugador.Puesto.Descripcion)) : 1.Equals(1))
                             && ((fichaje != null && fichaje.Length > 0) ? (fichaje.Length.Equals(1) ? item.Jugador.Fichaje.Equals(fichaje[0]) : fichaje.Contains(item.Jugador.Fichaje)) : 1.Equals(1))
                             && ((perfil != null && perfil.Length > 0) ? (perfil.Length.Equals(1) ? item.Jugador.Perfil.Equals(perfil[0]) : perfil.Contains(item.Jugador.Perfil)) : 1.Equals(1))
                             && ((pie != null && pie.Length > 0) ? (pie.Length.Equals(1) ? item.Jugador.Pie.Equals(pie[0]) : pie.Contains(item.Jugador.Pie)) : 1.Equals(1))
-                            && ((!string.IsNullOrWhiteSpace(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
+                            && ((!string.IsNullOrEmpty(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
                                                                       item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                                                                     : 1.Equals(1))
                         select new JugadorViewModel
@@ -172,8 +178,10 @@ namespace BusDep.DataAccess
         {
 
             return (from item in Session.Query<Usuario>()
-                    where item.Jugador != null &&
-                        ((edadDesde.HasValue)
+                    where item.Jugador != null
+                    && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                    && item.Estado == "A"
+                    && ((edadDesde.HasValue)
                             ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value)
                             : 1.Equals(1))
                         &&
@@ -185,7 +193,7 @@ namespace BusDep.DataAccess
                         && ((perfil != null && perfil.Length > 0) ? perfil.Contains(item.Jugador.Perfil) : 1.Equals(1))
                         && ((pie != null && pie.Length > 0) ? pie.Contains(item.Jugador.Pie) : 1.Equals(1))
                         &&
-                        ((!string.IsNullOrWhiteSpace(nombre))
+                        ((!string.IsNullOrEmpty(nombre))
                             ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
                               item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                             : 1.Equals(1))
@@ -201,6 +209,8 @@ namespace BusDep.DataAccess
         {
             return (from item in Session.Query<Usuario>()
                     where item.Jugador.Id.Equals(jugadorId)
+                    //&& item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                    && item.Estado == "A"
                     select new PerfilJugadorShortViewModel
                     {
                         Id = item.Jugador.Id,
@@ -234,6 +244,8 @@ namespace BusDep.DataAccess
 
             return (from item in Session.Query<Usuario>()
                     where item.Jugador != null
+                    && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                    && item.Estado == "A"
                     orderby item.Jugador.Id descending
                     select new JugadorViewModel
                     {
@@ -355,6 +367,8 @@ namespace BusDep.DataAccess
 
             return (from item in Session.Query<Usuario>()
                     where item.Jugador != null && item.Jugador.Id.Equals(jugadorId)
+                    && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
+                    && item.Estado == "A"
                     select new PerfilJugadorViewModel
                     {
                         PerfilId = item.Jugador.Id,
