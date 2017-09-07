@@ -90,6 +90,15 @@ namespace BusDep.Web.Controllers
             {
                 IBusquedaBusiness business = DependencyFactory.Resolve<IBusquedaBusiness>();
                 var result = business.TopJugador();
+                result.ForEach(o=> o.Link =
+#if DEBUG
+            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+#else
+            "http://allwiners.azurewebsites.net/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+            
+#endif
+            );
+
                 Response.StatusCode = 200;
                 return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

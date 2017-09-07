@@ -1,6 +1,6 @@
-﻿app.controller('publicProfileController', ['$scope', '$routeParams', 'commonService', 'publicProfileService', '$rootScope', 'toastr', '$location',
-    function ($scope, $routeParams, commonService, publicProfileService, toastr, $location) {
-        
+﻿app.controller('profilePublicController', ['$scope', '$routeParams', 'commonService', 'publicProfilePublicService', '$rootScope', 'toastr', '$location',
+    function ($scope, $routeParams, commonService, publicProfilePublicService, toastr, $location) {
+
         $scope.data = [];
 
         $scope.options = {
@@ -57,17 +57,9 @@
         $scope.Antecedentes = [];
 
         angular.element(function () {
-            commonService.getMenu().then(function (response) {
-                $rootScope.user.menu = response.data;
-
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
-
-            var idJugador = $routeParams.id;
-
-
-            $scope.myPromise = publicProfileService.getPublicProfile(idJugador).then(function (response) {
+            
+            var idJugador = $routeParams.jugadorId;
+            $scope.myPromise = publicProfilePublicService.getPublicProfile(idJugador).then(function (response) {
                 
                 $scope.datosPerfil = response.data;
 
@@ -79,7 +71,7 @@
 
                 }
 
-                publicProfileService.getAutoEvaluacion(idJugador).then(function (response) {
+                publicProfilePublicService.getAutoEvaluacion(idJugador).then(function (response) {
                     $scope.AutoEvaluacion = response.data;
                     angular.forEach($scope.AutoEvaluacion.Cabeceras, function (value, key) {
                         if (value.Descripcion == 'Técnica') {
@@ -105,7 +97,7 @@
                 }).catch(function (err) {
                     toastr.error('¡Ha ocurrido un error!', 'Error');
                 });
-                publicProfileService.getAntecedentes(idJugador).then(function (response) {
+                publicProfilePublicService.getAntecedentes(idJugador).then(function (response) {
                     $scope.Antecedentes = response.data;
                 }).catch(function (err) {
                     toastr.error('¡Ha ocurrido un error!', 'Error');
@@ -124,8 +116,6 @@
             
 
         });
-
-       
 
         $scope.options = function (evaluacion) {
 

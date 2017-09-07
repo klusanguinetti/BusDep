@@ -1,6 +1,6 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope', '$location', 'commonService', 'authService', '$rootScope',
-function ($scope, $location, commonService, authService, $rootScope) {
+app.controller('indexController', ['$scope','$window', '$location', 'commonService', 'authService', '$rootScope',
+function ($scope, $window, $location, commonService, authService, $rootScope) {
 
     $scope.myInterval = 3000;
 
@@ -104,6 +104,8 @@ function ($scope, $location, commonService, authService, $rootScope) {
 
     }
 
-
+    $scope.abrirlink = (function (item) {
+         $window.open(item.Link, '_blank');
+        });
 
 }]);

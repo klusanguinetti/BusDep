@@ -31,7 +31,14 @@ namespace BusDep.Web.Controllers
             try
             {
                 var userView = busqueda.BuscarJugador(buscar);
-
+                userView.ForEach(o => o.Link =
+#if DEBUG
+            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
+#else
+            "http://allwiners.azurewebsites.net/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+            
+#endif
+            );
                 Response.StatusCode = 200;
                 return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
@@ -114,7 +121,14 @@ namespace BusDep.Web.Controllers
             try
             {
                 var userView = busqueda.BuscarJugador(searchValues);
-
+                userView.ForEach(o => o.Link =
+#if DEBUG
+            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
+#else
+            "http://allwiners.azurewebsites.net/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+            
+#endif
+            );
                 Response.StatusCode = 200;
                 return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 

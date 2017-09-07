@@ -74,5 +74,8 @@ namespace BusDep.ViewModel
             }
             set { }
         }
+
+        [DataMember]
+        public string Link { get; set; }
     }
 }

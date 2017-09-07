@@ -1,5 +1,5 @@
-﻿app.controller('searchController', ['$scope', '$routeParams', 'searchService', 'commonService', 'privateProfileService', '$http', 'toastr', '$rootScope', '$location',
-    function ($scope, $routeParams, searchService, commonService, privateProfileService, $http, toastr, $rootScope, $location) {
+﻿app.controller('searchController', ['$scope', '$window', '$routeParams', 'searchService', 'commonService', 'privateProfileService', '$http', 'toastr', '$rootScope', '$location',
+    function ($scope, $window, $routeParams, searchService, commonService, privateProfileService, $http, toastr, $rootScope, $location) {
 
         /*Declaración de variables*/
 
@@ -233,5 +233,9 @@
             }
 
         });
+        $scope.abrirlink = (function (item) {
+            $window.open(item.Link, '_blank');
+        });
 
+       
     }]);

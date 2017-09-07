@@ -22,6 +22,8 @@
         <span class="info-row"> <span class="item-location"> {{item.PuestoDescripcion}}, Pie: {{item.Pie}} </span> </span>
 
         <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{item.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{item.Edad}} años / {{item.Altura}} metros </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{item.Perfil}}</span></span>
+        
+        
 
         <div class="prop-info-box">
 
@@ -51,8 +53,12 @@
 
     <div style="clear: both"></div>
 
-    <a class="btn btn-success btn-sm bold" href="#!/Profile/player/{{item.Id}}">
+    <a class="btn btn-success btn-sm bold " href="#!/Profile/player/{{item.Id}}">
         Ver perfil
     </a>
+    <div style="clear: both; margin-bottom: 5px;"></div>
+    <button class="btn btn-success btn-sm bold " ng-click='abrirlink(item)' >
+        Compartir Link
+    </button>
 
 </div>

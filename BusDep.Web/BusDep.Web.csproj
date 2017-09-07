@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ProfilePublicController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -698,6 +699,8 @@
     <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
     <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
     <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
+    <Content Include="Scripts\app\components\publicProfile\publicProfilePublicController.js" />
+    <Content Include="Scripts\app\components\publicProfile\publicProfilePublicService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileService.js" />
     <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
     <Content Include="Scripts\app\components\search\searchController.js" />
@@ -1543,12 +1546,13 @@
     <Content Include="Views\Profile\SportDataProfile.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Shared\_Profile_Jugado.cshtml" />
+    <Content Include="Views\ProfilePublic\JugadorPublic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\jugadores-fotos\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

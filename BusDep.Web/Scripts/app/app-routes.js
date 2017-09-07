@@ -33,6 +33,9 @@
                 }
             }
         })
+        .when('/ProfilePublic/JugadorPublic/:jugadorId?', {
+            templateUrl: '/ProfilePublic/JugadorPublic'
+        })
         .when('/Search/:b?/:message?', {
             templateUrl: '/Search/Search',
             controller: 'searchController',

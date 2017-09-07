@@ -14,9 +14,7 @@ namespace BusDep.Web.Controllers
     [Authorize]
     public class ProfileController : BaseController
     {
-
-
-
+        
         #region Get functions 
 
         [AllowAnonymous]
