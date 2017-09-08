@@ -55,6 +55,7 @@
     <Compile Include="PerfilJugadorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuestoViewModel.cs" />
+    <Compile Include="RecomendacionViewModel.cs" />
     <Compile Include="RecuperarUsuarioViewModel.cs" />
     <Compile Include="UsuarioCambioPasswordViewModel.cs" />
     <Compile Include="UsuarioViewModel.cs" />

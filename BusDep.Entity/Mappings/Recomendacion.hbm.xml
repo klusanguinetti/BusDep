@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="BusDep.Entity.Recomendacion, BusDep.Entity" table="Recomendacion" lazy="true">
+    <id name="Id" column="RecomendacionId" type="System.Int64" unsaved-value="0" >
+      <generator class="native" />
+    </id>
+    <property name="Fecha" column="Fecha" type="System.DateTime"  />
+    <property name="Texto" column="Texto" type="System.String" length="4000" />
+    <property name="Estado" column="Estado" type="System.String" length="2" />
+    <many-to-one name="Emisor" column="EmisorId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
+    <many-to-one name="Receptor" column="ReceptorId" cascade="none" class="BusDep.Entity.Usuario, BusDep.Entity" />
+  </class>
+</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->

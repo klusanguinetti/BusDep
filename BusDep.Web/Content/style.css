@@ -5144,3 +5144,20 @@ form .progress {
 .page-bottom-info {
     background-color: #E85144 !important;
 }
+.modal-header {
+    padding-top: 2px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+}
+.modal-body {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.modal-footer {
+    margin-top: 2px; 
+    padding: 5px 10px 10px;
+}

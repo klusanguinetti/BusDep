@@ -73,5 +73,18 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
 
     };
+    this.saveRecomendarItem = function (recomenda) {
 
+        var deferred = $q.defer();
+
+        $http.post(serviceBase + 'SaveRecomendar', recomenda).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+    };
 }]);

@@ -137,6 +137,19 @@ namespace BusDep.Business
             var antecedente = DependencyFactory.Resolve<IBaseDA<Antecedente>>().GetById(antecedenteViewModel.Id);
             DependencyFactory.Resolve<IBaseDA<Antecedente>>().Delete(antecedente);
         }
+
+        public virtual void GuardarRecomendar(RecomendacionViewModel recomendacion)
+        {
+            var newRecomendacion = new Recomendacion
+            {
+                Texto = recomendacion.Texto,
+                Receptor = DependencyFactory.Resolve<IBaseDA<Usuario>>().GetById(recomendacion.ReceptorId),
+                Emisor = DependencyFactory.Resolve<IBaseDA<Usuario>>().GetById(recomendacion.EmisorId),
+                Estado = "A",
+                Fecha = DateTime.Now
+            };
+            DependencyFactory.Resolve<IBaseDA<Recomendacion>>().Save(newRecomendacion);
+        }
         #endregion
 
         #region metodos privados

@@ -28,6 +28,13 @@
         $scope.Busqueda = null;
 
         $scope.searchResultCount = null;
+        $scope.itemSelect = {};
+
+        $scope.recomenda = {
+            Texto: "",
+            EmisorId: 0,
+            ReceptorId: 0
+        };
 
         /*Declaración de funciones*/
 
@@ -236,6 +243,20 @@
         $scope.abrirlink = (function (item) {
             $window.open(item.Link, '_blank');
         });
+        $scope.recomendarItem = (function (item) {
+            $scope.recomenda.Texto = "";
+            $scope.recomenda.ReceptorId = item.UsuarioId;
+            $scope.itemSelect = item;
+        }); 
+        $scope.saveRecomendarItem = (function () {
+            searchService.saveRecomendarItem($scope.recomenda).then(function () {
 
-       
+                toastr.success('¡Gracias por recomendar a ' +  $scope.itemSelect.Nombre + ', ' + $scope.itemSelect.Apellido, '¡Perfecto!');
+
+            }).catch(function (err) {
+
+                toastr.error('¡Ha ocurrido un error en la busqueda del perfil! ' + err, 'Error');
+
+            });
+        });
     }]);

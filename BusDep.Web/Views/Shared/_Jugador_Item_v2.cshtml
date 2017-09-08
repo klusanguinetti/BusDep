@@ -1,27 +1,40 @@
 ﻿
 <div class="col-sm-3  photobox">
+
     <div class="add-image">
-        <a href="#!/Profile/player/{{item.Id}}">
-            <img class="thumbnail no-margin" src="~/Content/img/user.jpg" alt="img">
+        <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}">
+            <img class="thumbnail no-margin img-perfil-item" ngf-thumbnail="item.FotoRostro || picFile" alt="img">
         </a>
     </div>
+
 </div>
+
 <div class="col-sm-6 add-desc-box">
+
     <div class="add-details">
+
         <h5 class="add-title">
-            <a href="#!/Profile/player/{{item.Id}}">
+            <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}">
                 {{item.Nombre}} {{item.Apellido}}
             </a>
         </h5>
+
         <span class="info-row"> <span class="item-location"> {{item.PuestoDescripcion}}, Pie: {{item.Pie}} </span> </span>
 
         <span class="info-row"> <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{item.Pais}} </span> <span class="date"><i class="icon-clock"> </i> {{item.Edad}} años / {{item.Altura}} metros </span> <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{item.Perfil}}</span></span>
 
+
+
         <div class="prop-info-box">
+
             <div class="prop-info">
                 <div class="clearfix prop-info-block">
-                    <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
+                    <span class="info-row" style="margin-bottom: 5px;">Nacionalidad</span>
                     <i class="flagicon flag-{{item.NacionalidadIso}} icon-th-thumb" title={{item.Nacionalidad}}></i>
+                </div>
+                <div class="clearfix prop-info-block" ng-show="{{item.NacionalidadIso1!=null}}">
+                    <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
+                    <i class="flagicon flag-{{item.NacionalidadIso1}} icon-th-thumb" title={{item.Nacionalidad1}}></i>
                 </div>
                 <div class="clearfix prop-info-block middle">
                     <span class="info-row">Club actual</span>
@@ -29,18 +42,47 @@
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>
-<div class="col-sm-3 text-right  price-box">
-    @*<a class="btn btn-border-thin  btn-save" title="Agregar a favoritos">
-        <i class="icon icon-heart"></i>
-    </a>
-    <a class="btn btn-border-thin  btn-share ">
-        <i class="icon icon-export" title="Compartir perfil"></i>
-    </a>*@
-    <h4 class="" style="margin-top:10px;"> <strong> Fichaje: {{item.Fichaje}}</strong></h4>
+
+<div class="col-sm-3 text-right  price-box" ng-show="{{user.authenticated}}">
+
+    <h4 class="" style="margin-top: 10px;"> <strong> Fichaje: {{item.Fichaje}}</strong></h4>
+
     <div style="clear: both"></div>
-    <a class="btn btn-success btn-sm bold" href="#!/Profile/player/{{item.Id}}">
+
+    <a class="btn btn-success btn-sm bold " href="#!/Profile/player/{{item.Id}}">
         Ver perfil
     </a>
+    <div style="clear: both; margin-bottom: 5px;"></div>
+    <button class="btn btn-success btn-sm bold " ng-click='abrirlink(item)'>
+        Compartir Link
+    </button>
+    <div style="clear: both; margin-bottom: 5px;"></div>
+    <div class="col-sm-12">
+        <a data-toggle="modal" data-target="#myModal" open-dialog title="Recomendar" ng-click="recomendarItem(item)"><i class="fa fa-thumbs-o-up fa-2x"></i></a>
+    </div>
 </div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <label><i class="fa fa-thumbs-o-up"></i> &nbsp;&nbsp; Gracias por tu recomendación</label>
+            </div>
+            <div class="modal-body">
+
+                <textarea class="form-control elastic" rows="5" data-ng-model="recomenda.Texto" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;"></textarea>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-success" ng-click="saveRecomendarItem()" data-dismiss="modal"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</button>
+                <button class="btn btn-default btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -215,7 +215,14 @@
               {
                     new Interceptor<VirtualMethodInterceptor>(),
               }
-              ); 
+              );
+            DependencyFactory.RegisterType<IBaseDA<Recomendacion>, BaseDA<Recomendacion>>(new PerThreadLifetimeManager(),
+              new InjectionMember[]
+              {
+                    new Interceptor<VirtualMethodInterceptor>(),
+              }
+              );
+            
             #endregion
             #endregion
 

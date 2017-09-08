@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace BusDep.Web.Controllers
 {
     [Authorize]
-    public class SearchController : Controller
+    public class SearchController : BaseController
     {
         #region Get functions 
 
@@ -23,7 +23,35 @@ namespace BusDep.Web.Controllers
         #endregion
 
         #region Post functions 
+
+        public JsonResult SaveRecomendar(RecomendacionViewModel recomendacion)
+        {
+            
+            var save = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+            try
+            {
+                
+               // var userView = busqueda.BuscarJugadorCount(buscar);
+                recomendacion.EmisorId = GetAuthData().Id;
+                save.GuardarRecomendar(recomendacion);
+                Response.StatusCode = 200;
+                return new JsonResult { Data = "Ok", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 422; //Unprocessable entity
+                return new JsonResult { Data = ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
         
+
         public JsonResult SearchPost(string searchValues, int pagina, int cantidad)
         {
             BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues, Pagina = pagina, Cantidad = cantidad};

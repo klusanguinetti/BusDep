@@ -14,5 +14,7 @@ namespace BusDep.IBusiness
         AntecedenteViewModel NuevoAntecedenteViewModel(UsuarioViewModel userView);
         AntecedenteViewModel GuardarAntecedenteViewModel(AntecedenteViewModel antecedente);
         void BorrarAntecedentes(AntecedenteViewModel antecedenteViewModel);
+
+        void GuardarRecomendar(RecomendacionViewModel recomendacion);
     }
 }

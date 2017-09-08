@@ -22,7 +22,7 @@
         public long UsuarioId { get; set; }
         [DataMember]
         public string Video { get; set; }
-        
+
         [DataMember]
         public int? Goles { get; set; }
         [DataMember]
