@@ -94,7 +94,7 @@ namespace BusDep.Web.Controllers
 #if DEBUG
             "http://localhost:52771/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
 #else
-            "http://allwiners.azurewebsites.net/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
             
 #endif
             );

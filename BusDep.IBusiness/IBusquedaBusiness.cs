@@ -20,6 +20,7 @@ namespace BusDep.IBusiness
 
         List<JugadorViewModel> TopJugador();
 
-        
+        List<RecomendacionViewModel> GetRecomendaciones(int jugadorId);
+
     }
 }

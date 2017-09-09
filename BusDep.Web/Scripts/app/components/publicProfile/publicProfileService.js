@@ -38,6 +38,25 @@ app.service('publicProfileService', ['$http', '$q', function ($http, $q) {
 
     };
 
+    this.getRecomendaciones = function (jugadorId) {
+
+        var deferred = $q.defer();
+
+        $http.get(serviceBase + 'GetRecomendaciones?jugadorId=' + jugadorId).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+
+            deferred.reject(err);
+
+        });
+
+        return deferred.promise;
+
+    };
+
+
     this.getAntecedentes = function (jugadorId) {
 
         var deferred = $q.defer();

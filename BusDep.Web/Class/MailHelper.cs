@@ -14,7 +14,7 @@ namespace BusDep.Web.Class
 #if DEBUG
             string urlHost = "http://localhost:52771/#!/";
 #else
-            string urlHost = "http://allwiners.azurewebsites.net/#!/";
+            string urlHost = "http://allwiners.com/#!/";
 #endif
             string urlMethod = "Account/PasswordRecoveryChange/" + datosEmail.Codigo;
 

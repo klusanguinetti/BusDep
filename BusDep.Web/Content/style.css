@@ -5161,3 +5161,25 @@ form .progress {
     margin-top: 2px; 
     padding: 5px 10px 10px;
 }
+
+.bs-callout-danger {
+    display: block;
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 3px solid #db5565;
+    background-color: #fae8ea;
+}
+.bs-callout-success {
+    display: block;
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 3px solid #51bf87;
+    background-color: #dff3e9;
+}
+.bs-callout-info {
+    display: block;
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 3px solid #29b6d8;
+    background-color: #ebf8fb;
+}

@@ -261,7 +261,33 @@ namespace BusDep.Web.Controllers
             }
 
         }
-        
+
+        [HttpGet]
+        public JsonResult GetRecomendaciones([System.Web.Http.FromUri] int jugadorId)
+        {
+
+            var business = DependencyFactory.Resolve<IBusquedaBusiness>();
+
+            try
+            {
+                var user = business.GetRecomendaciones(jugadorId);
+
+                Response.StatusCode = 200;
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch (ExceptionBusiness ex)
+            {
+                Response.StatusCode = 404;
+                return new JsonResult { Data = "Perfil no encontrado: " + ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult { Data = "Error de servidor: " + ex.Message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
 
         [HttpGet]
         public JsonResult GetFichajes()

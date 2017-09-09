@@ -55,6 +55,7 @@
         $scope.graficaEntorno = {};
         $scope.AutoEvaluacion = {};
         $scope.Antecedentes = [];
+        $scope.Recomendaciones=[];
 
         angular.element(function () {
             
@@ -99,6 +100,12 @@
                 });
                 publicProfilePublicService.getAntecedentes(idJugador).then(function (response) {
                     $scope.Antecedentes = response.data;
+                }).catch(function (err) {
+                    toastr.error('¡Ha ocurrido un error!', 'Error');
+                });
+
+                publicProfilePublicService.getRecomendaciones(idJugador).then(function (response) {
+                    $scope.Recomendaciones = response.data;
                 }).catch(function (err) {
                     toastr.error('¡Ha ocurrido un error!', 'Error');
                 });

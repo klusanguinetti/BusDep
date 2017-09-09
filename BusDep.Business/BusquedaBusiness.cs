@@ -54,5 +54,10 @@
         {
             return DependencyFactory.Resolve<IJugadorDA>().GetAntecedentes(jugadorId);
         }
+
+        public virtual List<RecomendacionViewModel> GetRecomendaciones(int jugadorId)
+        {
+            return DependencyFactory.Resolve<IJugadorDA>().GetRecomendaciones(jugadorId);
+        }
     }
 }

@@ -123,7 +123,7 @@
             });
 
             searchService.searchPlayerCount($scope.searchProfile).then(function (response) {
-  
+
                 $scope.searchResultCount = response.data;
 
             }).catch(function (err) {
@@ -247,16 +247,15 @@
             $scope.recomenda.Texto = "";
             $scope.recomenda.ReceptorId = item.UsuarioId;
             $scope.itemSelect = item;
-        }); 
+        });
         $scope.saveRecomendarItem = (function () {
-            searchService.saveRecomendarItem($scope.recomenda).then(function () {
+            if ($scope.recomenda.Texto != '') {
+                searchService.saveRecomendarItem($scope.recomenda).then(function () {
+                    toastr.success('¡Gracias por recomendar a ' + $scope.itemSelect.Nombre + ', ' + $scope.itemSelect.Apellido, '¡Perfecto!');
 
-                toastr.success('¡Gracias por recomendar a ' +  $scope.itemSelect.Nombre + ', ' + $scope.itemSelect.Apellido, '¡Perfecto!');
-
-            }).catch(function (err) {
-
-                toastr.error('¡Ha ocurrido un error en la busqueda del perfil! ' + err, 'Error');
-
-            });
+                }).catch(function (err) {
+                    toastr.error('¡Ha ocurrido un error en la busqueda del perfil! ' + err, 'Error');
+                });
+            }
         });
     }]);

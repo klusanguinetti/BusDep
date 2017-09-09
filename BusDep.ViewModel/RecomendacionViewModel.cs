@@ -22,6 +22,9 @@ namespace BusDep.ViewModel
         public long EmisorId { get; set; }
         [DataMember]
         public long ReceptorId { get; set; }
-
+        [DataMember]
+        public string FotoRostro { get; set; }
+        [DataMember]
+        public string TipoUsuario { get; set; }
     }
 }

@@ -398,5 +398,23 @@ namespace BusDep.DataAccess
                     }).FirstOrDefault();
         }
 
+        public List<RecomendacionViewModel> GetRecomendaciones(int jugadorId)
+        {
+
+            return (from item in Session.Query<Recomendacion>()
+                    where item.Receptor.Jugador != null
+                    && item.Receptor.Jugador.Id == jugadorId
+                    orderby item.Fecha descending
+                    select new RecomendacionViewModel
+                    {
+                        FotoRostro = item.Emisor.Jugador!=null? item.Emisor.Jugador.FotoRostro: null,
+                        Id = item.Id,
+                        Emisor = string.Format("{0} {1}", item.Emisor.DatosPersona.Nombre, item.Emisor.DatosPersona.Apellido),
+                        Texto =  item.Texto,
+                        TipoUsuario = item.Emisor.TipoUsuario.Descripcion
+
+                    }).Take(10).ToList();
+        }
+
     }
 }
