@@ -88,30 +88,32 @@
             //string configtxt = System.IO.Path.Combine(configDir, fileConfig);
             //config.Configure(configtxt);
             config.Configure();
+
             string stringconexion = config.GetProperty("connection.connection_string");
-            string[] parseString = stringconexion.Split(';');
             if (System.Environment.MachineName.ToUpper().Equals("NBI051856") )
             {
-                stringconexion = @"Server=NBI051856\SQLEXPRESS2012;Initial Catalog=BusDep;User Id=sa;Password=Server2012;";
-                //stringconexion = @"Server=tcp:allprogram.database.windows.net,1433;Initial Catalog=busdep;Persist Security Info=False;User ID=Administrador;Password=Server2012;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                stringconexion = @"Server=NBI051856\SQLEXPRESS2012;Initial Catalog=BusDep;User Id=sa;Password=uBKs4zOQ2dFwUUpTPjB2SA==;";
+                //stringconexion = @"Server=tcp:allprogram.database.windows.net,1433;Initial Catalog=busdep;Persist Security Info=False;User ID=Administrador;Password=uBKs4zOQ2dFwUUpTPjB2SA==;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 config.SetProperty("connection.connection_string", stringconexion);
             }
-            //stringconexion = string.Empty;
-            //foreach (string s in parseString)
-            //{
-            //    if (s.ToUpper().IndexOf("PASSWORD") >= 0)
-            //    {
-            //        stringconexion += s.Substring(0, s.IndexOf("=") + 1);
-            //        //string aux = s.Substring((s.IndexOf("=") + 1), (s.Length - (s.IndexOf("=") + 1)));
-            //        //aux = Utils.Common.DecryptFromString64(aux);
-            //        stringconexion += stringconexion + ";";
-            //    }
-            //    else
-            //    {
-            //        stringconexion += s + ";";
-            //    }
-            //}
-            //config.SetProperty("connection.connection_string", stringconexion);
+            
+            string[] parseString = stringconexion.Split(';');
+            stringconexion = string.Empty;
+            foreach (string s in parseString)
+            {
+                if (s.ToUpper().IndexOf("PASSWORD") >= 0)
+                {
+                    stringconexion += s.Substring(0, s.IndexOf("=") + 1);
+                    string aux = s.Substring((s.IndexOf("=") + 1), (s.Length - (s.IndexOf("=") + 1)));
+                    aux = Common.Encrypt.DecryptFromString64(aux);
+                    stringconexion += stringconexion + aux + ";";
+                }
+                else
+                {
+                    stringconexion += s + ";";
+                }
+            }
+            config.SetProperty("connection.connection_string", stringconexion);
             factory = config.BuildSessionFactory();
             if (factory == null)
             {

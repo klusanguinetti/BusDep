@@ -383,7 +383,12 @@ namespace BusDep.Testing
         private IEnumerable<PuestoViewModel> listaPuesto => common.ObtenerPuestos(deporte.Id);
 
         #endregion
-
+        //
+        [Test]
+        public void EncriptPassword()
+        {
+            Console.WriteLine(BusDep.Common.Encrypt.EncryptToBase64String("Server2012"));
+        }
         [Test]
         public void ComboPuestos()
         {
