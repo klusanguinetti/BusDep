@@ -1,6 +1,7 @@
 ﻿app.controller('sportDataController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr', '$filter', 'Upload', '$timeout', 'headerProfileService',
 function ($scope, privateProfileService, commonService, $http, $rootScope, toastr, $filter, Upload, $timeout, headerProfileService) {
 
+    /* Declaracion de variables */
 
     $scope.Mail = $rootScope.user.UserName;
 
@@ -16,9 +17,17 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
     $scope.myImage = "https://allwiners.blob.core.windows.net/photos/default-banner.jpg";
 
+    $scope.myVideo = "";
+
+    $scope.myPoster = "/Content/img/no-video.jpg";
+
     $scope.modulo = 'Datos Deportivos';
 
     $scope.moduloicono = '';
+
+    $scope.uploadVideoButton = false;
+
+    /* Declaracion de funciones */
 
     angular.element(function () {
 
@@ -45,6 +54,11 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
             if (response.data.FotoCuertoEntero != null) {
                 $scope.myImage = response.data.FotoCuertoEntero;
+            }
+
+            if (response.data.VideoUrl != null) {
+                $scope.myVideo = response.data.VideoUrl;
+                $scope.myPoster = "";
             }
 
         }).catch(function (err) {
@@ -77,7 +91,6 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
 
     });
-
 
     $scope.jugadorUpdate = function () {
 
@@ -125,6 +138,42 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
 
     }
 
+    $scope.uploadVideo = function (file, errFiles) {
+
+        $scope.f = file;
+
+        $scope.errFile = errFiles && errFiles[0];
+
+        if (file) {
+
+            file.upload = Upload.upload({
+                url: 'api/Files/AddPlayerVideo/',
+                data: { file: file }
+            });
+
+            /* Bloquemos los botones antes de comenzar la subida del video */
+
+            $scope.uploadVideoButton = true;
+
+            return file.upload.then(function (response) {
+                $timeout(function () {
+                    $scope.resultVideo = response.data;
+                    $scope.myVideo = response.data.url;
+                    $scope.myPoster = "";
+                    $scope.uploadVideoButton = false;
+                });
+            }, function (response) {
+                if (response.status > 0)
+                    $scope.errorMsgVideo = response.status + ': ' + response.data;
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 *
+                                         evt.loaded / evt.total));
+            });
+
+        }
+
+    }
+
     $scope.removePhotoCuerpoCompleto = function () {
 
         return headerProfileService.removePhotoCuerpoCompleto().then(function (response) {
@@ -138,6 +187,23 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         });
 
     };
+
+    $scope.removeVideo = function () {
+
+        return headerProfileService.removeVideo().then(function (response) {
+
+            $scope.myVideo = "";
+            $scope.myPoster = "/Content/img/no-video.jpg";
+
+        }).catch(function (err) {
+
+            console.log("Error: " + err);
+
+        });
+
+    };
+
+    /* Declaracion de funciones privadas */
 
     function clearErrors() {
         $scope.passwordForm.$setPristine();

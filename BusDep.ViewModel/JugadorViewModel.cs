@@ -15,6 +15,8 @@ namespace BusDep.ViewModel
         [DataMember]
         public string FotoRostro { get; set; }
         [DataMember]
+        public string VideoUrl { get; set; }
+        [DataMember]
         public string FotoCuertoEntero { get; set; }
         [DataMember]
         public long? PuestoId { get; set; }

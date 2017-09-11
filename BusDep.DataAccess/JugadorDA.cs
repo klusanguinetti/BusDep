@@ -51,6 +51,7 @@ namespace BusDep.DataAccess
                             ClubCode = item.Jugador.ClubLogo,
                             Fichaje = item.Jugador.Fichaje,
                             FotoRostro = item.Jugador.FotoRostro,
+                            VideoUrl = item.Jugador.VideoUrl,
                             Id = item.Jugador.Id,
                             Nacionalidad = item.DatosPersona.Nacionalidad,
                             Nacionalidad1 = item.DatosPersona.Nacionalidad1,
