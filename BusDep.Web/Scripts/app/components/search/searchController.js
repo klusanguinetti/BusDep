@@ -11,8 +11,8 @@
 
         $scope.searchProfile = {
             Nombre: "",
-            pagina: 1,
-            cantidad: 10
+            Pagina: 1,
+            Cantidad: 10
         };
 
         $scope.principalSearch = "";

@@ -11,7 +11,61 @@
         [DataMember]
         public DateTime? FechaFin { get; set; }
         [DataMember]
+        public string FechaFinTexto
+        {
+            get { return this.FechaFin != null ? this.FechaFin.Value.ToString("dd/MM/yyyy") : null; }
+            set
+            {
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        var fecha = value.Split('/');
+                        if (fecha.Length.Equals(3))
+                        {
+                            this.FechaFin = new DateTime(Convert.ToInt32(fecha[2]), Convert.ToInt32(fecha[1]), Convert.ToInt32(fecha[0]));
+                        }
+                        else
+                        {
+                            this.FechaFin = null;
+                        }
+                    }
+                }
+                catch
+                {
+                    this.FechaFin = null;
+                }
+            }
+        }
+        [DataMember]
         public DateTime? FechaInicio { get; set; }
+        [DataMember]
+        public string FechaInicioTexto
+        {
+            get { return this.FechaInicio != null ? this.FechaInicio.Value.ToString("dd/MM/yyyy") : null; }
+            set
+            {
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        var fecha = value.Split('/');
+                        if (fecha.Length.Equals(3))
+                        {
+                            this.FechaInicio = new DateTime(Convert.ToInt32(fecha[2]), Convert.ToInt32(fecha[1]), Convert.ToInt32(fecha[0]));
+                        }
+                        else
+                        {
+                            this.FechaInicio = null;
+                        }
+                    }
+                }
+                catch
+                {
+                    this.FechaInicio = null;
+                }
+            }
+        }
         [DataMember]
         public string InformacionAdicional { get; set; }
         [DataMember]

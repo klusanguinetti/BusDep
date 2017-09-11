@@ -294,7 +294,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboFichajes();
+                var user = CacheHelper.ObtenerComboFichajes();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -310,7 +310,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboPerfiles();
+                var user = CacheHelper.ObtenerComboPerfiles();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -326,7 +326,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboPie();
+                var user = CacheHelper.ObtenerComboPie();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

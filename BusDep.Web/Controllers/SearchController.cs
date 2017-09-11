@@ -1,16 +1,11 @@
-﻿using BusDep.Business;
-using BusDep.IBusiness;
-using BusDep.UnityInject;
-using BusDep.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace BusDep.Web.Controllers
+﻿namespace BusDep.Web.Controllers
 {
-    [Authorize]
+    using BusDep.IBusiness;
+    using BusDep.UnityInject;
+    using BusDep.ViewModel;
+    using System;
+    using System.Web.Mvc;
+    
     public class SearchController : BaseController
     {
         #region Get functions 

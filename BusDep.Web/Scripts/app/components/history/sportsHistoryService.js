@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/History/';
+    var serviceBase = '/api/History/';
 
     this.getJugador = function () {
 

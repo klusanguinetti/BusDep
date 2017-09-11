@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.service('publicProfileService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/Profile/';
+    var serviceBase = '/api/Profile/';
 
     this.getPublicProfile = function (jugadorId) {
 

@@ -73,17 +73,11 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
 
                 $scope.antecedente = response.data;
 
-                var FechaInicio = moment(response.data.FechaInicio).format("DD/MM/YYYY");
+                //var FechaInicio = moment(response.data.FechaInicio).format("DD/MM/YYYY");
 
-                $scope.antecedente.FechaInicio = FechaInicio;
+                //$scope.antecedente.FechaInicio = FechaInicio;
 
-                if (response.data.FechaFin != null) {
-
-                    var FechaFin = moment(response.data.FechaFin).format("DD/MM/YYYY");
-
-                    $scope.antecedente.FechaFin = FechaFin;
-
-                } else {
+                if (response.data.FechaFinTexto == null) {
                     $scope.outcome.fechaFinCheck = true;
                 }
 
@@ -100,7 +94,7 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
 
     $scope.cleanInput = function () {
 
-        $scope.antecedente.FechaFin = "";
+        $scope.antecedente.FechaFinTexto = "";
 
     }
 
@@ -145,12 +139,12 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
 
         $scope.currentantecedente = angular.copy(item);
 
-        $scope.currentantecedente.FechaInicio = moment($scope.currentantecedente.FechaInicio).format("DD/MM/YYYY");
+        //$scope.currentantecedente.FechaInicio = moment($scope.currentantecedente.FechaInicio).format("DD/MM/YYYY");
 
 
-        if (item.FechaFin != null) {
-            $scope.currentantecedente.FechaFin = moment($scope.currentantecedente.FechaFin).format("DD/MM/YYYY");
-        }
+        //if (item.FechaFin != null) {
+        //    $scope.currentantecedente.FechaFin = moment($scope.currentantecedente.FechaFin).format("DD/MM/YYYY");
+        //}
     };
 
 

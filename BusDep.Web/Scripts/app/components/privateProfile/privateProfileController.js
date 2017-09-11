@@ -68,11 +68,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
             $scope.datosPersonales = response.data;
 
             if (response.data.FechaNacimiento != null) {
-
-
-                var date = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
-                $scope.fechaNacimiento = date;
-
+                $scope.fechaNacimiento = response.data.FechaNacimientoTexto;
             }
 
         }).catch(function (err) {
@@ -190,7 +186,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
                 }
             });
         }
-        $scope.datosPersonales.FechaNacimiento = $scope.fechaNacimiento;
+        $scope.datosPersonales.FechaNacimientoTexto = $scope.fechaNacimiento;
 
         return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 

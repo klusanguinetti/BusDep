@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.service('selfAppraisalService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/Evaluation/';
+    var serviceBase = '/api/Evaluation/';
 
     this.getJugador = function () {
 

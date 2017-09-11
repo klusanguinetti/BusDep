@@ -1,6 +1,6 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope','$window', '$location', 'commonService', 'authService', '$rootScope',
-function ($scope, $window, $location, commonService, authService, $rootScope) {
+app.controller('indexController', ['$scope','$window', '$location', 'commonService', 'authService', '$rootScope', 'toastr',
+function ($scope, $window, $location, commonService, authService, $rootScope, toastr) {
 
     $scope.myInterval = 3000;
 

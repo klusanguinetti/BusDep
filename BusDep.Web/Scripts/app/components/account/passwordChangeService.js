@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.service('passwordChangeService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/Account/';
+    var serviceBase = '/api/Account/';
 
 
     this.passwordUpdate = function (loginDetails) {

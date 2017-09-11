@@ -5,7 +5,7 @@ namespace BusDep.Web.Class
     using System.Collections.Generic;
     using System.Linq;
     using BusDep.ViewModel;
-    public static class CacheHeler
+    public static class CacheHelper
     {
 
         private static string[] pies = new[] { "Derecho", "Zurdo", "Ambidiestro" };

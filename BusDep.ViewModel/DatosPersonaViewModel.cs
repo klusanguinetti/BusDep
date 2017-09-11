@@ -54,6 +54,34 @@
         public virtual string ContactoMail { get; set; }
 
         [DataMember]
+        public string FechaNacimientoTexto {
+            get { return this.FechaNacimiento != null ? this.FechaNacimiento.Value.ToString("dd/MM/yyyy") : null; }
+            set
+            {
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        var fecha = value.Split('/');
+                        if (fecha.Length.Equals(3))
+                        {
+                            this.FechaNacimiento = new DateTime(Convert.ToInt32(fecha[2]),Convert.ToInt32(fecha[1]), Convert.ToInt32(fecha[0]));
+                        }
+                        else
+                        {
+                            this.FechaNacimiento = null;
+                        }
+                    }
+                }
+                catch
+                {
+                    this.FechaNacimiento = null;
+                }
+            }
+        }
+
+
+        [DataMember]
         public string UltimoLoginText
         {
             get
