@@ -16,6 +16,7 @@ namespace BusDep.Entity
         public virtual string Fichaje { get; set; }
         public virtual string ClubDescripcion { get; set; }
         public virtual string ClubLogo { get; set; }
+        public virtual string VideoUrl { get; set; }
         #endregion 
     }
 

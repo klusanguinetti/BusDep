@@ -45,17 +45,19 @@
                 </div>
 
 
+                <!--Data DIV -->
+
                 <div class="panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true">
 
                     <div class="panel panel-default card">
 
                         <div class="panel-heading content-in card-header">
                             <h5 class="panel-title">
-                                <a data-toggle="collapse" data-target="#collapseB2"><i class="fa fa-futbol-o"></i> Información deportiva </a>
+                                <a data-toggle="collapse" data-target="#collapseB1"><i class="fa fa-futbol-o"></i> Información deportiva </a>
                             </h5>
                         </div>
 
-                        <div class="panel-collapse collapse in" id="collapseB2" class="panel-collapse collapse">
+                        <div class="panel-collapse collapse in" id="collapseB1" class="panel-collapse collapse">
 
                             <div class="panel-body">
 
@@ -200,17 +202,85 @@
                     </div>
                 </div>
 
-                <div class="panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true" style="margin-top:10px;">
+                <!--Video DIV -->
+
+                <div class="panel-group collapse-accordion collapse in" id="accordion2" aria-expanded="true" style="margin-top:10px;">
 
                     <div class="panel panel-default card">
 
                         <div class="panel-heading content-in card-header">
                             <h5 class="panel-title">
-                                <a data-toggle="collapse" data-target="#collapseB2"><i class="fa fa-picture-o"></i> Foto de cuerpo completo </a>
+                                <a data-toggle="collapse" data-target="#collapseB2"><i class="fa fa-video-camera"></i> Video de tus habilidades <b> - Solo archivos .MP4 - </b> </a>
                             </h5>
                         </div>
 
-                        <div class="panel-collapse collapse in" id="collapseB2" class="panel-collapse collapse">
+                        <div class="panel-collapse collapse" id="collapseB2" class="panel-collapse collapse">
+
+                            <div class="panel-body">
+
+                                <p>Sube un video donde se pueda apreciar algunas (o todas) las habilidades que mencionas en tu perfil.</p>
+
+                                <div class="col-sm-12">
+
+                                    <div class="seller-info seller-profile">
+
+                                        <div class="">
+                                            <a>
+                                                <video width="640" height="365" controls src="{{myVideo}}" accept="'video/*'" poster="{{myPoster}}"></video>
+                                            </a>
+                                        </div>
+
+                                        <div class="user-ads-action">
+
+                                            <a class="btn btn-sm  btn-success" type="file"
+                                               ngf-select="uploadVideo($file, $invalidFiles)"
+                                               ng-model="myVideo" accept="video/*"
+                                               ngf-max-height="1000" ngf-max-size="50MB"
+                                               ng-disabled="uploadVideoButton">
+
+                                                <i class="fa fa-refresh"></i> Cambiar video
+
+                                            </a>
+
+                                            <a class="btn btn-sm  btn-default" 
+                                               ng-click="removeVideo();"
+                                               ng-show="myVideo"
+                                               ng-disabled="uploadVideoButton">
+
+                                                <i class="fa fa-remove"></i> Remover
+
+                                            </a>
+
+                                            <span ng-show="resultVideo" style="margin-left:5px;">
+                                                <b>¡Video subido con éxito!</b>
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Foto cuerpo completo DIV-->
+
+                <div class="panel-group collapse-accordion collapse in" id="accordion3" aria-expanded="true" style="margin-top:10px;">
+
+                    <div class="panel panel-default card">
+
+                        <div class="panel-heading content-in card-header">
+                            <h5 class="panel-title">
+                                <a data-toggle="collapse" data-target="#collapseB3"><i class="fa fa-picture-o"></i> Foto de cuerpo completo </a>
+                            </h5>
+                        </div>
+
+                        <div class="panel-collapse collapse" id="collapseB3" class="panel-collapse collapse">
 
                             <div class="panel-body">
 
@@ -231,7 +301,7 @@
                                             <a class="btn btn-sm  btn-default" ng-click="removePhotoCuerpoCompleto();" ng-show="myImage"><i class="fa fa-remove"></i> Remover </a>
 
                                             <span ng-show="result" style="margin-left:5px;">
-                                                ¡Foto subida con éxito!
+                                                <b>¡Imagen subida con éxito!</b>
                                             </span>
 
                                         </div>

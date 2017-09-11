@@ -111,6 +111,33 @@ namespace AspNetWebApi.Controllers
 
         }
 
+        [HttpDelete]
+        public IHttpActionResult RemoveVideo()
+        {
+
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            var user = business.ObtenerJugador(GetAuthData());
+
+            if (user.VideoUrl != null)
+            {
+
+                string BlobNameToDelete = user.VideoUrl.Split('/').Last();
+
+                utility.DeleteBlob(BlobNameToDelete, "videos");
+
+                user.VideoUrl = null;
+
+                business.ActualizarDatosJugador(user);
+
+                return Ok(new { Message = "video delete ok" });
+
+            }
+
+            return Ok(new { Message = "No video to delete" });
+
+        }
+
         public IHttpActionResult AddFotoRostro()
         {
 
@@ -186,6 +213,47 @@ namespace AspNetWebApi.Controllers
                 business.ActualizarDatosJugador(user);
 
                 return Ok(new { Message = "Photos uploaded ok" });
+
+            }
+
+            return BadRequest();
+
+        }
+
+        public IHttpActionResult AddPlayerVideo()
+        {
+
+            var request = HttpContext.Current.Request;
+
+            var file = request.Files[0];
+
+            string fileName = Guid.NewGuid().ToString() + Path.GetFileName(file.FileName);
+
+            Stream videoStream = file.InputStream;
+
+            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+
+            var user = business.ObtenerJugador(GetAuthData());
+
+            if (user.VideoUrl != null)
+            {
+
+                string BlobNameToDelete = user.VideoUrl.Split('/').Last();
+
+                utility.DeleteBlob(BlobNameToDelete, "videos");
+
+            }
+
+            var result = utility.UploadBlob(fileName, "videos", videoStream);
+
+            if (result != null)
+            {
+
+                user.VideoUrl = result.Uri.ToString();
+
+                business.ActualizarDatosJugador(user);
+
+                return Ok(new { url = user.VideoUrl });
 
             }
 

@@ -242,6 +242,7 @@
     <Content Include="Content\img\Allwiners\logo_gold.png" />
     <Content Include="Content\img\Allwiners\logo_header.png" />
     <Content Include="Content\img\Allwiners\logo_short.png" />
+    <Content Include="Content\img\no-video.jpg" />
     <Content Include="Content\img\terms_test_image.jpg" />
     <Content Include="Content\img\default_1.jpg" />
     <Content Include="Content\img\misc\Pruebas0.jpg" />
@@ -686,12 +687,12 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="Content\img\default.jpg" />
     <Content Include="Content\img\icon.ico" />
     <Content Include="Content\img\Logo_1.png" />
     <Content Include="Content\img\Logo195.png" />
     <Content Include="Content\img\Logo250.png" />
+    <Content Include="Global.asax" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\components\account\passwordRecoveryUpdateController.js" />
     <Content Include="Scripts\app\components\account\passwordRecoveryController.js" />
