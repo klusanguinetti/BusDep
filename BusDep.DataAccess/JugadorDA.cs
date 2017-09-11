@@ -92,6 +92,7 @@ namespace BusDep.DataAccess
                             && ((!string.IsNullOrEmpty(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
                                                                       item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                                                                     : 1.Equals(1))
+                        orderby item.Jugador.Id descending
                         select new JugadorViewModel
                         {
                             Apellido = item.DatosPersona.Apellido,
@@ -138,6 +139,7 @@ namespace BusDep.DataAccess
                             && ((!string.IsNullOrEmpty(nombre)) ? item.DatosPersona.Nombre.ToUpper().Contains(nombre.ToUpper()) ||
                                                                       item.DatosPersona.Apellido.ToUpper().Contains(nombre.ToUpper())
                                                                     : 1.Equals(1))
+                        orderby item.Jugador.Id descending
                         select new JugadorViewModel
                         {
                             Apellido = item.DatosPersona.Apellido,
