@@ -219,6 +219,30 @@
         }
 
         [HttpGet]
+        public IEnumerable<ComboViewModel> GetPeso()
+        {
+            try
+            {
+                return CacheHelper.ObtenerComboPeso();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error de servidor: " + ex.Message, ex);
+            }
+        }
+        [HttpGet]
+        public IEnumerable<ComboViewModel> GetAltura()
+        {
+            try
+            {
+                return CacheHelper.ObtenerComboAltura();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error de servidor: " + ex.Message, ex);
+            }
+        }
+        [HttpGet]
         public IEnumerable<ComboViewModel> GetPerfiles()
         {
             try

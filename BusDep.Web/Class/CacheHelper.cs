@@ -1,5 +1,7 @@
 
 
+using System.Globalization;
+
 namespace BusDep.Web.Class
 {
     using System.Collections.Generic;
@@ -23,7 +25,22 @@ namespace BusDep.Web.Class
         {
             return perfiles.Select(o => new ComboViewModel { Id = o, Descripcion = o, Selected = false });
         }
-
         
+        public static IEnumerable<ComboViewModel> ObtenerComboAltura()
+        {
+            List< ComboViewModel > il = new List<ComboViewModel>();
+            NumberFormatInfo nfi = new NumberFormatInfo { NumberDecimalSeparator = "."};
+            for (decimal i = 1.40M; i <= 2.20M; i = i + 0.01M)
+                il.Add(new ComboViewModel {Descripcion = i.ToString(nfi) + " mts", Id = i });
+            return il;
+        }
+        public static IEnumerable<ComboViewModel> ObtenerComboPeso()
+        {
+            List<ComboViewModel> il = new List<ComboViewModel>();
+
+            for (int i = 40; i <= 160; i++)
+                il.Add(new ComboViewModel { Descripcion = i + " Kg", Id = i });
+            return il;
+        }
     }
 }

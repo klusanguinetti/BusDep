@@ -1,7 +1,8 @@
 ﻿'use strict';
 app.service('commonService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/api/Base/';
+    //var serviceBase = '/api/Base/';
+    var serviceBase = '/Base/';
 
     this.getPerfilJugadorShort = function () {
 

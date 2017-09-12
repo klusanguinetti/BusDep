@@ -1,7 +1,8 @@
 ﻿'use strict';
 app.service('searchService', ['$http', '$q', function ($http, $q) {
 
-    var serviceBase = '/api/Search/';
+    //var serviceBase = '/api/Search/';
+    var serviceBase = '/Search/';
 
     this.searchPlayer = function (searchValue) {
         console.log(searchValue);
