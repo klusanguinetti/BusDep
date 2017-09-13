@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -572,6 +573,17 @@ namespace BusDep.Testing
             //Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)]
             var list = busqueda.TopJugador();
             Console.WriteLine(list.SerializarToJson());
+            //}
+        }
+
+        [Test]
+        public void Formato()
+        {
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+
+            decimal valor = 1.2M;
+            Console.WriteLine(valor.ToString("0.00", nfi));
             //}
         }
 

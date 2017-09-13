@@ -176,16 +176,46 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Altura</label>
-                                        <div class="col-sm-9 input-group input-icon">
-                                            <span class="input-group-addon bgtransparent"><i class="fa fa-arrow-up s16"></i></span>
-                                            <input type="number" class="form-control" placeholder="1.99" ng-model="jugador.Altura">
+                                        <div class="col-sm-9">
+
+                                            <div class="" tabindex="0">
+
+                                                <select ng-model="jugador.Altura" class="form-control"
+                                                        name="category" id="cboAltura" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion for item in alturas">
+
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione Altura</option>
+
+                                                    <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Altura -
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Peso</label>
-                                        <div class="col-sm-9 input-group input-icon">
-                                            <span class="input-group-addon bgtransparent"><i class="fa fa-plus-square s16"></i></span>
-                                            <input type="number" class="form-control" placeholder="99.9" ng-model="jugador.Peso">
+                                        <div class="col-sm-9">
+
+                                            <div class="" tabindex="0">
+
+                                                <select ng-model="jugador.Peso" class="form-control"
+                                                        name="category" id="cboPeso" tabindex="-1"
+                                                        ng-options="item.Id as item.Descripcion for item in pesos">
+
+                                                    <option value="" class="selecter-placeholder" selected="">Seleccione Peso</option>
+
+                                                    <option value="Vehicles" style="background-color: #E9E9E9; font-weight: bold;" disabled="disabled">
+                                                        - Peso -
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+
                                         </div>
                                     </div>
 
@@ -204,7 +234,7 @@
 
                 <!--Video DIV -->
 
-                <div class="panel-group collapse-accordion collapse in" id="accordion2" aria-expanded="true" style="margin-top:10px;">
+                <div class="panel-group collapse-accordion collapse in" id="accordion2" aria-expanded="true" style="margin-top:10px;" ng-show="false">
 
                     <div class="panel panel-default card">
 

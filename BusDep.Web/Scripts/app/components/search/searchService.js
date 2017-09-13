@@ -1,32 +1,48 @@
 ﻿'use strict';
 app.service('searchService', ['$http', '$q', function ($http, $q) {
 
+    //var serviceBase = '/api/Search/';
     var serviceBase = '/Search/';
 
     this.searchPlayer = function (searchValue) {
         console.log(searchValue);
-        var data = $http({
-            url: serviceBase + 'SearchPost',
-            method: 'post',
-            params: {
-                searchValues: searchValue.Nombre,
-                pagina: searchValue.pagina,
-                cantidad: searchValue.cantidad
-            }
+        //var data = $http({
+        //    url: serviceBase + 'SearchPost',
+        //    method: 'get',
+        //    params: {
+        //        searchValues: searchValue.Nombre,
+        //        pagina: searchValue.pagina,
+        //        cantidad: searchValue.cantidad
+        //    }
+        //});
+
+        //return $q.when(data);
+        var deferred = $q.defer();
+
+        $http.post(serviceBase + 'SearchPost', searchValue).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
         });
 
-        return $q.when(data);
+        return deferred.promise;
     };
 
     this.searchPlayerCount = function (searchValue) {
         console.log(searchValue);
-        var data = $http({
-            url: serviceBase + 'SearchPostCount',
-            method: 'post',
-            params: { searchValues: searchValue.Nombre }
+        var deferred = $q.defer();
+        $http.post(serviceBase + 'SearchPostCount', searchValue).then(function (response) {
+
+            deferred.resolve(response);
+
+        }).catch(function (err) {
+            deferred.reject(err);
         });
 
-        return $q.when(data);
+        return deferred.promise;
+       
     };
     this.searchFiltersPlayerCount = function (searchValue) {
         var deferred = $q.defer();

@@ -13,6 +13,8 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     $scope.perfiles = {};
     $scope.puestos = {};
     $scope.pies = {};
+    $scope.alturas = {};
+    $scope.pesos = {};
     $scope.sosVisible = true;
 
     $scope.myImage = "https://allwiners.blob.core.windows.net/photos/default-banner.jpg";
@@ -89,7 +91,16 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
 
-
+        privateProfileService.getPeso().then(function (response) {
+            $scope.pesos = response.data;
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+        privateProfileService.getAltura().then(function (response) {
+            $scope.alturas = response.data;
+        }).catch(function (err) {
+            toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
     });
 
     $scope.jugadorUpdate = function () {

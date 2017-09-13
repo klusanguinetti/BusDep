@@ -14,7 +14,7 @@ namespace BusDep.Web.Controllers
     [Authorize]
     public class ProfileController : BaseController
     {
-        
+
         #region Get functions 
 
         [AllowAnonymous]
@@ -38,7 +38,7 @@ namespace BusDep.Web.Controllers
         public ActionResult PrivateProfileEntrenador()
         {
             return View();
-        } 
+        }
 
         public ActionResult SportDataProfile()
         {
@@ -92,7 +92,7 @@ namespace BusDep.Web.Controllers
                 Response.StatusCode = 200;
 
                 return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-  
+
             }
             catch (ExceptionBusiness ex)
             {
@@ -153,7 +153,7 @@ namespace BusDep.Web.Controllers
                 var user =
                     DependencyFactory.Resolve<ICommonBusiness>()
                         .ObtenerComboPuestosEspecifico(GetAuthData().DeporteId.GetValueOrDefault());
-                
+
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -163,7 +163,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
-        
+
         public JsonResult SaveJugador(JugadorViewModel jugadorViewModel)
         {
             var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
@@ -294,7 +294,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboFichajes();
+                var user = CacheHelper.ObtenerComboFichajes();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -310,7 +310,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboPerfiles();
+                var user = CacheHelper.ObtenerComboPerfiles();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -326,7 +326,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = CacheHeler.ObtenerComboPie();
+                var user = CacheHelper.ObtenerComboPie();
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -338,7 +338,7 @@ namespace BusDep.Web.Controllers
         }
         public static IEnumerable<ComboViewModel> PuestosBasicos(long deporteId)
         {
-            
+
 
             return DependencyFactory.Resolve<ICommonBusiness>().ObtenerPuestos(deporteId)
                 .Where(o => o.DeporteId.Equals(deporteId)).Select(u => u.Descripcion).Distinct()
@@ -368,7 +368,42 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
-
+        [HttpGet]
+        public JsonResult GetPeso()
+        {
+            try
+            {
+                Response.StatusCode = 200;
+                return new JsonResult { Data = CacheHelper.ObtenerComboPeso(), JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult
+                {
+                    Data = "Error de servidor",
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+        }
+        [HttpGet]
+        public JsonResult GetAltura()
+        {
+            try
+            {
+                Response.StatusCode = 200;
+                return new JsonResult { Data = CacheHelper.ObtenerComboAltura(), JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new JsonResult
+                {
+                    Data = "Error de servidor",
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+        }
         #endregion
 
     }

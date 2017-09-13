@@ -1,8 +1,8 @@
 ﻿'use strict';
 app.service('sportsHistoryService', ['$http', '$q', function ($http, $q) {
 
+    //var serviceBase = '/api/History/';
     var serviceBase = '/History/';
-
     this.getJugador = function () {
 
         var deferred = $q.defer();

@@ -1,6 +1,7 @@
 ﻿'use strict';
 app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
 
+    //var serviceBase = '/api/Profile/';
     var serviceBase = '/Profile/';
 
     this.saveUserDetails = function (userDetails) {
@@ -154,5 +155,25 @@ app.service('privateProfileService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
 
     };
+
+    this.getPeso = function () {
+        var deferred = $q.defer();
+        $http.get(serviceBase + 'GetPeso').then(function (response) {
+            deferred.resolve(response);
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+        return deferred.promise;
+    };
+    this.getAltura = function () {
+        var deferred = $q.defer();
+        $http.get(serviceBase + 'GetAltura').then(function (response) {
+            deferred.resolve(response);
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+        return deferred.promise;
+    };
+
 
 }]);

@@ -1,6 +1,7 @@
 ﻿'use strict';
 app.service('passwordChangeService', ['$http', '$q', function ($http, $q) {
 
+    //var serviceBase = '/api/Account/';
     var serviceBase = '/Account/';
 
 

@@ -164,6 +164,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\BaseController.cs" />
+    <Compile Include="Api\EvaluationController.cs" />
+    <Compile Include="Api\FilesController.cs" />
+    <Compile Include="Api\HistoryController.cs" />
+    <Compile Include="Api\ProfileController.cs" />
+    <Compile Include="Api\ProfilePublicController.cs" />
+    <Compile Include="Api\SearchController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\BundleExtensions.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -171,7 +179,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\AuthHelper.cs" />
     <Compile Include="Class\BlobUtility.cs" />
-    <Compile Include="Class\CacheHeler.cs" />
+    <Compile Include="Class\CacheHelper.cs" />
     <Compile Include="Class\MailHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
