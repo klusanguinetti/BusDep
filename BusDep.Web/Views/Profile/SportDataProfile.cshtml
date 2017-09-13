@@ -72,7 +72,7 @@
                                             <div class="" tabindex="0">
 
                                                 <select ng-model="jugador.Pie" class="form-control"
-                                                        name="category" id="search-category" tabindex="-1"
+                                                        name="category" id="cboPie" tabindex="-1"
                                                         ng-options="item.Id as item.Descripcion for item in pies">
 
                                                     <option value="" class="selecter-placeholder" selected="">Seleccione Pie</option>
@@ -98,7 +98,7 @@
                                             <div class="" tabindex="0">
 
                                                 <select ng-model="jugador.Fichaje" class="form-control"
-                                                        name="category" id="search-category" tabindex="-1"
+                                                        name="category" id="cboFichaje" tabindex="-1"
                                                         ng-options="item.Id as item.Descripcion for item in fichajes">
 
                                                     <option value="" class="selecter-placeholder" selected="">Seleccione Fichaje</option>
@@ -122,7 +122,7 @@
                                             <div class="" tabindex="0">
 
                                                 <select ng-model="jugador.Perfil" class="form-control"
-                                                        name="category" id="search-category" tabindex="-1"
+                                                        name="category" id="cboPerfil" tabindex="-1"
                                                         ng-options="item.Id as item.Descripcion for item in perfiles">
 
                                                     <option value="" class="selecter-placeholder" selected="">Seleccione Fichaje</option>
@@ -143,7 +143,7 @@
                                         <div class="col-sm-9">
                                             <div class="" tabindex="0">
                                                 <select ng-model="jugador.PuestoId" class="form-control"
-                                                        name="category" id="search-category" tabindex="-1"
+                                                        name="category" id="cboPuestoId" tabindex="-1"
                                                         ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos">
                                                     <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
 
@@ -162,7 +162,7 @@
                                         <div class="col-sm-9">
                                             <div class="" tabindex="0">
                                                 <select ng-model="jugador.PuestoAltId" class="form-control"
-                                                        name="category" id="search-category" tabindex="-1"
+                                                        name="category" id="cboPuestoAltId" tabindex="-1"
                                                         ng-options="item.Id as item.Descripcion group by item.Agrupador disable when item.enabled===false for item in puestos">
                                                     <option value="" class="selecter-placeholder" selected="">Seleccione un Puesto</option>
 
@@ -234,7 +234,7 @@
 
                 <!--Video DIV -->
 
-                <div class="panel-group collapse-accordion collapse in" id="accordion2" aria-expanded="true" style="margin-top:10px;" ng-show="false">
+                <div class="panel-group collapse-accordion collapse in" id="accordion2" aria-expanded="true" style="margin-top:10px;">
 
                     <div class="panel panel-default card">
 
@@ -244,7 +244,7 @@
                             </h5>
                         </div>
 
-                        <div class="panel-collapse collapse" id="collapseB2" class="panel-collapse collapse">
+                        <div class="panel-collapse collapse" id="collapseB2">
 
                             <div class="panel-body">
 

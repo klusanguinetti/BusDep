@@ -56,30 +56,35 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
     
 
     $scope.UpdateProfile = function () {
-        if ($scope.datosPersonales.PaisIso != '') {
-
+        if ($scope.datosPersonales.PaisIso != '' && $scope.datosPersonales.PaisIso != null) {
             angular.forEach($scope.paises, function (value, key) {
                 if (value.CodigoIso == $scope.datosPersonales.PaisIso) {
                     $scope.datosPersonales.Pais = value.Nombre;
                 }
             });
+        } else {
+            $scope.datosPersonales.Pais = null;
         }
-        if ($scope.datosPersonales.NacionalidadIso != '') {
-
+        if ($scope.datosPersonales.NacionalidadIso != '' && $scope.datosPersonales.NacionalidadIso != null) {
             angular.forEach($scope.paises, function (value, key) {
                 if (value.CodigoIso == $scope.datosPersonales.NacionalidadIso) {
                     $scope.datosPersonales.Nacionalidad = value.Nombre;
                 }
             });
         }
-        if ($scope.datosPersonales.NacionalidadIso1 != '') {
-
+        else {
+            $scope.datosPersonales.Nacionalidad = null;
+        }
+        if ($scope.datosPersonales.NacionalidadIso1 != '' && $scope.datosPersonales.NacionalidadIso1 != null) {
             angular.forEach($scope.paises, function (value, key) {
                 if (value.CodigoIso == $scope.datosPersonales.NacionalidadIso1) {
                     $scope.datosPersonales.Nacionalidad1 = value.Nombre;
                 }
             });
-        }        
+        }
+        else {
+            $scope.datosPersonales.Nacionalidad1 = null;
+        }
         $scope.datosPersonales.FechaNacimiento = $scope.fechaNacimiento;
         return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 

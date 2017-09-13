@@ -1,4 +1,6 @@
-﻿namespace BusDep.Web.Controllers
+﻿using System.Collections.Generic;
+
+namespace BusDep.Web.Controllers
 {
     using BusDep.IBusiness;
     using BusDep.UnityInject;
@@ -47,23 +49,13 @@
         }
         
 
-        public JsonResult SearchPost(string searchValues, int pagina, int cantidad)
+        public JsonResult SearchPost(BuscarJugadorViewModel buscar)
         {
-            BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues, Pagina = pagina, Cantidad = cantidad};
-            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
+            //BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues, Pagina = pagina, Cantidad = cantidad};
             try
             {
-                var userView = busqueda.BuscarJugador(buscar);
-                userView.ForEach(o => o.Link =
-#if DEBUG
-            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
-#else
-            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
-            
-#endif
-            );
                 Response.StatusCode = 200;
-                return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = this.Buscar(buscar), JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             }
             catch (ExceptionBusiness ex)
@@ -139,21 +131,10 @@
         public JsonResult SearchFiltersPostNew(BuscarJugadorViewModel searchValues)
         {
 
-            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
-
             try
             {
-                var userView = busqueda.BuscarJugador(searchValues);
-                userView.ForEach(o => o.Link =
-#if DEBUG
-            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
-#else
-            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
-            
-#endif
-            );
                 Response.StatusCode = 200;
-                return new JsonResult { Data = userView, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = this.Buscar(searchValues), JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             }
             catch (ExceptionBusiness ex)
@@ -169,7 +150,24 @@
             }
 
         }
-        
+
+        private List<JugadorViewModel> Buscar(BuscarJugadorViewModel buscar)
+        {
+            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
+            var userView = busqueda.BuscarJugador(buscar);
+            userView.ForEach(o => o.Link =
+#if DEBUG
+                "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
+#else
+            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+            
+#endif
+                
+            );
+            var id = this.GetAuthData().Id;
+            userView.ForEach(o => o.Recomendar = (o.UsuarioId != id));
+            return userView;
+        }
         #endregion
 
     }

@@ -1,15 +1,11 @@
-﻿using BusDep.Business;
-using BusDep.IBusiness;
-using BusDep.UnityInject;
-using BusDep.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-
-namespace BusDep.Web.Controllers.Api
+﻿namespace BusDep.Web.Controllers.Api
 {
+    using BusDep.IBusiness;
+    using BusDep.UnityInject;
+    using BusDep.ViewModel;
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Http;
     public class SearchController : BaseController
     {
         #region Post functions 
@@ -35,21 +31,9 @@ namespace BusDep.Web.Controllers.Api
         [HttpPost]
         public List<JugadorViewModel> SearchPost(BuscarJugadorViewModel buscar)
         {
-            //BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues, Pagina = pagina, Cantidad = cantidad };
-            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
             try
             {
-                var userView = busqueda.BuscarJugador(buscar);
-                userView.ForEach(o => o.Link =
-#if DEBUG
-            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
-#else
-            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
-            
-#endif
-            );
-                return userView;
-
+                return this.Buscar(buscar);
             }
             catch (Exception)
             {
@@ -60,7 +44,6 @@ namespace BusDep.Web.Controllers.Api
         [HttpPost]
         public long SearchPostCount(BuscarJugadorViewModel searchValues)
         {
-            //BuscarJugadorViewModel buscar = new BuscarJugadorViewModel { Nombre = searchValues };
             var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
             try
             {
@@ -97,22 +80,9 @@ namespace BusDep.Web.Controllers.Api
         [HttpPost]
         public List<JugadorViewModel> SearchFiltersPostNew(BuscarJugadorViewModel searchValues)
         {
-
-            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
-
             try
             {
-                var userView = busqueda.BuscarJugador(searchValues);
-                userView.ForEach(o => o.Link =
-#if DEBUG
-            "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
-#else
-            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
-            
-#endif
-            );
-                return userView;
-
+              return  this.Buscar(searchValues);
             }
             catch (Exception)
             {
@@ -120,8 +90,25 @@ namespace BusDep.Web.Controllers.Api
             }
 
         }
+        private List<JugadorViewModel> Buscar(BuscarJugadorViewModel buscar)
+        {
+            var busqueda = DependencyFactory.Resolve<IBusquedaBusiness>();
+            var userView = busqueda.BuscarJugador(buscar);
+            userView.ForEach(o => o.Link =
+#if DEBUG
+                "http://localhost:52771/#!/ProfilePublic/JugadorPublic/" + o.Id.ToString()
+#else
+            "http://allwiners.com/#!/ProfilePublic/JugadorPublic/"+ o.Id.ToString()
+            
+#endif
 
+            );
+            var id = this.GetAuthData().Id;
+            userView.ForEach(o => o.Recomendar = (o.UsuarioId != id));
+            return userView;
+        }
         #endregion
+
 
     }
 }

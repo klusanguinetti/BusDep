@@ -83,7 +83,8 @@ namespace BusDep.DataAccess
                 return (from item in Session.Query<Usuario>()
                         where item.Jugador != null
                         && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
-                        && item.Estado == "A"
+                        && item.Estado == "A" 
+                        && item.DatosPersona.Pais!=null && item.Jugador.Puesto.Codigo!=null && item.DatosPersona.FechaNacimiento!=null
                             && ((edadDesde.HasValue) ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
                             && ((edadHasta.HasValue) ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
                             && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Jugador.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Jugador.Puesto.Descripcion)) : 1.Equals(1))
@@ -131,6 +132,7 @@ namespace BusDep.DataAccess
                         where item.Jugador != null
                         && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
                         && item.Estado == "A"
+                        && item.DatosPersona.Pais != null && item.Jugador.Puesto.Codigo != null && item.DatosPersona.FechaNacimiento != null
                             && ((edadDesde.HasValue) ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value) : 1.Equals(1))
                             && ((edadHasta.HasValue) ? item.DatosPersona.FechaNacimiento > DateTime.Now.AddYears(-edadHasta.Value) : 1.Equals(1))
                             && ((puesto != null && puesto.Length > 0) ? (puesto.Length.Equals(1) ? item.Jugador.Puesto.Descripcion.Equals(puesto[0]) : puesto.Contains(item.Jugador.Puesto.Descripcion)) : 1.Equals(1))
@@ -184,6 +186,7 @@ namespace BusDep.DataAccess
                     where item.Jugador != null
                     && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
                     && item.Estado == "A"
+                    && item.DatosPersona.Pais != null && item.Jugador.Puesto.Codigo != null && item.DatosPersona.FechaNacimiento != null
                     && ((edadDesde.HasValue)
                             ? item.DatosPersona.FechaNacimiento < DateTime.Now.AddYears(-edadDesde.Value)
                             : 1.Equals(1))
@@ -249,6 +252,7 @@ namespace BusDep.DataAccess
                     where item.Jugador != null
                     && item.Jugador.Perfil != null && item.Jugador.Fichaje != null && item.Jugador.Perfil != "" && item.Jugador.Fichaje != ""
                     && item.Estado == "A"
+                    && item.DatosPersona.Pais != null && item.Jugador.Puesto.Codigo != null
                     orderby item.Jugador.Id descending
                     select new JugadorViewModel
                     {

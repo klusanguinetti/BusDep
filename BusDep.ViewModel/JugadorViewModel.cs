@@ -63,6 +63,8 @@ namespace BusDep.ViewModel
         [DataMember]
         public decimal? Peso { get; set; }
         [DataMember]
+        public bool Recomendar { get; set; }
+        [DataMember]
         public DateTime? FechaNacimiento { get; set; }
 
         [DataMember]

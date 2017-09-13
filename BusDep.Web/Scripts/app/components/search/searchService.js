@@ -6,15 +6,6 @@ app.service('searchService', ['$http', '$q', function ($http, $q) {
 
     this.searchPlayer = function (searchValue) {
         console.log(searchValue);
-        //var data = $http({
-        //    url: serviceBase + 'SearchPost',
-        //    method: 'get',
-        //    params: {
-        //        searchValues: searchValue.Nombre,
-        //        pagina: searchValue.pagina,
-        //        cantidad: searchValue.cantidad
-        //    }
-        //});
 
         //return $q.when(data);
         var deferred = $q.defer();
