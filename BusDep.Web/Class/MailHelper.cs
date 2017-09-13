@@ -3,6 +3,7 @@ using System.IO;
 using RestSharp;
 using RestSharp.Authenticators;
 using BusDep.ViewModel;
+using System.Web.Configuration;
 
 namespace BusDep.Web.Class
 {
@@ -24,15 +25,17 @@ namespace BusDep.Web.Class
 
             client.BaseUrl = new Uri("https://api.mailgun.net/v3");
 
+            string MailGunKey = WebConfigurationManager.AppSettings["MailGunKey"];
+
             client.Authenticator =
                 new HttpBasicAuthenticator("api",
-                                            "key-2812dd716ace245a25908665e7f2fcfd");
+                                            MailGunKey);
 
             RestRequest request = new RestRequest();
 
-            request.AddParameter("domain", "sandbox26ec0252865b4709847e8f557fe2e1e6.mailgun.org", ParameterType.UrlSegment);
+            request.AddParameter("domain", "allwiners.com", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
-            request.AddParameter("from", "Allwiners.com <mailgun@sandbox26ec0252865b4709847e8f557fe2e1e6.mailgun.org>");
+            request.AddParameter("from", "Allwiners.com <mailgun@allwiners.com>");
             request.AddParameter("to", datosEmail.Mail);
             request.AddParameter("subject", "Recuperación de credenciales");
             request.AddParameter("html", bodyHTML);

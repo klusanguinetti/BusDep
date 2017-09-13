@@ -21,7 +21,7 @@ function ($scope, $location, authService, $timeout, authInterceptorService, Flas
 
                 return authService.passwordRecovery($scope.recoveryData).then(function (response) {
 
-                    message('success', 'Verifica tu correo, enviamos un enlace para recuperar tu contraseña.');
+                    message('success', 'Verifica tu correo, enviamos un enlace para recuperar tu contraseña. No olvides revisar la carpeta SPAM.');
 
                     $scope.recoveryData.Mail = "";
 
