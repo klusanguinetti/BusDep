@@ -8,6 +8,9 @@
         .when('/Terms', {
             templateUrl: '/Home/Terms'
         })
+        .when('/AboutUs', {
+            templateUrl: '/Home/AboutUs'
+        })
         .when('/Account/Login/:lastAction?', {
             templateUrl: '/Account/Login',
             controller: 'loginController'

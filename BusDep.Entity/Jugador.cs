@@ -19,29 +19,4 @@ namespace BusDep.Entity
         public virtual string VideoUrl { get; set; }
         #endregion 
     }
-
-    public partial class Intermediario
-    {
-        #region Atributos
-        public virtual long Id { get; set; }
-        //public virtual Usuario Usuario { get; set; }
-
-        #endregion 
-    }
-    public partial class Entrenador
-    {
-        #region Atributos
-        public virtual long Id { get; set; }
-        //public virtual Usuario Usuario { get; set; }
-
-        #endregion 
-    }
-    public partial class Club
-    {
-        #region Atributos
-        public virtual long Id { get; set; }
-        //public virtual Usuario Usuario { get; set; }
-
-        #endregion 
-    }
 }

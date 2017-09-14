@@ -13,7 +13,6 @@ namespace BusDep.Web.Controllers
     {
 
         private AuthHelper authHelper = new AuthHelper();
-
         public ActionResult Index()
         {
 
@@ -44,6 +43,10 @@ namespace BusDep.Web.Controllers
         }
 
         public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult AboutUs()
         {
             return View();
         }

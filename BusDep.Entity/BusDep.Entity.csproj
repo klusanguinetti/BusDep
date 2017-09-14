@@ -40,12 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Antecedente.cs" />
+    <Compile Include="Club.cs" />
     <Compile Include="ClubDetalle.cs" />
     <Compile Include="DatosPersona.cs" />
     <Compile Include="Deporte.cs" />
+    <Compile Include="Entrenador.cs" />
     <Compile Include="Evaluacion.cs" />
     <Compile Include="EvaluacionCabecera.cs" />
     <Compile Include="EvaluacionDetalle.cs" />
+    <Compile Include="Intermediario.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="LogActividad.cs" />
     <Compile Include="LogError.cs" />

@@ -16,7 +16,6 @@
     <property name="ClubLogo" column="ClubLogo" type="System.String" length="200" />
     <many-to-one name="Puesto" column="PuestoId" cascade="none" class="BusDep.Entity.Puesto, BusDep.Entity" />
     <many-to-one name="PuestoAlternativo" column="PuestoAltId" cascade="none" class="BusDep.Entity.Puesto, BusDep.Entity" />
-    <!--<many-to-one name="Usuario" unique="true" column="UsuarioId" class="BusDep.Entity.Usuario, BusDep.Entity"/>-->
   </class>
 </hibernate-mapping>
 <!--Importante: Asignar el not-null=true que corresponda.-->
