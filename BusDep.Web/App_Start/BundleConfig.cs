@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace BusDep.Web
 {
@@ -65,19 +64,17 @@ namespace BusDep.Web
                 "~/Scripts/vendor/custom/ui-cropper.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app/main")
-                .Include("~/Scripts/app/app.js",
-                    "~/Scripts/app/app-routes.js", "~/Scripts/app/components/commonService.js").WithLastModifiedToken()
+                .Include("~/Scripts/app/app.js", "~/Scripts/app/app-routes.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/components/headerProfile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/directives", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/factories", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/account", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/Evaluation", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/history", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/privateProfile", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/publicProfile", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/search", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/index", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/sportData", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/common", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/player", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/coach", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/services", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/services/common", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/services/player", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/services/coach", "*.js").WithLastModifiedToken()
                     );
 
         }

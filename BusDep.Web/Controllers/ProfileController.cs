@@ -51,18 +51,12 @@ namespace BusDep.Web.Controllers
 
         public JsonResult Save(DatosPersonaViewModel datosPersonaModel)
         {
-
             IUsuarioBusiness usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
-
             try
             {
-
                 usuario.RegistracionDatosPersonales(datosPersonaModel);
-
                 Response.StatusCode = 200;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-
-
             }
             catch (Exception)
             {
@@ -77,16 +71,11 @@ namespace BusDep.Web.Controllers
         {
 
             ILoginBusiness changePassword = DependencyFactory.Resolve<ILoginBusiness>();
-
             try
             {
-
                 var authInfo = GetAuthData();
-
                 password.Id = authInfo.Id;
-
                 password.Mail = authInfo.Mail;
-
                 var result = changePassword.ActualizarPassword(password);
 
                 Response.StatusCode = 200;

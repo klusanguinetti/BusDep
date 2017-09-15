@@ -66,8 +66,8 @@
                 }
             }
         })
-        .when('/Profile/PrivateProfileEntrenador', {
-            templateUrl: '/Profile/PrivateProfileEntrenador',
+        .when('/Coach/PrivateProfileEntrenador', {
+            templateUrl: '/Coach/PrivateProfileEntrenador',
             controller: 'privateProfileEntrenadorController',
             resolve: {
                 permission: function (authService) {

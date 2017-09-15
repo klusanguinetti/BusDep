@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('indexController', ['$scope','$window', '$location', 'commonService', 'authService', '$rootScope', 'toastr',
+app.controller('indexController', ['$scope', '$window', '$location', 'commonService', 'authService', '$rootScope', 'toastr',
 function ($scope, $window, $location, commonService, authService, $rootScope, toastr) {
 
     $scope.myInterval = 3000;
@@ -39,7 +39,13 @@ function ($scope, $window, $location, commonService, authService, $rootScope, to
          image: '/Content/img/misc/Pruebas0.jpg'
      },
      {
+         image: '/Content/img/misc/Pruebas1.jpg'
+     },
+     {
          image: '/Content/img/misc/Pruebas2.jpg'
+     },
+     {
+         image: '/Content/img/misc/Pruebas3.jpg'
      },
      {
          image: '/Content/img/misc/Pruebas4.jpg'
@@ -105,7 +111,7 @@ function ($scope, $window, $location, commonService, authService, $rootScope, to
     }
 
     $scope.abrirlink = (function (item) {
-         $window.open(item.Link, '_blank');
-        });
+        $window.open(item.Link, '_blank');
+    });
 
 }]);

@@ -1,5 +1,5 @@
-﻿app.controller('privateProfileEntrenadorController', ['$scope', 'privateProfileService', 'commonService', '$http', '$rootScope', 'toastr',
-function ($scope, privateProfileService, commonService, $http, $rootScope, toastr) {
+﻿app.controller('privateProfileEntrenadorController', ['$scope', 'privateCoachProfileService', 'commonService', '$http', '$rootScope', 'toastr',
+function ($scope, privateCoachProfileService, commonService, $http, $rootScope, toastr) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -36,7 +36,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
-        privateProfileService.getUserDetails().then(function (response) {
+        privateCoachProfileService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
                 $scope.paises = data.data;
@@ -86,7 +86,7 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
             $scope.datosPersonales.Nacionalidad1 = null;
         }
         $scope.datosPersonales.FechaNacimiento = $scope.fechaNacimiento;
-        return privateProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
+        return privateCoachProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
 
             toastr.success('¡Perfil actualizado con éxito!', '¡Perfecto!');
 
@@ -94,9 +94,4 @@ function ($scope, privateProfileService, commonService, $http, $rootScope, toast
             toastr.error('¡Error desconocido!', 'Error');
         });
     };
-    function clearErrors() {
-        $scope.passwordForm.$setPristine();
-        $scope.passwordForm.$setValidity();
-        $scope.passwordForm.$setUntouched();
-    }
 }]);

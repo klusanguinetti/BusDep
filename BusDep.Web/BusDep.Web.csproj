@@ -166,6 +166,7 @@
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Api\BaseController.cs" />
+    <Compile Include="Api\CoachController.cs" />
     <Compile Include="Api\EvaluationController.cs" />
     <Compile Include="Api\FilesController.cs" />
     <Compile Include="Api\HistoryController.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Class\MailHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CoachController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
@@ -242,6 +244,8 @@
     <Content Include="Content\img\Allwiners\logo_gold.png" />
     <Content Include="Content\img\Allwiners\logo_header.png" />
     <Content Include="Content\img\Allwiners\logo_short.png" />
+    <Content Include="Content\img\misc\Pruebas1.JPG" />
+    <Content Include="Content\img\misc\Pruebas3.jpg" />
     <Content Include="Content\img\no-video.jpg" />
     <Content Include="Content\img\terms_test_image.jpg" />
     <Content Include="Content\img\default_1.jpg" />
@@ -694,27 +698,28 @@
     <Content Include="Content\img\Logo250.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\app-routes.js" />
-    <Content Include="Scripts\app\components\account\passwordRecoveryUpdateController.js" />
-    <Content Include="Scripts\app\components\account\passwordRecoveryController.js" />
-    <Content Include="Scripts\app\components\account\passwordChangeController.js" />
-    <Content Include="Scripts\app\components\account\passwordChangeService.js" />
-    <Content Include="Scripts\app\components\account\registerController.js" />
-    <Content Include="Scripts\app\components\Evaluation\selfAppraisalController.js" />
-    <Content Include="Scripts\app\components\Evaluation\selfAppraisalService.js" />
-    <Content Include="Scripts\app\components\history\sportsHistoryController.js" />
-    <Content Include="Scripts\app\components\history\sportsHistoryListController.js" />
-    <Content Include="Scripts\app\components\commonService.js" />
-    <Content Include="Scripts\app\components\privateProfile\privateProfileEntrenadorController.js" />
-    <Content Include="Scripts\app\components\privateProfile\privateProfileController.js" />
-    <Content Include="Scripts\app\components\history\sportsHistoryService.js" />
-    <Content Include="Scripts\app\components\privateProfile\privateProfileService.js" />
-    <Content Include="Scripts\app\components\publicProfile\publicProfilePublicController.js" />
-    <Content Include="Scripts\app\components\publicProfile\publicProfilePublicService.js" />
-    <Content Include="Scripts\app\components\publicProfile\publicProfileService.js" />
-    <Content Include="Scripts\app\components\publicProfile\publicProfileController.js" />
-    <Content Include="Scripts\app\components\search\searchController.js" />
-    <Content Include="Scripts\app\components\search\searchService.js" />
-    <Content Include="Scripts\app\components\sportData\sportDataController.js" />
+    <Content Include="Scripts\app\components\common\passwordRecoveryUpdateController.js" />
+    <Content Include="Scripts\app\components\common\passwordRecoveryController.js" />
+    <Content Include="Scripts\app\components\common\passwordChangeController.js" />
+    <Content Include="Scripts\app\services\coach\privateCoachProfileService.js" />
+    <Content Include="Scripts\app\services\common\passwordChangeService.js" />
+    <Content Include="Scripts\app\components\common\registerController.js" />
+    <Content Include="Scripts\app\components\common\selfAppraisalController.js" />
+    <Content Include="Scripts\app\components\player\sportsHistoryController.js" />
+    <Content Include="Scripts\app\components\player\sportsHistoryListController.js" />
+    <Content Include="Scripts\app\services\common\commonService.js" />
+    <Content Include="Scripts\app\components\coach\privateProfileEntrenadorController.js" />
+    <Content Include="Scripts\app\components\player\privateProfileController.js" />
+    <Content Include="Scripts\app\components\player\publicProfilePublicController.js" />
+    <Content Include="Scripts\app\components\player\publicProfileController.js" />
+    <Content Include="Scripts\app\components\common\searchController.js" />
+    <Content Include="Scripts\app\components\player\sportDataController.js" />
+    <Content Include="Scripts\app\services\common\selfAppraisalService.js" />
+    <Content Include="Scripts\app\services\player\sportsHistoryService.js" />
+    <Content Include="Scripts\app\services\player\privateProfileService.js" />
+    <Content Include="Scripts\app\services\player\publicProfilePublicService.js" />
+    <Content Include="Scripts\app\services\player\publicProfileService.js" />
+    <Content Include="Scripts\app\services\common\searchService.js" />
     <Content Include="Scripts\app\shared\components\headerProfile\headerProfileController.js" />
     <Content Include="Scripts\app\shared\components\headerProfile\headerProfileService.js" />
     <Content Include="Scripts\app\shared\directives\datetimepicker.js" />
@@ -736,8 +741,8 @@
     <Content Include="Scripts\vendor\angular\angular.js" />
     <Content Include="Scripts\vendor\angular\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\components\account\loginController.js" />
-    <Content Include="Scripts\app\components\index\indexController.js" />
+    <Content Include="Scripts\app\components\common\loginController.js" />
+    <Content Include="Scripts\app\components\common\indexController.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.min.js" />
@@ -1551,7 +1556,7 @@
     <Content Include="Views\Shared\_Jugador_Item_v2.cshtml" />
     <Content Include="Views\Shared\_Hearder_Profile_v2.cshtml" />
     <Content Include="Views\Shared\_DatosPersonales.cshtml" />
-    <Content Include="Views\Profile\PrivateProfileEntrenador.cshtml" />
+    <Content Include="Views\Coach\PrivateProfileEntrenador.cshtml" />
     <Content Include="Views\Profile\SportDataProfile.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
@@ -1563,7 +1568,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\jugadores-fotos\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Coach\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
