@@ -1571,6 +1571,7 @@
     <Content Include="Views\Coach\Antecedente.cshtml" />
     <Content Include="Views\Coach\SportsHistory.cshtml" />
     <Content Include="Views\Shared\_Hearder_Coach.cshtml" />
+    <Content Include="Views\Coach\SelfAppraisal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -33,7 +33,7 @@ namespace BusDep.DataAccess
                     select new EntrenadorViewModel
                     {
                         Apellido = item.DatosPersona.Apellido,
-                        FotoRostro = item.Jugador.FotoRostro,
+                        FotoRostro = item.Entrenador.FotoRostro,
                         Id = item.Entrenador.Id,
                         Nacionalidad = item.DatosPersona.Nacionalidad,
                         Nacionalidad1 = item.DatosPersona.Nacionalidad1,
@@ -44,7 +44,7 @@ namespace BusDep.DataAccess
                         Pais = item.DatosPersona.Pais,
                         PaisIso = item.DatosPersona.PaisIso,
                         Nombre = item.DatosPersona.Nombre,
-                        Perfil = item.Jugador.Perfil,
+                        Perfil = item.Entrenador.Perfil,
                         UsuarioId = item.Id
                     }).ToList();
             return il.FirstOrDefault();

@@ -102,6 +102,15 @@
              }
          }
      })
+     .when('/Coach/SelfAppraisal', {
+         templateUrl: '/Coach/SelfAppraisal',
+            controller: 'selfAppraisalController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+     })
      .when('/Profile/SportData', {
          templateUrl: '/Profile/SportDataProfile',
          controller: 'sportDataController',

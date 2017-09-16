@@ -28,6 +28,10 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
+        public ActionResult SelfAppraisal()
+        {
+            return View();
+        }
         #endregion
 
         #region metodos
