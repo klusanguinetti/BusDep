@@ -1,0 +1,179 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+                <div class="inner-box">
+                    @Html.Partial("_Hearder_Coach")
+                </div>
+                <div class="inner-box">
+
+                    <h2 class="title-2"><i class="flagclubicon flag-{{antecedente.ClubLogo}} icon-th-thumb" title="Pais"></i> {{titulo}} </h2>
+
+                    <div id="accordion" class="panel-group">
+
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+
+                                <h4 class="panel-title">
+                                    <a href="" data-toggle="collapse">
+                                        Información requerida
+                                    </a>
+                                </h4>
+
+                            </div>
+
+                            <div class="panel-collapse collapse in" id="collapseB1">
+
+                                <div class="panel-body">
+
+                                    <form class="form-horizontal" role="form" ng-submit="saveAntecedente()" promise-btn name="antecedenteForm" novalidate="">
+
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.club.$touched && antecedenteForm.club.$invalid) || (antecedenteForm.$submitted && antecedenteForm.club.$invalid)}">
+
+                                            <label class="col-sm-3 control-label">¿En que club jugaste?</label>
+
+                                            <div class="col-sm-9">
+
+                                                <div class="" tabindex="0">
+
+                                                    <select ng-model="antecedente.ClubLogo" class="form-control"
+                                                            name="club" id="search-category" tabindex="-1"
+                                                            ng-options="item.Code as item.Nombre for item in clubes" required>
+
+                                                        <option value="" class="selecter-placeholder" selected=""> Seleccione un club</option>
+
+                                                        <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                                                            - Clubes disponibles -
+                                                        </option>
+
+                                                    </select>
+                                                    <input type="text" class="form-control col-sm-9" placeholder="Ingresa el nombre del club" ng-model="antecedente.ClubDescripcion" ng-show="antecedente.ClubLogo=='oo'" >
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-sm-3 input-group date"></div>
+
+                                            <div class="help-block col-sm-9" ng-messages="antecedenteForm.club.$error" ng-if="antecedenteForm.club.$touched || antecedenteForm.$submitted">
+                                                <p ng-message="required">Selecciona el club donde jugaste.</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Información</label>
+
+                                            <div class="col-sm-9">
+                                                <textarea ng-model="antecedente.InformacionAdicional" placeholder="Información sobre tu paso por el club" class="form-control" rows="5"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group" ng-class="{ 'has-error': (antecedenteForm.fechaDesde.$touched && antecedenteForm.fechaDesde.$invalid) || (antecedenteForm.$submitted && antecedenteForm.fechaDesde.$invalid)}">
+
+                                            <label class="col-sm-3 control-label">Fecha inicio</label>
+
+                                            <div class="col-sm-9 input-group date">
+
+                                                <input datetimepicker type="text" class="form-control" name="fechaDesde"
+                                                       placeholder="¿Cuando comenzaste a jugar?" ng-model="antecedente.FechaInicioTexto" required>
+
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+
+                                            </div>
+
+                                            <div class="col-sm-3 input-group date">       </div>
+
+                                            <div class="help-block col-sm-9" ng-messages="antecedenteForm.fechaDesde.$error" ng-if="antecedenteForm.fechaDesde.$touched || antecedenteForm.$submitted">
+                                                <p ng-message="required">Introduce la fecha desde que empezaste a jugar.</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Fecha fin</label>
+
+                                            <div class="col-sm-7 input-group date">
+
+                                                <input datetimepicker type="text" class="form-control"
+                                                       placeholder="¿Cuando terminaste de jugar?" ng-model="antecedente.FechaFinTexto" ng-disabled="outcome.fechaFinCheck">
+
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+
+                                            </div>
+
+                                            <div class="col-sm-2 input-group date">
+
+                                                <div class="checkbox">
+                                                    <label for="checkboxes-0">
+                                                        <input name="checkboxe" type="checkbox" ng-model="outcome.fechaFinCheck" ng-change="cleanInput()">
+                                                        Actualidad
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Información relevante de tu periodo</label>
+
+                                            <div class="col-sm-9">
+                                                <textarea ng-model="antecedente.TextoLibre" placeholder="Coloca cualquier información relevante de tu periodo." class="form-control" rows="5"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9"></div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <div class="col-sm-offset-3 col-sm-9">
+
+                                                <a href="#!Coach/SportsHistory/List" class="btn btn-default">Volver</a>
+
+                                                <button type="submit" class="btn btn-default page-action">Aceptar</button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

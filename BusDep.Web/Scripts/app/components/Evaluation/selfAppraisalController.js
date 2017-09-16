@@ -24,25 +24,25 @@
                 toastr.error('¡Ha ocurrido un error!', 'Error');
             });
 
-            commonService.getPerfilJugadorShort().then(function (response) {
-                if (response.data.FechaNacimiento != null) {
-                    response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
-                }
-                $scope.perfilShort = response.data;
+            //commonService.getPerfilJugadorShort().then(function (response) {
+            //    if (response.data.FechaNacimiento != null) {
+            //        response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
+            //    }
+            //    $scope.perfilShort = response.data;
 
-                if ($scope.perfilShort != '') {
-                    selfAppraisalService.getJugador().then(function (response) {
+            //    if ($scope.perfilShort != '') {
+            //        selfAppraisalService.getJugador().then(function (response) {
 
-                        $scope.jugador = response.data;
+            //            $scope.jugador = response.data;
 
-                    }).catch(function (err) {
-                        toastr.error('¡Ha ocurrido un error!', 'Error');
-                    });
-                }
+            //        }).catch(function (err) {
+            //            toastr.error('¡Ha ocurrido un error!', 'Error');
+            //        });
+            //    }
 
-            }).catch(function (err) {
-                toastr.error('¡Ha ocurrido un error!', 'Error');
-            });
+            //}).catch(function (err) {
+            //    toastr.error('¡Ha ocurrido un error!', 'Error');
+            //});
 
 
 

@@ -68,13 +68,12 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/shared/components/headerProfile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/directives", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/factories", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/common", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/player", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/components/coach", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/services", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/services/common", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/services/player", "*.js").WithLastModifiedToken()
-                    .IncludeDirectory("~/Scripts/app/services/coach", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Account", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Coach", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Common", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Evaluation", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Profile", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Search", "*.js").WithLastModifiedToken()
                     );
 
         }

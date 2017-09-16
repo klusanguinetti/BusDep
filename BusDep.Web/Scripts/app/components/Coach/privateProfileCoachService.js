@@ -1,7 +1,6 @@
 ﻿'use strict';
-app.service('privateCoachProfileService', ['$http', '$q', function ($http, $q) {
+app.service('privateProfileCoachService', ['$http', '$q', function ($http, $q) {
 
-    //var serviceBase = '/api/Coach/';
     var serviceBase = '/api/Coach/';
     this.getUserDetails = function () {
 

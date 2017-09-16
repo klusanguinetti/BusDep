@@ -109,4 +109,16 @@ namespace BusDep.Web.Class
             }
         }
     }
+
+    public static class HelperUser
+    {
+
+        public static UsuarioViewModel GetUserLogOn()
+        {
+            return new AuthHelper().GetAuthData();
+
+        }
+    }
+
+
 }

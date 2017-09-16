@@ -37,16 +37,6 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
             $scope.clubes = $filter('orderBy')(data.data, 'Nombre');
         });
 
-        commonService.getPerfilJugadorShort().then(function (response) {
-            if (response.data.FechaNacimiento != null) {
-                response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
-            }
-            $scope.perfilShort = response.data;
-
-        }).catch(function (err) {
-            toastr.error('¡Ha ocurrido un error!', 'Error');
-        });
-
         var antecedenteId = $routeParams.id;
 
         $scope.titulo = "Agregar nuevo antecedente deportivo";
@@ -72,11 +62,6 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
                 }
 
                 $scope.antecedente = response.data;
-
-                //var FechaInicio = moment(response.data.FechaInicio).format("DD/MM/YYYY");
-
-                //$scope.antecedente.FechaInicio = FechaInicio;
-
                 if (response.data.FechaFinTexto == null) {
                     $scope.outcome.fechaFinCheck = true;
                 }

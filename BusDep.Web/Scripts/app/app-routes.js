@@ -3,7 +3,7 @@
     $routeProvider
         .when('/', {
             templateUrl: '/Home/HomeContent',
-            controller: 'indexController',
+            controller: 'indexController'
         })
         .when('/Terms', {
             templateUrl: '/Home/Terms'
@@ -68,7 +68,7 @@
         })
         .when('/Coach/PrivateProfileEntrenador', {
             templateUrl: '/Coach/PrivateProfileEntrenador',
-            controller: 'privateProfileEntrenadorController',
+            controller: 'privateProfileCoachController',
             resolve: {
                 permission: function (authService) {
                     return authService.isLogIn();
@@ -111,7 +111,26 @@
              }
          }
      })
-        .otherwise({
-            redirectTo: '/'
-        });
+      .when('/Coach/SportsHistory/List/:action?/:result?', {
+          templateUrl: '/Coach/SportsHistory',
+          controller: 'sportsCoachHistoryListController',
+          resolve: {
+              permission: function (authService) {
+                  return authService.isLogIn();
+              }
+          }
+      })
+        .when('/Coach/SportsHistory/:id?', {
+            templateUrl: '/Coach/Antecedente',
+            controller: 'sportsCoachHistoryController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+
+     .otherwise({
+        redirectTo: '/'
+     });
 }]);

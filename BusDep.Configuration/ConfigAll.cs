@@ -57,6 +57,14 @@
                     new InterceptionBehavior<InterceptorDataAccess>()
             }
             );
+            DependencyFactory.RegisterType<IEntrenadorDA, EntrenadorDA>(new PerThreadLifetimeManager(),
+             new InjectionMember[]
+             {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorDataAccess>()
+             }
+             );
+
             #region genericos
             DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
@@ -261,7 +269,15 @@
                     new Interceptor<VirtualMethodInterceptor>(),
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
-                ); 
+                );
+            DependencyFactory.RegisterType<IUsuarioEntrenadorBusiness, UsuarioEntrenadorBusiness>(new PerThreadLifetimeManager(),
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBusiness>()
+                }
+                );
+           
             #endregion
         }
 

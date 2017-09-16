@@ -1,4 +1,5 @@
-﻿
+﻿@using BusDep.Web.Class
+
 @{
     Layout = null;
 }
@@ -13,9 +14,20 @@
             @Html.Partial("_Profile_Sidebar")
 
             <div class="col-sm-9 page-content">
-                <div class="inner-box"  ng-show="perfilShort!=''">
+            <div class="inner-box">
+            @{
+                if (HelperUser.GetUserLogOn().JugadorId.HasValue)
+                {
                     @Html.Partial("_Hearder_Profile_v2")
-                </div>
+                }
+                else if (HelperUser.GetUserLogOn().EntrenadorId.HasValue)
+                {
+                    @Html.Partial("_Hearder_Coach")
+                }
+            }
+
+                
+            </div>
                 <div class="inner-box">
 
                     <h2 class="title-2"><i class="fa fa-star"></i> AutoEvaluación</h2>

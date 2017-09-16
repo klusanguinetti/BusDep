@@ -47,6 +47,7 @@
     <Compile Include="ComboViewModel.cs" />
     <Compile Include="DatosPersonaViewModel.cs" />
     <Compile Include="DeporteViewModel.cs" />
+    <Compile Include="EntrenadorViewModel.cs" />
     <Compile Include="EvaluacionViewModel.cs" />
     <Compile Include="JugadorViewModel.cs" />
     <Compile Include="MenuViewModel.cs" />

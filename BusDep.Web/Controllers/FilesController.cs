@@ -149,32 +149,64 @@ namespace AspNetWebApi.Controllers
 
             Stream imageStream = file.InputStream;
 
-            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
+            var userViewModel = GetAuthData();
 
-            var user = business.ObtenerJugador(GetAuthData());
-
-            if (user.FotoRostro != null)
+            if (userViewModel.JugadorId.HasValue)
             {
+                var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
 
-                string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+                var user = business.ObtenerJugador(userViewModel);
 
-                utility.DeleteBlob(BlobNameToDelete, ContainerName);
+                if (user.FotoRostro != null)
+                {
 
+                    string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+
+                    utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+                }
+
+                var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+                if (result != null)
+                {
+
+                    user.FotoRostro = result.Uri.ToString();
+
+                    business.ActualizarDatosJugador(user);
+
+                    return Ok(new {Message = "Photos uploaded ok"});
+
+                }
             }
-
-            var result = utility.UploadBlob(fileName, ContainerName, imageStream);
-
-            if (result != null)
+            else if (userViewModel.EntrenadorId.HasValue)
             {
+                var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
 
-                user.FotoRostro = result.Uri.ToString();
+                var user = business.ObtenerEntrenador(userViewModel);
 
-                business.ActualizarDatosJugador(user);
+                if (user.FotoRostro != null)
+                {
 
-                return Ok(new { Message = "Photos uploaded ok" });
+                    string BlobNameToDelete = user.FotoRostro.Split('/').Last();
 
+                    utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+                }
+
+                var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+                if (result != null)
+                {
+
+                    user.FotoRostro = result.Uri.ToString();
+
+                    business.ActualizarDatosEntrenador(user);
+
+                    return Ok(new { Message = "Photos uploaded ok" });
+
+                }
             }
-
             return BadRequest();
 
         }
@@ -190,31 +222,39 @@ namespace AspNetWebApi.Controllers
 
             Stream imageStream = file.InputStream;
 
-            var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
 
-            var user = business.ObtenerJugador(GetAuthData());
+            var userViewModel = GetAuthData();
 
-            if (user.FotoCuertoEntero != null)
+            if (userViewModel.JugadorId.HasValue)
             {
+                var business = DependencyFactory.Resolve<IUsuarioJugadorBusiness>();
 
-                string BlobNameToDelete = user.FotoCuertoEntero.Split('/').Last();
+                var user = business.ObtenerJugador(userViewModel);
 
-                utility.DeleteBlob(BlobNameToDelete, ContainerName);
+                if (user.FotoCuertoEntero != null)
+                {
 
+                    string BlobNameToDelete = user.FotoCuertoEntero.Split('/').Last();
+
+                    utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+                }
+
+                var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+                if (result != null)
+                {
+
+                    user.FotoCuertoEntero = result.Uri.ToString();
+
+                    business.ActualizarDatosJugador(user);
+
+                    return Ok(new { Message = "Photos uploaded ok" });
+
+                }
             }
-
-            var result = utility.UploadBlob(fileName, ContainerName, imageStream);
-
-            if (result != null)
-            {
-
-                user.FotoCuertoEntero = result.Uri.ToString();
-
-                business.ActualizarDatosJugador(user);
-
-                return Ok(new { Message = "Photos uploaded ok" });
-
-            }
+           
+            
 
             return BadRequest();
 

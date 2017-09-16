@@ -45,6 +45,7 @@
     <Compile Include="ICommonBusiness.cs" />
     <Compile Include="ILoginBusiness.cs" />
     <Compile Include="IUsuarioBusiness.cs" />
+    <Compile Include="IUsuarioEntrenadorBusiness.cs" />
     <Compile Include="IUsuarioJugadorBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

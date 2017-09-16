@@ -1,5 +1,5 @@
-﻿app.controller('privateProfileEntrenadorController', ['$scope', 'privateCoachProfileService', 'commonService', '$http', '$rootScope', 'toastr',
-function ($scope, privateCoachProfileService, commonService, $http, $rootScope, toastr) {
+﻿app.controller('privateProfileCoachController', ['$scope', 'privateProfileCoachService', 'commonService', '$http', '$rootScope', 'toastr',
+function ($scope, privateProfileCoachService, commonService, $http, $rootScope, toastr) {
 
 
     $scope.Mail = $rootScope.user.UserName;
@@ -11,7 +11,7 @@ function ($scope, privateCoachProfileService, commonService, $http, $rootScope, 
 
     $scope.modulo = 'Mis Datos';
     $scope.moduloicono = '';
-
+    $scope.fechaNacimiento = null;
     $scope.tipoDocumento = [
         {
             "Nombre": "Documento Nacional de Identidad"
@@ -36,15 +36,14 @@ function ($scope, privateCoachProfileService, commonService, $http, $rootScope, 
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
         });
-        privateCoachProfileService.getUserDetails().then(function (response) {
+        privateProfileCoachService.getUserDetails().then(function (response) {
 
             $http.get('json/paises.json').then(function (data) {
                 $scope.paises = data.data;
             });
             $scope.datosPersonales = response.data;
             if (response.data.FechaNacimiento != null) {
-                var date = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
-                $scope.fechaNacimiento = date;
+                $scope.fechaNacimiento = response.data.FechaNacimientoTexto;
             }
         }).catch(function (err) {
 
@@ -85,8 +84,8 @@ function ($scope, privateCoachProfileService, commonService, $http, $rootScope, 
         else {
             $scope.datosPersonales.Nacionalidad1 = null;
         }
-        $scope.datosPersonales.FechaNacimiento = $scope.fechaNacimiento;
-        return privateCoachProfileService.saveUserDetails($scope.datosPersonales).then(function (response) {
+        $scope.datosPersonales.FechaNacimientoTexto = $scope.fechaNacimiento;
+        return privateProfileCoachService.saveUserDetails($scope.datosPersonales).then(function (response) {
 
             toastr.success('¡Perfil actualizado con éxito!', '¡Perfecto!');
 

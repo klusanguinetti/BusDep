@@ -19,6 +19,15 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
+        public ActionResult SportsHistory()
+        {
+            return View();
+        }
+
+        public ActionResult Antecedente()
+        {
+            return View();
+        }
         #endregion
 
         #region metodos
