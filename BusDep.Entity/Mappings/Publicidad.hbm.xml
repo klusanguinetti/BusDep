@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="BusDep.Entity.Publicidad, BusDep.Entity" table="Publicidad" lazy="true">
+    <id name="Id" column="PublicidadId" type="System.Int64" unsaved-value="0" >
+      <generator class="native" />
+    </id>
+    <property name="ImageUrl" column="ImageUrl" type="System.String" length="4000" />
+    <property name="Link" column="Link" type="System.String" length="4000" />
+    <property name="Estado" column="Estado" type="System.String" length="2" />
+  </class>
+</hibernate-mapping>
+<!--Importante: Asignar el not-null=true que corresponda.-->

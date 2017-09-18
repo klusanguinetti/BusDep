@@ -1,0 +1,251 @@
+﻿
+<div class="col-sm-12 page-content col-thin-right">
+
+    <div class="inner inner-box">
+        <div class="col-xs-12 col-md-3">
+            <h2> {{datosPerfil.Nombre}} {{datosPerfil.Apellido}}</h2>
+            <div class="seller-info">
+                <div class="company-logo-thumb" style="text-align: center;">
+                    <a><img alt="img" class="img-circle" ngf-thumbnail="datosPerfil.FotoRostro" height="120" width="120"> </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <p class="no-margin">
+                <strong>Nacimiento:&nbsp;</strong> {{datosPerfil.FechaNacimiento}} ({{datosPerfil.Edad}})
+            </p>
+            <p class="no-margin">
+                <strong>Edad:&nbsp;</strong>{{datosPerfil.Edad}}
+            </p>
+            <p class="no-margin">
+                <strong>Pais:&nbsp;</strong> <i class="flagicon flag-{{datosPerfil.PaisIso}} xs"></i> {{datosPerfil.Pais}}
+            </p>
+            <p class="no-margin">
+                <strong>Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{datosPerfil.NacionalidadIso}} xs"></i> {{datosPerfil.Nacionalidad}}
+            </p>
+            <p class="no-margin" ng-show="datosPerfil.NacionalidadIso1!=null">
+                <strong>Otra Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{datosPerfil.NacionalidadIso1}} xs"></i> {{datosPerfil.Nacionalidad1}}
+            </p>
+            <p class="no-margin">
+                <strong> Perfil:&nbsp;</strong>{{datosPerfil.Perfil}}
+            </p>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <p class="no-margin">
+                <strong>Altura:&nbsp;</strong> {{datosPerfil.Altura}} Mts
+            </p>
+            <p class="no-margin">
+                <strong>Peso:&nbsp;</strong> {{datosPerfil.Peso}} Kg
+            </p>
+            <p class="no-margin">
+                <strong>Pie:&nbsp;</strong> {{datosPerfil.Pie}}
+            </p>
+            <p class="no-margin">
+                <strong>Puesto:&nbsp;</strong> {{datosPerfil.PuestoEspecifico}}
+            </p>
+            <p class="no-margin" ng-show="datosPerfil.PuestoAlterEspecifico!=null">
+                <strong>Puesto Alter:&nbsp;</strong> {{datosPerfil.PuestoAlterEspecifico}}
+            </p>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <i class="flagpuestoicon flag-{{datosPerfil.PuestoCodigo}}" />
+        </div>
+
+        <div class="tabs mb20">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a data-target="#profile1" data-toggle="tab" aria-expanded="true">Autoevaluación deportiva</a>
+                </li>
+                <li class="">
+                    <a data-target="#home1" data-toggle="tab">Antecedentes deportivos</a>
+                </li>
+                <li class="" ng-show="Recomendaciones!=null && Recomendaciones.length>0">
+                    <a data-target="#recomendacion1" data-toggle="tab">Mensajes</a>
+                </li>
+            </ul>
+            <div id="myTabContent2" class="tab-content">
+                <div class="tab-pane fade active in" id="profile1">
+                    <div class="inner inner-box">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                <a> {{graficaTecnica.Descripcion}} </a>
+                            </h3>
+                            <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                <h1 class="titleevaluacion">
+                                    <span class="text-uppercase">Promedio</span>
+                                    {{graficaTecnica.Promedio}}
+                                </h1>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <canvas id="radar{{graficaTecnica.Id}}" class="chart-base" chart-type="graficaTecnica.Chart"
+                                        chart-options="optionsradar"
+                                        chart-data="graficaTecnica.Values"
+                                        chart-labels="graficaTecnica.Labels"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                <a> {{graficaCondicion.Descripcion}} </a>
+                            </h3>
+                            <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                <h1 class="titleevaluacion">
+                                    <span class="text-uppercase">Promedio</span>
+                                    {{graficaCondicion.Promedio}}
+                                </h1>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <canvas id="radar{{graficaCondicion.Id}}" class="chart-base" chart-type="graficaCondicion.Chart"
+                                        chart-options="optionsradar"
+                                        chart-data="graficaCondicion.Values" chart-labels="graficaCondicion.Labels"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inner inner-box">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                <a> {{graficaTactica.Descripcion}} </a>
+                            </h3>
+                            <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                <h1 class="titleevaluacion">
+                                    <span class="text-uppercase">Promedio</span>
+                                    {{graficaTactica.Promedio}}
+                                </h1>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <canvas id="radar{{graficaTactica.Id}}" class="chart-base" chart-type="graficaTactica.Chart"
+                                        chart-options="graficaEntorno.Chart=='bar'||graficaEntorno.Chart=='horizontalBar'? optionsBar : options"
+                                        chart-data="graficaTactica.Values"
+                                        chart-labels="graficaTactica.Labels"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                <a> {{graficaEntorno.Descripcion}} </a>
+                            </h3>
+                            <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                <h1 class="titleevaluacion">
+                                    <span class="text-uppercase">Promedio</span>
+                                    {{graficaEntorno.Promedio}}
+                                </h1>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <canvas id="radar{{graficaEntorno.Id}}" class="chart-base" chart-type="graficaEntorno.Chart"
+                                        chart-options="graficaEntorno.Chart=='bar'||graficaEntorno.Chart=='horizontalBar'? optionsBar : options"
+                                        chart-data="graficaEntorno.Values" chart-labels="graficaEntorno.Labels"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inner inner-box">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                <a> {{graficaCoordinacion.Descripcion}} </a>
+                            </h3>
+                            <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                <h1 class="titleevaluacion">
+                                    <span class="text-uppercase">Promedio</span>
+                                    {{graficaCoordinacion.Promedio}}
+                                </h1>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <canvas id="radar{{graficaCoordinacion.Id}}" class="chart-base" chart-type="graficaCoordinacion.Chart"
+                                        chart-options="graficaCoordinacion.Chart=='bar'||graficaCoordinacion.Chart=='horizontalBar'? optionsBar : options"
+                                        chart-data="graficaCoordinacion.Values"
+                                        chart-labels="graficaCoordinacion.Labels"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="col-md-8 col-sm-8 col-xs-12 job-title">
+                                <a> {{graficaCualidades.Descripcion}} </a>
+                            </h3>
+                            <div class="col-md-offset-1 col-md-3 hide-xs ">
+                                <h1 class="titleevaluacion">
+                                    <span class="text-uppercase">Promedio</span>
+                                    {{graficaCualidades.Promedio}}
+                                </h1>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <canvas id="radar{{graficaCualidades.Id}}" class="chart-base" chart-type="graficaCualidades.Chart"
+                                        chart-options="graficaCualidades.Chart=='bar'||graficaCualidades.Chart=='horizontalBar'? optionsBar : options"
+                                        chart-data="graficaCualidades.Values" chart-labels="graficaCualidades.Labels"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="info-row"><i class="fa fa-info-circle"></i> All Winers no certifica directamente la información presentada anteriormente.</span>
+                </div>
+
+                <div class="tab-pane fade" id="home1">
+                    <div class="ads-details-info jobs-details-info col-md-12">
+                        <div class="adds-wrapper jobs-list">
+
+                            <div class="item-list job-item" ng-repeat="r in Antecedentes">
+
+                                <div class="col-sm-2 col-md-2 col-xs-4 no-padding photobox">
+                                    <i class="flagclubicon flag-{{r.ClubLogo}} xl" title="{{r.ClubDescripcion}}" />
+                                </div>
+
+                                <div class="col-sm-5 col-md-5 col-xs-8 add-desc-box">
+                                    <div class="add-details jobs-item">
+                                        <h4 class="job-title"> {{r.ClubDescripcion}} </h4>
+                                        <span class="info-row">
+
+                                            <span class="date"><i class="icon-calendar-1"></i>Desde: {{r.FechaInicioText}} </span>
+
+                                            <span class="date"><i class="icon-calendar-1"></i>Hasta: {{r.FechaFinText ? r.FechaFinText : 'Actual'}} </span>
+
+                                        </span>
+
+                                        <div class="job-actions">
+                                            <ul class="" style="margin-left: 0px">
+                                                <li style="margin-bottom: 5px;">
+                                                    <a href="" class="save-job">
+                                                        <span class="fa fa-handshake-o"></span>
+                                                        Asistencias: {{r.Asistencias ? r.Asistencias : 0 }}
+                                                    </a>
+                                                </li>
+                                                <li style="margin-bottom: 5px;">
+                                                    <a class="saved-job" href="">
+                                                        <span class="fa fa-futbol-o"></span>
+                                                        Goles: {{r.Goles ? r.Goles : 0}}
+                                                    </a>
+                                                </li>
+                                                <li style="margin-bottom: 5px;">
+                                                    <a class="email-job" href="">
+                                                        <i class="fa fa-flag"></i>
+                                                        Partidos: {{r.Partidos ? r.Partidos : 0}}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="jobs-desc">
+                                            <span class="info-row">{{r.InformacionAdicional}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-md-5 hide-xs add-desc-box">
+                                    <i class="flagpuestoicon flag-{{r.Puesto}}" ng-show="r.Puesto!=null" /> &nbsp;&nbsp;
+                                    <i class="flagpuestoicon flag-{{r.PuestoAlt}}" ng-show="r.Puesto!=null" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="recomendacion1" ng-show="Recomendaciones!=null && Recomendaciones.length>0" >
+                    <div class="item-list job-item" ng-repeat="r in Recomendaciones">
+                        <div class="bs-callout-success fade in">
+                            @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+                            <h4>{{r.Emisor}}&nbsp;({{r.TipoUsuario}})</h4>
+                            <p>{{r.Texto}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

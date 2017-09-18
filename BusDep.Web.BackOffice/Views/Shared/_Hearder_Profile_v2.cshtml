@@ -1,0 +1,61 @@
+﻿
+
+<div class="row" ng-controller="headerProfileController">
+
+    <div class="col-sm-6">
+
+        <div class="seller-info seller-profile">
+
+            <div class="seller-profile-img">
+                <a>
+                    <img alt="User Image" class="thumbnail" ngf-src="picFile" style="height:130px; width:100px;">
+                </a>
+            </div>
+
+            <h3 class="no-margin no-padding link-color uppercase"> {{perfilShort.Nombre}} {{perfilShort.Apellido}} </h3>
+
+            <div class="text-muted">
+                {{perfilShort.Puesto || 'Sin puesto definido'}}
+            </div>
+
+            <div class="user-ads-action">
+                <a class="btn btn-sm  btn-success" type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"><i class="fa fa-refresh"></i> Cambiar foto </a>
+
+                <a class="btn btn-sm  btn-default" ng-click="removePhoto();" ng-show="picFile"><i class="fa fa-remove"></i> Remover </a>
+                <span ng-show="headerResult" style="margin-top: 10px;">
+                    ¡Foto subida con éxito!
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-xs-12 col-md-3">
+        <p class="no-margin">
+            <strong>Nacimiento:&nbsp;</strong> {{perfilShort.FechaNacimiento}}
+        </p>
+        <p class="no-margin">
+            <strong>Edad:&nbsp;</strong>{{perfilShort.Edad}}
+        </p>
+        <p class="no-margin">
+            <strong>Pais:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.PaisIso}} xs"></i> {{perfilShort.Pais}}
+        </p>
+        <p class="no-margin">
+            <strong>Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso}} xs"></i> {{perfilShort.Nacionalidad}}
+        </p>
+        <p class="no-margin" ng-show="perfilShort.NacionalidadIso1!=null">
+            <strong>Otra Nacionalidad:&nbsp;</strong> <i class="flagicon flag-{{perfilShort.NacionalidadIso1}} xs"></i> {{perfilShort.Nacionalidad1}}
+        </p>
+        <p class="no-margin">
+            <strong> Perfil:&nbsp;</strong>{{perfilShort.Perfil}}
+        </p>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+        <i class="flagpuestoicon flag-{{perfilShort.PuestoCode}}" />
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+﻿<div ng-controller="indexController">
+
+    <div class="intro jobs-intro hasOverly" style="background-image: url(/Content/img/slide_3.jpg); background-position: center center;"
+         data-ng-hide="!user.authenticated">
+
+    </div>
+
+    <div data-ng-hide="user.authenticated">
+
+        <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">
+                <a href="#!/Account/Login">
+                    <img ng-src="{{slide.image}}" class="image">
+                </a>
+                <div class="carousel-caption">
+
+                </div>
+            </slide>
+        </carousel>
+
+    </div>
+
+    <div class="main-container">
+
+        <div class="container">
+
+            <div style="clear: both"></div>
+        </div>
+
+    </div>
+</div>

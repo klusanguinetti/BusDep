@@ -10,4 +10,11 @@
         
         UsuarioViewModel ActualizarPassword(UsuarioCambioPasswordViewModel usuarioCambioPassword);
     }
+
+    public interface IBackOfficeLoginBusiness
+    {
+
+        UsuarioViewModel LoginUser(string mail, string password);
+
+    }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AuditMethodAttribute.cs" />
     <Compile Include="IBusquedaBusiness.cs" />
+    <Compile Include="IBackOfficeBusiness.cs" />
     <Compile Include="ICommonBusiness.cs" />
     <Compile Include="ILoginBusiness.cs" />
     <Compile Include="IUsuarioBusiness.cs" />

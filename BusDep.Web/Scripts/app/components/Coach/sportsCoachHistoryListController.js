@@ -1,4 +1,4 @@
-﻿app.controller('sportsCoachHistoryListController', ['$scope', 'sportsCoachHistoryService', 'commonService', '$http', '$rootScope', 'toastr', '$routeParams', 'Flash',
+﻿app.controller('sportsCoachHistoryListController', ['$scope', '$window', 'sportsCoachHistoryService', 'commonService', '$http', '$rootScope', 'toastr', '$routeParams', 'Flash',
 function ($scope, sportsCoachHistoryService, commonService, $http, $rootScope, toastr, $routeParams, Flash) {
 
     $scope.antecedentes = {};

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusquedaBusiness.cs" />
+    <Compile Include="BackOfficeBusiness.cs" />
     <Compile Include="CommonBusiness.cs" />
     <Compile Include="FillViewModel.cs" />
     <Compile Include="LoginBusiness.cs" />

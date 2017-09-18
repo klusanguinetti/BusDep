@@ -1,0 +1,62 @@
+﻿<!doctype html>
+
+<html class="no-js" lang="en" data-ng-app="appBusDepBakcOficce">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>All Winers | Back Office</title>
+
+    <link rel="icon" href="~/Content/img/Allwiners/logo_short.png">
+    @Styles.Render("~/Content/css")
+
+</head>
+
+<body ng-init="user={authenticated:@Model.Authenticated,UserName:'@Model.UserName'}">
+
+    <div class="inner">
+
+        <div id="wrapper">
+
+            @Html.Partial("_Header")
+
+            @Scripts.Render("~/bundles/jquery")
+
+            <div ng-view class="reveal-animation" autoscroll="true">
+
+            </div>
+
+            @Html.Partial("_Footer")
+
+            @Scripts.Render("~/bundles/bootstrap")
+
+
+
+            @Scripts.Render("~/bundles/angular")
+
+            @Scripts.Render("~/bundles/app/main")
+
+            <script type="text/javascript">
+                var loading_screen = pleaseWait({
+
+                logo: "./Content/img/Allwiners/logo.png",
+                backgroundColor: '#f4f8f9',
+                loadingHtml: '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
+            });
+
+                setInterval(function () { loading_screen.finish(); }, 5000);
+
+            </script>
+
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

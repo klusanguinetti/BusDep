@@ -5,8 +5,8 @@
 <Workspace>
 	<Local Expanded="Yes" Name="Proyecto Busqueda Deportiva">
 		<Model Expanded="Yes" ID="{BA58EC34-DD4D-4B73-A9B6-CAA20BF9FBCD}" Loaded="No" Name="BusquedaDeportiva" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="BusquedaDeportiva.pdm"/>
-		<Model Expanded="Yes" ID="{532E27A1-1F32-4016-8A5C-0784077B16A5}" Loaded="No" Name="BusquedaDeportivaV2" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="BusquedaDeportivaV2.pdm"/>
-		<Model Expanded="Yes" ID="{0420C69E-53C1-436B-86C5-D34E03A3E503}" Name="LOGISTICA" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="../../Logistica/DB/Logistica.pdm"/>
+		<Model Expanded="Yes" ID="{532E27A1-1F32-4016-8A5C-0784077B16A5}" Name="BusquedaDeportivaV2" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="BusquedaDeportivaV2.pdm"/>
+		<Model Expanded="Yes" ID="{0420C69E-53C1-436B-86C5-D34E03A3E503}" Loaded="No" Name="LOGISTICA" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="../../Logistica/DB/Logistica.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PublicidadViewModel.cs" />
     <Compile Include="AntecedenteViewModel.cs" />
     <Compile Include="BootStrapperDataModel.cs" />
     <Compile Include="ClubDetalleViewModel.cs" />

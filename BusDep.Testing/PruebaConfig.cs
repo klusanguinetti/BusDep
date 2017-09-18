@@ -388,7 +388,7 @@ namespace BusDep.Testing
         [Test]
         public void EncriptPassword()
         {
-            Console.WriteLine(BusDep.Common.Encrypt.EncryptToBase64String("Server2012"));
+            Console.WriteLine(BusDep.Common.Encrypt.EncryptToBase64String("azasdadsadsads"));
         }
         [Test]
         public void ComboPuestos()

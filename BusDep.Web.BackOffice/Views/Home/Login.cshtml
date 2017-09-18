@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-5 login-box">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-intro text-center">
+                        <img alt="img" class="img-logo-register" src="~/Content/img/Allwiners/logo.png" style="display: inline;">
+                    </div>
+
+                    <div class="panel-body">
+
+                        <flash-message name="login"></flash-message>
+
+                        <form role="form" novalidate="" name="loginForm" ng-submit="login()" promise-btn>
+
+                            <div class="form-group" ng-class="{ 'has-error': (loginForm.email.$touched && loginForm.email.$invalid) || (loginForm.$submitted && loginForm.email.$invalid)}">
+
+                                <label for="sender-email" class="control-label">Email:</label>
+
+                                <div class="input-group input-icon">
+                                    <span class="input-group-addon bgtransparent"><i class="icon-user fa"></i></span>
+                                    <input name="email" type="email" placeholder="Email" class="form-control email" data-ng-model="loginData.mail" required autofocus>
+                                </div>
+
+                                <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.$submitted">
+                                    <p ng-message="required">Tu email es necesario.</p>
+                                    <p ng-message="email">Debes colocar un email valido</p>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': (loginForm.password.$touched && loginForm.password.$invalid) || (loginForm.$submitted && loginForm.password.$invalid)}">
+
+                                <label for="user-pass" class="control-label">Contraseña:</label>
+                                <div class="input-group input-icon">
+                                    <span class="input-group-addon bgtransparent"><i class="icon-lock fa"></i></span>
+                                    <input type="password" class="form-control" placeholder="Contraseña" required name="password" data-ng-model="loginData.password" ng-minlength="6">
+                                </div>
+
+                                <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.$submitted">
+                                    <p ng-message="required">Tu contraseña es necesaria.</p>
+                                    <p ng-message="minlength">Tu contraseña es muy corta.</p>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

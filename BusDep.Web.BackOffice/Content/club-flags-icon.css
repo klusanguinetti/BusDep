@@ -1,0 +1,458 @@
+.flagclubicon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: left;
+    text-indent: -999em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+    .flagclubicon.xl {
+        width: 100px;
+        height: 100px;
+    }
+
+     .flagclubicon.md {
+        width: 50px;
+        height: 50px;
+    }
+
+    .flagclubicon.xs {
+        width: 20px;
+        height: 20px;
+    }
+    .flagclubicon.flag- {
+        background-image: url('../Content/img/Allwiners/logo_short.png');
+    }
+    .flagclubicon.flag-oo {
+        background-image: url('../Content/img/Allwiners/logo_short.png');
+    }
+
+    .flagclubicon.flag-al {
+        background-image: url('../Content/img/Clubes/al.png');
+    }
+
+    .flagclubicon.flag-ar {
+        background-image: url('../Content/img/Clubes/ar.png');
+    }
+
+    .flagclubicon.flag-ra {
+        background-image: url('../Content/img/Clubes/ra.png');
+    }
+
+    .flagclubicon.flag-bf {
+        background-image: url('../Content/img/Clubes/bf.png');
+    }
+
+    .flagclubicon.flag-at {
+        background-image: url('../Content/img/Clubes/at.png');
+    }
+
+    .flagclubicon.flag-be {
+        background-image: url('../Content/img/Clubes/be.png');
+    }
+
+    .flagclubicon.flag-bj {
+        background-image: url('../Content/img/Clubes/bj.png');
+    }
+
+    .flagclubicon.flag-co {
+        background-image: url('../Content/img/Clubes/co.png');
+    }
+
+    .flagclubicon.flag-dj {
+        background-image: url('../Content/img/Clubes/dj.png');
+    }
+
+    .flagclubicon.flag-es {
+        background-image: url('../Content/img/Clubes/es.png');
+    }
+
+    .flagclubicon.flag-ge {
+        background-image: url('../Content/img/Clubes/ge.png');
+    }
+
+    .flagclubicon.flag-gc {
+        background-image: url('../Content/img/Clubes/gc.png');
+    }
+
+    .flagclubicon.flag-hu {
+        background-image: url('../Content/img/Clubes/hu.png');
+    }
+
+    .flagclubicon.flag-in {
+        background-image: url('../Content/img/Clubes/in.png');
+    }
+
+    .flagclubicon.flag-la {
+        background-image: url('../Content/img/Clubes/la.png');
+    }
+
+    .flagclubicon.flag-nw {
+        background-image: url('../Content/img/Clubes/nw.png');
+    }
+
+    .flagclubicon.flag-ol {
+        background-image: url('../Content/img/Clubes/ol.png');
+    }
+
+    .flagclubicon.flag-pa {
+        background-image: url('../Content/img/Clubes/pa.png');
+    }
+
+    .flagclubicon.flag-qi {
+        background-image: url('../Content/img/Clubes/qi.png');
+    }
+
+    .flagclubicon.flag-rc {
+        background-image: url('../Content/img/Clubes/rc.png');
+    }
+
+    .flagclubicon.flag-rp {
+        background-image: url('../Content/img/Clubes/rp.png');
+    }
+
+    .flagclubicon.flag-ro {
+        background-image: url('../Content/img/Clubes/ro.png');
+    }
+
+    .flagclubicon.flag-sl {
+        background-image: url('../Content/img/Clubes/sl.png');
+    }
+
+    .flagclubicon.flag-sm {
+        background-image: url('../Content/img/Clubes/sm.png');
+    }
+
+    .flagclubicon.flag-so {
+        background-image: url('../Content/img/Clubes/so.png');
+    }
+
+    .flagclubicon.flag-ll {
+        background-image: url('../Content/img/Clubes/ll.png');
+    }
+
+    .flagclubicon.flag-te {
+        background-image: url('../Content/img/Clubes/te.png');
+    }
+
+    .flagclubicon.flag-ti {
+        background-image: url('../Content/img/Clubes/ti.png');
+    }
+
+    .flagclubicon.flag-un {
+        background-image: url('../Content/img/Clubes/un.png');
+    }
+
+    .flagclubicon.flag-vs {
+        background-image: url('../Content/img/Clubes/vs.png');
+    }
+
+    .flagclubicon.flag-bo {
+        background-image: url('../Content/img/Clubes/bo.png');
+    }
+
+    .flagclubicon.flag-am {
+        background-image: url('../Content/img/Clubes/am.png');
+    }
+
+    .flagclubicon.flag-aj {
+        background-image: url('../Content/img/Clubes/aj.png');
+    }
+
+    .flagclubicon.flag-ap {
+        background-image: url('../Content/img/Clubes/ap.png');
+    }
+
+    .flagclubicon.flag-bu {
+        background-image: url('../Content/img/Clubes/bu.png');
+    }
+
+    .flagclubicon.flag-ab {
+        background-image: url('../Content/img/Clubes/ab.png');
+    }
+
+    .flagclubicon.flag-cc {
+        background-image: url('../Content/img/Clubes/cc.png');
+    }
+
+    .flagclubicon.flag-cj {
+        background-image: url('../Content/img/Clubes/cj.png');
+    }
+
+    .flagclubicon.flag-cn {
+        background-image: url('../Content/img/Clubes/cn.png');
+    }
+
+    .flagclubicon.flag-dh {
+        background-image: url('../Content/img/Clubes/dh.png');
+    }
+
+    .flagclubicon.flag-fo {
+        background-image: url('../Content/img/Clubes/fo.png');
+    }
+
+    .flagclubicon.flag-fl {
+        background-image: url('../Content/img/Clubes/fl.png');
+    }
+
+    .flagclubicon.flag-jj {
+        background-image: url('../Content/img/Clubes/jj.png');
+    }
+
+    .flagclubicon.flag-gb {
+        background-image: url('../Content/img/Clubes/gb.png');
+    }
+
+    .flagclubicon.flag-ir {
+        background-image: url('../Content/img/Clubes/ir.png');
+    }
+
+    .flagclubicon.flag-is {
+        background-image: url('../Content/img/Clubes/is.png');
+    }
+
+    .flagclubicon.flag-ju {
+        background-image: url('../Content/img/Clubes/ju.png');
+    }
+
+    .flagclubicon.flag-as {
+        background-image: url('../Content/img/Clubes/as.png');
+    }
+
+    .flagclubicon.flag-nc {
+        background-image: url('../Content/img/Clubes/nc.png');
+    }
+
+    .flagclubicon.flag-st {
+        background-image: url('../Content/img/Clubes/st.png');
+    }
+
+    .flagclubicon.flag-sn {
+        background-image: url('../Content/img/Clubes/sn.png');
+    }
+
+    .flagclubicon.flag-se {
+        background-image: url('../Content/img/Clubes/se.png');
+    }
+
+    .flagclubicon.flag-vd {
+        background-image: url('../Content/img/Clubes/vd.png');
+    }
+
+    .flagclubicon.flag-ac {
+        background-image: url('../Content/img/Clubes/ac.png');
+    }
+
+    .flagclubicon.flag-lt {
+        background-image: url('../Content/img/Clubes/lt.png');
+    }
+
+    .flagclubicon.flag-bc {
+        background-image: url('../Content/img/Clubes/bc.png');
+    }
+
+    .flagclubicon.flag-cl {
+        background-image: url('../Content/img/Clubes/cl.png');
+    }
+
+    .flagclubicon.flag-cm {
+        background-image: url('../Content/img/Clubes/cm.png');
+    }
+
+    .flagclubicon.flag-de {
+        background-image: url('../Content/img/Clubes/de.png');
+    }
+
+    .flagclubicon.flag-do {
+        background-image: url('../Content/img/Clubes/do.png');
+    }
+
+    .flagclubicon.flag-mo {
+        background-image: url('../Content/img/Clubes/mo.png');
+    }
+
+    .flagclubicon.flag-nt {
+        background-image: url('../Content/img/Clubes/nt.png');
+    }
+
+    .flagclubicon.flag-ex {
+        background-image: url('../Content/img/Clubes/ex.png');
+    }
+
+    .flagclubicon.flag-fx {
+        background-image: url('../Content/img/Clubes/fx.png');
+    }
+
+    .flagclubicon.flag-pl {
+        background-image: url('../Content/img/Clubes/pl.png');
+    }
+
+    .flagclubicon.flag-ri {
+        background-image: url('../Content/img/Clubes/ri.png');
+    }
+
+    .flagclubicon.flag-tl {
+        background-image: url('../Content/img/Clubes/tl.png');
+    }
+
+    .flagclubicon.flag-ct {
+        background-image: url('../Content/img/Clubes/ct.png');
+    }
+
+    .flagclubicon.flag-ts {
+        background-image: url('../Content/img/Clubes/ts.png');
+    }
+
+    .flagclubicon.flag-ua {
+        background-image: url('../Content/img/Clubes/ua.png');
+    }
+
+    .flagclubicon.flag-sc {
+        background-image: url('../Content/img/Clubes/sc.png');
+    }
+
+    .flagclubicon.flag-me {
+        background-image: url('../Content/img/Clubes/me.png');
+    }
+
+    .flagclubicon.flag-aq {
+        background-image: url('../Content/img/Clubes/aq.png');
+    }
+
+    .flagclubicon.flag-ai {
+        background-image: url('../Content/img/Clubes/ai.png');
+    }
+
+    .flagclubicon.flag-bz {
+        background-image: url('../Content/img/Clubes/bz.png');
+    }
+
+    .flagclubicon.flag-cu {
+        background-image: url('../Content/img/Clubes/cu.png');
+    }
+
+    .flagclubicon.flag-cr {
+        background-image: url('../Content/img/Clubes/cr.png');
+    }
+
+    .flagclubicon.flag-cb {
+        background-image: url('../Content/img/Clubes/cb.png');
+    }
+
+    .flagclubicon.flag-dz {
+        background-image: url('../Content/img/Clubes/dz.png');
+    }
+
+    .flagclubicon.flag-lf {
+        background-image: url('../Content/img/Clubes/lf.png');
+    }
+
+    .flagclubicon.flag-ds {
+        background-image: url('../Content/img/Clubes/ds.png');
+    }
+
+    .flagclubicon.flag-sb {
+        background-image: url('../Content/img/Clubes/sb.png');
+    }
+
+    .flagclubicon.flag-si {
+        background-image: url('../Content/img/Clubes/si.png');
+    }
+
+    .flagclubicon.flag-ep {
+        background-image: url('../Content/img/Clubes/ep.png');
+    }
+
+    .flagclubicon.flag-fm {
+        background-image: url('../Content/img/Clubes/fm.png');
+    }
+
+    .flagclubicon.flag-jr {
+        background-image: url('../Content/img/Clubes/jr.png');
+    }
+
+    .flagclubicon.flag-dm {
+        background-image: url('../Content/img/Clubes/dm.png');
+    }
+
+    .flagclubicon.flag-lj {
+        background-image: url('../Content/img/Clubes/lj.png');
+    }
+
+    .flagclubicon.flag-sh {
+        background-image: url('../Content/img/Clubes/sh.png');
+    }
+
+    .flagclubicon.flag-ma {
+        background-image: url('../Content/img/Clubes/ma.png');
+    }
+
+    .flagclubicon.flag-mi {
+        background-image: url('../Content/img/Clubes/mi.png');
+    }
+
+    .flagclubicon.flag-ao {
+        background-image: url('../Content/img/Clubes/ao.png');
+    }
+
+    .flagclubicon.flag-aa {
+        background-image: url('../Content/img/Clubes/aa.png');
+    }
+
+    .flagclubicon.flag-le {
+        background-image: url('../Content/img/Clubes/le.png');
+    }
+
+    .flagclubicon.flag-no {
+        background-image: url('../Content/img/Clubes/no.png');
+    }
+
+    .flagclubicon.flag-cy {
+        background-image: url('../Content/img/Clubes/cy.png');
+    }
+
+    .flagclubicon.flag-dp {
+        background-image: url('../Content/img/Clubes/dp.png');
+    }
+
+    .flagclubicon.flag-ld {
+        background-image: url('../Content/img/Clubes/ld.png');
+    }
+
+    .flagclubicon.flag-it {
+        background-image: url('../Content/img/Clubes/it.png');
+    }
+
+    .flagclubicon.flag-jv {
+        background-image: url('../Content/img/Clubes/jv.png');
+    }
+
+    .flagclubicon.flag-ln {
+        background-image: url('../Content/img/Clubes/ln.png');
+    }
+
+    .flagclubicon.flag-dl {
+        background-image: url('../Content/img/Clubes/dl.png');
+    }
+
+    .flagclubicon.flag-lu {
+        background-image: url('../Content/img/Clubes/lu.png');
+    }
+
+    .flagclubicon.flag-mu {
+        background-image: url('../Content/img/Clubes/mu.png');
+    }
+
+    .flagclubicon.flag-pn {
+        background-image: url('../Content/img/Clubes/pn.png');
+    }
+
+    .flagclubicon.flag-va {
+        background-image: url('../Content/img/Clubes/va.png');
+    }
+
+    .flagclubicon.flag-yu {
+        background-image: url('../Content/img/Clubes/yu.png');
+    }

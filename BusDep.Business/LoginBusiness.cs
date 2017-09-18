@@ -48,7 +48,21 @@
             userReturn.MenuUsuario = DependencyFactory.Resolve<IUsuarioDA>().ObtenerMenuTipoUsuario(user.TipoUsuario.Id);
             return userReturn;
         }
-
-        
     }
+    public class BackOfficeLoginBusiness : IBackOfficeLoginBusiness
+    {
+        [AuditMethod]
+        public virtual UsuarioViewModel LoginUser(string mail, string password)
+        {
+            var user = DependencyFactory.Resolve<IUsuarioDA>().LoginBackOfficeUser(mail, password);
+            if (user == null)
+                throw new ExceptionBusiness(2, "Usuario/Contraseña no encontrado");
+            var userReturn = FillViewModel.FillUsuarioViewModel(user);
+            user.UltimoLogin = DateTime.Now;
+            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
+            userReturn.MenuUsuario = DependencyFactory.Resolve<IUsuarioDA>().ObtenerMenuTipoUsuario(user.TipoUsuario.Id);
+            return userReturn;
+        }
+    }
+    
 }

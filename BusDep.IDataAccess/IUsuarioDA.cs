@@ -23,5 +23,7 @@ namespace BusDep.IDataAccess
         Usuario ObtenerUsuarioPorMail(string mail);
 
         List<MenuViewModel> ObtenerMenuTipoUsuario(long tipoUsuarioId);
+
+        Usuario LoginBackOfficeUser(string mail, string password);
     }
 }

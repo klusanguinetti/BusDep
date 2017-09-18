@@ -148,7 +148,7 @@
         public virtual DatosPersonaViewModel ObtenerDatosPersonales(long datosPersonalesId)
         {
             return (from o in Session.Query<Usuario>()
-                    where o.DatosPersona!=null && o.DatosPersona.Id.Equals(datosPersonalesId)
+                    where o.DatosPersona != null && o.DatosPersona.Id.Equals(datosPersonalesId)
                     select new DatosPersonaViewModel
                     {
                         Id = o.Id,
@@ -196,7 +196,15 @@
                         ParentMenuId = ant.ParentMenuId,
                         Url = ant.Url,
                         Orden = ant.Orden
-                    }).OrderBy(o=> o.Orden).ToList();
+                    }).OrderBy(o => o.Orden).ToList();
+        }
+
+        public virtual Usuario LoginBackOfficeUser(string mail, string password)
+        {
+            byte[] data = Convert.FromBase64String(password);
+            string decodedPassword = Encoding.UTF8.GetString(data);
+            password = Common.Encrypt.EncryptToBase64String(decodedPassword);
+            return Session.Query<Usuario>().FirstOrDefault(o => o.Password.Equals(password) && o.Mail.ToUpper().Equals(mail.ToUpper()) && o.TipoUsuario.Descripcion.Equals("Administrador"));
         }
         #endregion
         #region metodos privados

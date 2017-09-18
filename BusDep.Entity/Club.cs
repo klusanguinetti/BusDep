@@ -1,6 +1,6 @@
 namespace BusDep.Entity
 {
-    public partial class Club
+    public class Club
     {
         #region Atributos
         public virtual long Id { get; set; }

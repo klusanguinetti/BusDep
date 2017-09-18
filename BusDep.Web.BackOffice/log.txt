@@ -1,0 +1,71 @@
+ERROR 16 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a
+Metodo: SavePublicidad
+Parametros: [{"Id":0,"ImageUrl":null,"Link":null,"Estado":null}]
+
+NHibernate.MappingException: No persister for: BusDep.Entity.Publicidad
+   en DynamicModule.ns.Wrapped_BaseDA`1_3288535f78514f4f88254f7eeeb9662b.Save(T obje)
+   en BusDep.Business.BackOfficeBusiness.SavePublicidad(PublicidadViewModel publicidadViewModel) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BackOfficeBusiness.cs:línea 19
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a.<SavePublicidad_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 18 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a
+Metodo: SavePublicidad
+Parametros: [{"Id":0,"ImageUrl":null,"Link":null,"Estado":null}]
+
+NHibernate.MappingException: No persister for: BusDep.Entity.Publicidad
+   en DynamicModule.ns.Wrapped_BaseDA`1_3288535f78514f4f88254f7eeeb9662b.Save(T obje)
+   en BusDep.Business.BackOfficeBusiness.SavePublicidad(PublicidadViewModel publicidadViewModel) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BackOfficeBusiness.cs:línea 19
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a.<SavePublicidad_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 23 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a
+Metodo: SavePublicidad
+Parametros: [{"Id":0,"ImageUrl":null,"Link":null,"Estado":null}]
+
+NHibernate.MappingException: No persister for: BusDep.Entity.Publicidad
+   en DynamicModule.ns.Wrapped_BaseDA`1_3288535f78514f4f88254f7eeeb9662b.Save(T obje)
+   en BusDep.Business.BackOfficeBusiness.SavePublicidad(PublicidadViewModel publicidadViewModel) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BackOfficeBusiness.cs:línea 19
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a.<SavePublicidad_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 23 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a
+Metodo: SavePublicidad
+Parametros: [{"Id":0,"ImageUrl":null,"Link":null,"Estado":null}]
+
+NHibernate.MappingException: No persister for: BusDep.Entity.Publicidad
+   en DynamicModule.ns.Wrapped_BaseDA`1_3288535f78514f4f88254f7eeeb9662b.Save(T obje)
+   en BusDep.Business.BackOfficeBusiness.SavePublicidad(PublicidadViewModel publicidadViewModel) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BackOfficeBusiness.cs:línea 19
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a.<SavePublicidad_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 23 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a
+Metodo: SavePublicidad
+Parametros: [{"Id":0,"ImageUrl":null,"Link":null,"Estado":null}]
+
+NHibernate.MappingException: No persister for: BusDep.Entity.Publicidad
+   en DynamicModule.ns.Wrapped_BaseDA`1_3288535f78514f4f88254f7eeeb9662b.Save(T obje)
+   en BusDep.Business.BackOfficeBusiness.SavePublicidad(PublicidadViewModel publicidadViewModel) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BackOfficeBusiness.cs:línea 19
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a.<SavePublicidad_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 26 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a
+Metodo: SavePublicidad
+Parametros: [{"Id":0,"ImageUrl":"https://allwiners.blob.core.windows.net/photos/e42aea0f-520d-409d-84da-915fd12200beSangui.jpg","Link":"Prueba","Estado":null}]
+
+NHibernate.MappingException: No persister for: BusDep.Entity.Publicidad
+   en DynamicModule.ns.Wrapped_BaseDA`1_3288535f78514f4f88254f7eeeb9662b.Save(T obje)
+   en BusDep.Business.BackOfficeBusiness.SavePublicidad(PublicidadViewModel publicidadViewModel)
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_71054b88a84244ae84eb807f8f80639a.<SavePublicidad_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 10 NHibernate.AdoNet.AbstractBatcher - Could not execute query: INSERT INTO Publicidad (ImageUrl, Link, Estado) VALUES (@p0, @p1, @p2); select SCOPE_IDENTITY()
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'PublicidadId', table 'BusDep.dbo.Publicidad'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   en NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+ClientConnectionId:453b5181-97de-4912-aded-6888f6982160
+Error Number:515,State:2,Class:16
+ERROR 10 NHibernate.Util.ADOExceptionReporter - Cannot insert the value NULL into column 'PublicidadId', table 'BusDep.dbo.Publicidad'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+ERROR 10 NHibernate.AssertionFailure - An AssertionFailure occurred - this may indicate a bug in NHibernate or in your custom types.
+NHibernate.AssertionFailure: null id in BusDep.Entity.Publicidad entry (don't flush the Session after an exception occurs)

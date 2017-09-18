@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Configuracion", "05 - 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Configuration", "BusDep.Configuration\BusDep.Configuration.csproj", "{E2EE939A-F9C0-47B8-BA67-00112DF31C98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusDep.Web.BackOffice", "BusDep.Web.BackOffice\BusDep.Web.BackOffice.csproj", "{DC15CE04-129A-45C0-BE5D-D73412BEE507}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,10 @@ Global
 		{E2EE939A-F9C0-47B8-BA67-00112DF31C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2EE939A-F9C0-47B8-BA67-00112DF31C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2EE939A-F9C0-47B8-BA67-00112DF31C98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC15CE04-129A-45C0-BE5D-D73412BEE507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC15CE04-129A-45C0-BE5D-D73412BEE507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC15CE04-129A-45C0-BE5D-D73412BEE507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC15CE04-129A-45C0-BE5D-D73412BEE507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +118,6 @@ Global
 		{00AB7371-D630-4615-A51E-AAFB1ED2B0EF} = {81EB8AD6-BAE0-48A0-8E27-1E084078575D}
 		{F1EB0E40-9EF3-4F91-BADF-737BDAAFE504} = {9608AACB-3C09-47E5-AAF7-96A7BC57DD18}
 		{E2EE939A-F9C0-47B8-BA67-00112DF31C98} = {E05F1364-C576-4E05-B32E-858301B598DC}
+		{DC15CE04-129A-45C0-BE5D-D73412BEE507} = {794859D3-F3D3-489A-A0C1-CF2E34640CAB}
 	EndGlobalSection
 EndGlobal

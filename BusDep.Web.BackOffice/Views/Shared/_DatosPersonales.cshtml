@@ -1,0 +1,244 @@
+﻿<div class="form-group">
+    <label class="col-sm-3 control-label">Nombre</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" placeholder="¿Como te llamas?" ng-model="datosPersonales.Nombre">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Apellido</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" placeholder="¿Como te apellidas?" ng-model="datosPersonales.Apellido">
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label">Email</label>
+    <div class="col-sm-9">
+        <input type="email" class="form-control" placeholder="¿Cual es tu correo electrónico?" disabled ng-model="Mail">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Tipo Documento</label>
+    <div class="col-sm-9">
+        @*TODO: Poner combo*@
+        <div class="" tabindex="0">
+            <select ng-model="datosPersonales.TipoDocumento" class="form-control"
+                    name="category" id="search-category" tabindex="-1"
+                    ng-options="item.Nombre as item.Nombre for item in tipoDocumento">
+
+                <option value="" class="selecter-placeholder" selected="">Seleccione un Tipo Documento</option>
+
+                <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                    - Tipo Documento disponibles -
+                </option>
+
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Número Documento</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" placeholder="Ingresa tu número de documento" ng-model="datosPersonales.NumeroDocumento">
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Fecha de nacimiento</label>
+    <div class="col-sm-9 input-group date">
+        <input datetimepicker type="text" class="form-control"
+               placeholder="¿Cuando naciste?" ng-model="fechaNacimiento">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+</div>
+
+<div class="content-subheading" style="font-size:14px;">
+    <i class="icon-user fa"></i> <strong>
+        Información de contacto
+    </strong>
+</div>
+
+<div class="form-group">
+
+    <label class="col-sm-3 control-label">Pais de residencia</label>
+    <div class="col-sm-1">
+        <i class="flagicon flag-{{datosPersonales.PaisIso}} icon-th-thumb" title="Pais"></i>
+    </div>
+    <div class="col-sm-8">
+        <div class="" tabindex="0">
+            <select ng-model="datosPersonales.PaisIso" class="form-control"
+                    name="category" id="search-category" tabindex="-1"
+                    ng-options="item.CodigoIso as item.Nombre for item in paises">
+
+                <option value="" class="selecter-placeholder" selected="">Seleccione un pais</option>
+
+                <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                    - Paises disponibles -
+                </option>
+
+            </select>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Provincia</label>
+    <div class="col-sm-9 input-group input-icon">
+        <span class="input-group-addon bgtransparent"><i class="fa fa-globe s16"></i></span>
+        <input class="form-control" placeholder="Buenos Aires" ng-model="datosPersonales.Provincia">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Ciudad</label>
+    <div class="col-sm-9 input-group input-icon">
+        <span class="input-group-addon bgtransparent"><i class="fa fa-flag-o s16"></i></span>
+        <input class="form-control" placeholder="Capital" ng-model="datosPersonales.Ciudad">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Dirección</label>
+    <div class="col-sm-9 input-group input-icon">
+        <span class="input-group-addon bgtransparent"><i class="fa fa-home s16"></i></span>
+        <input type="text" class="form-control" placeholder="Santa Fe 3000" ng-model="datosPersonales.Direccion">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Código postal</label>
+    <div class="col-sm-9 input-group input-icon">
+        <span class="input-group-addon bgtransparent"><i class="fa fa-barcode s16"></i></span>
+        <input type="text" class="form-control" placeholder="1217" ng-model="datosPersonales.CodigoPostal">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="Phone" class="col-sm-3 control-label">Teléfono</label>
+    <div class="col-sm-9 input-group input-icon">
+        <span class="input-group-addon bgtransparent"><i class="fa fa-phone s16"></i></span>
+        <input type="text" class="form-control" id="Phone" placeholder="880 124 9820" ng-model="datosPersonales.Telefono">
+    </div>
+</div>
+
+<div class="form-group hide">
+    <label class="col-sm-3 control-label">Facebook account map</label>
+    <div class="col-sm-9">
+        <div class="form-control"><a class="link" href="fb.html">Jhone.doe</a> <a class=""> <i class="fa fa-minus-circle"></i></a></div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9"></div>
+</div>
+<div class="content-subheading" style="font-size:14px;">
+    <i class="fa-thumbs-up fa"></i> <strong>
+        Cuentanos un poco mas sobre ti
+    </strong>
+</div>
+
+<div class="form-group">
+
+    <label class="col-sm-3 control-label">¿Cual es tu nacionalidad?</label>
+
+    <div class="col-sm-1">
+        <i class="flagicon flag-{{datosPersonales.NacionalidadIso}} icon-th-thumb" title="Pais"></i>
+    </div>
+
+    <div class="col-sm-8">
+
+        <div class="" tabindex="0">
+
+            <select ng-model="datosPersonales.NacionalidadIso" class="form-control"
+                    name="category" id="search-category" tabindex="-1"
+                    ng-options="item.CodigoIso as item.Nombre for item in paises">
+
+                <option value="" class="selecter-placeholder" selected=""> Seleccione un pais</option>
+
+                <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                    - Paises disponibles -
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="form-group">
+
+    <label class="col-sm-3 control-label">¿Alguna otra nacionalidad?</label>
+
+    <div class="col-sm-1">
+        <i class="flagicon flag-{{datosPersonales.NacionalidadIso1}} icon-th-thumb" title="Pais"></i>
+    </div>
+
+    <div class="col-sm-8">
+
+        <div class="" tabindex="0">
+
+            <select ng-model="datosPersonales.NacionalidadIso1" class="form-control"
+                    name="category" id="search-category" tabindex="-1"
+                    ng-options="item.CodigoIso as item.Nombre for item in paises">
+
+                <option value="" class="selecter-placeholder" selected=""> Seleccione un pais</option>
+
+                <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;" disabled="disabled">
+                    - Paises disponibles -
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="form-group">
+
+    <label for="Information" class="col-sm-3 control-label">Dinos algo sobre ti</label>
+
+    <div class="col-sm-offset-3 col-sm-9 input-group input-icon">
+        <span class="input-group-addon bgtransparent"><i class="fa fa-info-circle s16"></i></span>
+        <textarea ng-model="datosPersonales.Informacion" class="form-control" rows="4"></textarea>
+
+    </div>
+
+</div>
+<div id="sos" ng-show="sosVisible">
+    <div class="content-subheading" style="font-size: 14px;">
+        <i class="fa fa-life-bouy"></i>
+        <strong>SOS (Contacto de algún Mayor) </strong>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Nombre y apellido</label>
+        <div class="col-sm-9 input-group input-icon">
+            <span class="input-group-addon bgtransparent"><i class="fa fa-home s16"></i></span>
+            <input type="text" class="form-control" placeholder="Nombre y apellido" ng-model="datosPersonales.ContactoNombre">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Teléfono</label>
+        <div class="col-sm-9 input-group input-icon">
+            <span class="input-group-addon bgtransparent"><i class="fa fa-phone s16"></i></span>
+            <input type="text" class="form-control" placeholder="880 124 9820" ng-model="datosPersonales.ContactoTelefono">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9 input-group input-icon">
+            <span class="input-group-addon bgtransparent"><i class="fa fa-envelope s16"></i></span>
+            <input type="text" class="form-control" placeholder="allwiners@allwiners.com" ng-model="datosPersonales.ContactoMail">
+        </div>
+    </div>
+</div>

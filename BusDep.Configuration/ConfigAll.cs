@@ -230,7 +230,12 @@
                     new Interceptor<VirtualMethodInterceptor>(),
               }
               );
-            
+            DependencyFactory.RegisterType<IBaseDA<Publicidad>, BaseDA<Publicidad>>(new PerThreadLifetimeManager(),
+             new InjectionMember[]
+             {
+                    new Interceptor<VirtualMethodInterceptor>(),
+             }
+             );
             #endregion
             #endregion
 
@@ -277,7 +282,20 @@
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
                 );
-           
+            DependencyFactory.RegisterType<IBackOfficeBusiness, BackOfficeBusiness>(new PerThreadLifetimeManager(),
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBusiness>()
+                }
+                );
+            DependencyFactory.RegisterType<IBackOfficeLoginBusiness, BackOfficeLoginBusiness>(new PerThreadLifetimeManager(),
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBusiness>()
+                }
+                );
             #endregion
         }
 

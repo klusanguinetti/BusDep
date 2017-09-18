@@ -1,0 +1,100 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+                
+                <div class="inner-box">
+
+                    <h2 class="title-2"><i class="fa fa-star"></i> Publicidad</h2>
+
+                    <div class="panel-group" cg-busy="{promise:myPromise,message:'Cargando Imagenes...'}">
+
+                        <div class="inner-box">
+
+                            <h2 class="title-2"><i class="fa fa-futbol-o"></i> Publicidad All Winers</h2>
+
+                            <div class="table-responsive">
+
+                                <div class="table-action">
+                                    <flash-message></flash-message>
+                                    <div class="table-search pull-right">
+                                        <div class="form-group">
+                                            <a href="#!PublicidadABM" class="btn btn-default page-action">Agregar</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <table id="addManageTable" class="table table-striped table-bordered add-manage-table table demo footable-loaded footable" data-filter="#filter" data-filter-text-only="true">
+
+                                    <thead>
+                                        <tr>
+
+                                            <th> Imagene</th>
+                                            <th data-sort-ignore="true"> Url</th>
+                                            <th data-sort-ignore="true"> Link</th>
+                                            <th> Opciones</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr ng-repeat="pu in publicidades">
+
+                                            <td style="width:20%" class="add-img-td">
+
+                                                <div class="add-image col-sm-12">
+                                                    <img alt="" class="thumbnail" src="{{pu.ImageUrl}}" style="height:130px; width:100px;">
+                                                </div>
+
+                                            </td>
+                                            <td style="width:30%" class="ads-details-td">
+                                                <a href="{{pu.ImageUrl}}">Link Imagen</a>
+                                            </td>
+                                            <td style="width:30%" class="ads-details-td">
+                                                {{pu.Link}}
+                                            </td>
+                                            <td style="width:10%" class="action-td">
+
+                                                <div>
+                                                    <p>
+                                                        <a class="btn btn-info btn-xs" ng-href="#!/PublicidadABM/{{pu.Id}}">
+                                                            <i class="fa fa-pencil"></i> Editar
+                                                        </a>
+                                                    </p>
+                                                    <p>
+                                                        <button class="btn btn-danger btn-xs" ng-click="DeletePublicidad(pu.Id)" promise-btn>
+                                                            <i class="fa fa-trash"></i> Borrar
+                                                        </button>
+                                                    </p>
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
