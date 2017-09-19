@@ -7,14 +7,12 @@ namespace BusDep.Web.BackOffice.Api
 {
     using System;
     using System.Web.Http;
-    using System.Web.Security;
-    using BusDep.Common;
     using BusDep.IBusiness;
     using BusDep.UnityInject;
     using BusDep.ViewModel;
     using BusDep.Web.BackOffice.Class;
 
-    public class ABMController : BaseController
+    public class ABMPublicidadController : BaseController
     {
 
 
@@ -58,8 +56,10 @@ namespace BusDep.Web.BackOffice.Api
             var business = DependencyFactory.Resolve<IBackOfficeBusiness>();
             try
             {
+                var user = GetPublicidadId(id);
                 business.DeletePublicidad(new PublicidadViewModel { Id = id });
-
+                string blobNameToDelete = user.ImageUrl.Split('/').Last();
+                new BlobUtility().DeleteBlob(blobNameToDelete, "photos");
             }
             catch (Exception)
             {
@@ -85,7 +85,7 @@ namespace BusDep.Web.BackOffice.Api
         public static string UriPublicidad { get; set; }
         public IHttpActionResult SaveImagePublicidad()
         {
-            
+
             var business = DependencyFactory.Resolve<IBackOfficeBusiness>();
             try
             {
@@ -95,8 +95,8 @@ namespace BusDep.Web.BackOffice.Api
                 {
                     string fileName = Guid.NewGuid().ToString() + Path.GetFileName(file.FileName);
                     Stream imageStream = file.InputStream;
-                    
-                    
+
+
                     var result = utility.UploadBlob(fileName, ContainerName, imageStream);
 
                     if (result != null)
@@ -104,14 +104,14 @@ namespace BusDep.Web.BackOffice.Api
 
                         UriPublicidad = result.Uri.ToString();
 
-                       
+
 
                         return Ok(new { Message = "Imagen ok" });
 
                     }
 
                 }
-                
+
                 return BadRequest();
             }
             catch (Exception)

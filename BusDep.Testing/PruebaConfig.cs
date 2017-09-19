@@ -567,6 +567,22 @@ namespace BusDep.Testing
         }
 
         [Test]
+        public void BusquedaEntrenador()
+        {
+            //for (int w = 0; w < 5; w++)
+            //{
+            var oo = new BuscarEntrenadorViewModel
+            {
+                Pagina = 1,
+                Cantidad = 4
+            };
+            //Fichajes[rnd.Next(0, 2)], Perfiles[rnd.Next(0, 2)]
+            var list = busqueda.BuscarEntrenador(oo);
+            Console.WriteLine(list.SerializarToJson());
+            //}
+        }
+
+        [Test]
         public void Top()
         {
    

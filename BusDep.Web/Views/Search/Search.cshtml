@@ -30,117 +30,123 @@
 
             <div class="row" cg-busy="{promise:myPromise,message:'Buscando perfiles...'}">
 
-                <div class="col-sm-3 page-sidebar mobile-filter-sidebar">
+                <div class="col-sm-3 ">
 
-                    <aside>
+                    <div class="col-sm-12 ">
+                        @Html.Partial("_Profile_Sidebar_Search")
+                    </div>
+                    <div class="col-sm-12 page-sidebar mobile-filter-sidebar">
+                        <aside>
 
-                        <div class="inner-box">
+                            <div class="inner-box">
 
-                            <form role="form" novalidate="" name="advancedSearchForm" ng-submit="searchFilters()">
+                                <form role="form" novalidate="" name="advancedSearchForm" ng-submit="searchFilters()">
 
-                                <div class="list-filter">
+                                    <div class="list-filter">
 
-                                    <h5 class="list-title"><strong><a href="#"> Edad </a></strong></h5>
+                                        <h5 class="list-title"><strong><a href="#"> Edad </a></strong></h5>
 
-                                    <div class="filter-date filter-content">
+                                        <div class="filter-date filter-content">
+                                            <ul>
+                                                <li>
+                                                    <input type="radio" value='' id="posted_1" name="posted" ng-model="Busqueda.EdadHasta">
+                                                    <label for="posted_1">Todos</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" value=18 id="posted_18" name="posted" ng-model="Busqueda.EdadHasta">
+                                                    <label for="posted_18">Hasta 18</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" value=25 id="posted_25" name="posted" ng-model="Busqueda.EdadHasta">
+                                                    <label for="posted_25">Hasta 25</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" value=35 id="posted_35" name="posted" ng-model="Busqueda.EdadHasta">
+                                                    <label for="posted_35">Hasta 35</label>
+                                                </li>
+                                            </ul>
+                                            <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="locations-list  list-filter">
+                                        <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
                                         <ul>
                                             <li>
-                                                <input type="radio" value='' id="posted_1" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_1">Todos</label>
+                                                <input type="radio" value='' id="tipo_pie_0" name="tipo_pie" ng-click="clearSelect(pies)">
+                                                <label for="tipo_pie_0">Todos</label>
                                             </li>
-                                            <li>
-                                                <input type="radio" value=18 id="posted_18" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_18">Hasta 18</label>
+                                            <li ng-repeat="item in pies">
+                                                <input type="radio" id="tipo_pie_{{item.Descripcion}}" name="tipo_pie" ng-click="selectItem(pies,item)">
+                                                <label for="tipo_pie_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                             </li>
+                                        </ul>
+
+                                        <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
+
+                                    </div>
+
+
+                                    <div class="locations-list  list-filter">
+                                        <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
+                                        <ul>
                                             <li>
-                                                <input type="radio" value=25 id="posted_25" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_25">Hasta 25</label>
+                                                <input type="radio" value='' id="tipo_puesto_0" name="tipo_puesto" ng-click="clearSelect(puestos)">
+                                                <label for="tipo_puesto_0">Todos</label>
                                             </li>
-                                            <li>
-                                                <input type="radio" value=35 id="posted_35" name="posted" ng-model="Busqueda.EdadHasta">
-                                                <label for="posted_35">Hasta 35</label>
+                                            <li ng-repeat="item in puestos">
+                                                <input type="radio" id="tipo_puesto_{{item.Descripcion}}" name="tipo_puesto" ng-click="selectItem(puestos,item)">
+                                                <label for="tipo_puesto_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                             </li>
                                         </ul>
                                         <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
                                     </div>
 
+                                    <div class="list-filter">
+                                        <h5 class="list-title"><strong><a href="#">Tipo de Perfil</a></strong></h5>
 
+                                        <div class="filter-date filter-content">
+                                            <ul>
+                                                <li>
+                                                    <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(perfiles)">
+                                                    <label for="tipo_perfil_0">Todos</label>
+                                                </li>
+                                                <li ng-repeat="item in perfiles">
+                                                    <input type="radio" id="tipo_perfil_{{item.Descripcion}}" name="tipo_perfil" ng-click="selectItem(perfiles,item)">
+                                                    <label for="tipo_perfil_{{item.Descripcion}}">{{item.Descripcion}}</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
+                                    </div>
 
-                                </div>
-
-                                <div class="locations-list  list-filter">
-                                    <h5 class="list-title"><strong><a href="#">Pie</a></strong></h5>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" value='' id="tipo_pie_0" name="tipo_pie" ng-click="clearSelect(pies)">
-                                            <label for="tipo_pie_0">Todos</label>
-                                        </li>
-                                        <li ng-repeat="item in pies">
-                                            <input type="radio" id="tipo_pie_{{item.Descripcion}}" name="tipo_pie" ng-click="selectItem(pies,item)">
-                                            <label for="tipo_pie_{{item.Descripcion}}">{{item.Descripcion}}</label>
-                                        </li>
-                                    </ul>
-
-                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
-
-                                </div>
-
-
-                                <div class="locations-list  list-filter">
-                                    <h5 class="list-title"><strong><a href="#">Puesto</a></strong></h5>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" value='' id="tipo_puesto_0" name="tipo_puesto" ng-click="clearSelect(puestos)">
-                                            <label for="tipo_puesto_0">Todos</label>
-                                        </li>
-                                        <li ng-repeat="item in puestos">
-                                            <input type="radio" id="tipo_puesto_{{item.Descripcion}}" name="tipo_puesto" ng-click="selectItem(puestos,item)">
-                                            <label for="tipo_puesto_{{item.Descripcion}}">{{item.Descripcion}}</label>
-                                        </li>
-                                    </ul>
-                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
-                                </div>
-                                
-                                <div class="list-filter">
-                                    <h5 class="list-title"><strong><a href="#">Tipo de Perfil</a></strong></h5>
-
-                                    <div class="filter-date filter-content">
+                                    <div class="locations-list  list-filter">
+                                        <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
                                         <ul>
                                             <li>
-                                                <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(perfiles)">
+                                                <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(fichajes)">
                                                 <label for="tipo_perfil_0">Todos</label>
                                             </li>
-                                            <li ng-repeat="item in perfiles">
-                                                <input type="radio" id="tipo_perfil_{{item.Descripcion}}" name="tipo_perfil" ng-click="selectItem(perfiles,item)">
-                                                <label for="tipo_perfil_{{item.Descripcion}}">{{item.Descripcion}}</label>
+                                            <li ng-repeat="item in fichajes">
+                                                <input type="radio" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-click="selectItem(perfiles,item)">
+                                                <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
                                             </li>
                                         </ul>
+                                        <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
                                     </div>
-                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
-                                </div>
-                                
-                                <div class="locations-list  list-filter">
-                                    <h5 class="list-title"><strong><a href="#">Fichaje</a></strong></h5>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" value='' id="tipo_perfil_0" name="tipo_perfil" ng-click="clearSelect(fichajes)">
-                                            <label for="tipo_perfil_0">Todos</label>
-                                        </li>
-                                        <li ng-repeat="item in fichajes">
-                                            <input type="radio" id="tipo_fichaje_{{item.Descripcion}}" name="tipo_fichaje" ng-click="selectItem(perfiles,item)">
-                                            <label for="tipo_fichaje_{{item.Descripcion}}">{{item.Descripcion}}</label>
-                                        </li>
-                                    </ul>
-                                    <button type="submit" class="btn btn-xs btn-default page-action">Aplicar filtros</button>
-                                </div>
 
-                            </form>
+                                </form>
 
-                            <div style="clear:both"></div>
+                                <div style="clear:both"></div>
 
-                        </div>
+                            </div>
 
-                    </aside>
+                        </aside>
+                    </div>
+
                 </div>
 
                 <div class="col-sm-9 page-content col-thin-left">
@@ -178,9 +184,9 @@
                         </div>
 
                         <div class="tab-box  save-search-bar text-center">
-                            <a href="#">
+                            <a href="">
                                 <i class="icon-star-empty"></i>
-                                Salvar búsqueda
+                               
                             </a>
                         </div>
                     </div>
@@ -190,7 +196,7 @@
                             <li><a href="" ng-click='paginacion(1)'>Next &rarr;</a></li>
                         </ul>
                     </div>
-                    <div class="post-promo text-center">
+                    <div class="post-promo text-center" data-ng-hide="user.authenticated">
                         <h2> ¿Te gustaria ver tu perfil aca? </h2>
                         <h5> ¡Registrate gratuitamente y deja que los mejores clubes y representantes te encuentren! </h5>
                         <a href="#!/Account/Login" class="btn btn-lg btn-border btn-post btn-danger">Quiero registrarme</a>

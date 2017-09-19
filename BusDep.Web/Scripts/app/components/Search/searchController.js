@@ -35,7 +35,12 @@
             EmisorId: 0,
             ReceptorId: 0
         };
-
+        $scope.modulo = 'Buscar Judadores';
+        $scope.moduloicono = 'fa fa-search';
+        $scope.moduloChange = 'Buscar Entrenadores';
+        $scope.linkSearchChange = '#!/SearchCoach';
+        $scope.moduloiconoChange = 'fa fa-user-secret';
+        
         /*Declaración de funciones*/
 
         angular.element(function () {

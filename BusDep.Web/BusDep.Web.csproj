@@ -172,6 +172,7 @@
     <Compile Include="Api\HistoryController.cs" />
     <Compile Include="Api\ProfileController.cs" />
     <Compile Include="Api\ProfilePublicController.cs" />
+    <Compile Include="Api\SearchCoachController.cs" />
     <Compile Include="Api\SearchController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\BundleExtensions.cs" />
@@ -715,6 +716,7 @@
     <Content Include="Scripts\app\components\Profile\privateProfileController.js" />
     <Content Include="Scripts\app\components\Profile\publicProfilePublicController.js" />
     <Content Include="Scripts\app\components\Profile\publicProfileController.js" />
+    <Content Include="Scripts\app\components\Search\searchCoachController.js" />
     <Content Include="Scripts\app\components\Search\searchController.js" />
     <Content Include="Scripts\app\components\Profile\sportDataController.js" />
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalService.js" />
@@ -722,6 +724,7 @@
     <Content Include="Scripts\app\components\Profile\privateProfileService.js" />
     <Content Include="Scripts\app\components\Profile\publicProfilePublicService.js" />
     <Content Include="Scripts\app\components\Profile\publicProfileService.js" />
+    <Content Include="Scripts\app\components\Search\searchCoachService.js" />
     <Content Include="Scripts\app\components\Search\searchService.js" />
     <Content Include="Scripts\app\shared\components\headerProfile\headerCoachController.js" />
     <Content Include="Scripts\app\shared\components\headerProfile\headerProfileController.js" />
@@ -1572,6 +1575,9 @@
     <Content Include="Views\Coach\SportsHistory.cshtml" />
     <Content Include="Views\Shared\_Hearder_Coach.cshtml" />
     <Content Include="Views\Coach\SelfAppraisal.cshtml" />
+    <Content Include="Views\Shared\_Profile_Sidebar_Search.cshtml" />
+    <Content Include="Views\Search\SearchCoach.cshtml" />
+    <Content Include="Views\Shared\_Coach_Item.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

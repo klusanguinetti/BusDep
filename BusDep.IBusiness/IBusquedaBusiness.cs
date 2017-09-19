@@ -22,5 +22,9 @@ namespace BusDep.IBusiness
 
         List<RecomendacionViewModel> GetRecomendaciones(int jugadorId);
 
+
+        List<EntrenadorViewModel> BuscarEntrenador(BuscarEntrenadorViewModel buscar);
+        long BuscarEntrenadorCount(BuscarEntrenadorViewModel buscar);
+
     }
 }

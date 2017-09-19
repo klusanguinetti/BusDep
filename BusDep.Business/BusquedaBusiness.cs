@@ -59,5 +59,16 @@
         {
             return DependencyFactory.Resolve<IJugadorDA>().GetRecomendaciones(jugadorId);
         }
+
+        public virtual List<EntrenadorViewModel> BuscarEntrenador(BuscarEntrenadorViewModel buscar)
+        {
+            return DependencyFactory.Resolve<IEntrenadorDA>().BuscarEntrenador(buscar);
+
+        }
+
+        public virtual long BuscarEntrenadorCount(BuscarEntrenadorViewModel buscar)
+        {
+            return DependencyFactory.Resolve<IEntrenadorDA>().BuscarEntrenadorCount(buscar);
+        }
     }
 }

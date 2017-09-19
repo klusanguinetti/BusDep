@@ -16,7 +16,11 @@ namespace BusDep.Web.Controllers
         {
             return View();
         }
-
+        public ActionResult SearchCoach()
+        {
+            return View();
+        }
+        
         #endregion
 
         #region Post functions 

@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+
+<div>
+
+    <div class="search-row-wrapper" style="background-image: url(../../Content/img/slide_5.jpg); background-size: cover; background-position: center center;">
+
+        <form role="form" novalidate="" name="advancedSearchForm" ng-submit="searchCoach()">
+
+            <div class="container text-center" style="padding-top: 40px;">
+
+                <div class="col-sm-9">
+                    <input class="form-control keyword" type="text" placeholder="¿Describe que buscas?" ng-model="principalSearch">
+                </div>
+
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-block btn-primary"> Encontrar <i class="fa fa-search"></i></button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="main-container">
+
+        <div class="container">
+
+            <div class="row" cg-busy="{promise:myPromise,message:'Buscando perfiles...'}">
+
+                <div class="col-sm-3 ">
+
+                    <div class="col-sm-12 ">
+                        @Html.Partial("_Profile_Sidebar_Search")
+                    </div>
+                </div>
+
+                <div class="col-sm-9 page-content col-thin-left">
+                    <div class="category-list">
+                        <div class="tab-box clearfix ">
+
+                            <div class="col-lg-12  box-title no-border">
+                                <div class="inner">
+                                    <h2>
+                                        <span> 	Busqueda:  </span> {{Busqueda.Nomre}}
+                                        <small> {{searchResultCount}} perfiles encontrados</small>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="menu-overly-mask"></div>
+                        </div>
+
+                        <div class="listing-filter hidden-xs">
+
+                            <div class="pull-left col-sm-6 col-xs-12">
+                            </div>
+
+                            <div class="pull-right col-sm-6 col-xs-12 text-right text-center-xs listing-view-action">
+                                <a class="clear-all-button text-muted" ng-click="clearFilter()">Limpiar filtros</a>
+                            </div>
+
+                            <div style="clear:both"></div>
+
+                        </div>
+
+                        <div class="adds-wrapper jobs-list">
+                            <div class="item-list" ng-repeat="item in searchResult">
+                                @Html.Partial("_Coach_Item")
+                            </div>
+                        </div>
+
+                        <div class="tab-box  save-search-bar text-center">
+                            <a href="">
+                                <i class="icon-star-empty"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <ul class="pager">
+                            <li><a href="" ng-click='paginacion(-1)'>&larr; Previous</a></li>
+                            <li><a href="" ng-click='paginacion(1)'>Next &rarr;</a></li>
+                        </ul>
+                    </div>
+                    <div class="post-promo text-center" data-ng-hide="user.authenticated">
+                        <h2> ¿Te gustaria ver tu perfil aca? </h2>
+                        <h5> ¡Registrate gratuitamente y deja que los mejores clubes y representantes te encuentren! </h5>
+                        <a href="#!/Account/Login" class="btn btn-lg btn-border btn-post btn-danger">Quiero registrarme</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -20,6 +20,9 @@ namespace BusDep.IDataAccess
         //    int? pagina = null, int? cantidad = null);
 
         EntrenadorViewModel ObtenerEntrenador(long id);
+        List<EntrenadorViewModel> BuscarEntrenador(BuscarEntrenadorViewModel buscar);
+
+        long BuscarEntrenadorCount(BuscarEntrenadorViewModel buscar);
 
         //bool ExisteJugador(long id);
 

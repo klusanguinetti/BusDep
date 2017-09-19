@@ -4,14 +4,13 @@ function ($scope, $window, $location, publicidadService, commonService, authServ
     $scope.publicidades = [];
     $scope.modulo = 'Abm Publicidad';
 
-
+    var messageToDisplay = "";
 
     angular.element(function () {
         var action = $routeParams.action;
 
         var result = $routeParams.result;
 
-        var messageToDisplay = "";
 
         if (action == "add") {
             messageToDisplay = "<strong>¡Éxito!</strong> Has añadido la publicidad.";
@@ -44,9 +43,9 @@ function ($scope, $window, $location, publicidadService, commonService, authServ
 
     });
 
-    $scope.DeletePublicidad = function (publicidadId) {
+    $scope.DeletePublicidad = function (publicidad) {
 
-        return publicidadService.deleteeletePublicidad(publicidadId).then(function (response) {
+        return publicidadService.deletePublicidad(publicidad).then(function (response) {
 
             messageToDisplay = "<strong>¡Éxito!</strong> Has eliminado la publicidad.";
 

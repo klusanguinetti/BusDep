@@ -236,6 +236,12 @@
                     new Interceptor<VirtualMethodInterceptor>(),
              }
              );
+            DependencyFactory.RegisterType<IBaseDA<EventoPublicidad>, BaseDA<EventoPublicidad>>(new PerThreadLifetimeManager(),
+             new InjectionMember[]
+             {
+                    new Interceptor<VirtualMethodInterceptor>(),
+             }
+             );
             #endregion
             #endregion
 

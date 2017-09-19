@@ -48,6 +48,16 @@
                 }
             }
         })
+        .when('/SearchCoach/', {
+            templateUrl: '/Search/SearchCoach',
+            controller: 'searchCoachController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+
         .when('/Profile/:type/:id', {
             templateUrl: '/Profile/Index',
             controller: 'publicProfileController',

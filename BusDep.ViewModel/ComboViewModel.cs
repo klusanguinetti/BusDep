@@ -43,5 +43,13 @@ namespace BusDep.ViewModel
         [DataMember]
         public int? Cantidad { get; set; }
     }
-    
+    public class BuscarEntrenadorViewModel
+    {
+        [DataMember]
+        public string Nombre { get; set; }
+        [DataMember]
+        public int? Pagina { get; set; }
+        [DataMember]
+        public int? Cantidad { get; set; }
+    }
 }
