@@ -14,6 +14,15 @@
         {
             return View();
         }
+
+        public ActionResult EventoPublicidadList()
+        {
+            return View();
+        }
+        public ActionResult EventoPublicidadABM()
+        {
+            return View();
+        }
         #endregion
 
     }

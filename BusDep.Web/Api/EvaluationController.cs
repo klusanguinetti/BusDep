@@ -1,4 +1,4 @@
-﻿namespace BusDep.Web.Controllers.Api
+﻿namespace BusDep.Web.Api
 {
     using System;
     using System.Web.Http;

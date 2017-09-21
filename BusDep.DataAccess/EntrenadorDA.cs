@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using BusDep.Entity;
-using BusDep.UnityInject;
-using NHibernate.Linq;
-
-namespace BusDep.DataAccess
+﻿namespace BusDep.DataAccess
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using BusDep.Entity;
+    using NHibernate.Linq;
     using BusDep.IDataAccess;
     using ViewModel;
 

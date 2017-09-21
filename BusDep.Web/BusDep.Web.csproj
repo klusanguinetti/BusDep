@@ -165,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\BackOffice\EventoPublicidadController.cs" />
+    <Compile Include="Api\BackOffice\FilesController.cs" />
     <Compile Include="Api\BaseController.cs" />
     <Compile Include="Api\CoachController.cs" />
     <Compile Include="Api\EvaluationController.cs" />
@@ -184,6 +186,7 @@
     <Compile Include="Class\CacheHelper.cs" />
     <Compile Include="Class\MailHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BackOffice\AbmController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CoachController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
@@ -193,6 +196,7 @@
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProfilePublicController.cs" />
+    <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -702,6 +706,9 @@
     <Content Include="Scripts\app\components\Account\passwordRecoveryUpdateController.js" />
     <Content Include="Scripts\app\components\Account\passwordRecoveryController.js" />
     <Content Include="Scripts\app\components\Account\passwordChangeController.js" />
+    <Content Include="Scripts\app\components\BackOffice\Abm\eventoPublicidadABMController.js" />
+    <Content Include="Scripts\app\components\BackOffice\Abm\eventoPublicidadListController.js" />
+    <Content Include="Scripts\app\components\BackOffice\Abm\eventoPublicidadService.js" />
     <Content Include="Scripts\app\components\Coach\privateProfileCoachService.js" />
     <Content Include="Scripts\app\components\Account\passwordChangeService.js" />
     <Content Include="Scripts\app\components\Account\registerController.js" />
@@ -709,6 +716,7 @@
     <Content Include="Scripts\app\components\Coach\sportsCoachHistoryListController.js" />
     <Content Include="Scripts\app\components\Coach\sportsCoachHistoryService.js" />
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalController.js" />
+    <Content Include="Scripts\app\components\Evento\eventoListController.js" />
     <Content Include="Scripts\app\components\Profile\sportsHistoryController.js" />
     <Content Include="Scripts\app\components\Profile\sportsHistoryListController.js" />
     <Content Include="Scripts\app\components\Common\commonService.js" />
@@ -1578,6 +1586,9 @@
     <Content Include="Views\Shared\_Profile_Sidebar_Search.cshtml" />
     <Content Include="Views\Search\SearchCoach.cshtml" />
     <Content Include="Views\Shared\_Coach_Item.cshtml" />
+    <Content Include="Views\Abm\EventoPublicidadAbm.cshtml" />
+    <Content Include="Views\Abm\EventoPublicidadList.cshtml" />
+    <Content Include="Views\Evento\EventoList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

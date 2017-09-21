@@ -5,7 +5,7 @@ using BusDep.IBusiness;
 using BusDep.UnityInject;
 using BusDep.ViewModel;
 
-namespace BusDep.Web.Controllers.Api
+namespace BusDep.Web.Api
 {
     public class ProfilePublicController : BaseController
     {

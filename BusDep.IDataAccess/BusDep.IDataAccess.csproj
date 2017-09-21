@@ -44,6 +44,7 @@
     <Compile Include="ICommnDA.cs" />
     <Compile Include="IEntrenadorDA.cs" />
     <Compile Include="IJugadorDA.cs" />
+    <Compile Include="IEventoPublicidadDA.cs" />
     <Compile Include="IUsuarioDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

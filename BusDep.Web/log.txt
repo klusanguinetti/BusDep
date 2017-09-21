@@ -447,3 +447,11 @@ System.Data.SqlClient.SqlException (0x80131904): Se ha establecido la conexión c
    en DynamicModule.ns.Wrapped_JugadorDA_fc68440416854ab6839b7f492e8f86da.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
 ClientConnectionId:ef45d78a-8626-4d1b-8a0d-c0f7076ad15f
 Error Number:258,State:0,Class:20
+ERROR 8 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_BackOfficeBusiness_f37bbac068024e3aa098093ef3b0bf7a
+Metodo: DeleteEventoPublicidad
+Parametros: [{"Id":1,"Titulo":null,"Informacion":null,"ImageUrl":null,"Link":null,"FechaHasta":null,"Estado":null,"FechaHastaTexto":null}]
+
+NHibernate.ObjectNotFoundException: No row with the given identifier exists[BusDep.Entity.EventoPublicidad#1]
+   en DynamicModule.ns.Wrapped_BaseDA`1_74cd7ad5a45145bfa1e859242f7af955.Delete(T obje)
+   en BusDep.Business.BackOfficeBusiness.DeleteEventoPublicidad(EventoPublicidadViewModel eventoPublicidadViewModel) en C:\Proyectos\GitHub\BusDep\BusDep.Business\BackOfficeBusiness.cs:línea 52
+   en DynamicModule.ns.Wrapped_BackOfficeBusiness_f37bbac068024e3aa098093ef3b0bf7a.<DeleteEventoPublicidad_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

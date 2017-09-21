@@ -1,0 +1,103 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+
+                <div class="inner-box">
+
+                    <h2 class="title-2"><i class="fa fa-star"></i> Publicidad</h2>
+
+                    <div class="panel-group" cg-busy="{promise:myPromise,message:'Cargando Imagenes...'}">
+
+                        <div class="inner-box">
+
+                            <h2 class="title-2"><i class="fa fa-futbol-o"></i> Eventos Publicidad All Winers</h2>
+
+                            <div class="table-responsive">
+
+                                <div class="table-action">
+                                    <flash-message></flash-message>
+                                    <div class="table-search pull-right">
+                                        <div class="form-group">
+                                            <a href="#!/EventoPublicidadAbm/" class="btn btn-default page-action">Agregar</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="adds-wrapper jobs-list">
+                                    <div class="col-sm-4">
+                                        <h4>
+                                            Evento
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <h4>
+                                            Información
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <h4>
+                                            Fin
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <h4>
+                                            Acciones
+                                        </h4>
+                                    </div>
+
+                                    <div class="item-list" ng-repeat="pu in eventos">
+                                        <div class="col-sm-4  photobox">
+                                            <h3 class="col-sm-12  photobox">
+                                                {{pu.Titulo}}
+                                            </h3>
+                                            <div class="add-image">
+                                                <img alt="" class="thumbnail" src="{{pu.ImageUrl}}" style="height: 130px; width: 130px;">
+                                            </div>
+                                            <button class="btn btn-success btn-sm bold " ng-show="pu.Link!=null" ng-click='abrirlink(pu)'>
+                                                Ver Link
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="info-row"> {{pu.Informacion}}</span>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <span class="date"><i class="icon-clock"></i> {{pu.FechaHastaTexto}}</span>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p>
+                                                <a class="btn btn-info btn-xs" ng-href="#!/EventoPublicidadAbm/{{pu.Id}}">
+                                                    <i class="fa fa-pencil"></i> Editar
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <button class="btn btn-danger btn-xs" ng-click="DeletePublicidad(pu)" promise-btn>
+                                                    <i class="fa fa-trash"></i> Borrar
+                                                </button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

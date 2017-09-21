@@ -74,6 +74,8 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/components/Evaluation", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Profile", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Search", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/BackOffice/Abm", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Evento", "*.js").WithLastModifiedToken()
                     );
 
         }

@@ -1,0 +1,107 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+
+                <div class="inner-box">
+
+                    <h2 class="title-2"><i class="fa fa-star"></i> Evento</h2>
+
+                    <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
+                        <div class="panel panel-default card">
+                            <div class="panel-heading content-in card-header">
+                                <h5 class="panel-title">
+                                    <a data-toggle="collapse" data-target="#collapseB1" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fa fa-info-circle"></i>
+                                        Evento Publicidad
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class="panel-collapse collapse in" id="collapseB1" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <a>
+                                            <img alt="User Image" class="thumbnail" ngf-src="picFile">
+                                        </a>
+                                    </div>
+                                    <div  class="col-sm-12" style="clear: both; margin-bottom: 5px;"></div>
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <a class="btn btn-sm  btn-success" type="file" ng-model="picFile" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                                            <i class="fa fa-refresh"></i> Cambiar publicidad
+                                        </a>
+                                        <span ng-show="headerResult" style="margin-top: 10px;">
+                                            ¡Evento Publicidad subida con éxito!
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-12" style="clear: both; margin-bottom: 5px;"></div>
+                                    <form class="form-horizontal" role="form" ng-submit="saveEventoPublicidad()" promise-btn>
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Fecha Fin</label>
+
+                                            <div class="col-sm-9 input-group date">
+
+                                                <input datetimepicker type="text" class="form-control" name="fechaDesde"
+                                                       placeholder="Fecha de Fin de evento" ng-model="eventoPublicidad.FechaHastaTexto" required>
+
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Titulo</label>
+                                            <div class="col-sm-9 input-group input-icon">
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-globe s16"></i></span>
+                                                <input class="form-control" placeholder="Prueba jugadores Allwiners" ng-model="eventoPublicidad.Titulo">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 control-label">Información</label>
+
+                                            <div class="col-sm-9">
+                                                <textarea ng-model="eventoPublicidad.Informacion" placeholder="Coloca cualquier información relevante" class="form-control" rows="6"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Link</label>
+                                            <div class="col-sm-9 input-group input-icon">
+                                                <span class="input-group-addon bgtransparent"><i class="fa fa-globe s16"></i></span>
+                                                <input class="form-control" placeholder="http://allwiners.com" ng-model="eventoPublicidad.Link">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-default page-action">Actualizar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

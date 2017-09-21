@@ -69,6 +69,7 @@
     <Compile Include="BaseDA.cs" />
     <Compile Include="CommnDA.cs" />
     <Compile Include="EntrenadorDA.cs" />
+    <Compile Include="EventoPublicidadDA.cs" />
     <Compile Include="JugadorDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sessions\NHbernateHttpModule.cs" />
@@ -85,10 +86,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusDep.Entity\BusDep.Entity.csproj">

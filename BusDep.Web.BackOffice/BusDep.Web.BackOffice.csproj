@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ABMEventoPublicidadController.cs" />
     <Compile Include="Api\ABMPublicidadController.cs" />
     <Compile Include="Api\AccountController.cs" />
     <Compile Include="Api\BaseController.cs" />
@@ -689,7 +690,10 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\app-routes.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\components\ABM\eventoPublicidadABMController.js" />
     <Content Include="Scripts\app\components\ABM\publicidadABMController.js" />
+    <Content Include="Scripts\app\components\ABM\eventoPublicidadListController.js" />
+    <Content Include="Scripts\app\components\ABM\eventoPublicidadService.js" />
     <Content Include="Scripts\app\components\ABM\publicidadService.js" />
     <Content Include="Scripts\app\components\ABM\publicidadController.js" />
     <Content Include="Scripts\app\components\Common\loginController.js" />
@@ -1629,6 +1633,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ABM\PublicidadABM.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ABM\EventoPublicidadList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ABM\EventoPublicidadABM.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

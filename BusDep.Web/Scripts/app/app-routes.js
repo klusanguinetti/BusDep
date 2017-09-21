@@ -148,6 +148,34 @@
                 }
             }
         })
+        .when('/EventoList/', {
+            templateUrl: '/Evento/EventoList',
+            controller: 'eventoListController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+
+        .when('/EventoPublicidadList/:action?/:result?', {
+            templateUrl: '/Abm/EventoPublicidadList',
+            controller: 'eventoPublicidadListController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+        .when('/EventoPublicidadAbm/:id?', {
+            templateUrl: '/Abm/EventoPublicidadAbm',
+            controller: 'eventoPublicidadABMController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
 
      .otherwise({
         redirectTo: '/'

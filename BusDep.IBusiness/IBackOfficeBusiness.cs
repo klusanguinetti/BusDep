@@ -7,11 +7,16 @@ namespace BusDep.IBusiness
     {
 
         void SavePublicidad(PublicidadViewModel publicidadViewModel);
-
         void DeletePublicidad(PublicidadViewModel publicidadViewModel);
-
         List<PublicidadViewModel> GetPublicidadAll();
-        PublicidadViewModel GetPublicidadById(long id);
+        PublicidadViewModel GetPublicidadId(long id);
+
+        List<EventoPublicidadViewModel> GetEventoPublicidadAll();
+        void DeleteEventoPublicidad(EventoPublicidadViewModel eventoPublicidadViewModel);
+        EventoPublicidadViewModel GetEventoPublicidadId(long id);
+        void SaveEventoPublicidad(EventoPublicidadViewModel publicidadViewModel);
+        List<EventoPublicidadViewModel> GetEventoPublicidadActivaAll();
+        long EventoPublicidadActivaCount();
 
     }
 }

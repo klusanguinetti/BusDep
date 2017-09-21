@@ -1,0 +1,99 @@
+﻿@{
+    Layout = null;
+}
+
+<div>
+
+
+
+    <div class="main-container">
+
+        <div class="container">
+
+            <div class="row" cg-busy="{promise:myPromise,message:'Buscando eventos...'}">
+
+                <div class="col-sm-12 page-content col-thin-left">
+                    <div class="category-list">
+
+                        <div class="adds-wrapper jobs-list">
+                            <div class="item-list" ng-repeat="pu in eventos">
+                                <div class="col-sm-7  photobox">
+                                    <h3 class="col-sm-12 photobox center-side">
+                                        {{pu.Titulo}}
+                                    </h3>
+                                    <div class="add-image center">
+                                        <img alt="" class="thumbnail" src="{{pu.ImageUrl}}" style="height: 100%; width: 100%;">
+                                    </div>
+                                    <button class="btn btn-success btn-sm bold " ng-show="pu.Link!=null" ng-click='abrirlink(pu)'>
+                                        Ver Link
+                                    </button>
+                                </div>
+                                <div class="col-sm-5">
+                                    <span class="info-row"> {{pu.Informacion}}</span>
+                                </div>
+                                @*<div class="col-sm-3  photobox">
+
+                                    <div class="add-image">
+                                        <a ng-href="{{user.authenticated ? '#!/Profile/player/'+ item.Id : '#!/Account/Register'}}">
+                                            <img class="thumbnail no-margin img-perfil-item" ngf-thumbnail="item.FotoRostro || picFile" alt="img">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-6 add-desc-box">
+
+                                    <div class="add-details">
+
+                                        <h5 class="add-title">
+                                            <a>
+                                                {{item.Nombre}} {{item.Apellido}}
+                                            </a>
+                                        </h5>
+
+
+                                        <span class="info-row">
+                                            <span class="item-location ng-binding">
+                                                <i class="fa fa-map-marker"></i> {{item.Pais}}
+                                            </span>
+                                            <span class="date">
+                                                <i class="icon-clock"> </i> {{item.Edad}} años
+                                            </span>
+                                        </span>
+
+
+
+                                        <div class="prop-info-box">
+
+                                            <div class="prop-info">
+                                                <div class="clearfix prop-info-block">
+                                                    <span class="info-row" style="margin-bottom: 5px;">Nacionalidad</span>
+                                                    <i class="flagicon flag-{{item.NacionalidadIso}} icon-th-thumb" title={{item.Nacionalidad}}></i>
+                                                </div>
+                                                <div class="clearfix prop-info-block" ng-show="{{item.NacionalidadIso1!=null}}">
+                                                    <span class="info-row" style="margin-bottom:5px;">Nacionalidad</span>
+                                                    <i class="flagicon flag-{{item.NacionalidadIso1}} icon-th-thumb" title={{item.Nacionalidad1}}></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>*@
+                            </div>
+                        </div>
+
+                        <div class="tab-box  save-search-bar text-center">
+                            <a href="">
+                                <i class="icon-star-empty"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

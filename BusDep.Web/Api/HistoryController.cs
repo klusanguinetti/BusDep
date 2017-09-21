@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Security;
 
-namespace BusDep.Web.Controllers.Api
+namespace BusDep.Web.Api
 {
     [Authorize]
     public class HistoryController : BaseController

@@ -64,7 +64,14 @@
                     new InterceptionBehavior<InterceptorDataAccess>()
              }
              );
-
+            DependencyFactory.RegisterType<IEventoPublicidadDA, EventoPublicidadDA>(new PerThreadLifetimeManager(),
+             new InjectionMember[]
+             {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorDataAccess>()
+             }
+             );
+            
             #region genericos
             DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
