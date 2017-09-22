@@ -39,7 +39,11 @@ namespace BusDep.DataAccess
                         ImageUrl = item.ImageUrl,
                         Informacion = item.Informacion,
                         Link = item.Link,
-                        Titulo = item.Titulo
+                        Titulo = item.Titulo,
+                        Categorias = item.Categorias,
+                        ClubDescripcion = item.ClubDescripcion,
+                        ClubLogo = item.ClubLogo,
+                        Lugar = item.Lugar
                     }).ToList();
         }
        

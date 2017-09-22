@@ -1,6 +1,6 @@
 ﻿'use strict';
-app.controller('eventoPublicidadABMController', ['$scope', 'eventoPublicidadService', 'Upload', '$location', 'commonService', 'authService', '$rootScope', 'toastr', '$routeParams', '$timeout',
-function ($scope, eventoPublicidadService, Upload, $location, commonService, authService, $rootScope, toastr, $routeParams, $timeout) {
+app.controller('eventoPublicidadABMController', ['$scope', '$http', '$filter', 'eventoPublicidadService', 'Upload', '$location', 'commonService', 'authService', '$rootScope', 'toastr', '$routeParams', '$timeout',
+function ($scope, $http, $filter, eventoPublicidadService, Upload, $location, commonService, authService, $rootScope, toastr, $routeParams, $timeout) {
     $scope.eventoPublicidad = {};
     $scope.modulo = 'Abm Eventos Publicidad';
     $scope.titulo = '';
@@ -9,6 +9,7 @@ function ($scope, eventoPublicidadService, Upload, $location, commonService, aut
     $scope.f = null;
     $scope.errFile = null;
     var action = "add";
+    $scope.clubes = [];
     angular.element(function () {
         commonService.getMenu().then(function (response) {
             $rootScope.user.menu = response.data;
@@ -20,6 +21,9 @@ function ($scope, eventoPublicidadService, Upload, $location, commonService, aut
 
         }).catch(function (err) {
             toastr.error('¡Ha ocurrido un error!', 'Error');
+        });
+        $http.get('json/Clubes.json').then(function (data) {
+            $scope.clubes = $filter('orderBy')(data.data, 'Nombre');
         });
         var eventoPublicidadId = $routeParams.id;
         $scope.titulo = "Agregar nueva Evento";
@@ -53,6 +57,17 @@ function ($scope, eventoPublicidadService, Upload, $location, commonService, aut
     });
 
     $scope.saveEventoPublicidad = function () {
+        if ($scope.eventoPublicidad.ClubLogo != 'oo') {
+
+            $scope.eventoPublicidad.ClubDescripcion = $filter('filter')($scope.clubes, {
+                Code: $scope.eventoPublicidad.ClubLogo
+            })[0].Nombre;
+        } else {
+            if ($scope.eventoPublicidad.ClubDescripcion == '')
+                $scope.eventoPublicidad.ClubLogo = '';
+
+        }
+
         return eventoPublicidadService.saveEventoPublicidad($scope.eventoPublicidad).then(function (response) {
             $location.path('/EventoPublicidadList/').search({
                 action: action,

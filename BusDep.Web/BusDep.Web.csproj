@@ -716,6 +716,7 @@
     <Content Include="Scripts\app\components\Coach\sportsCoachHistoryListController.js" />
     <Content Include="Scripts\app\components\Coach\sportsCoachHistoryService.js" />
     <Content Include="Scripts\app\components\Evaluation\selfAppraisalController.js" />
+    <Content Include="Scripts\app\components\Evento\eventoHearderController.js" />
     <Content Include="Scripts\app\components\Evento\eventoListController.js" />
     <Content Include="Scripts\app\components\Profile\sportsHistoryController.js" />
     <Content Include="Scripts\app\components\Profile\sportsHistoryListController.js" />
@@ -1589,6 +1590,7 @@
     <Content Include="Views\Abm\EventoPublicidadAbm.cshtml" />
     <Content Include="Views\Abm\EventoPublicidadList.cshtml" />
     <Content Include="Views\Evento\EventoList.cshtml" />
+    <Content Include="Views\Shared\_Eventos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

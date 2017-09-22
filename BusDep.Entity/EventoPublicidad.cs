@@ -12,6 +12,11 @@ namespace BusDep.Entity
         public virtual string Link { get; set; }
         public virtual DateTime? FechaHasta { get; set; }
         public virtual string Estado { get; set; }
+        public virtual string Lugar { get; set; }
+        public virtual string Categorias { get; set; }
+        public virtual string ClubDescripcion { get; set; }
+        public virtual string ClubLogo { get; set; }
+
         #endregion 
     }
 }

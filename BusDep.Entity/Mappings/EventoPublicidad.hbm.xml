@@ -9,6 +9,10 @@
     <property name="ImageUrl" column="ImageUrl" type="System.String" length="400" />
     <property name="Link" column="Link" type="System.String" length="400" />
     <property name="FechaHasta" column="FechaHasta" type="System.DateTime" />
+    <property name="Lugar" column="Lugar" type="System.String" length="2" />
+    <property name="Categorias" column="Categorias" type="System.String" length="200" />
+    <property name="ClubDescripcion" column="ClubDescripcion" type="System.String" length="200" />
+    <property name="ClubLogo" column="ClubLogo" type="System.String" length="4" />
     <property name="Estado" column="Estado" type="System.String" length="2" />
   </class>
 </hibernate-mapping>

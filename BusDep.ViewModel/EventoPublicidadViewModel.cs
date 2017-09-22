@@ -22,6 +22,15 @@ namespace BusDep.ViewModel
         [DataMember]
         public string Estado { get; set; }
         [DataMember]
+        public string Lugar { get; set; }
+        [DataMember]
+        public string Categorias { get; set; }
+        [DataMember]
+        public string ClubDescripcion { get; set; }
+        [DataMember]
+        public string ClubLogo { get; set; }
+
+        [DataMember]
         public string FechaHastaTexto
         {
             get { return this.FechaHasta != null ? this.FechaHasta.Value.ToString("dd/MM/yyyy") : null; }
