@@ -54,6 +54,14 @@ namespace BusDep.Web.Controllers
             IUsuarioBusiness usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
             try
             {
+
+                var authInfo = GetAuthData();
+
+                if(authInfo.DatosPersonaId != null)
+                {
+                    datosPersonaModel.Id = (long)authInfo.DatosPersonaId;
+                }
+
                 usuario.RegistracionDatosPersonales(datosPersonaModel);
                 Response.StatusCode = 200;
                 return new JsonResult { Data = "", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
