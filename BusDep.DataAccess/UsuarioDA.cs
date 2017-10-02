@@ -151,7 +151,7 @@
                     where o.DatosPersona != null && o.DatosPersona.Id.Equals(datosPersonalesId)
                     select new DatosPersonaViewModel
                     {
-                        Id = o.Id,
+                        Id = o.DatosPersona.Id,
                         UsuarioId = o.Id,
                         Apellido = o.DatosPersona.Apellido,
                         Direccion = o.DatosPersona.Direccion,
@@ -175,6 +175,7 @@
                         ContactoNombre = o.DatosPersona.ContactoNombre,
                         ContactoTelefono = o.DatosPersona.ContactoTelefono,
                     }).FirstOrDefault();
+            
         }
 
         public virtual Usuario ObtenerUsuarioPorMail(string mail)
