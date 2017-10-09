@@ -1590,7 +1590,6 @@
     <Content Include="Views\Abm\EventoPublicidadAbm.cshtml" />
     <Content Include="Views\Abm\EventoPublicidadList.cshtml" />
     <Content Include="Views\Evento\EventoList.cshtml" />
-    <Content Include="Views\Shared\_Eventos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
