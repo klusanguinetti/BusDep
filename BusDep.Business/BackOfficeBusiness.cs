@@ -45,7 +45,7 @@ namespace BusDep.Business
 
         public virtual List<EventoPublicidadViewModel> GetEventoPublicidadAll()
         {
-            return DependencyFactory.Resolve<IEventoPublicidadDA>().GetAll().MapperEnumerable<EventoPublicidadViewModel>().ToList();
+            return DependencyFactory.Resolve<IEventoPublicidadDA>().GetEventoPublicidadBOAll().MapperEnumerable<EventoPublicidadViewModel>().ToList();
         }
 
         public virtual List<EventoPublicidadViewModel> GetEventoPublicidadActivaAll()

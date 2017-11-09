@@ -9,5 +9,7 @@ namespace BusDep.IDataAccess
     {
         long EventoPublicidadActivaCount();
         List<EventoPublicidadViewModel> GetEventoPublicidadActivaAll();
+
+        List<EventoPublicidadViewModel> GetEventoPublicidadBOAll();
     }
 }

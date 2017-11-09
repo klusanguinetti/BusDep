@@ -46,7 +46,30 @@ namespace BusDep.DataAccess
                         Lugar = item.Lugar
                     }).ToList();
         }
-       
+
+        public List<EventoPublicidadViewModel> GetEventoPublicidadBOAll()
+        {
+            return (from item in Session.Query<EventoPublicidad>()
+                    where item.Estado == "A"
+                          &&
+                          (item.FechaHasta == null || item.FechaHasta >= DateTime.Now.Date.AddDays(-15))
+                          && item.ImageUrl != null && item.Informacion != null && item.Titulo != null
+                    orderby item.Id descending
+                    select new EventoPublicidadViewModel
+                    {
+                        Id = item.Id,
+                        Estado = item.Estado,
+                        FechaHasta = item.FechaHasta,
+                        ImageUrl = item.ImageUrl,
+                        Informacion = item.Informacion,
+                        Link = item.Link,
+                        Titulo = item.Titulo,
+                        Categorias = item.Categorias,
+                        ClubDescripcion = item.ClubDescripcion,
+                        ClubLogo = item.ClubLogo,
+                        Lugar = item.Lugar
+                    }).ToList();
+        }
 
     }
 }

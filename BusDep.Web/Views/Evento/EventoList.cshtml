@@ -24,7 +24,7 @@
                                     <div class="add-image center">
                                         <img alt="" class="thumbnail" ng-src="{{pu.ImageUrl}}" style="height: 100%; width: 100%;">
                                     </div>
-                                    <button class="btn btn-success btn-sm bold " ng-show="pu.Link!=null" ng-click='abrirlink(pu)'>
+                                    <button class="btn btn-success btn-sm bold " ng-show="pu.Link!=null && pu.Link!=''" ng-click='abrirlink(pu)'>
                                         Ver Link
                                     </button>
                                 </div>
