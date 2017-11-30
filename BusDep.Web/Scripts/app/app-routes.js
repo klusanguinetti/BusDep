@@ -8,6 +8,9 @@
         .when('/Terms', {
             templateUrl: '/Home/Terms'
         })
+        .when('/Privacy', {
+            templateUrl: '/Home/Privacy'
+        })
         .when('/AboutUs', {
             templateUrl: '/Home/AboutUs'
         })
