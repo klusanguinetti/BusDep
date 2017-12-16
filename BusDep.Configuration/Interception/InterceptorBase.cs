@@ -70,12 +70,15 @@ namespace BusDep.Configuration.Interception
 
         public override void InterceptExceptions(IMethodReturn result, IMethodInvocation input)
         {
-            if (result.Exception != null && !(result.Exception is IExceptionCode))
+            if (result.Exception != null )
             {
+                if(!(result.Exception is IExceptionCode))
+                {
+                    result.Exception = new ExceptionBusiness(-99, "A ocurrido un error por favor intente más tarde",
+                       this.GenerarInformacionTecnica(result, input), result.Exception);
+                }
                 LogError logError = new LogError { Modulo = input.Target.GetType().Name, Descripcion = result.Exception.ToString() };
                 DependencyFactory.Resolve<IBaseDA<LogError>>().Save(logError);
-                result.Exception = new ExceptionBusiness(-99, "A ocurrido un error por favor intente más tarde",
-                    this.GenerarInformacionTecnica(result, input), result.Exception);
             }
         }
     }

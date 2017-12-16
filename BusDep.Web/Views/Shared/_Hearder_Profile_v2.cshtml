@@ -19,7 +19,7 @@
             </div>
 
             <div class="user-ads-action">
-                <a class="btn btn-sm  btn-success" type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"><i class="fa fa-refresh"></i> Cambiar foto </a>
+                <a class="btn btn-sm  btn-success" type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="picFile" ngf-accept="'image/*'"  ngf-max-size="1MB"><i class="fa fa-refresh"></i> Cambiar foto </a>
 
                 <a class="btn btn-sm  btn-default" ng-click="removePhoto();" ng-show="picFile"><i class="fa fa-remove"></i> Remover </a>
                 <span ng-show="headerResult" style="margin-top: 10px;">

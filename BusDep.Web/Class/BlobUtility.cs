@@ -24,7 +24,7 @@ namespace BusDep.Web.Class
 
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(BlobName);
 
-            blockBlob.Properties.ContentType = "image/jpg";
+            blockBlob.Properties.ContentType = System.Web.MimeMapping.GetMimeMapping(BlobName);
 
             try
             {
