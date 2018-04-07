@@ -40,7 +40,7 @@ function ($scope, passwordChangeService, commonService, $http, $rootScope, toast
         });
 
 
-        commonService.getPerfilJugadorShort().then(function (response) {
+        commonService.getPerfilShort().then(function (response) {
 
             $scope.perfilShort = response.data;
 

@@ -177,7 +177,7 @@ namespace BusDep.Web.Controllers
         public JsonResult GetDatosPersona()
         {
 
-            var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
+            var usuario = DependencyFactory.Resolve<IDatosPersonalesBusiness>();
             try
             {
 

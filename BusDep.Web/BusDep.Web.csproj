@@ -165,8 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\AnalystController.cs" />
     <Compile Include="Api\BackOffice\EventoPublicidadController.cs" />
     <Compile Include="Api\BackOffice\FilesController.cs" />
+    <Compile Include="Api\BackOffice\SearchJugadorController.cs" />
     <Compile Include="Api\BaseController.cs" />
     <Compile Include="Api\CoachController.cs" />
     <Compile Include="Api\EvaluationController.cs" />
@@ -186,7 +188,9 @@
     <Compile Include="Class\CacheHelper.cs" />
     <Compile Include="Class\MailHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnalystController.cs" />
     <Compile Include="Controllers\BackOffice\AbmController.cs" />
+    <Compile Include="Controllers\BackOffice\BackOfficeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CoachController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
@@ -706,9 +710,13 @@
     <Content Include="Scripts\app\components\Account\passwordRecoveryUpdateController.js" />
     <Content Include="Scripts\app\components\Account\passwordRecoveryController.js" />
     <Content Include="Scripts\app\components\Account\passwordChangeController.js" />
+    <Content Include="Scripts\app\components\Analyst\privateProfileAnalystController.js" />
+    <Content Include="Scripts\app\components\Analyst\privateProfileAnalystService.js" />
     <Content Include="Scripts\app\components\BackOffice\Abm\eventoPublicidadABMController.js" />
     <Content Include="Scripts\app\components\BackOffice\Abm\eventoPublicidadListController.js" />
     <Content Include="Scripts\app\components\BackOffice\Abm\eventoPublicidadService.js" />
+    <Content Include="Scripts\app\components\BackOffice\Jugador\searchJugadorController.js" />
+    <Content Include="Scripts\app\components\BackOffice\Jugador\searchJugadorService.js" />
     <Content Include="Scripts\app\components\Coach\privateProfileCoachService.js" />
     <Content Include="Scripts\app\components\Account\passwordChangeService.js" />
     <Content Include="Scripts\app\components\Account\registerController.js" />
@@ -1591,6 +1599,10 @@
     <Content Include="Views\Abm\EventoPublicidadList.cshtml" />
     <Content Include="Views\Evento\EventoList.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\BackOffice\SearchJugador.cshtml" />
+    <Content Include="Views\Shared\_Jugador_Item_Tabla.cshtml" />
+    <Content Include="Views\Analyst\PrivateProfile.cshtml" />
+    <Content Include="Views\Analyst\SelfAppraisal.cshtml" />
     <None Include="Web.Prod.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

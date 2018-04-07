@@ -76,6 +76,7 @@
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioAplicativo.cs" />
     <Compile Include="Video.cs" />
+    <Compile Include="VideoAnalista.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Antecedente.hbm.xml" />
@@ -136,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\EventoPublicidad.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\VideoAnalista.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

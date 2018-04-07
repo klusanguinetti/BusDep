@@ -91,24 +91,7 @@ namespace BusDep.Business
             DependencyFactory.Resolve<IBaseDA<Recomendacion>>().Save(newRecomendacion);
         }
 
-        public virtual DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView)
-        {
-            if (userView.DatosPersonaId.HasValue)
-            {
-                return DependencyFactory.Resolve<IUsuarioDA>().ObtenerDatosPersonales(userView.DatosPersonaId.Value);
-            }
-            return null;
-
-        }
-
-        public virtual void RegistracionDatosPersonales(DatosPersonaViewModel datosPersona)
-        {
-            var user = DependencyFactory.Resolve<IUsuarioDA>().GetById(datosPersona.UsuarioId);
-            datosPersona.MapperClass(user.DatosPersona, TypeMapper.IgnoreCaseSensitive);
-            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-        }
-
-        public EntrenadorViewModel ObtenerEntrenador(UsuarioViewModel userView)
+        public virtual EntrenadorViewModel GetPerfilEntrenador(UsuarioViewModel userView)
         {
             if (userView.EntrenadorId.HasValue)
                 return DependencyFactory.Resolve<IEntrenadorDA>().ObtenerEntrenador(userView.EntrenadorId.Value);

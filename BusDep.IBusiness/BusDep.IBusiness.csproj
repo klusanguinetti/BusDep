@@ -53,10 +53,13 @@
     <Compile Include="IBusquedaBusiness.cs" />
     <Compile Include="IBackOfficeBusiness.cs" />
     <Compile Include="ICommonBusiness.cs" />
+    <Compile Include="IDatosPersonalesBusiness.cs" />
+    <Compile Include="IEvaluacionrBusiness.cs" />
     <Compile Include="ILoginBusiness.cs" />
     <Compile Include="IUsuarioBusiness.cs" />
     <Compile Include="IUsuarioEntrenadorBusiness.cs" />
     <Compile Include="IUsuarioJugadorBusiness.cs" />
+    <Compile Include="IUsuarioVideoAnalistaBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

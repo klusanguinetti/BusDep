@@ -69,6 +69,7 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/shared/directives", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/shared/factories", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Account", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/Analyst", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Coach", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Common", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Evaluation", "*.js").WithLastModifiedToken()
@@ -76,6 +77,7 @@ namespace BusDep.Web
                     .IncludeDirectory("~/Scripts/app/components/Search", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/BackOffice/Abm", "*.js").WithLastModifiedToken()
                     .IncludeDirectory("~/Scripts/app/components/Evento", "*.js").WithLastModifiedToken()
+                    .IncludeDirectory("~/Scripts/app/components/BackOffice/Jugador", "*.js").WithLastModifiedToken()
                     );
 
         }

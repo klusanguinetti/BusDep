@@ -24,6 +24,8 @@ namespace BusDep.Entity
         public virtual Intermediario Intermediario { get; set; }
         public virtual Entrenador Entrenador { get; set; }
         public virtual Club Club { get; set; }
+        public virtual VideoAnalista VideoAnalista { get; set; }
+
         public virtual DateTime? UltimoLogin { get; set; }
 
         public virtual string Estado { get; set; }

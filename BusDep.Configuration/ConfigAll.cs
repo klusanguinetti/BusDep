@@ -71,7 +71,15 @@
                     new InterceptionBehavior<InterceptorDataAccess>()
              }
              );
-            
+
+            DependencyFactory.RegisterType<IVideoAnalistaDA, VideoAnalistaDA>(new PerThreadLifetimeManager(),
+             new InjectionMember[]
+             {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorDataAccess>()
+             }
+             ); 
+
             #region genericos
             DependencyFactory.RegisterType<IBaseDA<Antecedente>, BaseDA<Antecedente>>(new PerThreadLifetimeManager(),
                new InjectionMember[]
@@ -249,6 +257,12 @@
                     new Interceptor<VirtualMethodInterceptor>(),
              }
              );
+            DependencyFactory.RegisterType<IBaseDA<VideoAnalista>, BaseDA<VideoAnalista>>(new PerThreadLifetimeManager(),
+            new InjectionMember[]
+            {
+                    new Interceptor<VirtualMethodInterceptor>(),
+            }
+            );
             #endregion
             #endregion
 
@@ -309,6 +323,28 @@
                     new InterceptionBehavior<InterceptorBusiness>()
                 }
                 );
+            DependencyFactory.RegisterType<IDatosPersonalesBusiness, DatosPersonalesBusiness>(new PerThreadLifetimeManager(),
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBusiness>()
+                }
+                );
+            DependencyFactory.RegisterType<IUsuarioVideoAnalistaBusiness, UsuarioVideoAnalistaBusiness>(new PerThreadLifetimeManager(),
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBusiness>()
+                }
+                );
+            DependencyFactory.RegisterType<IEvaluacionrBusiness, EvaluacionrBusiness>(new PerThreadLifetimeManager(),
+                new InjectionMember[]
+                {
+                    new Interceptor<VirtualMethodInterceptor>(),
+                    new InterceptionBehavior<InterceptorBusiness>()
+                }
+                );
+            
             #endregion
         }
 

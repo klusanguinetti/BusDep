@@ -1,0 +1,301 @@
+﻿@using BusDep.Web.Class
+
+@{
+    Layout = null;
+}
+
+
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+
+            <div class="col-sm-9 page-content">
+                <div class="inner-box">
+
+                    @Html.Partial("_Hearder_Coach")
+
+
+
+                </div>
+                <div class="inner-box">
+
+                    <h2 class="title-2"><i class="fa fa-star"></i> AutoEvaluación</h2>
+
+                    <div class="panel-group" cg-busy="{promise:myPromise,message:'Cargando evaluaciones...'}">
+
+                        <div class="panel panel-default">
+
+                            <form class="form-horizontal" role="form" ng-submit="save()">
+
+                                <div class="panel-body">
+
+                                    <div class="panel-group collapse-accordion collapse in" id="accordion" aria-expanded="true">
+
+                                        <div class="panel panel-default card" ng-repeat="cab in autoEvaluacion.Cabeceras" id="{{cab.Id}}">
+                                            <div class="panel-heading content-in card-header">
+                                                <h5 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse{{cab.Id}}" aria-expanded="true" aria-controls="collapseOne">
+                                                        <span><i class="icon-star-circled s16"></i>{{cab.Descripcion}}</span>
+                                                    </a>
+                                                </h5>
+                                            </div>
+
+                                            <div id="collapse{{cab.Id}}" class="panel-collapse collapse">
+
+                                                <div class="col-sm-12 col-md-12 col-xs-12 panel-body">
+
+                                                    <div class="form-group" ng-repeat="det in cab.Detalle">
+
+                                                        <label class="col-sm-5 control-label font11">{{det.Descripcion}}</label>
+
+                                                        <div class="col-sm-7">
+                                                            <slider slider-id="slider{{det.Id}}" provide="slider" min="0"
+                                                                    max="10" step="1" ng-model="det.Puntuacion" value="det.Puntuacion" />
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-12 col-md-12 col-xs-12 panel-body panel-group collapse-accordion collapse in" id="accordion1" aria-expanded="true">
+                                                    <div class="panel panel-default card">
+                                                        <div class="panel-heading content-in card-header">
+                                                            <h5 class="panel-title">
+                                                                <a class="accordion-toggle" data-toggle="collapse" data-target="#info1{{cab.Id}}" aria-expanded="true" aria-controls="collapseOne">
+                                                                    @*Jugador*@
+                                                                    <span ng-show="cab.Descripcion=='Técnica'">
+                                                                        <i class="icon-lamp"></i>Evaluar tu Técnica
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Condición Fisica'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos Físico
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Táctica (cualidades cognoscitivas)'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de la Táctica
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Cualidades mentales'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos Mentales
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Coordinación'">
+                                                                        <i class="icon-lamp"></i>Evaluar tu Coordinación
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Entorno social'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Entorno Social
+                                                                    </span>
+                                                                    @*Entrenador*@
+                                                                    <span ng-show="cab.Descripcion=='Habilidad'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Habilidad
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Sistema de Juego Ideal'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Sistema de Juego Ideal
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Idea de Juego Ofensivo'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Idea de Juego Ofensivo
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Idea de Juego Defensivo'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Idea de Juego Defensivo
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Planteamiento Ideal'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Planteamiento Ideal
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Zonas de ataque'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Zonas de ataque
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Estilo y Adaptabilidad al rival'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Estilo y Adaptabilidad al rival
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Posiciones'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Posiciones
+                                                                    </span>
+                                                                    <span ng-show="cab.Descripcion=='Marca en Pelota parada'">
+                                                                        <i class="icon-lamp"></i>Evaluar los aspectos de Marca en Pelota parada
+                                                                    </span>
+                                                                </a>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="info1{{cab.Id}}" class="panel-collapse collapse">
+                                                            <div class="panel-content">
+                                                                <div class="panel-body text-left">
+                                                                    @*Jugador*@
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Técnica'">
+                                                                        <li>Ejecutar el pase con distintas partes del pie.</li>
+                                                                        <li>Correcto apoyo de la otra pierna.</li>
+                                                                        <li>Dar el pase facilitando la acción del compañero.</li>
+                                                                        <li>Utilizar pases por el suelo o aéreos según la disposición de los adversarios.</li>
+                                                                        <li>Colocarse entre el contrario y la pelota.</li>
+                                                                        <li>Orientar el balón preferiblemente con la pierna más alejada de nuestro defensor.</li>
+                                                                        <li>Cambiar la dirección de la pelota.</li>
+                                                                        <li>Cambiar de ritmo.</li>
+                                                                        <li>Dar continuidad a la acción después del regate.</li>
+                                                                        <li>Mantener un control visual con la cabeza alzada del espacio cercano a la conducción.</li>
+                                                                        <li>Conducir el balón con la pierna más alejada del adversario.</li>
+                                                                        <li>Atacar el balón para el Cabezazo con determinación. </li>
+                                                                        <li>Mover la cabeza en dirección al objetivo que queremos.</li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Condición Fisica'">
+                                                                        <li>Soportas todo el partido con intensidad.</li>
+                                                                        <li>Tiene fuerza de reacción.</li>
+                                                                        <li>Eres rápido.</li>
+                                                                        <li>Mantienes el nivel conforme pasan los minutos.</li>
+                                                                        <li>Eres ágil.</li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Táctica (cualidades cognoscitivas)'">
+                                                                        <li> Manejas los conceptos del juego.</li>
+                                                                        <li>Conocer los distintos sistemas.</li>
+                                                                        <li>Conocer el espacio débil de nuestra zona.</li>
+                                                                        <li>
+                                                                            Fijar a un adversario para crear un espacio.
+                                                                        </li>
+                                                                        <li>
+                                                                            Abrir un línea de pase al poseedor del balón.
+                                                                        </li>
+                                                                        <li>
+                                                                            Permuta: intercambiar la posición con el compañero que nos ayuda se somos desbordados.
+                                                                        </li>
+                                                                        <li>
+                                                                            Reducir o ampliar la amplitud en función de la fase de juego.
+                                                                        </li>
+                                                                        <li>
+                                                                            Conocer el concepto de desmarque y Desdoblamiento.
+                                                                        </li>
+                                                                        <li>Orientar el balón hacia los espacios libres.</li>
+
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Cualidades mentales'">
+                                                                        <li>
+                                                                            Sentido de la voluntad
+                                                                        </li>
+                                                                        <li>
+                                                                            Mantienes la concentración
+                                                                        </li>
+                                                                        <li>
+                                                                            Manejo del Estrés
+                                                                        </li>
+                                                                        <li>
+                                                                            Confianza en vos mismo
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes vos de mando o alientas a tus compañeros
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes Liderazgo
+                                                                        </li>
+                                                                        <li>
+                                                                            No bajar los brazos
+                                                                        </li>
+                                                                        <li>
+                                                                            Das todo
+                                                                        </li>
+                                                                        <li>
+                                                                            Priorizas el equipo
+                                                                        </li>
+                                                                        <li>
+                                                                            Buscar variantes, ser creativo
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Coordinación'"></ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Entorno social'">
+                                                                        <li>
+                                                                            Tienes buena comunicación con tus pares y Técnico
+                                                                        </li>
+                                                                        <li>
+                                                                            Hablas con el técnico sobre tu rendimiento y el juego
+                                                                        </li>
+                                                                        <li>
+                                                                            Eres positivo y optimista
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes respeto por los otros
+                                                                        </li>
+                                                                        <li>
+                                                                            Mantienes las reglas de convivencia
+                                                                        </li>
+                                                                        <li>
+                                                                            Tienes Entusiasmo
+                                                                        </li>
+                                                                    </ul>
+                                                                    @*Entrenador*@
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Habilidad'">
+                                                                        <li>
+                                                                            Asigna un valor según el grado de identificación que tengas con cada punto, dándole mayores valorizaciones a los que sean tus mayores fortalezas.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Sistema de Juego Ideal'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Idea de Juego Ofensivo'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Idea de Juego Defensivo'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Planteamiento Ideal'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Zonas de ataque'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Estilo y Adaptabilidad al rival'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Posiciones'">
+                                                                        <li>
+                                                                            Asigna un mayor valor en función de tu forma de establecer las responsabilidades a tus jugadores en el juego.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="list-check font10" ng-show="cab.Descripcion=='Marca en Pelota parada'">
+                                                                        <li>
+                                                                            Asigna un valor mayor en función de tu gusto futbolístico considerando que cuentas con el idea de jugadores para llevarlo a la práctica.
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="col-sm-offset-7 col-sm-12">
+                                        <button type="submit" class="btn btn-default page-action">Actualizar</button>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

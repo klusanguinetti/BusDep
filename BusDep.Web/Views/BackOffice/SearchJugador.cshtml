@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+@using BusDep.Web.Class
+<div class="main-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.Partial("_Profile_Sidebar")
+            @{
+                if (HelperUser.GetUserLogOn().TipoUsuario.Equals("Administrador"))
+                {
+                    <div class="col-sm-9 panel-body">
+
+                        <div class="inner-box">
+                            <h2 class="title-2">
+                                <i class="fa fa-futbol-o"></i> Busqueda de Jugadores 
+                            </h2>
+                            <div class="col-sm-12 p5 ">
+                                <h2 class="title-2">
+                                    <i class="fa fa-star"></i> Filtros
+                                </h2>
+                                <div class="col-sm-4 p1 input-group">
+                                    <input type="radio" value='T' id="posted_T" name="posted" ng-model="Busqueda" ng-click="filter()">
+                                    <label for="posted_1">Todos</label>
+                                </div>
+                                <div class="col-sm-4 p1 input-group">
+                                    <input type="radio" value='C' id="posted_C" name="posted" ng-model="Busqueda" ng-click="filter()">
+                                    <label for="posted_1">Información Completa</label>
+                                </div>
+                                <div class="col-sm-4 p1 input-group">
+                                    <input type="radio" value='F' id="posted_F" name="posted" ng-model="Busqueda" ng-click="filter()">
+                                    <label for="posted_1">Información Faltante</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label text-right center">Filtrar</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Filtro" ng-model="search.$">
+                                    </div>
+                                </div>
+
+                                <div class="adds-wrapper jobs-list" cg-busy="{promise:myPromise,message:'Cargando Imagenes...'}">
+                                    <div class="inner-box p5">
+                                        <div class="table-responsive">
+                                            <div class="col-sm-12 p0 ">
+                                                <div class="col-sm-5 p1">
+                                                    <h5 class="title-2 p1 m1">
+                                                        Usuario
+                                                    </h5>
+                                                </div>
+                                                <div class="col-sm-7 p1">
+                                                    <h5 class="title-2 p1 m1">
+                                                        Información deportiva
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="item-list p0" ng-repeat="item in searchFiltro | filter:search:strict">
+                                                @Html.Partial("_Jugador_Item_Tabla")
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

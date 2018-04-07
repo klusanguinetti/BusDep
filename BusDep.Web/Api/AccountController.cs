@@ -116,7 +116,7 @@
         public DatosPersonaViewModel GetDatosPersona()
         {
 
-            var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
+            var usuario = DependencyFactory.Resolve<IDatosPersonalesBusiness>();
             try
             {
                 var user = usuario.ObtenerDatosPersonales(GetAuthData());
@@ -162,4 +162,6 @@
         #endregion
 
     }
+
+    
 }

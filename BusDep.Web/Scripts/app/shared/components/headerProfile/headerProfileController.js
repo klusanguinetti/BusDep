@@ -5,7 +5,7 @@ function ($scope, headerProfileService, commonService, $http, Flash, Upload, $ti
 
     angular.element(function () {
 
-        commonService.getPerfilJugadorShort().then(function (response) {
+        commonService.getPerfilShort().then(function (response) {
 
             if (response.data.FechaNacimiento != null) {
                 response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
@@ -18,7 +18,7 @@ function ($scope, headerProfileService, commonService, $http, Flash, Upload, $ti
             }
 
         }).catch(function (err) {
-            console.log("Error: " + err)
+            console.log("Error: " + err);
         });
 
     });

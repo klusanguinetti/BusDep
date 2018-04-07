@@ -52,23 +52,28 @@ namespace BusDep.Web.Controllers
 
         }
 
-        public JsonResult GetPerfilJugadorShort()
+        public JsonResult GetPerfilShort()
         {
             var perfil = GetAuthData();
             try
             {
                 if (perfil.JugadorId.HasValue)
                 {
-                    IBusquedaBusiness business = DependencyFactory.Resolve<IBusquedaBusiness>();
-                    var result = business.GetPerfilJugadorShort(perfil);
+                    var result = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilJugadorShort(perfil);
                     Response.StatusCode = 200;
                     return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }
                 else if (perfil.EntrenadorId.HasValue)
                 {
-                    //TODO
+                    var result = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilEntrenador(perfil);
                     Response.StatusCode = 200;
-                    return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                    return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+                else if (perfil.VideoAnalistaId.HasValue)
+                {
+                    var result = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilVideoAnalista(perfil);
+                    Response.StatusCode = 200;
+                    return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                 }
                 else
                 {
@@ -82,6 +87,7 @@ namespace BusDep.Web.Controllers
                 return new JsonResult { Data = "Error de servidor", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
 
         public JsonResult TopJugador()
         {

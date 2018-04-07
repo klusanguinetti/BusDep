@@ -34,6 +34,32 @@ namespace BusDep.DataAccess
 
         }
 
+        public List<JugadorBackOfficeViewModel> SearchJugadorAll()
+        {
+            return (from item in Session.Query<Usuario>()
+                    where item.Jugador != null 
+                    && item.Estado == "A"
+                    select new JugadorBackOfficeViewModel
+                    {
+                        Mail = item.Mail,
+                        Apellido = item.DatosPersona.Apellido,
+                        ClubActual = item.Jugador.ClubDescripcion,
+                        Fichaje = item.Jugador.Fichaje,
+                        FotoRostro = item.Jugador.FotoRostro,
+                        Id = item.Jugador.Id,
+                        FechaNacimiento = item.DatosPersona.FechaNacimiento,
+                        Pais = item.DatosPersona.Pais,
+                        PaisIso = item.DatosPersona.PaisIso,
+                        Nombre = item.DatosPersona.Nombre,
+                        Perfil = item.Jugador.Perfil,
+                        Pie = item.Jugador.Pie,
+                        Altura = item.Jugador.Altura,
+                        Peso = item.Jugador.Peso,
+                        PuestoDescripcion = item.Jugador.Puesto != null ? item.Jugador.Puesto.PuestoEspecifico : null,
+                        UsuarioId = item.Id,
+                        UltimoLogin = item.UltimoLogin
+                    }).ToList();
+        }
         private List<JugadorViewModel> SearchJugador(long? jugadorId, string[] puesto = null, int? edadDesde = null, int? edadHasta = null, string[] fichaje = null, string[] perfil = null, string[] pie = null, string nombre = null,
             int? pagina = null, int? cantidad = null)
         {

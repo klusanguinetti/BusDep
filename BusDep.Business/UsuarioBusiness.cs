@@ -44,6 +44,9 @@ namespace BusDep.Business
                         case "Club":
                             user.Club = new Club {  };
                             break;
+                        case "Video Analista":
+                            user.VideoAnalista = new VideoAnalista { };
+                            break;
                     }
                 }
                 else
@@ -61,23 +64,7 @@ namespace BusDep.Business
                 throw new ExceptionBusiness(4, "Usuario ya existe.");
             }
         }
-        [AuditMethod]
-        public virtual DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView)
-        {
-            if (userView.DatosPersonaId.HasValue)
-            {
-                return  DependencyFactory.Resolve<IUsuarioDA>().ObtenerDatosPersonales(userView.DatosPersonaId.Value);
-            }
-            return null;
-
-        }
-        [AuditMethod]
-        public virtual void RegistracionDatosPersonales(DatosPersonaViewModel datosPersona)
-        {
-            var user = DependencyFactory.Resolve<IUsuarioDA>().GetById(datosPersona.UsuarioId);
-            datosPersona.MapperClass(user.DatosPersona, TypeMapper.IgnoreCaseSensitive);
-            DependencyFactory.Resolve<IUsuarioDA>().Save(user);
-        }
+       
 
         [AuditMethod]
         public virtual RecuperoCodigoViewModel SolicitudRecuperoUsuario(SolicitudRecuperoUsuarioViewModel solicitud)

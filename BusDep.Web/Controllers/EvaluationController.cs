@@ -35,7 +35,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                DependencyFactory.Resolve<IUsuarioJugadorBusiness>().GuardarEvalucacion(antecedenteViewModel);
+                DependencyFactory.Resolve<IEvaluacionrBusiness>().GuardarEvalucacion(antecedenteViewModel);
                 Response.StatusCode = 200;
                 return new JsonResult { Data = "Ok", JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
@@ -50,7 +50,7 @@ namespace BusDep.Web.Controllers
         {
             try
             {
-                var user = DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(GetAuthData());
+                var user = DependencyFactory.Resolve<IEvaluacionrBusiness>().ObtenerEvaluacionViewModel(GetAuthData());
                 Response.StatusCode = 200;
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }

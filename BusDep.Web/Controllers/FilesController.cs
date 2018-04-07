@@ -183,7 +183,7 @@ namespace AspNetWebApi.Controllers
             {
                 var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
 
-                var user = business.ObtenerEntrenador(userViewModel);
+                var user = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilEntrenador(userViewModel);
 
                 if (user.FotoRostro != null)
                 {
@@ -207,6 +207,33 @@ namespace AspNetWebApi.Controllers
 
                 }
             }
+            else if (userViewModel.VideoAnalistaId.HasValue)
+            {
+                var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
+
+                var user = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilVideoAnalista(userViewModel);
+
+                if (user.FotoRostro != null)
+                {
+
+                    string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+
+                    utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+                }
+
+                var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+                if (result != null)
+                {
+
+                    user.FotoRostro = result.Uri.ToString();
+                    DependencyFactory.Resolve<IUsuarioVideoAnalistaBusiness>().ActualizarDatos(user);
+                    return Ok(new { Message = "Photos uploaded ok" });
+
+                }
+            }
+
             return BadRequest();
 
         }

@@ -67,7 +67,6 @@
 
         public IHttpActionResult AddPublicidad()
         {
-
             var request = HttpContext.Current.Request;
 
             var file = request.Files[0];
@@ -108,9 +107,8 @@
             }
             else if (userViewModel.EntrenadorId.HasValue)
             {
-                var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
 
-                var user = business.ObtenerEntrenador(userViewModel);
+                var user = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilEntrenador(userViewModel);
 
                 if (user.FotoRostro != null)
                 {
@@ -128,12 +126,39 @@
 
                     user.FotoRostro = result.Uri.ToString();
 
-                    business.ActualizarDatosEntrenador(user);
+                    DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>().ActualizarDatosEntrenador(user);
 
                     return Ok(new { Message = "Photos uploaded ok" });
 
                 }
             }
+            else if (userViewModel.VideoAnalistaId.HasValue)
+            {
+
+                var user = DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilVideoAnalista(userViewModel);
+
+                if (user.FotoRostro != null)
+                {
+
+                    string BlobNameToDelete = user.FotoRostro.Split('/').Last();
+
+                    utility.DeleteBlob(BlobNameToDelete, ContainerName);
+
+                }
+
+                var result = utility.UploadBlob(fileName, ContainerName, imageStream);
+
+                if (result != null)
+                {
+
+                    user.FotoRostro = result.Uri.ToString();
+                    DependencyFactory.Resolve<IUsuarioVideoAnalistaBusiness>().ActualizarDatos(user);
+
+                    return Ok(new { Message = "Photos uploaded ok" });
+
+                }
+            }
+
             return BadRequest();
 
         }

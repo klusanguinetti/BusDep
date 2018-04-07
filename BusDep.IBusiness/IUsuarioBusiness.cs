@@ -7,10 +7,6 @@ namespace BusDep.IBusiness
 
         UsuarioViewModel Registracion(UsuarioViewModel userView);
 
-        DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView);
-        
-        void RegistracionDatosPersonales(DatosPersonaViewModel datosPersona);
-
         RecuperoCodigoViewModel SolicitudRecuperoUsuario(SolicitudRecuperoUsuarioViewModel solicitud);
 
         UsuarioViewModel RecuperarUsuario(RecuperarUsuarioViewModel recuperarUsuario);

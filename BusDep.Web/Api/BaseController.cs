@@ -53,20 +53,22 @@ namespace BusDep.Web.Api
 
         }
         [HttpPost]
-        public PerfilJugadorShortViewModel GetPerfilJugadorShort()
+        public dynamic GetPerfilShort()
         {
             var perfil = GetAuthData();
             try
             {
                 if (perfil.JugadorId.HasValue)
                 {
-                    IBusquedaBusiness business = DependencyFactory.Resolve<IBusquedaBusiness>();
-                    return business.GetPerfilJugadorShort(perfil);
+                    return DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilJugadorShort(perfil);
                 }
                 else if (perfil.EntrenadorId.HasValue)
                 {
-                    //TODO
-                    return null;
+                    return DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilEntrenador(perfil);
+                }
+                else if (perfil.VideoAnalistaId.HasValue)
+                {
+                    return DependencyFactory.Resolve<IBusquedaBusiness>().GetPerfilVideoAnalista(perfil);
                 }
                 else
                 {
@@ -78,6 +80,7 @@ namespace BusDep.Web.Api
                 throw new Exception("Error de servidor");
             }
         }
+
         [HttpPost]
         public List<JugadorViewModel> TopJugador()
         {

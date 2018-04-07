@@ -15,7 +15,7 @@
         {
             try
             {
-                DependencyFactory.Resolve<IUsuarioJugadorBusiness>().GuardarEvalucacion(antecedenteViewModel);
+                DependencyFactory.Resolve<IEvaluacionrBusiness>().GuardarEvalucacion(antecedenteViewModel);
                 return "Ok";
             }
             catch (Exception)
@@ -28,7 +28,7 @@
         {
             try
             {
-                return DependencyFactory.Resolve<IUsuarioJugadorBusiness>().ObtenerEvaluacionViewModel(GetAuthData());
+                return DependencyFactory.Resolve<IEvaluacionrBusiness>().ObtenerEvaluacionViewModel(GetAuthData());
                 
             }
             catch (Exception)

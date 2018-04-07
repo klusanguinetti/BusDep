@@ -15,6 +15,7 @@
     <many-to-one name="Intermediario" column="IntermediarioId" class="BusDep.Entity.Intermediario, BusDep.Entity" cascade="all"/>
     <many-to-one name="Entrenador" column="EntrenadorId" class="BusDep.Entity.Entrenador, BusDep.Entity" cascade="all"/>
     <many-to-one name="Club" column="ClubId" class="BusDep.Entity.Club, BusDep.Entity" cascade="all"/>
+    <many-to-one name="VideoAnalista" column="VideoAnalistaId" class="BusDep.Entity.VideoAnalista, BusDep.Entity" cascade="all"/>
     <bag name="AplicacionToken" table="UsuarioAplicativo" cascade="all" inverse="true">
       <key column="UsuarioId" />
       <one-to-many class="BusDep.Entity.UsuarioAplicativo, BusDep.Entity" />

@@ -26,5 +26,12 @@ namespace BusDep.IBusiness
         List<EntrenadorViewModel> BuscarEntrenador(BuscarEntrenadorViewModel buscar);
         long BuscarEntrenadorCount(BuscarEntrenadorViewModel buscar);
 
+
+        List<JugadorBackOfficeViewModel> SearchJugadorAll();
+
+        VideoAnalistaViewModel GetPerfilVideoAnalista(UsuarioViewModel usuario);
+
+        EntrenadorViewModel GetPerfilEntrenador(UsuarioViewModel userView);
+
     }
 }

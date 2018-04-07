@@ -1,8 +1,6 @@
 ﻿namespace BusDep.Business
 {
-    using System;
     using System.Collections.Generic;
-    using BusDep.Common;
     using BusDep.IDataAccess;
     using BusDep.UnityInject;
     using BusDep.ViewModel;
@@ -69,6 +67,24 @@
         public virtual long BuscarEntrenadorCount(BuscarEntrenadorViewModel buscar)
         {
             return DependencyFactory.Resolve<IEntrenadorDA>().BuscarEntrenadorCount(buscar);
+        }
+
+        public List<JugadorBackOfficeViewModel> SearchJugadorAll()
+        {
+            return DependencyFactory.Resolve<IJugadorDA>().SearchJugadorAll();
+        }
+
+        public virtual VideoAnalistaViewModel GetPerfilVideoAnalista(UsuarioViewModel usuario)
+        {
+            return DependencyFactory.Resolve<IVideoAnalistaDA>().ObtenerVideoAnalista(usuario.VideoAnalistaId.GetValueOrDefault());
+        }
+
+        public virtual EntrenadorViewModel GetPerfilEntrenador(UsuarioViewModel userView)
+        {
+            if (userView.EntrenadorId.HasValue)
+                return DependencyFactory.Resolve<IEntrenadorDA>().ObtenerEntrenador(userView.EntrenadorId.Value);
+            else
+                return null;
         }
     }
 }

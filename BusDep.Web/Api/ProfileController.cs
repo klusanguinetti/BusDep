@@ -16,12 +16,10 @@
         public string Save(DatosPersonaViewModel datosPersonaModel)
         {
 
-            IUsuarioBusiness usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
-
             try
             {
 
-                usuario.RegistracionDatosPersonales(datosPersonaModel);
+                DependencyFactory.Resolve<IDatosPersonalesBusiness>().RegistracionDatosPersonales(datosPersonaModel);
                 return "";
 
 
@@ -67,12 +65,10 @@
         [HttpPost]
         public DatosPersonaViewModel GetDatosPersona()
         {
-
-            var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
             try
             {
 
-                var user = usuario.ObtenerDatosPersonales(GetAuthData());
+                var user = DependencyFactory.Resolve<IDatosPersonalesBusiness>().ObtenerDatosPersonales(GetAuthData());
                 user.UltimoLogin = GetAuthData().UltimoLogin;
                 return user;
 

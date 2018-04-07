@@ -51,7 +51,7 @@ namespace BusDep.Web.Controllers
 
         public JsonResult Save(DatosPersonaViewModel datosPersonaModel)
         {
-            IUsuarioBusiness usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
+            IDatosPersonalesBusiness usuario = DependencyFactory.Resolve<IDatosPersonalesBusiness>();
             try
             {
 
@@ -101,7 +101,7 @@ namespace BusDep.Web.Controllers
         public JsonResult GetDatosPersona()
         {
 
-            var usuario = DependencyFactory.Resolve<IUsuarioBusiness>();
+            var usuario = DependencyFactory.Resolve<IDatosPersonalesBusiness>();
             try
             {
 

@@ -777,3 +777,95 @@ System.InvalidOperationException: Valor de tiempo de espera caducado. El período
    en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
    en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 251
    en DynamicModule.ns.Wrapped_JugadorDA_3a53afdfbb8548e08f03405f4da70403.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ERROR 6 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_218e1e231bd6469a818f8773f5739e69
+Metodo: TopJugador
+Parametros: 
+
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "BusDep" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   en NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 117
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 153
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 164
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 202
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 277
+   en DynamicModule.ns.Wrapped_JugadorDA_218e1e231bd6469a818f8773f5739e69.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ClientConnectionId:befefb5a-4ea6-4d62-bfc3-6edc7cf8fc6c
+Error Number:4060,State:1,Class:11
+ERROR 7 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_218e1e231bd6469a818f8773f5739e69
+Metodo: TopJugador
+Parametros: 
+
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "BusDep" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   en NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 117
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 153
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 164
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 202
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 277
+   en DynamicModule.ns.Wrapped_JugadorDA_218e1e231bd6469a818f8773f5739e69.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ClientConnectionId:befefb5a-4ea6-4d62-bfc3-6edc7cf8fc6c
+Error Number:4060,State:1,Class:11
+ERROR 10 BusDep.Configuration.Interception.InterceptorBase - Clase: Wrapped_JugadorDA_218e1e231bd6469a818f8773f5739e69
+Metodo: TopJugador
+Parametros: 
+
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "BusDep" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   en NHibernate.Tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.Prepare()
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.GetReservedWords(Dialect dialect, IConnectionHelper connectionHelper)
+   en NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.Update(ISessionFactory sessionFactory)
+   en NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   en NHibernate.Cfg.Configuration.BuildSessionFactory()
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSessionFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 117
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentFactory() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 153
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.CreateSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 164
+   en BusDep.DataAccess.Sessions.NHibernateHttpModule.get_CurrentSession() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\Sessions\NHbernateHttpModule.cs:línea 202
+   en BusDep.DataAccess.BaseDataAccess`1.get_Session() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\BaseDataAccess.cs:línea 21
+   en BusDep.DataAccess.JugadorDA.TopJugador() en C:\Proyectos\GitHub\BusDep\BusDep.DataAccess\JugadorDA.cs:línea 277
+   en DynamicModule.ns.Wrapped_JugadorDA_218e1e231bd6469a818f8773f5739e69.<TopJugador_DelegateImplementation>__7(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+ClientConnectionId:befefb5a-4ea6-4d62-bfc3-6edc7cf8fc6c
+Error Number:4060,State:1,Class:11

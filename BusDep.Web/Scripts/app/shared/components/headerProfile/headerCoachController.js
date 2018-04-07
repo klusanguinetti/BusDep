@@ -7,12 +7,11 @@ function ($scope, headerCoachService, commonService, $http, Flash, Upload, $time
 
 
         
-        headerCoachService.getPerfilEntrenador().then(function (response) {
+        commonService.getPerfilShort().then(function (response) {
 
             if (response.data.FechaNacimiento != null) {
                 response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
             }
-
             $scope.perfilShort = response.data;
 
             if (response.data.FotoRostro != null) {

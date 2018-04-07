@@ -20,11 +20,4 @@ app.service('headerCoachService', ['$http', '$q', function ($http, $q) {
         return deferred.promise;
     };
 
-    this.getPerfilEntrenador = function () {
-        return $http.post(serviceBase + 'GetPerfilEntrenador').then(function (response) {
-            return response;
-        });
-    };
-   
-
 }]);

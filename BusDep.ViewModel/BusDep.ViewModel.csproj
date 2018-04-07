@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventoPublicidadViewModel.cs" />
+    <Compile Include="PerfilBaseViewModel.cs" />
     <Compile Include="PublicidadViewModel.cs" />
     <Compile Include="AntecedenteViewModel.cs" />
     <Compile Include="BootStrapperDataModel.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="RecuperarUsuarioViewModel.cs" />
     <Compile Include="UsuarioCambioPasswordViewModel.cs" />
     <Compile Include="UsuarioViewModel.cs" />
+    <Compile Include="VideoAnalistaViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

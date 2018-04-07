@@ -18,5 +18,7 @@ namespace BusDep.IBusiness
         List<EventoPublicidadViewModel> GetEventoPublicidadActivaAll();
         long EventoPublicidadActivaCount();
 
+        
+
     }
 }

@@ -9,6 +9,8 @@ namespace BusDep.ViewModel
         [DataMember]
         public long Id { get; set; }
         [DataMember]
+        public string Mail { get; set; }
+        [DataMember]
         public string Nombre { get; set; }
         [DataMember]
         public string Apellido { get; set; }
@@ -71,17 +73,108 @@ namespace BusDep.ViewModel
         public int? Edad {
             get
             {
-                if(!FechaNacimiento.HasValue)
+                if (!FechaNacimiento.HasValue)
                     return null;
-                return DateTime.Today.AddTicks(-FechaNacimiento.Value.Ticks).Year - 1;
-                
+                try
+                {
+                    return DateTime.Today.AddTicks(-FechaNacimiento.Value.Ticks).Year - 1;
+                }
+                catch (Exception)
+                {
+
+                    return null;
+                }
+
+
+            }
+            set { }
+        }
+        [DataMember]
+        public string Link { get; set; }
+    }
+
+    [DataContract]
+    public class JugadorBackOfficeViewModel
+    {
+        [DataMember]
+        public long Id { get; set; }
+        [DataMember]
+        public string Mail { get; set; }
+        [DataMember]
+        public string Nombre { get; set; }
+        [DataMember]
+        public string Apellido { get; set; }
+        [DataMember]
+        public string FotoRostro { get; set; }
+        [DataMember]
+        public string PuestoDescripcion { get; set; }
+        [DataMember]
+        public long UsuarioId { get; set; }
+        [DataMember]
+        public string ClubActual { get; set; }
+        [DataMember]
+        public string Perfil { get; set; }
+        [DataMember]
+        public string Pie { get; set; }
+        [DataMember]
+        public string Fichaje { get; set; }
+        [DataMember]
+        public string Pais { get; set; }
+        [DataMember]
+        public string PaisIso { get; set; }
+        [DataMember]
+        public decimal? Altura { get; set; }
+        [DataMember]
+        public decimal? Peso { get; set; }
+        [DataMember]
+        public DateTime? FechaNacimiento { get; set; }
+
+        [DataMember]
+        public DateTime? UltimoLogin { get; set; }
+        [DataMember]
+        public string UltimoLoginText
+        {
+            get
+            {
+                if (!UltimoLogin.HasValue)
+                    return null;
+                return UltimoLogin.Value.ToString("dd/MM/yyyy");
+            }
+        }
+        [DataMember]
+        public int? Edad
+        {
+            get
+            {
+                if (!FechaNacimiento.HasValue)
+                    return null;
+                try
+                {
+                    return DateTime.Today.AddTicks(-FechaNacimiento.Value.Ticks).Year - 1;
+                }
+                catch (Exception)
+                {
+
+                    return null;
+                }
+
+
             }
             set { }
         }
 
         [DataMember]
-        public string Link { get; set; }
+        public bool PerfilCompleto
+        {
+            get
+            {
+                return Perfil != null
+                       && Fichaje != null
+                       && Perfil != ""
+                       && Pais != null
+                       && PuestoDescripcion != null
+                       && FechaNacimiento != null;
+            }
+        }
     }
-
-    
 }

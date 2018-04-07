@@ -4,13 +4,22 @@ app.service('commonService', ['$http', '$q', function ($http, $q) {
     //var serviceBase = '/api/Base/';
     var serviceBase = '/Base/';
 
-    this.getPerfilJugadorShort = function () {
+    //this.getPerfilJugadorShort = function () {
 
-        return $http.post(serviceBase + 'GetPerfilJugadorShort').then(function (response) {
+    //    return $http.post(serviceBase + 'GetPerfilJugadorShort').then(function (response) {
+    //        return response;
+    //    });
+
+    //};
+
+    this.getPerfilShort = function () {
+
+        return $http.post(serviceBase + 'GetPerfilShort').then(function (response) {
             return response;
         });
 
     };
+
     this.getTopJugador = function () {
 
         return $http.post(serviceBase + 'TopJugador').then(function (response) {

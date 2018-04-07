@@ -88,6 +88,16 @@
                 }
             }
         })
+        .when('/Analyst/PrivateProfile', {
+            templateUrl: '/Analyst/PrivateProfile',
+            controller: 'privateProfileAnalystController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+
         .when('/History/SportsHistory/List/:action?/:result?', {
             templateUrl: '/History/SportsHistory',
             controller: 'sportsHistoryListController',
@@ -117,6 +127,15 @@
      })
      .when('/Coach/SelfAppraisal', {
          templateUrl: '/Coach/SelfAppraisal',
+            controller: 'selfAppraisalController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+     })
+     .when('/Analyst/SelfAppraisal', {
+         templateUrl: '/Analyst/SelfAppraisal',
             controller: 'selfAppraisalController',
             resolve: {
                 permission: function (authService) {
@@ -173,6 +192,15 @@
         .when('/EventoPublicidadAbm/:id?', {
             templateUrl: '/Abm/EventoPublicidadAbm',
             controller: 'eventoPublicidadABMController',
+            resolve: {
+                permission: function (authService) {
+                    return authService.isLogIn();
+                }
+            }
+        })
+        .when('/SearchJugador', {
+            templateUrl: '/BackOffice/SearchJugador',
+            controller: 'searchJugadorController',
             resolve: {
                 permission: function (authService) {
                     return authService.isLogIn();

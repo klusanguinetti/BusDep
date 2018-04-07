@@ -38,7 +38,7 @@ function ($scope, sportsHistoryService, commonService, $http, $rootScope, toastr
         if (result == "notFound") {
             message('warning', '<strong>¡Hey!</strong> El antecente que buscas no esta disponible.');
         }
-        commonService.getPerfilJugadorShort().then(function (response) {
+        commonService.getPerfilShort().then(function (response) {
             if (response.data.FechaNacimiento != null) {
                 response.data.FechaNacimiento = moment(response.data.FechaNacimiento).format("DD/MM/YYYY");
             }

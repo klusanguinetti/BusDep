@@ -1,0 +1,34 @@
+﻿
+
+<div class="col-sm-12 p0 ">
+    <div class="col-sm-5 p1">
+        <span class="info-row">
+            {{item.Nombre}} {{item.Apellido}}
+        </span>
+        <span class="info-row">
+            {{item.Mail}}
+        </span>
+        <span class="info-row">
+            <span class="item-location ng-binding"><i class="fa fa-map-marker"></i> {{item.Pais==null || item.Pais==''? 'N/A': item.Pais}} </span>
+        </span>
+        <span class="info-row">
+            <span class="item-location ng-binding">Ultimo login: {{item.UltimoLoginText==null || item.UltimoLoginText==''? 'N/A': item.UltimoLoginText}} </span>
+        </span>
+    </div>
+    <div class="col-sm-7 p1">
+        <span class="info-row">
+            <span class="item-location"> <i class="fa fa-map-marker"></i> {{item.PuestoDescripcion==null || item.PuestoDescripcion==''? 'N/A': item.PuestoDescripcion}}, Pie: {{item.Pie==null || item.Pie==''? 'N/A': item.Pie}} </span>
+        </span>
+        <span class="info-row">
+            <span class="date"><i class="icon-clock"> </i> {{item.Edad==null || item.Edad==''? 'N/A': item.Edad}} años / {{item.Altura==null || item.Altura==''? 'N/A': item.Altura}} metros </span> 
+        </span>
+        <span class="info-row">
+            <span class="salary ng-binding"> <i class="fa fa-male"> </i> Perfil: {{item.Perfil==null || item.Perfil==''? 'N/A': item.Perfil}}</span>
+        </span>
+        <span class="info-row">
+            <span class="salary ng-binding"> <i class="fa fa-male"> </i> Club: {{item.ClubActual==null || item.ClubActual==''? 'N/A': item.ClubActual}}</span>
+        </span>
+    </div>
+    
+</div>
+

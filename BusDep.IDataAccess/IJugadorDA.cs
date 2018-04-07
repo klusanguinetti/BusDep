@@ -35,5 +35,7 @@ namespace BusDep.IDataAccess
         PerfilJugadorViewModel ObtenerPerfil(long jugadorId);
 
         List<RecomendacionViewModel> GetRecomendaciones(int jugadorId);
+
+        List<JugadorBackOfficeViewModel> SearchJugadorAll();
     }
 }

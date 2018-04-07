@@ -30,6 +30,8 @@
         [DataMember]
         public long? ClubId { get; set; }
         [DataMember]
+        public long? VideoAnalistaId { get; set; }
+        [DataMember]
         public long? DatosPersonaId { get; set; }
         [DataMember]
         public string Nombre { get; set; }

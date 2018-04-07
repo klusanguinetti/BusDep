@@ -8,10 +8,8 @@ namespace BusDep.IBusiness
         EvaluacionViewModel ObtenerEvaluacionViewModel(UsuarioViewModel userView);
         void GuardarEvalucacion(EvaluacionViewModel evaluacion);
         void GuardarRecomendar(RecomendacionViewModel recomendacion);
-        DatosPersonaViewModel ObtenerDatosPersonales(UsuarioViewModel userView);
-        void RegistracionDatosPersonales(DatosPersonaViewModel datosPersona);
         void ActualizarDatosEntrenador(EntrenadorViewModel entrenadorView);
-        EntrenadorViewModel ObtenerEntrenador(UsuarioViewModel userView);
+        //EntrenadorViewModel GetPerfilEntrenador(UsuarioViewModel userView);
 
 
         List<AntecedenteViewModel> ObtenerAntecedentes(UsuarioViewModel userView);

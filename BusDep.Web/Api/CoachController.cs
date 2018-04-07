@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-
-using System.Web.UI.WebControls;
-using BusDep.IBusiness;
-using BusDep.UnityInject;
-using BusDep.ViewModel;
-
-namespace BusDep.Web.Api
+﻿namespace BusDep.Web.Api
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Http;
+    using BusDep.IBusiness;
+    using BusDep.UnityInject;
+    using BusDep.ViewModel;
     public class CoachController : BaseController
     {
         #region metodos
@@ -19,7 +13,7 @@ namespace BusDep.Web.Api
         public DatosPersonaViewModel GetDatosPersona()
         {
 
-            var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
+            var business = DependencyFactory.Resolve<IDatosPersonalesBusiness>();
             try
             {
                 var user = business.ObtenerDatosPersonales(GetAuthData());
@@ -36,7 +30,7 @@ namespace BusDep.Web.Api
         [HttpPost]
         public void Save(DatosPersonaViewModel datosPersonaModel)
         {
-            var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
+            var business = DependencyFactory.Resolve<IDatosPersonalesBusiness>();
             try
             {
                 business.RegistracionDatosPersonales(datosPersonaModel);
@@ -46,19 +40,19 @@ namespace BusDep.Web.Api
                 throw new Exception("Error de servidor", ex);
             }
         }
-        [HttpPost]
-        public EntrenadorViewModel GetPerfilEntrenador()
-        {
-            var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
-            try
-            {
-               return business.ObtenerEntrenador(this.GetAuthData());
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error de servidor", ex);
-            }
-        }
+        //[HttpPost]
+        //public EntrenadorViewModel GetPerfilEntrenador()
+        //{
+        //    var business = DependencyFactory.Resolve<IUsuarioEntrenadorBusiness>();
+        //    try
+        //    {
+        //       return business.ObtenerEntrenador(this.GetAuthData());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error de servidor", ex);
+        //    }
+        //}
         [HttpPost]
         public List<AntecedenteViewModel> SaveAntecedente(AntecedenteViewModel antecedenteViewModel)
         {
